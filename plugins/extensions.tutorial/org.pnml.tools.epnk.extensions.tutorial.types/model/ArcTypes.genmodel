@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.pnml.tools.epnk.extensions.tutorial.types/src"
+    modelPluginID="org.pnml.tools.epnk.extensions.tutorial.types" modelName="ArcTypes"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../org.pnml.tools.epnk/model/PNMLCoreModel.genmodel#//pnmlcoremodel">
+  <foreignModel>ArcTypes.ecore</foreignModel>
+  <genPackages prefix="Arctypes" basePackage="org.pnml.tools.epnk.extensions.tutorial.types.arctypes"
+      resource="XML" disposableProviderFactory="true" ecorePackage="ArcTypes.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ArcTypes.ecore#//TYPE">
+      <genEnumLiterals ecoreEnumLiteral="ArcTypes.ecore#//TYPE/normal"/>
+      <genEnumLiterals ecoreEnumLiteral="ArcTypes.ecore#//TYPE/read"/>
+      <genEnumLiterals ecoreEnumLiteral="ArcTypes.ecore#//TYPE/inhibit"/>
+      <genEnumLiterals ecoreEnumLiteral="ArcTypes.ecore#//TYPE/signal"/>
+    </genEnums>
+    <genClasses ecoreClass="ArcTypes.ecore#//ARCTYPES"/>
+    <genClasses ecoreClass="ArcTypes.ecore#//Arc">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArcTypes.ecore#//Arc/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArcTypes.ecore#//Arc/bool"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArcTypes.ecore#//Arc/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="ArcTypes.ecore#//ArcType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ArcTypes.ecore#//ArcType/text"/>
+    </genClasses>
+    <genClasses ecoreClass="ArcTypes.ecore#//Boolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ArcTypes.ecore#//Boolean/text"/>
+    </genClasses>
+    <genClasses ecoreClass="ArcTypes.ecore#//Comment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ArcTypes.ecore#//Comment/text"/>
+    </genClasses>
+    <genClasses ecoreClass="ArcTypes.ecore#//Page">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ArcTypes.ecore#//Page/comment"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

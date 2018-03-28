@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.pnml.tools.epnk.tutorials.applications.pt-net-simulator/src"
+    modelPluginID="org.pnml.tools.epnk.tutorials.applications.pt-net-simulator" modelName="Pt-net-simulator-annotations"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../org.pnml.tools.epnk.annotations/model/NetAnnotations.genmodel#//netannotations ../../org.pnml.tools.epnk/model/PNMLCoreModel.genmodel#//pnmlcoremodel">
+  <foreignModel>pt-net-simulator-annotations.ecore</foreignModel>
+  <genPackages prefix="Ptnetsimulator" resource="XML" disposableProviderFactory="true"
+      ecorePackage="pt-net-simulator-annotations.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pt-net-simulator-annotations.ecore#//Mode">
+      <genEnumLiterals ecoreEnumLiteral="pt-net-simulator-annotations.ecore#//Mode/enabled"/>
+      <genEnumLiterals ecoreEnumLiteral="pt-net-simulator-annotations.ecore#//Mode/fired"/>
+    </genEnums>
+    <genClasses ecoreClass="pt-net-simulator-annotations.ecore#//TransitionActivationAnnotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pt-net-simulator-annotations.ecore#//TransitionActivationAnnotation/mode"/>
+    </genClasses>
+    <genClasses ecoreClass="pt-net-simulator-annotations.ecore#//PlaceMarkingAnnotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pt-net-simulator-annotations.ecore#//PlaceMarkingAnnotation/text"/>
+    </genClasses>
+    <genClasses ecoreClass="pt-net-simulator-annotations.ecore#//PlaceSelectionAnnotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pt-net-simulator-annotations.ecore#//PlaceSelectionAnnotation/selected"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

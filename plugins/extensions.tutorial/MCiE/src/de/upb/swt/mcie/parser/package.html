@@ -1,0 +1,52 @@
+<body>
+  This package implements a parser and compiler for formulas and models. It parses
+  a given text from some {@link java.io.Reader Reader} and, if syntactically correct,
+  returns the internal representation of this {@link de.upb.swt.mcie.formulas.Formula
+  Formula} or {@link de.upb.swt.mcie.mc.Model Model}.<p>
+  
+  The formula can be a state formulas, a transition formulas, or a temporal formula.
+  A state formula does not contain temporal operators and no primed variables. A
+  transition formula must not contain temporal operators, but may contain primed
+  variables. A temporal formula may contain temporal operators (CTL operators), but
+  must not contain primed variables (see {@link de.upb.swt.mcie.formulas.Formula} for
+  details). <p>
+  
+  Concerning models, there are methods for parsing
+  {@link de.upb.swt.mcie.mc.Kripkestructure Kripkestructures} and
+  {@link de.upb.swt.mcie.mc.Transitionsystem Transitionsystems} as well as
+  the fair versions of them.<p>
+  
+  The parser is defined in a generic way such that it is easy to extend formulas
+  with new unary and binary operations.  In particular, the binding priority of
+  all operators is defined in the classes {@link de.upb.swt.mcie.formulas.BinaryOp} and
+  {@link de.upb.swt.mcie.formulas.UnaryOp}.  Also the information, which operators are
+  temporal operators is not known to the parser.  The lexical representation of
+  the operations is defined in the class {@link de.upb.swt.mcie.parser.Scanner}.
+  The only information encoded directly into the parser is that all binary operators
+  associate from the left to the right; for example, the formula
+  a<sub>1</sub> &amp; a<sub>2</sub> &amp; a<sub>3</sub> &amp;... &amp; a<sub>n</sub>
+  is parsed in the following way
+  ((... ((a<sub>1</sub> &amp; a<sub>2</sub>) &amp; a<sub>3</sub>) &amp; ... )
+     &amp; a<sub>n</sub> ).
+  Moreover, the parser resp. the scanner defines legal brackets. Currently, there
+  are parenthesis and square brackets, which must be properly matched.   But,
+  there is no other meaning in the different brackets.  The use of different
+  brackets should help to make formulas more readable.
+  <p>
+  
+  Note that the binary CTL-formulas are represented as a single operator. So
+  an until formula reads f EU g instead of E[ f U g ].<p>
+    
+  The parser is a simple recursive descend procedure with one token look ahead.
+  To be more precise, the parser may return the last token to the scanner
+  (see method {@link de.upb.swt.mcie.parser.Scanner#revert() revert} of class
+  {@link de.upb.swt.mcie.parser.Scanner}).
+  The tokens returned by the scanner are provided in the package
+  {@link de.upb.swt.mcie.parser.token}.<p>
+  
+  Within the text the scanner will ignore the rest of a line, when it encounters
+  the symbol #.  So, # indicates a line comment.
+  
+  @see de.upb.swt.mcie.formulas
+  @see de.upb.swt.mcie.parser.token
+</body>

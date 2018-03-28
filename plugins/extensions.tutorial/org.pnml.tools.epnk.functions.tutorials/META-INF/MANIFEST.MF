@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ePNK Tutorials
+Bundle-SymbolicName: org.pnml.tools.epnk.functions.tutorials; singleton:=true
+Bundle-Version: 1.2.0.qualifier
+Bundle-Vendor: DTU Informatics, Software Engineering Section, E. Kindler
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore.xmi;bundle-version="2.5.0",
+ org.pnml.tools.epnk;bundle-version="1.2.0",
+ org.pnml.tools.epnk.pntypes
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

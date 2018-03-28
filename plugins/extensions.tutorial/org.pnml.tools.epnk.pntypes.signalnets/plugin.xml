@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ This file is part of the ePNK project (Petri Net Kernel for eclipse). The ePNK
+ is platform for Petri net tools based on the PNML transfer format. Its
+ main idea is to provide generic Petri net types which can be easily plugged
+ in and a simple generic GMF editor, that can be used for graphically editing
+ nets of any plugged in type. Additional functionality can be plugged in.
+ 
+ Note that this project is still in an experimental phase, and is also used
+ as a case study for EMF/GMF based Model-based Software Engineering.
+ 
+ Copyright (C) 2012 Ekkart Kindler, eki@imm.dtu.dk
+ The license under which this software will be distributed is still to be decided -
+ it will probably be the EPL.
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/signalnets"
+            class="org.pnml.tools.epnk.pntypes.signalnets.SignalnetsPackage"
+            genModel="model/signalnets.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="signalnets"
+            class="org.pnml.tools.epnk.pntypes.signalnets.util.SignalnetsResourceFactoryImpl"/>
+   </extension>
+   
+   <!-- adjusted to the new pntd package mechanism of version 1.2.0 of the ePNK for
+        pluggin in this PNTD
+        
+        TODO the Factory Class for SignatNets, SignalNetFactory, can eventually be deleted;
+             for now it is makred as deprecated!
+   <extension
+         id="org.pnml.tools.epnk.pntypes.signalnets"
+         name="Signal Nets"
+         point="org.pnml.tools.epnk.pntd">
+      <type
+            class="org.pnml.tools.epnk.pntypes.signalnets.factories.SignalNetFactory"
+            description="Signal nets">
+      </type>
+   </extension>
+   -->
+   
+   <extension
+      id="signalnets"
+      name="Signal Nets"
+      point="org.pnml.tools.epnk.pntd_package">
+      <type
+            description="Signal nets"
+            package_uri="http://org.pnml.tools/epnk/types/signalnets"
+            type_uri="http://epnk.tools.pnml.org/signalnet/2012"/>
+   </extension>
+   
+   <extension
+         id="org.pnml.tools.epnk.pntypes.signalnets.graphics"
+         name="Signal event net graphical extensions"
+         point="org.pnml.tools.epnk.diagram.graphics">
+      <graphicsextension
+            class="org.pnml.tools.epnk.pntypes.signalnets.graphics.SignalnetGraphics"
+            description="Special graphics for places and arcs of signal event nets">
+      </graphicsextension>
+   </extension>
+   
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <constraintProvider
+            cache="true"
+            mode="Live">
+         <package
+               namespaceUri="http://org.pnml.tools/epnk/types/signalnets">
+         </package>    
+       
+         <constraints categories="org.pnml.tools.epnk.validation">
+            <constraint
+                  id="org.pnml.tools.epnk.pntypes.signalnets.validation.correct-arc-connection"
+                  lang="OCL"
+                  mode="Live"
+                  name="Arc connection constraint for signal nets"
+                  severity="ERROR"
+                  statusCode="401">
+               <message>
+                  The arc {0} with this arc type is not allowed between these elements.
+               </message>
+               <description>
+                  Arcs must be between a place and a transition, a transition and a place, or
+                  between two transitions. Only arcs between a place and a transition may have
+                  a type! 
+               </description>
+               <target
+                     class="Arc">
+                  <event
+                        name="Set">
+                     <feature
+                           name="source">
+                     </feature>
+                     <feature
+                           name="target">
+                     </feature>
+                     <feature
+                           name="type">
+                     </feature>
+                  </event>
+               </target>
+               <![CDATA[
+                 ( self.source.oclIsKindOf(pnmlcoremodel::PlaceNode) and
+                   self.target.oclIsKindOf(pnmlcoremodel::TransitionNode) )
+                 or
+                 ( self.source.oclIsKindOf(pnmlcoremodel::TransitionNode) and
+                   self.target.oclIsKindOf(pnmlcoremodel::PlaceNode) and
+                   self.type->size() = 0 )
+                 or
+                 ( self.source.oclIsKindOf(pnmlcoremodel::TransitionNode) and
+                   self.target.oclIsKindOf(pnmlcoremodel::TransitionNode) and
+                   self.type->size() = 0 )
+               ]]>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+
+</plugin>

@@ -1,0 +1,79 @@
+<%@ jet package="translated"
+    class="SimplePN2Java"
+    skeleton="Petrinet2JavaSkeleton.java" 
+%>
+<%
+  PetriNet pn = (PetriNet) argument; 
+  initialize(pn);
+%>
+package org.pnml.tools.epnk.extensions.codegenerator.examples.generated;
+
+import org.pnml.tools.epnk.extensions.codegenerator.runtime.AbstractPetrinet;
+
+public class <%= className %> extends AbstractPetrinet {
+
+	public <%= className %>() {
+		super(new int[]{<% 
+   for (int i=0; i < noPlaces; i++) {
+   %><%= i!=0?", ":"" %><%= getPlaceMarking(i) %><% 
+   }
+                         %>}, new String[]{<% 
+   for (int i=0; i < noTransitions; i++) {
+%><%= i!=0?", ":"" %>"<%= getNodeName(getTransition(i)) %>"<% 
+   }
+                                            %>} );
+	}
+
+	public boolean enabled(int t) {
+		switch (t) {
+<%
+  for (int i=0; i < noTransitions; i++) { %>
+		case <%= i %>:
+			return <%
+	boolean first = true;
+    for (Arc arc: flatnet.getIn(getTransition(i))) { 
+%><%= !first?" && ":"" %>marking[<%= getPlaceNo(arc.getSource()) %>] >= 1
+<%    first=false;
+    }
+%>;
+                    
+<%
+  }
+%>
+		default:
+			return false;	
+		}
+	}
+
+	public void fire(int t) {
+		if (! enabled(t))
+			return;
+		
+		switch (t) {
+<%
+  for (int i=0; i < noTransitions; i++) { %>
+		case <%= i %>:		
+<%
+    for (Arc arc: flatnet.getIn(getTransition(i))) { %>
+			marking[<%= getPlaceNo(arc.getSource()) %>] =  marking[<%= getPlaceNo(arc.getSource()) %>] - 1;
+<%
+    }
+
+    for (Arc arc: flatnet.getOut(getTransition(i))) { %>
+			marking[<%= getPlaceNo(arc.getTarget()) %>] =  marking[<%= getPlaceNo(arc.getTarget()) %>] + 1;
+<%
+    }
+%>
+			break;
+			
+<% }
+%>			
+		}
+	}
+		
+	public static void main(String[] args) {
+		<%= className %> pn = new <%= className %>();
+		pn.start();
+	}
+
+}

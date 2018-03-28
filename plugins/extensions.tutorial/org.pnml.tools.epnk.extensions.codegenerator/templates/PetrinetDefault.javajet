@@ -1,0 +1,31 @@
+<%@ jet package="translated"
+    class="SimplePN2Java"
+    skeleton="Petrinet2JavaSkeleton.java" 
+%>
+<%
+  PetriNet pn = (PetriNet) argument; 
+  initialize(pn);
+%>
+package org.pnml.tools.epnk.extensions.codegenerator.examples.generated;
+
+import org.pnml.tools.epnk.extensions.codegenerator.runtime.AbstractPetrinet;
+
+public class <%= className %> extends AbstractPetrinet {
+
+	public <%= className %>() {
+		super(new int[0], new String[0]);
+	}
+
+	public boolean enabled(int t) {
+		return false;
+	}
+
+	public void fire(int t) {
+	}
+		
+	public static void main(String[] args) {
+		<%= className %> pn = new <%= className %>();
+		pn.start();
+	}
+
+}

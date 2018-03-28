@@ -1,0 +1,51 @@
+(
+  semaphor &
+  idle1 & !pending1 & !critical1 &
+  idle2 & !pending2 & !critical2 &
+  idle3 & !pending3 & !critical3 &
+  idle4 & !pending4 & !critical4 &
+  idle5 & !pending5 & !critical5 &
+  idle6 & !pending6 & !critical6 &
+  idle7 & !pending7 & !critical7 &
+  idle8 & !pending8 & !critical8 &
+  idle9 & !pending9 & !critical9 &
+  idle10 & !pending10 & !critical10
+
+  ,
+
+  { idle1 & !idle1' & pending1' ,
+    semaphor & pending1 & !semaphor' & !pending1' & critical1' ,
+    critical1 & semaphor' & !critical1' & idle1' ,
+    idle2 & !idle2' & pending2' ,
+    semaphor & pending2 & !semaphor' & !pending2' & critical2' ,
+    critical2 & semaphor' & ! critical2' & idle2'  ,
+    idle3 & !idle3' & pending3' ,
+    semaphor & pending3 & !semaphor' & !pending3' & critical3' ,
+    critical3 & semaphor' & ! critical3' & idle3'  ,
+    idle4 & !idle4' & pending4' ,
+    semaphor & pending4 & !semaphor' & !pending4' & critical4' ,
+    critical4 & semaphor' & ! critical4' & idle4'  ,
+    idle5 & !idle5' & pending5' ,
+    semaphor & pending5 & !semaphor' & !pending5' & critical5' ,
+    critical5 & semaphor' & ! critical5' & idle5'  ,
+    idle6 & !idle6' & pending6' ,
+    semaphor & pending6 & !semaphor' & !pending6' & critical6' ,
+    critical6 & semaphor' & ! critical6' & idle6'  ,
+    idle7 & !idle7' & pending7' ,
+    semaphor & pending7 & !semaphor' & !pending7' & critical7' ,
+    critical7 & semaphor' & ! critical7' & idle7'  ,
+    idle8 & !idle8' & pending8' ,
+    semaphor & pending8 & !semaphor' & !pending8' & critical8' ,
+    critical8 & semaphor' & ! critical8' & idle8'  ,
+    idle9 & !idle9' & pending9' ,
+    semaphor & pending9 & !semaphor' & !pending9' & critical9' ,
+    critical9 & semaphor' & ! critical9' & idle9'  ,
+    idle10 & !idle10' & pending10' ,
+    semaphor & pending10 & !semaphor' & !pending10' & critical10' ,
+    critical10 & semaphor' & ! critical10' & idle10'
+  }
+
+,
+
+  { !pending1 }  # the fairness conditions
+)

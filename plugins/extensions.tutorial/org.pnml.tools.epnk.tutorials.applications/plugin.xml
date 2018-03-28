@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.pnml.tools.epnk.tutorials.applications.actions.starttransitioncontextapp"
+            objectClass="org.pnml.tools.epnk.pnmlcoremodel.PetriNet">
+         <menu
+               id="org.pnml.tools.epnk.actions.standardmenu"
+               label="ePNK"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.pnml.tools.epnk.tutorials.applications.actions.StartApplication"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.tutorials.applications.actions.starttransitioncontextapp"
+               label="Start Transition Context App"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1"
+               tooltip="Start application for calculating the transition Contexts">
+         </action>
+      </objectContribution>
+   </extension>
+   
+   <extension
+         id="org.pnml.tools.epnk.tutorials.applications.transitioncontext"
+         name="Show transition contexts"
+         point="org.pnml.tools.epnk.applications.applicationfactory">
+      <applicationfactory
+            class="org.pnml.tools.epnk.tutorials.applications.actions.CalculateTransitionContextApplicationFactory"
+            description="A very applications shown all transition context">
+      </applicationfactory>
+   </extension>
+
+</plugin>

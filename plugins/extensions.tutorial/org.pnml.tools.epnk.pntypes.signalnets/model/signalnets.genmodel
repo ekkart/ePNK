@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="This file is part of the ePNK project (Petri Net Kernel for eclipse). The ePNK&#xD;&#xA;is platform for Petri net tools based on the PNML transfer format. Its&#xD;&#xA;main idea is to provide generic Petri net types which can be easily plugged&#xD;&#xA;in and a simple generic GMF editor, that can be used for graphically editing&#xD;&#xA;nets of any plugged in type. Additional functionality can be plugged in.&#xD;&#xA;&#xD;&#xA;Note that this project is still in an experimental phase, and is also used&#xD;&#xA;as a case study for EMF/GMF based Model-based Software Engineering.&#xD;&#xA;&#xD;&#xA;Copyright (C) 2012 Ekkart Kindler, eki@imm.dtu.dk&#xD;&#xA;The license under which this software will be distributed is still to be decided -&#xD;&#xA;it will probably be the EPL."
+    modelDirectory="/org.pnml.tools.epnk.pntypes.signalnets/src" modelPluginID="org.pnml.tools.epnk.pntypes.signalnets"
+    modelName="Signalnets" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="../../org.pnml.tools.epnk/model/PNMLCoreModel.genmodel#//pnmlcoremodel">
+  <foreignModel>signalnets.ecore</foreignModel>
+  <genPackages prefix="Signalnets" basePackage="org.pnml.tools.epnk.pntypes" resource="XML"
+      disposableProviderFactory="true" ecorePackage="signalnets.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="signalnets.ecore#//ArcTypes">
+      <genEnumLiterals ecoreEnumLiteral="signalnets.ecore#//ArcTypes/normal"/>
+      <genEnumLiterals ecoreEnumLiteral="signalnets.ecore#//ArcTypes/read"/>
+      <genEnumLiterals ecoreEnumLiteral="signalnets.ecore#//ArcTypes/inhibit"/>
+    </genEnums>
+    <genClasses ecoreClass="signalnets.ecore#//SignalNet"/>
+    <genClasses ecoreClass="signalnets.ecore#//Place">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference signalnets.ecore#//Place/marking"/>
+    </genClasses>
+    <genClasses ecoreClass="signalnets.ecore#//Arc">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference signalnets.ecore#//Arc/type"/>
+    </genClasses>
+    <genClasses ecoreClass="signalnets.ecore#//Marking">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute signalnets.ecore#//Marking/text"/>
+    </genClasses>
+    <genClasses ecoreClass="signalnets.ecore#//ArcType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute signalnets.ecore#//ArcType/text"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference signalnets.ecore#//ArcType/arc"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

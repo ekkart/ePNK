@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/applications/ptnet/simulator"
+            class="ptnetsimulator.PtnetsimulatorPackage"
+            genModel="model/pt-net-simulator-annotations.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="ptnetsimulator"
+            class="ptnetsimulator.util.PtnetsimulatorResourceFactoryImpl"/>
+   </extension>
+   
+   <extension
+         id="org.pnml.tools.epnk.tutorial.application.ptnetsimulator"
+         name="P/T-Net Simulator"
+         point="org.pnml.tools.epnk.applications.applicationfactory">
+      <applicationfactory
+            class="org.pnml.tools.epnk.tutorial.application.ptnetsimulator.PTNetSimulatorApplicationFactory"
+            description="A very simple P/T-Net simulator as a tutorial for applications">
+      </applicationfactory>
+   </extension>
+
+</plugin>

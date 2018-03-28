@@ -1,0 +1,13 @@
+AG EF idle1;                                     # should be valid; 
+AG ! ( critical1 & critical2 );                  # should be valid;
+AG ( pending1 -> AF ( critical1 | critical2 | critical3 |
+                      critical4 | critical5 | critical6 |
+                      critical7 | critical8 | critical9 |
+                      critical10            ) ); # should be valid;
+AG ( AF ( critical1 | critical2 | critical3 |
+                      critical4 | critical5 | critical6 |
+                      critical7 | critical8 | critical9 |
+                      critical10            ) ); # should be valid;
+AG ( pending1 -> AF critical1 );                 # should be valid (with fairness);
+EG idle1;	                                     # should be valid;
+!AG ( pending1 -> EG pending1)                   # should be valid

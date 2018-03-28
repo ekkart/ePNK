@@ -1,0 +1,171 @@
+<body>
+  The purpose of the Model Checking in Education (MCiE) project
+  is to demonstrate the implementation
+  of a symbolic model checker based on ROBDDs. It was implemented by
+  <a href="http://www.upb.de/cs/kindler">Ekkart Kindler</a> as supplementary
+  material for the students of the course on
+  <a href="http://www.upb.de/cs/kindler/Lehre/WS03/MC/">model checking</a>
+  in the winter term 2003/04 at
+  <a href="http://www.upb.de/">Paderborn University</a>.<p>
+  
+  Since this first course, MCiE has been extended and improved when
+  used in other projects and during the course "Advanced Topics on
+  Software Engineering" at Technical University of Denmark.<p>
+  
+  Since the main purpose of this application was educational, it is not
+  particularly tuned to efficiency, but for a clear structure and a safe
+  usability of the libraries.  At some places in the code, comments indicate
+  what could be done for improving efficiency - apart from using a compiled
+  programming language such as C instead of Java.<p>
+  
+  <h3>Release notes</h3>
+  <ul>
+  <li>
+  Version 0.1.0: The first version of MCiE publicly released.
+  Note that the procedures for computing the relation product are
+  not carefully tested yet.<p>
+  
+  <li>
+  Version 0.2.0: Class {@link de.upb.swt.mcie.robdds.Context Context} has been
+  introduced. Now, all ROBDDs are generated in such a context, in
+  which the involved variables and all corresponding hash tables are
+  maintained. This makes it easier to work with different variable sets
+  with different variable orders at the same time. Moreover, it is easier to
+  get rid of old nodes and variables: simply delete all references to
+  the context. As soon as all references to a context (and to ROBDDs from
+  this context) are deleted, all memory used for this context will be claimed
+  by the garbage collector fully automatically. Moreover, the hash tables of
+  each context can be cleared individually
+  (see {@link de.upb.swt.mcie.robdds.Context#clearHashTables()
+  clearHashTables()}). <p>
+  
+  Note that now all operations on ROBDDs
+  may only be applied to ROBDDs from the same context; otherwise a
+  corresponding {@link de.upb.swt.mcie.robdds.IncorrectUseException
+  IncorrectUseException} will be thrown. Due to the introduction of the
+  context, the classes {@link de.upb.swt.mcie.mc.Model Model} and
+  {@link de.upb.swt.mcie.formulas.Formula Formula} had to be revised
+  too. Each model is now associated with a context. A formula, however,
+  does not need to know its context. Only when converting a formula to an
+  ROBDD, the context must be provided. The context can be
+  either given implicitly via the model
+  ({@link de.upb.swt.mcie.formulas.Formula#toROBDD(de.upb.swt.mcie.mc.Model)
+  toROBDD(Model)} for temporal formulas) or by an explicit parameter
+  when calling the method
+  {@link de.upb.swt.mcie.formulas.Formula#toROBDD(Context) toROBDD(Context)}.
+  
+  <li>
+  Version 0.3.1:  The methods
+  {@link de.upb.swt.mcie.robdds.ROBDD#successors(de.upb.swt.mcie.robdds.ROBDD)
+  successor(ROBDD)} of version 0.2.x contained some errors, which are now
+  corrected.<p>
+  
+  Moreover, the class {@link de.upb.swt.mcie.robdds.ChangeSet} and the method
+  {@link de.upb.swt.mcie.robdds.ROBDD#predecessors(
+  de.upb.swt.mcie.robdds.ROBDD, de.upb.swt.mcie.robdds.ChangeSet)
+  predecessors(ROBDD,ChangeSet)} have been added. This way, the variables that
+  are not changed by a transition relation need not be explicitly mentioned in
+  the ROBDD, which significantly reduces the size of the corresponding ROBDD
+  and the time needed for calculating the predecessors.
+  
+  <li>
+  Version 0.3.2:  In order to show the application of the predecessor methods
+  with a changeset, the class {@link de.upb.swt.mcie.mc.Transitionsystem
+  Transitionsystem} was introduced, which uses a partitioned transition
+  relation. This results in a more efficient implementation of the ex method
+  and altogether in more efficient model checking routines.<p>
+  
+  Moreover, the class {@link de.upb.swt.mcie.robdds.ChangeSet ChangeSet} was
+  equipped with methods for adding variables individually and a method for
+  clearing its hash tables. In addition, class
+  {@link de.upb.swt.mcie.formulas.Formula Formula} was equipped with a method
+  adding all variables that occur primed in a formula to a given change set.
+  This way, it is easier to calculate the appropriate change sets of a
+  transition formula.<p>
+  
+  Moreover, the method
+  {@link de.upb.swt.mcie.robdds.ROBDD#successors(
+  de.upb.swt.mcie.robdds.ROBDD, de.upb.swt.mcie.robdds.ChangeSet)
+  successors(ROBDD,ChangeSet)} are implemented now, which can be used for a more
+  efficient calculation of the reachable states. 
+
+  <li>
+  Version 0.3.3, December 13, 2004:  The class {@link de.upb.swt.mcie.mc.FairModel FairModel}
+  implements the procedures for fair model checking. These methods work
+  for any model (with correctly implemented model checking procedures). So
+  MCiE supports fair model checking for all implemented models including
+  Kripke structures and fair transition systems.  In order to make this work,
+  the structure of {@link de.upb.swt.mcie.mc.Model Model},
+  {@link de.upb.swt.mcie.mc.Kripkestructure Kripkestructure}, and
+   {@link de.upb.swt.mcie.mc.Transitionsystem Transitionsystem} had to be
+   slightly changed (fairness conditions are no longer included there).<p> 
+   
+  <li>
+  Version 0.3.4, March 8, 2006: The model checkers print a warning now, when the list of
+  properties could not be read to end because of a syntax error. All properties
+  up to this point will be checked anyway.<p>
+  
+  <li>
+  Version 0.3.5, March 19, 2009: Project deployed as an eclipse plugin. Removed some typos in
+  comments and documentation.<p>
+  
+  Corrected a problem with the parser: The scanner returned the literals "and" and "or"
+  as unary operators. Therefore, formulas using these textual operators could not be
+  parsed properly. This problem is fixed now.<p>
+  
+  Added toString() method for formulas to convert formulas to strings
+  in a naive way (with many parentheses).<p>
+  
+  <li>
+  Version 0.3.6, April 6, 2010: Changed string representation (introduced
+  in version 0.3.5) of the AND-operator to '&amp;&amp;', since a single '&amp;' is
+  interpreted as the definition of a mnemonic in eclipse dialogs;
+  doubling it escapes this 'eclipse feature'.<p>
+  
+  <li>
+  Version 0.3.7, December 1, 2010: Introduced a mechanism to abort a model checking
+  operation on a model from a different thread and suppressed some warnings (due
+  to MCiE not using generics).<p>
+  
+  <li>
+  Version 0.3.8, November 1, 2012: Added some more checks for aborting the 
+  model checking on Transition systems (inside the ex and computeReachable method). 
+  To this end, added a checkAbort() method to the Model, which can be called 
+  from sub classes in longer running computations.<p>
+  
+  <li>
+  Version 0.3.9, June 30, 2017: Changed serialization of formulas (toString() method),
+  so that the constants are shown as true and false instead of (1 and 0).
+  </ul>
+  
+  <hr>
+  
+  Copyright (C) 2004, 2006
+  Ekkart Kindler, University of Paderborn,
+  <a href="mailto:kindler@upb.de">kindler@upb.de</a><p>
+  
+  Copyright (C) 2009, 2010, 2012
+  Ekkart Kindler, Technical University of Denmark (DTU),
+  <a href="mailto:eki@imm.dtu.dk">eki@imm.dtu.dk</a><p>
+  
+  Copyright (C) 2017
+  Ekkart Kindler, Technical University of Denmark (DTU),
+  <a href="mailto:ekki@dtu.dk">ekki@dtu.dk</a><p>
+
+    The MCiE project is free software; you can redistribute it and/or modify
+    it under the terms of the <a href="LICENSE">GNU General Public License</a>
+    as published by
+    the Free Software Foundation; version 2 of the License.<p>
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.<p>
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  
+  @author Ekkart Kindler
+  @version 0.3.9
+</body>

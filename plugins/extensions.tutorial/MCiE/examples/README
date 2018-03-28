@@ -1,0 +1,42 @@
+The Model Checking in Education Project
+---------------------------------------
+
+In order to experiment with the model checker, this directory
+provides some example file of systems and properties. Currently,
+there are two kinds of system representations implemented:
+
+  * fair Kripke structures and
+  * fair transition systems
+
+To run the model checker you need a Java Runtime Environment to
+be installed on your system (the model checker was tested on
+j2re1.4.2_01; but, it should work on other versions too).
+
+In order to start the model checkers, you can use the batch
+files in this directory.
+
+On a Windows platform, you can start the model checker for fair
+Kripke structures with the following command from a command
+shell from this directory 
+
+  > MC system props
+  
+On a Unix or Linux platform, it might be necessary to make the
+file MC executabel before, and it might be necessary to prefix
+the command MC with './' as shown below
+ 
+  > ./MC system props
+
+The model checker for fair transition systems can be started with
+the commands
+
+  > MCTS system props
+  
+or
+
+  > ./MCTS system props  
+    
+For a documentation of the syntax of fair Kripke structures, fair
+transition systems, and the properties, see the documentation of the
+source code (JavaDoc).
+  

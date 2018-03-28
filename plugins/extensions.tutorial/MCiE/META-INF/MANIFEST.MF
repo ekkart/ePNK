@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MCiE
+Bundle-SymbolicName: MCiE
+Bundle-Version: 0.3.9
+Export-Package: de.upb.swt.mcie.formulas;uses:="de.upb.swt.mcie.mc,de.upb.swt.mcie.robdds",
+ de.upb.swt.mcie.mc;uses:="de.upb.swt.mcie.robdds",
+ de.upb.swt.mcie.parser;
+  uses:="de.upb.swt.mcie.parser.token,
+   de.upb.swt.mcie.formulas,
+   de.upb.swt.mcie.mc,
+   de.upb.swt.mcie.robdds",
+ de.upb.swt.mcie.parser.token,
+ de.upb.swt.mcie.robdds
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

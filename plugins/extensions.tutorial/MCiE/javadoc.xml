@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" author="true" classpath="." destdir="doc" doctitle="Model Checking in Education (MCiE)" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" overview="D:\ews\3.7\ePNK1\ws\MCiE\src\overview.html" packagenames="de.upb.swt.mcie.formulas,de.upb.swt.mcie.parser.token,de.upb.swt.mcie.mc,de.upb.swt.mcie.robdds,de.upb.swt.mcie.parser" source="1.6" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>

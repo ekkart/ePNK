@@ -1,0 +1,111 @@
+<%@ jet package="translated"
+    class="PetrinetCode2Java"
+    imports="dk.dtu.imm.se2.petrinets.*"
+    skeleton="PetrinetCode2JavaSkeleton.java" 
+%>
+<%
+  Petrinet pn = (Petrinet) argument; 
+  initialize(pn);
+%>
+package dk.imm.se2.pertinets.examples.generated;
+
+import dk.imm.se2.pertinets.codegenerator.AbstractPetrinet;
+
+<% for (Import imp: pn.getImports()) { %>
+<%= imp.getCode() %>
+
+<% }
+%>
+public class <%= className %> extends AbstractPetrinet {
+
+<% for (Attribute attribute: pn.getAttributes()) { %>
+    <%= attribute.getCode() %>
+<% } %>
+
+	public <%= className %>() {
+		super(new int[]{<% 
+   for (int i=0; i < noPlaces; i++) {
+   %><%= i!=0?", ":"" %><%= getPlace(i).getToken().size() %><% 
+   }
+                         %>}, new String[]{<% 
+   for (int i=0; i < noTransitions; i++) {
+%><%= i!=0?", ":"" %>"<%= getTransition(i).getName() %>"<% 
+   }
+                                            %>} );
+	}
+<%
+  for (int i=0; i < noTransitions; i++) {
+    String condition = getTransition(i).getCondition();
+    String action = getTransition(i).getAction();
+%>
+
+    /**
+     * Condition for transition <%= getTransition(i).getName() %>.
+     */
+    public boolean t<%= i %>_Condition() {
+        return <%= condition != null ? condition : "true" %>;    
+    }
+
+    /**
+     * Action for transition <%= getTransition(i).getName() %>.
+     */    
+    public void t<%= i %>_Action() {
+        <%= action != null ? action : "" %>    
+    }
+<%
+  }
+%> 
+ 
+	public boolean enabled(int t) {
+		switch (t) {
+<%
+  for (int i=0; i < noTransitions; i++) { %>
+		case <%= i %>:
+			return<%
+    for (Arc arc: getTransition(i).getIn()) { 
+%> marking[<%= getPlaceNo(arc.getSource()) %>] >= 1 && 
+<%
+    }
+%> t<%= i %>_Condition();
+                    
+<%
+  }
+%>
+		default:
+			return false;	
+		}
+	}
+
+	public void fire(int t) {
+		if (! enabled(t))
+			return;
+		
+		switch (t) {
+<%
+  for (int i=0; i < noTransitions; i++) { %>
+		case <%= i %>:		
+<%
+    for (Arc arc: getTransition(i).getIn()) { %>
+			marking[<%= getPlaceNo(arc.getSource()) %>] =  marking[<%= getPlaceNo(arc.getSource()) %>] - 1;
+<%
+    }
+
+    for (Arc arc: getTransition(i).getOut()) { %>
+			marking[<%= getPlaceNo(arc.getTarget()) %>] =  marking[<%= getPlaceNo(arc.getTarget()) %>] + 1;
+<%
+    }
+%>
+            t<%= i %>_Action();          
+			break;
+			
+<% }
+%>			
+		}
+	}
+	
+	public static void main(String[] args) {
+		<%= className %> pn = new <%= className %>();
+		pn.start();
+	}
+
+}

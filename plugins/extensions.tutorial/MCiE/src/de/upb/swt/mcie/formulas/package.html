@@ -1,0 +1,28 @@
+<body>
+  This package implements formulas, which can be state formulas, transition formulas
+  or temporal formulas. Note that this is not a disjoint classification, because
+  state formulas are also temporal formulas and transition formulas. A formula is
+  a state formula, if there are no temporal operators and primed variables in it.
+  A formula is a transition formula, if there are no temporal operators in it.
+  A formula is a temporal formula, if there are no primed variables in it.
+  
+  In most cases it does not make sense to have temporal operators as well as
+  primed variables in a formula. But, they are not forbidden and can be used
+  with benefit in some special cases.
+  
+  Formulas consist of unary and binary operations, which are the inner nodes,
+  and of variables and constants as leaf nodes.  The different operators as
+  well as their binding priorities (which is necessary for parsing them) are defined as
+  constants in the two classes {@link de.upb.swt.mcie.formulas.UnaryOp UnaryOp} and
+  {@link de.upb.swt.mcie.formulas.BinaryOp BinaryOp}.  Also
+  there is a table indicating for each operator whether it is a temporal operator
+  or not.  This makes it easy to extend formulas by new operations.
+  
+  <p>
+  ...
+  <p>
+  
+  @see de.upb.swt.mcie.parser
+  @see de.upb.swt.mcie.robdds
+  
+</body>

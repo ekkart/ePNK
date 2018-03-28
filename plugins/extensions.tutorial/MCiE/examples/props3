@@ -1,0 +1,5 @@
+a EU a & !b;                      # should be not valid;  f EU g means E[ f U g ]
+AG ( a -> ( a AU b ) );           # should be valid;      f AU g means A[ f U g ]
+EG ( b -> ( b AU a ) );           # should be not valid;
+EG ((a = EX a) & (b = EX b));     # should be not valid ;
+EG true                           # should be valid

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/extensions/types/arctypes"
+            class="org.pnml.tools.epnk.extensions.tutorial.types.arctypes.arctypes.ArctypesPackage"
+            genModel="model/ArcTypes.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="arctypes"
+            class="org.pnml.tools.epnk.extensions.tutorial.types.arctypes.arctypes.util.ArctypesResourceFactoryImpl"/>
+   </extension>
+   
+   <!-- adjusted to the new pntd package mechanism of version 1.2.0 of the ePNK for
+        pluggin in this PNTD
+   <extension
+         id="org.pnml.tools.epnk.extensions.tutorial.types.arctypes"
+         name="ArcTypes"
+         point="org.pnml.tools.epnk.pntd">
+      <type
+            class="org.pnml.tools.epnk.extensions.tutorial.types.arctypes.arctypes.impl.ARCTYPESImpl"
+            description="Net with different arc types">
+      </type>
+   </extension>
+   -->
+   
+   <extension
+      id="arctypes"
+      name="ArcTypes"
+      point="org.pnml.tools.epnk.pntd_package">
+      <type
+            description="Net with different arc types"
+            package_uri="http://org.pnml.tools/epnk/extensions/types/arctypes"
+            type_uri="http://www.epnk.tools.pnml.org/tutorial/types/arctypes"/>
+   </extension>
+   
+   <extension
+         id="org.pnml.tools.epnk.extensions.tutorial.types.arctypes.graphics"
+         name="ArcTypes Net graphical extensions"
+         point="org.pnml.tools.epnk.diagram.graphics">
+      <graphicsextension
+            class="org.pnml.tools.epnk.extensions.tutorial.types.arctypes.graphicalextensions.ArcTypesGraphicalExtension"
+            description="Special graphics for arcs in this kind of net">
+      </graphicsextension>
+   </extension>
+   
+   <!-- 
+   <extension
+         id="org.pnml.tools.epnk.extensions.tutorial.types.arctypes.graphics.strange"
+         name="P/T Net graphical extension (strange one)"
+         point="org.pnml.tools.epnk.diagram.graphics">
+      <graphicsextension
+            class="org.pnml.tools.epnk.extensions.tutorial.types.arctypes.graphicalextensions.StrangeGraphicalExtension"
+            description="Just for testing the reation between different graphica extensions">
+      </graphicsextension>
+   </extension>   
+   -->
+
+</plugin>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="arctypes"
+    nsURI="http://org.pnml.tools/epnk/extensions/types/arctypes" nsPrefix="arctypes">
+  <eClassifiers xsi:type="ecore:EClass" name="ARCTYPES" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//PetriNetType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Arc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ArcType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bool" eType="#//Boolean"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comment" upperBound="-1"
+        eType="#//Comment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArcType" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="#//TYPE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TYPE">
+    <eLiterals name="normal" literal="normal"/>
+    <eLiterals name="read" value="1"/>
+    <eLiterals name="inhibit" value="2"/>
+    <eLiterals name="signal" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Comment" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Page" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comment" upperBound="-1"
+        eType="#//Comment" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
