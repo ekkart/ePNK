@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            category="org.pnml.tools.epnk.views.category"
+            class="dk.dtu.imm.se.pngen.att.test.blockstructure.view.BlockStructureView"
+            id="dk.imm.dtu.se.pngen.att.test.blockstructure.view"
+            name="Test Code Gen: Block structure">
+      </view>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="dk.imm.dtu.se.pngen.att.test.blockstructure.actions.contribution1"
+            objectClass="org.pnml.tools.epnk.pnmlcoremodel.PetriNet">
+         <action
+               class="dk.dtu.imm.se.pngen.att.test.blockstructure.action.ComputeBlockActions"
+               enablesFor="1"
+               id="dk.dtu.imm.se.pngen.att.test.blockstructure.action"
+               label="Compute Block Structure"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1">
+         </action>
+      </objectContribution>
+   </extension>
+</plugin>

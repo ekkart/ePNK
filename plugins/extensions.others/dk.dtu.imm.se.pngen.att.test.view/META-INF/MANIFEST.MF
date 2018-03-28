@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: View
+Bundle-SymbolicName: dk.dtu.imm.se.pngen.att.test.view;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.7.0",
+ org.eclipse.jface;bundle-version="3.7.0",
+ org.eclipse.emf.edit.ui;bundle-version="2.7.0",
+ dk.dtu.imm.se.pngen.att.test;bundle-version="1.0.0",
+ dk.dtu.imm.se.pngen.att.test.edit;bundle-version="1.0.0",
+ dk.dtu.imm.se.pngen.att.test.editor;bundle-version="1.0.0",
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.5.0"

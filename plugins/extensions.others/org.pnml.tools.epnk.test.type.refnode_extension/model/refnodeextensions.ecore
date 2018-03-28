@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="refnodeextensions"
+    nsURI="http://org.pnml.tools/epnk/test/types/ptnetrefnodeextensions/1.0" nsPrefix="refnodeext">
+  <eClassifiers xsi:type="ecore:EClass" name="RefNodeExtension" eSuperTypes="../../org.pnml.tools.epnk.pntypes/model/PTnet.ecore#//PTNet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RefPlace" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//RefPlace">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pragmatics" eType="#//Pragmatics"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RefTransition" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//RefTransition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="api" eType="#//API" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pragmatics" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Label">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="API" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Label">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Page" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pragmatics" upperBound="-1"
+        eType="#//Pragmatics" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="api" eType="#//API" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ This file is part of the ePNK project (Petri Net Kernel for eclipse). The ePNK
+ is platform for Petri net tools based on the PNML transfer format. Its
+ main idea is to provide generic Petri net types which can be easily plugged
+ in and a simple generic GMF editor, that can be used for graphically editing
+ nets of any plugged in type. Additional functionality can be plugged in.
+ 
+ Note that this project is still in an experimental phase, and is also used
+ as a case study for EMF/GMF based Model-based Software Engineering.
+ 
+ Copyright (C) 2012 Ekkart Kindler, eki@imm.dtu.dk
+ The license under which this software will be distributed is still to be decided -
+ it will probably be the EPL.
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/inhibitornets"
+            class="org.pnml.tools.epnk.pntypes.inhibitornets.InhibitornetsPackage"
+            genModel="model/InhibitorNets.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="inhibitornets"
+            class="org.pnml.tools.epnk.pntypes.inhibitornets.util.InhibitornetsResourceFactoryImpl"/>
+   </extension>
+   
+   <!-- adjusted to the new pntd package mechanism of version 1.2.0 of the ePNK for
+        pluggin in this PNTD
+   <extension
+         id="org.pnml.tools.epnk.pntypes.inhibitornet"
+         name="InhibitorNets"
+         point="org.pnml.tools.epnk.pntd">
+      <type
+            class="org.pnml.tools.epnk.pntypes.inhibitornets.factories.InhibitorNetFactory"
+            description="Petri nets with inhibitor and read arcs">
+      </type>
+   </extension>
+   -->
+   
+   <extension
+      id="inhibitornet"
+      name="InhibitorNets"
+      point="org.pnml.tools.epnk.pntd_package">
+      <type
+            description="Petri nets with inhibitor and read arcs"
+            package_uri="http://org.pnml.tools/epnk/types/inhibitornets"
+            type_uri="http://epnk.tools.pnml.org/inhibitornet/2012"/>
+   </extension>
+   
+   <extension
+         id="org.pnml.tools.epnk.pntypes.inhibitornets.graphics"
+         name="Inhibitor nets graphical extensions"
+         point="org.pnml.tools.epnk.diagram.graphics">
+      <graphicsextension
+            class="org.pnml.tools.epnk.pntypes.inhibitornets.graphics.InhibitornetsGraphics"
+            description="Special graphics for places and arcs for inhibitor nets">
+      </graphicsextension>
+   </extension>
+   
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <constraintProvider
+            cache="true"
+            mode="Live">
+         <package
+               namespaceUri="http://org.pnml.tools/epnk/types/inhibitornets">
+         </package>    
+       
+         <constraints categories="org.pnml.tools.epnk.validation">
+            <constraint
+                  id="org.pnml.tools.epnk.pntypes.inhibitornets.validation.PT_TP_ArcsOnly"
+                  lang="OCL"
+                  mode="Live"
+                  name="PT and TP Arcs only"
+                  severity="ERROR"
+                  statusCode="401">
+               <message>
+                  The arc {0} must run from a place to a transition or vice versa.
+               </message>
+               <description>
+                 All arcs in inhibitor nets must run between a place and a transition or vice versa.
+               </description>
+               <target
+                     class="Arc">
+                  <event
+                        name="Set">
+                     <feature
+                           name="source">
+                     </feature>
+                     <feature
+                           name="target">
+                     </feature>
+                     <feature
+                           name="type">
+                     </feature>
+                  </event>
+               </target>
+               <![CDATA[
+                 ( self.source.oclIsKindOf(pnmlcoremodel::PlaceNode) and
+                   self.target.oclIsKindOf(pnmlcoremodel::TransitionNode) )
+                 or
+                 ( self.source.oclIsKindOf(pnmlcoremodel::TransitionNode) and
+                   self.target.oclIsKindOf(pnmlcoremodel::PlaceNode) and
+                   (self.type->size() = 0 or not ( self.type.text = ArcTypes::inhibit )) )
+               ]]>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+   
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <constraintProvider
+            cache="true"
+            mode="Live">
+         <package
+               namespaceUri="http://org.pnml.tools/epnk/types/inhibitornets">
+         </package>    
+       
+         <constraints categories="org.pnml.tools.epnk.validation">
+            <constraint
+                  id="org.pnml.tools.epnk.pntypes.inhibitornets.validation.Inhibtor_PT_Only"
+                  lang="OCL"
+                  mode="Live"
+                  name="PT inhibitor only"
+                  severity="ERROR"
+                  statusCode="401">
+               <message>
+                  An inhibitor arc must run from a place to a transition.
+               </message>
+               <description>
+                 All inhibitor arcs in inhibitor nets must run from a place to a transition.
+               </description>
+               <target
+                     class="ArcType">
+                  <event
+                        name="Set">
+                     <feature
+                           name="text">
+                     </feature>
+                  </event>
+               </target>
+               <![CDATA[
+                 self.text = ArcTypes::inhibit implies
+                 ( self.arc.source.oclIsKindOf(pnmlcoremodel::PlaceNode) and
+                   self.arc.target.oclIsKindOf(pnmlcoremodel::TransitionNode) )
+               ]]>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+
+</plugin>

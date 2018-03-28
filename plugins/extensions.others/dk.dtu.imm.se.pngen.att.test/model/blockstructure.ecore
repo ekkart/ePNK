@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="blockstructure"
+    nsURI="http://se.imm.dtu.dk/pngen/blockstructure" nsPrefix="pnbs">
+  <eClassifiers xsi:type="ecore:EClass" name="Block" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="start" lowerBound="1" eType="ecore:EClass ../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Place"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="end" lowerBound="1" eType="ecore:EClass ../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Place"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startsafe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endsafe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="covered" upperBound="-1"
+        eType="ecore:EClass ../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Object"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Atomic" eSuperTypes="#//Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" lowerBound="1"
+        eType="ecore:EClass ../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Transition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Composite" abstract="true" eSuperTypes="#//Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subblocks" upperBound="-1"
+        eType="#//Block" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Choice" eSuperTypes="#//Composite"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sequence" eSuperTypes="#//Composite"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="back" lowerBound="1" eType="#//Atomic"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" lowerBound="1" eType="#//Block"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

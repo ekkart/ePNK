@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <!-- since for this type the package was not plugged in, the PNTD Package mechanism
+        of version 1.2.0 of the ePNK does not work. So this is still plugged in as 
+        a PetriNetType class (pntd) -->
+   <extension
+         id="org.pnml.tools.epnk.test.type.refnode_extension"
+         name="PTNets"
+         point="org.pnml.tools.epnk.pntd">
+      <type
+            class="org.pnml.tools.epnk.test.type.refnodeextensions.impl.RefNodeExtensionImpl"
+            description="RefNodeExtensions (Test)">
+      </type>
+   </extension>
+
+</plugin>
