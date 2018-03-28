@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="graphics"
+         name="name"
+         point="org.pnml.tools.epnk.diagram.graphics">
+      <graphicsextension
+            class="dk.dtu.compute.mbse.tutorial.yawl.graphics.factory.YAWLGraphics"
+            description="Dedicated graphics for YAWL nets">
+      </graphicsextension>
+   </extension>
+
+</plugin>

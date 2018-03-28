@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="yawl" nsURI="http://se.compute.dtu.dk/mbse/yawl" nsPrefix="yawl">
+  <eAnnotations source="http://epnk.tools.pnml.org/pntd">
+    <details key="id" value="pntd"/>
+    <details key="name" value="YAWL Nets"/>
+    <details key="description" value="A simple definition of YAWL nets with START- and END-conditions, AND-, OR- and XOR-joins and splits for actions and reset arcs."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="YAWLNet" eSuperTypes="platform:/plugin/org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//PetriNetType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="platform:/plugin/org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Place">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ConditionType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="platform:/plugin/org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Transition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jointype" eType="#//TransitionType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="splitType" eType="#//TransitionType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionType" eSuperTypes="platform:/plugin/org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="#//CType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CType">
+    <eLiterals name="NORMAL"/>
+    <eLiterals name="START" value="1"/>
+    <eLiterals name="FINISH" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionType" eSuperTypes="platform:/plugin/org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="#//TType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TType">
+    <eLiterals name="AND"/>
+    <eLiterals name="XOR" value="1"/>
+    <eLiterals name="OR" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="platform:/plugin/org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Arc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ArcType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArcType" eSuperTypes="platform:/plugin/org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="#//AType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AType">
+    <eLiterals name="NORMAL"/>
+    <eLiterals name="RESET" value="1"/>
+  </eClassifiers>
+</ecore:EPackage>

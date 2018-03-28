@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: dk.dtu.compute.mbse.tutorial.yawl.edit;singleton:=true
+Bundle-Version: 1.2.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: dk.dtu.compute.mbse.yawl.provider.YawlEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: dk.dtu.compute.mbse.yawl.provider
+Require-Bundle: org.eclipse.core.runtime,
+ dk.dtu.compute.mbse.tutorial.yawl;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.pnml.tools.epnk;visibility:=reexport,
+ org.pnml.tools.epnk.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

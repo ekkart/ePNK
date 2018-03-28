@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/dk.dtu.compute.mbse.tutorial.yawl.simulator/src"
+    modelPluginID="dk.dtu.compute.mbse.tutorial.yawl.simulator" modelName="Yawlannotations"
+    modelPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.pnml.tools.epnk.annotations/model/NetAnnotations.genmodel#//netannotations ../../org.pnml.tools.epnk/model/PNMLCoreModel.genmodel#//pnmlcoremodel ../../dk.dtu.compute.mbse.tutorial.yawl/model/yawl.genmodel#//yawl"
+    importOrganizing="true">
+  <foreignModel>yawlannotations.ecore</foreignModel>
+  <genPackages prefix="Yawlannotations" basePackage="dk.dtu.compute.mbse.tutorial.yawl.simulator"
+      disposableProviderFactory="true" ecorePackage="yawlannotations.ecore#/">
+    <genClasses ecoreClass="yawlannotations.ecore#//EnabledTransition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yawlannotations.ecore#//EnabledTransition/inArcs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yawlannotations.ecore#//EnabledTransition/outArcs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yawlannotations.ecore#//EnabledTransition/resolved"/>
+      <genOperations ecoreOperation="yawlannotations.ecore#//EnabledTransition/getAction"/>
+    </genClasses>
+    <genClasses ecoreClass="yawlannotations.ecore#//SelectArc">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yawlannotations.ecore#//SelectArc/targetTransition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yawlannotations.ecore#//SelectArc/sourceTransition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yawlannotations.ecore#//SelectArc/selected"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference yawlannotations.ecore#//SelectArc/sourceMarking"/>
+    </genClasses>
+    <genClasses ecoreClass="yawlannotations.ecore#//Marking">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute yawlannotations.ecore#//Marking/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
