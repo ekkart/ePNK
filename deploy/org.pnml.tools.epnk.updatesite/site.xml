@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="ePNK Update Site, ePNK version 1.2" url="http://www2.compute.dtu.dk/~ekki/projects/ePNK/1.2/update">
+      The ePNK is a platform for Petri net tools based on the PNML transfer format. Its main idea is to support generic Petri net types, which can be easily plugged into it, and to provide a simple generic GMF editor, which can be used for graphically editing nets of any plugged in type. Additional functionality and ePNK applications can be plugged in. The ePNK is implemented based on the Eclipse platform, and runs on all hardware platforms supporting Eclipse (Indigo or newer). 
+
+This is the update site for the ePNK version 1.2. This version should work for all versions of Eclipse starting with Indigo (3.7), but it was tested on Eclipse Neon, Eclipse Mars and Eclipse Indigo.  It provides all the features and extension that are part of the ePNK.
+
+This update site also provides all features of the tool for the Event Coordination Notation (ECNO Tool), since the notation for the life-cycle of its elements is based on ECNO nets, which are implemented based on the ePNK.
+   </description>
+   <feature url="features/org.pnml.tools.epnk.experimental.hlpng.labelserialisation_0.2.1.jar" id="org.pnml.tools.epnk.experimental.hlpng.labelserialisation" version="0.2.1">
+      <category name="org.pnml.tools.epnk.updatesite.experimental"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.core_1.1.0.jar" id="org.pnml.tools.epnk.core" version="1.1.0">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.extensions.basic_1.1.0.jar" id="org.pnml.tools.epnk.extensions.basic" version="1.1.0">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.extensions.hlpng_1.1.0.jar" id="org.pnml.tools.epnk.extensions.hlpng" version="1.1.0">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.extensions.tutorial_1.1.0.jar" id="org.pnml.tools.epnk.extensions.tutorial" version="1.1.0">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.applications.hlpng.simulator.feature_1.1.0.jar" id="org.pnml.tools.epnk.applications.hlpng.simulator.feature" version="1.1.0">
+      <category name="org.pnml.tools.epnk.updatesite.hlpng-simulator"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.gui.experimental_0.1.0.qualifier.jar" id="org.pnml.tools.epnk.gui.experimental" version="0.1.0">
+      <category name="org.pnml.tools.epnk.updatesite.experimental"/>
+   </feature>
+   <feature url="features/dk.dtu.compute.se.ecno.statespace_0.3.3.jar" id="dk.dtu.compute.se.ecno.statespace" version="0.3.3">
+      <category name="dk.dtu.imm.se.ecno.updatesite.tool"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.core.feature_0.3.3.jar" id="dk.dtu.imm.se.ecno.core.feature" version="0.3.3">
+      <category name="dk.dtu.imm.se.ecno.updatesite.tool"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.eclipse.feature_0.3.3.jar" id="dk.dtu.imm.se.ecno.eclipse.feature" version="0.3.3">
+      <category name="dk.dtu.imm.se.ecno.updatesite.tool"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.model.feature_0.3.3.jar" id="dk.dtu.imm.se.ecno.model.feature" version="0.3.3">
+      <category name="dk.dtu.imm.se.ecno.updatesite.tool"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.pn.feature_0.3.3.jar" id="dk.dtu.imm.se.ecno.pn.feature" version="0.3.3">
+      <category name="dk.dtu.imm.se.ecno.updatesite.tool"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.pn.generator.feature_0.3.2.jar" id="dk.dtu.imm.se.ecno.pn.generator.feature" version="0.3.2">
+      <category name="dk.dtu.imm.se.ecno.updatesite.tool"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.examples.feature_0.3.3.jar" id="dk.dtu.imm.se.ecno.examples.feature" version="0.3.3">
+      <category name="dk.dtu.imm.se.ecno.updatesite.examples"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.workflow.feature_1.0.0.jar" id="dk.dtu.imm.se.ecno.workflow.feature" version="1.0.0">
+      <category name="dk.dtu.imm.se.ecno.updatesite.examples"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.applications.hlpng.simulator.feature_1.1.1.jar" id="org.pnml.tools.epnk.applications.hlpng.simulator.feature" version="1.1.1">
+      <category name="org.pnml.tools.epnk.updatesite.hlpng-simulator"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.core_1.1.1.jar" id="org.pnml.tools.epnk.core" version="1.1.1">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.core_1.1.2.jar" id="org.pnml.tools.epnk.core" version="1.1.2">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.core_1.2.0.jar" id="org.pnml.tools.epnk.core" version="1.2.0">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.extensions.basic_1.2.0.jar" id="org.pnml.tools.epnk.extensions.basic" version="1.2.0">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.extensions.tutorial_1.2.0.jar" id="org.pnml.tools.epnk.extensions.tutorial" version="1.2.0">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <feature url="features/org.pnml.tools.epnk.extensions.hlpng_1.2.0.jar" id="org.pnml.tools.epnk.extensions.hlpng" version="1.2.0">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.model.feature_0.4.0.jar" id="dk.dtu.imm.se.ecno.model.feature" version="0.4.0">
+      <category name="dk.dtu.imm.se.ecno.updatesite.tool"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.pn.feature_0.4.0.jar" id="dk.dtu.imm.se.ecno.pn.feature" version="0.4.0">
+      <category name="dk.dtu.imm.se.ecno.updatesite.tool"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.eclipse.feature_0.4.0.jar" id="dk.dtu.imm.se.ecno.eclipse.feature" version="0.4.0">
+      <category name="dk.dtu.imm.se.ecno.updatesite.tool"/>
+   </feature>
+   <feature url="features/dk.dtu.imm.se.ecno.examples.feature_0.4.0.jar" id="dk.dtu.imm.se.ecno.examples.feature" version="0.4.0">
+      <category name="dk.dtu.imm.se.ecno.updatesite.examples"/>
+   </feature>
+   <feature url="features/dk.dtu.compute.mbse.tutorial.yawl.feature_1.2.0.jar" id="dk.dtu.compute.mbse.tutorial.yawl.feature" version="1.2.0">
+      <category name="org.pnml.tools.epnk.updatesite.base"/>
+   </feature>
+   <category-def name="org.pnml.tools.epnk.updatesite.base" label="ePNK Features">
+      <description>
+         This category comprises all features that are deployed as part of the ePNK.
+      </description>
+   </category-def>
+   <category-def name="org.pnml.tools.epnk.updatesite.experimental" label="ePNK Experimental Features">
+      <description>
+         This category contains some experimental extension features to the ePNK, which might be of use to end users as they are right now. But, these features are very likely to change in the future, when they leave this experimental phase. In particular, the API might change completely -- in your own extensions to the ePNK, better do not rely too much on these extensions!
+      </description>
+   </category-def>
+   <category-def name="org.pnml.tools.epnk.updatesite.hlpng-simulator" label="HLPNG Simulator">
+      <description>
+         This category contains features for simulating high-level nets (HLPNG) with the ePNK. Note that the simulator is still in experimental stage, but might be useful to end users already now.
+      </description>
+   </category-def>
+   <category-def name="dk.dtu.imm.se.ecno.updatesite.tool" label="ECNO Tool">
+      <description>
+         This category comprises all features of the ECNO Tool. Some of these features (ECNO nets) are based on the ePNK.
+      </description>
+   </category-def>
+   <category-def name="dk.dtu.imm.se.ecno.updatesite.examples" label="ECNO Examples">
+      <description>
+         This category comprises some ECNO example projects, which, once installed, can be imported to the development workspace as source code.
+      </description>
+   </category-def>
+</site>

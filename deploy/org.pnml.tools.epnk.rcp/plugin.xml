@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="org.pnml.tools.epnk.rcp.E_PNK_RCP">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="org.pnml.tools.epnk.rcp.Perspective"
+            id="org.pnml.tools.epnk.rcp.perspective">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         name="ePNK product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.pnml.tools.epnk.rcp.application"
+            description="Standalone version of the ePNK"
+            name="ePNK product">
+         <property
+               name="aboutText"
+               value="This is the ePNK product version 0.9.2&#x0A;It is a standalone version of the ePNK.&#x0A;&#x0A;Ekkart Kindler, July 2011">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/epnk-icon.gif,icons/epnk-icon32.gif,icons/epnk-icon48.gif,icons/epnk-icon64.gif,icons/epnk-icon128.gif">
+         </property>
+         <property
+               name="aboutImage"
+               value="product_lg.gif">
+         </property>
+         <property
+               name="appName"
+               value="ePNK product">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="000000">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,252,440,20">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,275,440,15">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="Workspace"
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            id="org.pnml.tools.epnk.rcp.commonnavigatorview">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+       <viewerActionBinding
+            viewerId="org.pnml.tools.epnk.rcp.commonnavigatorview">
+         <includes>
+             <actionExtension pattern="org.eclipse.ui.navigator.resources.*" />
+         </includes>
+       </viewerActionBinding>
+       <viewerContentBinding 
+            viewerId="org.pnml.tools.epnk.rcp.commonnavigatorview">
+          <includes>
+       	     <contentExtension pattern="org.eclipse.ui.navigator.resourceContent" />
+       	     <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/>
+             <contentExtension pattern="org.eclipse.ui.navigator.resources.linkHelper"/>
+             <contentExtension pattern="org.eclipse.ui.navigator.resources.workingSets"/>
+          </includes>
+       </viewerContentBinding>
+   </extension>
+
+</plugin>
