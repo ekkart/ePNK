@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<networkmodel:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:networkmodel="http://org.pnml.tools/network">
+  <network xsi:type="networkmodel:Node" label="A" out="//@network.5 //@network.6" category="//@categories.0"/>
+  <network xsi:type="networkmodel:Node" label="C" out="//@network.7 //@network.8" in="//@network.5" category="//@categories.1"/>
+  <network xsi:type="networkmodel:Node" label="D" out="//@network.10" in="//@network.6 //@network.8 //@network.9" category="//@categories.1"/>
+  <network xsi:type="networkmodel:Node" label="E" out="//@network.9 //@network.11" in="//@network.7" category="//@categories.1"/>
+  <network xsi:type="networkmodel:Node" label="B" in="//@network.10 //@network.11" category="//@categories.0"/>
+  <network xsi:type="networkmodel:DirectedEdge" source="A" target="C"/>
+  <network xsi:type="networkmodel:DirectedEdge" source="A" target="D"/>
+  <network xsi:type="networkmodel:DirectedEdge" source="C" target="E"/>
+  <network xsi:type="networkmodel:DirectedEdge" source="C" target="D"/>
+  <network xsi:type="networkmodel:DirectedEdge" source="E" target="D"/>
+  <network xsi:type="networkmodel:DirectedEdge" source="D" target="B"/>
+  <network xsi:type="networkmodel:DirectedEdge" source="E" target="B"/>
+  <categories name="ROOT" node="A B"/>
+  <categories name="I" node="C D E"/>
+</networkmodel:Network>

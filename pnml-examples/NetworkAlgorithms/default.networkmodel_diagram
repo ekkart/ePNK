@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:networkmodel="http://org.pnml.tools/network" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_0QDR4dZdEeGonKNHhTJ67g" type="Network" name="default.networkmodel_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_U43-MNZeEeGonKNHhTJ67g" type="2001" fontName="Ubuntu" fillColor="10011046" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_U45MUNZeEeGonKNHhTJ67g" type="5001"/>
+    <element xmi:type="networkmodel:Category" href="default.networkmodel#//@categories.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U43-MdZeEeGonKNHhTJ67g" x="264" y="180"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_cGEksNZeEeGonKNHhTJ67g" type="2002" fontName="Ubuntu" fillColor="12560536" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_cGFLwNZeEeGonKNHhTJ67g" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="default.networkmodel#B"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cGEksdZeEeGonKNHhTJ67g" x="108" y="276"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_dFdlINZeEeGonKNHhTJ67g" type="2002" fontName="Ubuntu" fillColor="10011046" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_dFeMMNZeEeGonKNHhTJ67g" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="default.networkmodel#A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dFdlIdZeEeGonKNHhTJ67g" x="108" y="192"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_dl3jgNZeEeGonKNHhTJ67g" type="2002" fontName="Ubuntu" fillColor="12560536" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_dl4KkNZeEeGonKNHhTJ67g" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="default.networkmodel#C"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dl3jgdZeEeGonKNHhTJ67g" x="216" y="276"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_famQgNZeEeGonKNHhTJ67g" type="2001" fontName="Ubuntu" fillColor="12560536" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_faneoNZeEeGonKNHhTJ67g" type="5001"/>
+    <element xmi:type="networkmodel:Category" href="default.networkmodel#//@categories.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fam3kNZeEeGonKNHhTJ67g" x="264" y="228"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_0QDR4tZdEeGonKNHhTJ67g"/>
+  <element xmi:type="networkmodel:Network" href="default.networkmodel#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_hJxIENZeEeGonKNHhTJ67g" type="4001" source="_dFdlINZeEeGonKNHhTJ67g" target="_cGEksNZeEeGonKNHhTJ67g" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_hJxIEdZeEeGonKNHhTJ67g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:DirectedEdge" href="default.networkmodel#//@network.3"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hJxIEtZeEeGonKNHhTJ67g" points="[15, 20, -45, -52]$[51, 52, -9, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_hmNzgNZeEeGonKNHhTJ67g" type="4002" source="_cGEksNZeEeGonKNHhTJ67g" target="_dl3jgNZeEeGonKNHhTJ67g" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_hmOakNZeEeGonKNHhTJ67g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:UndirectedEdge" href="default.networkmodel#//@network.4"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hmOakdZeEeGonKNHhTJ67g" points="[-35, 6, 75, -15]$[-119, 19, -9, -2]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hmRd4NZeEeGonKNHhTJ67g" id="(0.875,0.525)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hmRd4dZeEeGonKNHhTJ67g" id="(0.225,0.45)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_jSqHMNZeEeGonKNHhTJ67g" type="4001" source="_dFdlINZeEeGonKNHhTJ67g" target="_dFdlINZeEeGonKNHhTJ67g" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_jSqHMdZeEeGonKNHhTJ67g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:DirectedEdge" href="default.networkmodel#//@network.5"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jSqHMtZeEeGonKNHhTJ67g" points="[-12, -7, -11, -20]$[-69, -43, -68, -56]$[-69, 29, -68, 16]$[-21, 17, -20, 4]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jSuYoNZeEeGonKNHhTJ67g" id="(0.525,0.175)"/>
+  </edges>
+</notation:Diagram>

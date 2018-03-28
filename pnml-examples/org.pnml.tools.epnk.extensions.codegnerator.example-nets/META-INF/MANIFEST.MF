@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ePNK Simple Code Generator, example nets
+Bundle-SymbolicName: org.pnml.tools.epnk.extensions.codegnerator.example_nets
+Bundle-Version: 0.9.2.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.pnml.tools.epnk.extensions.codegenerator;bundle-version="0.9.2"

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<geditor:Geometry xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:geditor="http://geditor/1.0" globalAppearancePath="platform:/resource/TrainTraffic/graphics/track-unit-new.png">
+  <GeometryObjects xsi:type="geditor:Point" x="50" z="158"/>
+  <GeometryObjects xsi:type="geditor:Point" x="67" z="247"/>
+  <GeometryObjects xsi:type="geditor:Arc" id="track5" appearancePath="platform:/resource/TrainTraffic/graphics/track-unit-new.png" start="//@GeometryObjects.0" end="//@GeometryObjects.1">
+    <controlPoints x="60" z="168"/>
+    <controlPoints x="50" z="158"/>
+    <controlPoints x="67" z="247"/>
+    <controlPoints x="77" z="257"/>
+  </GeometryObjects>
+  <GeometryObjects xsi:type="geditor:Point" x="305" z="295"/>
+  <GeometryObjects xsi:type="geditor:Arc" id="track1" appearancePath="platform:/resource/TrainTraffic/graphics/track-unit-new.png" start="//@GeometryObjects.1" end="//@GeometryObjects.3">
+    <controlPoints x="77" z="257"/>
+    <controlPoints x="67" z="247"/>
+    <controlPoints x="84" z="348"/>
+    <controlPoints x="168" z="396"/>
+    <controlPoints x="305" z="295"/>
+    <controlPoints x="315" z="305"/>
+  </GeometryObjects>
+  <GeometryObjects xsi:type="geditor:Point" x="518" z="266"/>
+  <GeometryObjects xsi:type="geditor:Arc" id="track2" appearancePath="platform:/resource/TrainTraffic/graphics/track-unit-new.png" start="//@GeometryObjects.3" end="//@GeometryObjects.5">
+    <controlPoints x="315" z="305"/>
+    <controlPoints x="305" z="295"/>
+    <controlPoints x="430" z="232"/>
+    <controlPoints x="492" z="240"/>
+    <controlPoints x="518" z="266"/>
+    <controlPoints x="528" z="276"/>
+  </GeometryObjects>
+  <GeometryObjects xsi:type="geditor:Arc" id="track3" appearancePath="platform:/resource/TrainTraffic/graphics/track-unit-new.png" start="//@GeometryObjects.5" end="//@GeometryObjects.0">
+    <controlPoints x="528" z="276"/>
+    <controlPoints x="518" z="266"/>
+    <controlPoints x="597" z="369"/>
+    <controlPoints x="703" z="295"/>
+    <controlPoints x="720" z="36"/>
+    <controlPoints x="192" z="-11"/>
+    <controlPoints x="60" z="48"/>
+    <controlPoints x="50" z="158"/>
+    <controlPoints x="60" z="168"/>
+  </GeometryObjects>
+  <GeometryObjects xsi:type="geditor:Arc" id="track4" appearancePath="platform:/resource/TrainTraffic/graphics/track-unit-new.png" start="//@GeometryObjects.3" end="//@GeometryObjects.1">
+    <controlPoints x="305" z="295"/>
+    <controlPoints x="305" z="295"/>
+    <controlPoints x="432" z="84"/>
+    <controlPoints x="276" z="60"/>
+    <controlPoints x="156" z="96"/>
+    <controlPoints x="67" z="247"/>
+    <controlPoints x="67" z="247"/>
+  </GeometryObjects>
+  <GeometryObjects xsi:type="geditor:Point" id="signalPoint2" x="365" z="293"/>
+  <GeometryObjects xsi:type="geditor:Point" id="signalPoint1" x="26" z="170"/>
+  <GeometryObjects xsi:type="geditor:Point" id="signalPoint3" x="305" z="257"/>
+</geditor:Geometry>

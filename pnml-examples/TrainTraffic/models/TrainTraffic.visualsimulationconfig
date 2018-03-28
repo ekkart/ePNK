@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visualsimulationconfig:VisualSimulatorConfig xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:visualsimulationconfig="http://visualsimulationconfig/1.0">
+  <shapes href="TrainTraffic.appearence#/"/>
+  <geometry href="My.geditor#/"/>
+</visualsimulationconfig:VisualSimulatorConfig>

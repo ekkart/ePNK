@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet" id="n1">
+    <name>
+      <text>Consensus in networks algorithm</text>
+    </name>
+    <page id="pg1">
+      <name>
+        <text>The page</text>
+      </name>
+      <place id="p1">
+        <name>
+          <graphics>
+            <offset x="-116.0" y="-8.0"/>
+          </graphics>
+          <text>pending sites</text>
+        </name>
+        <graphics>
+          <position x="126.0" y="407.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-56.0" y="-37.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>SITE</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-11.0" y="-7.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id3"/>
+          </structure>
+          <text>U()</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t1">
+        <name>
+          <graphics>
+            <offset x="-3.0" y="-39.0"/>
+          </graphics>
+          <text>b</text>
+        </name>
+        <graphics>
+          <position x="248.0" y="404.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a1" source="p1" target="t1">
+        <graphics>
+          <line shape="curve" width="1.0"/>
+          <position x="144.0" y="400.0"/>
+          <position x="185.0" y="385.0"/>
+          <position x="228.0" y="397.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-5.0" y="-20.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <arc id="a2" source="t1" target="p1">
+        <graphics>
+          <line shape="curve" width="1.0"/>
+          <position x="228.0" y="411.0"/>
+          <position x="190.0" y="425.0"/>
+          <position x="145.0" y="412.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-15.0" y="5.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <transition id="t2">
+        <name>
+          <graphics>
+            <offset x="17.0" y="-41.0"/>
+          </graphics>
+          <text>a</text>
+        </name>
+        <graphics>
+          <position x="393.5" y="386.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a3" source="p1" target="t2">
+        <graphics>
+          <position x="137.0" y="390.0"/>
+          <position x="170.0" y="345.0"/>
+          <position x="340.0" y="345.0"/>
+          <position x="373.0" y="370.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-15.0" y="-25.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <arc id="a4" source="t2" target="p1">
+        <graphics>
+          <position x="377.0" y="406.0"/>
+          <position x="340.0" y="455.0"/>
+          <position x="170.0" y="455.0"/>
+          <position x="139.0" y="421.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-20.0" y="3.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <transition id="t3">
+        <name>
+          <graphics>
+            <offset x="0.0" y="-43.0"/>
+          </graphics>
+          <text>d</text>
+        </name>
+        <graphics>
+          <position x="395.5" y="143.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <place id="p2">
+        <name>
+          <graphics>
+            <offset x="30.0" y="-11.0"/>
+          </graphics>
+          <text>completed requests</text>
+        </name>
+        <graphics>
+          <position x="395.5" y="251.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-89.0" y="-11.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id2"/>
+          </structure>
+          <text>MESSAGE</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-10.0" y="-11.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id4"/>
+          </structure>
+          <text>M()</text>
+        </hlinitialMarking>
+      </place>
+      <arc id="a5" source="t3" target="p2">
+        <graphics>
+          <line shape="curve" width="1.0"/>
+          <position x="398.0" y="163.0"/>
+          <position x="406.0" y="199.0"/>
+          <position x="406.0" y="199.0"/>
+          <position x="399.0" y="231.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="9.0" y="-14.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id6">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>R(x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a6" source="p2" target="t3">
+        <graphics>
+          <line shape="curve" width="1.0"/>
+          <position x="388.0" y="232.0"/>
+          <position x="375.0" y="195.0"/>
+          <position x="384.0" y="163.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-30.0" y="-5.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id6">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>R(x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a7" source="p2" target="t2">
+        <graphics>
+          <position x="409.0" y="264.0"/>
+          <position x="555.0" y="390.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-77.0" y="-12.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id6">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>R(x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a8" source="p1" target="t3">
+        <graphics>
+          <position x="126.0" y="387.0"/>
+          <position x="126.0" y="150.0"/>
+          <position x="375.0" y="150.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-36.0" y="74.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <arc id="a9" source="t1" target="p2">
+        <graphics>
+          <position x="268.0" y="385.0"/>
+          <position x="407.0" y="265.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-42.0" y="-25.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(y,x)</text>
+        </hlinscription>
+      </arc>
+      <place id="p3">
+        <name>
+          <graphics>
+            <offset x="25.0" y="-10.0"/>
+          </graphics>
+          <text>initiated requests</text>
+        </name>
+        <graphics>
+          <position x="395.0" y="530.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-85.0" y="-5.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id2"/>
+          </structure>
+          <text>MESSAGE</text>
+        </type>
+      </place>
+      <arc id="a10" source="p3" target="t1">
+        <graphics>
+          <position x="379.0" y="517.0"/>
+          <position x="240.0" y="402.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-24.0" y="21.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,y)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a11" source="t2" target="p3">
+        <graphics>
+          <position x="391.0" y="406.0"/>
+          <position x="391.0" y="513.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="14.0" y="6.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id5">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>S(x)</text>
+        </hlinscription>
+      </arc>
+      <transition id="t4">
+        <name>
+          <graphics>
+            <offset x="-2.0" y="-43.0"/>
+          </graphics>
+          <text>c</text>
+        </name>
+        <graphics>
+          <position x="527.5" y="383.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a12" source="t4" target="p2">
+        <graphics>
+          <position x="518.0" y="371.0"/>
+          <position x="411.0" y="249.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="6.0" y="-10.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(y,x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a13" source="p3" target="t4">
+        <graphics>
+          <position x="408.0" y="514.0"/>
+          <position x="505.0" y="402.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="14.0" y="-3.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,y)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a14" source="t4" target="p1">
+        <graphics>
+          <position x="531.0" y="403.0"/>
+          <position x="531.0" y="569.0"/>
+          <position x="120.0" y="569.0"/>
+          <position x="120.0" y="426.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="220.0" y="-84.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <place id="p4">
+        <name>
+          <graphics>
+            <offset x="32.0" y="-8.0"/>
+          </graphics>
+          <text>agreed sites</text>
+        </name>
+        <graphics>
+          <position x="683.5" y="383.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-8.0" y="32.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>SITE</text>
+        </type>
+      </place>
+      <arc id="a15" source="p4" target="t4">
+        <graphics>
+          <position x="663.0" y="383.0"/>
+          <position x="491.0" y="367.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="23.0" y="-15.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <arc id="a16" source="t3" target="p4">
+        <graphics>
+          <position x="415.0" y="143.0"/>
+          <position x="683.0" y="143.0"/>
+          <position x="683.0" y="363.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="12.0" y="77.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <declaration>
+        <graphics>
+          <offset x="40.0" y="35.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <arbitrarysort id="id1" name="SITE"/>
+            <namedsort id="id2" name="MESSAGE">
+              <productsort>
+                <usersort declaration="id1"/>
+                <usersort declaration="id1"/>
+              </productsort>
+            </namedsort>
+          </declarations>
+        </structure>
+        <text>sortsymbols
+   SITE;
+
+sorts
+   MESSAGE=(SITE*SITE);</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="420.0" y="35.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <variabledecl id="id7" name="x">
+              <usersort declaration="id1"/>
+            </variabledecl>
+            <variabledecl id="id8" name="y">
+              <usersort declaration="id1"/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>vars
+   x:SITE,
+   y:SITE;
+</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="235.0" y="35.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <arbitraryoperator id="id3" name="U">
+              <output>
+                <multisetsort>
+                  <usersort declaration="id1"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <arbitraryoperator id="id4" name="M">
+              <output>
+                <multisetsort>
+                  <usersort declaration="id2"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <arbitraryoperator id="id5" name="S">
+              <input>
+                <usersort declaration="id1"/>
+              </input>
+              <output>
+                <multisetsort>
+                  <usersort declaration="id2"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <arbitraryoperator id="id6" name="R">
+              <input>
+                <usersort declaration="id1"/>
+              </input>
+              <output>
+                <multisetsort>
+                  <usersort declaration="id2"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+          </declarations>
+        </structure>
+        <text>opsymbols
+   U:->MS(SITE),
+   M:->MS(MESSAGE),
+   S:SITE->MS(MESSAGE),
+   R:SITE->MS(MESSAGE);</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/symmetricnet" id="n1">
+    <name>
+      <text>Technical example covering all the rest of the SN constructs (not covered in the samplePNPrioX.pnml)</text>
+    </name>
+    <page id="top-level">
+      <place id="p1">
+        <name>
+          <graphics>
+            <offset x="5.0" y="-30.0"/>
+          </graphics>
+          <text>Users</text>
+        </name>
+        <graphics>
+          <position x="104.5" y="54.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-40.0" y="-15.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>USERS</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-55.0" y="30.0"/>
+          </graphics>
+          <structure>
+            <all>
+              <usersort declaration="id1"/>
+            </all>
+          </structure>
+          <text>all:USERS</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p2">
+        <name>
+          <graphics>
+            <offset x="-25.0" y="-40.0"/>
+          </graphics>
+          <text>Files</text>
+        </name>
+        <graphics>
+          <position x="329.5" y="49.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-60.0" y="-20.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id16"/>
+          </structure>
+          <text>OwnedFiles</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="60.0" y="-15.0"/>
+          </graphics>
+          <structure>
+            <add>
+              <subterm>
+                <add>
+                  <subterm>
+                    <add>
+                      <subterm>
+                        <numberof>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <tuple>
+                              <subterm>
+                                <useroperator declaration="id8"/>
+                              </subterm>
+                              <subterm>
+                                <useroperator declaration="id2"/>
+                              </subterm>
+                            </tuple>
+                          </subterm>
+                        </numberof>
+                      </subterm>
+                      <subterm>
+                        <numberof>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <tuple>
+                              <subterm>
+                                <useroperator declaration="id9"/>
+                              </subterm>
+                              <subterm>
+                                <useroperator declaration="id4"/>
+                              </subterm>
+                            </tuple>
+                          </subterm>
+                        </numberof>
+                      </subterm>
+                    </add>
+                  </subterm>
+                  <subterm>
+                    <numberof>
+                      <subterm>
+                        <numberconstant value="1">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <tuple>
+                          <subterm>
+                            <useroperator declaration="id10"/>
+                          </subterm>
+                          <subterm>
+                            <useroperator declaration="id4"/>
+                          </subterm>
+                        </tuple>
+                      </subterm>
+                    </numberof>
+                  </subterm>
+                </add>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <useroperator declaration="id11"/>
+                      </subterm>
+                      <subterm>
+                        <useroperator declaration="id6"/>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>1`(index(),apache()) ++&#xD;
+1`(emacs(),chris()) ++&#xD;
+1`(article(),chris()) ++&#xD;
+1`(passwd(),root())</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p3">
+        <name>
+          <graphics>
+            <offset x="-39.0" y="64.0"/>
+          </graphics>
+          <text>FilesBeingAccessed</text>
+        </name>
+        <graphics>
+          <position x="239.5" y="274.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="50.0" y="10.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id17"/>
+          </structure>
+          <text>AccessedFiles</text>
+        </type>
+      </place>
+      <transition id="t1">
+        <name>
+          <graphics>
+            <offset x="50.0" y="15.0"/>
+          </graphics>
+          <text>Grant Access</text>
+        </name>
+        <graphics>
+          <position x="239.5" y="179.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <condition>
+          <graphics>
+            <offset x="-220.0" y="10.0"/>
+          </graphics>
+          <structure>
+            <or>
+              <subterm>
+                <equality>
+                  <subterm>
+                    <variable refvariable="id18"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id19"/>
+                  </subterm>
+                </equality>
+              </subterm>
+              <subterm>
+                <ltp>
+                  <subterm>
+                    <partitionelementof refpartition="id12">
+                      <subterm>
+                        <variable refvariable="id18"/>
+                      </subterm>
+                    </partitionelementof>
+                  </subterm>
+                  <subterm>
+                    <partitionelementof refpartition="id12">
+                      <subterm>
+                        <variable refvariable="id19"/>
+                      </subterm>
+                    </partitionelementof>
+                  </subterm>
+                </ltp>
+              </subterm>
+            </or>
+          </structure>
+          <text>u==v or &#xD;
+partition:Access(u) &lt;p partition:Access(v)</text>
+        </condition>
+      </transition>
+      <arc id="a1" source="p1" target="t1">
+        <hlinscription>
+          <graphics>
+            <offset x="-20.0" y="13.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id18"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`u</text>
+        </hlinscription>
+      </arc>
+      <arc id="a2" source="p2" target="t1">
+        <hlinscription>
+          <graphics>
+            <offset x="33.0" y="10.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <successor>
+                      <subterm>
+                        <variable refvariable="id20"/>
+                      </subterm>
+                    </successor>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id19"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(succ(f),v)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a3" source="t1" target="p3">
+        <hlinscription>
+          <graphics>
+            <offset x="28.0" y="5.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id18"/>
+                  </subterm>
+                  <subterm>
+                    <predecessor>
+                      <subterm>
+                        <variable refvariable="id20"/>
+                      </subterm>
+                    </predecessor>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(u,pred(f))</text>
+        </hlinscription>
+      </arc>
+      <place id="p4">
+        <graphics>
+          <position x="299.5" y="494.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="48.0" y="9.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id21"/>
+          </structure>
+          <text>RANGE</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-57.0" y="9.0"/>
+          </graphics>
+          <structure>
+            <all>
+              <usersort declaration="id21"/>
+            </all>
+          </structure>
+          <text>all:RANGE</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t2">
+        <graphics>
+          <position x="299.5" y="579.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <condition>
+          <graphics>
+            <offset x="57.0" y="8.0"/>
+          </graphics>
+          <structure>
+            <and>
+              <subterm>
+                <and>
+                  <subterm>
+                    <and>
+                      <subterm>
+                        <and>
+                          <subterm>
+                            <lessthan>
+                              <subterm>
+                                <variable refvariable="id22"/>
+                              </subterm>
+                              <subterm>
+                                <variable refvariable="id23"/>
+                              </subterm>
+                            </lessthan>
+                          </subterm>
+                          <subterm>
+                            <greaterthan>
+                              <subterm>
+                                <variable refvariable="id23"/>
+                              </subterm>
+                              <subterm>
+                                <variable refvariable="id22"/>
+                              </subterm>
+                            </greaterthan>
+                          </subterm>
+                        </and>
+                      </subterm>
+                      <subterm>
+                        <equality>
+                          <subterm>
+                            <variable refvariable="id22"/>
+                          </subterm>
+                          <subterm>
+                            <variable refvariable="id23"/>
+                          </subterm>
+                        </equality>
+                      </subterm>
+                    </and>
+                  </subterm>
+                  <subterm>
+                    <lessthanorequal>
+                      <subterm>
+                        <finiteintrangeconstant value="-1">
+                          <finiteintrange start="-1" end="5"/>
+                        </finiteintrangeconstant>
+                      </subterm>
+                      <subterm>
+                        <variable refvariable="id22"/>
+                      </subterm>
+                    </lessthanorequal>
+                  </subterm>
+                </and>
+              </subterm>
+              <subterm>
+                <greaterthanorequal>
+                  <subterm>
+                    <variable refvariable="id22"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id23"/>
+                  </subterm>
+                </greaterthanorequal>
+              </subterm>
+            </and>
+          </structure>
+          <text>x>r y and y &lt;r x and x==y and -1[-1..5]&lt;=r x and x>=r y</text>
+        </condition>
+      </transition>
+      <arc id="a4" source="p4" target="t2">
+        <graphics>
+          <position x="304.0" y="515.0"/>
+          <position x="301.0" y="561.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-52.0" y="12.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <finiteintrangeconstant value="1">
+                  <finiteintrange start="-1" end="5"/>
+                </finiteintrangeconstant>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(1[-1..5])</text>
+        </hlinscription>
+      </arc>
+      <declaration>
+        <graphics>
+          <offset x="430.0" y="175.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <namedsort id="id1" name="USERS">
+              <finiteenumeration>
+                <feconstant id="id2" name="apache"/>
+                <feconstant id="id3" name="iis"/>
+                <feconstant id="id4" name="chris"/>
+                <feconstant id="id5" name="denise"/>
+                <feconstant id="id6" name="root"/>
+              </finiteenumeration>
+            </namedsort>
+            <namedsort id="id7" name="FILES">
+              <cyclicenumeration>
+                <feconstant id="id8" name="index"/>
+                <feconstant id="id9" name="emacs"/>
+                <feconstant id="id10" name="article"/>
+                <feconstant id="id11" name="passwd"/>
+              </cyclicenumeration>
+            </namedsort>
+            <partition id="id12" name="Access">
+              <usersort declaration="id1"/>
+              <partitionelement id="id13" name="www">
+                <useroperator declaration="id2"/>
+                <useroperator declaration="id3"/>
+              </partitionelement>
+              <partitionelement id="id14" name="work">
+                <useroperator declaration="id4"/>
+                <useroperator declaration="id5"/>
+              </partitionelement>
+              <partitionelement id="id15" name="admin">
+                <useroperator declaration="id6"/>
+              </partitionelement>
+            </partition>
+            <namedsort id="id16" name="OwnedFiles">
+              <productsort>
+                <usersort declaration="id7"/>
+                <usersort declaration="id1"/>
+              </productsort>
+            </namedsort>
+            <namedsort id="id17" name="AccessedFiles">
+              <productsort>
+                <usersort declaration="id1"/>
+                <usersort declaration="id7"/>
+              </productsort>
+            </namedsort>
+            <variabledecl id="id18" name="u">
+              <usersort declaration="id1"/>
+            </variabledecl>
+            <variabledecl id="id19" name="v">
+              <usersort declaration="id1"/>
+            </variabledecl>
+            <variabledecl id="id20" name="f">
+              <usersort declaration="id7"/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>sorts&#xD;
+  USERS = enum { apache, iis, chris, denise, root },&#xD;
+  FILES = cyclic { index, emacs, article, passwd },&#xD;
+  partition  USERS in Access {www: apache(), iis(); work: chris(), denise(); admin:root() },&#xD;
+  OwnedFiles = (FILES *USERS),&#xD;
+  AccessedFiles = (USERS * FILES);&#xD;
+&#xD;
+vars&#xD;
+  u: USERS,&#xD;
+  v:USERS,&#xD;
+  f: FILES;</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="447.0" y="421.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <namedsort id="id21" name="RANGE">
+              <finiteintrange start="-1" end="5"/>
+            </namedsort>
+            <variabledecl id="id22" name="x">
+              <usersort declaration="id21"/>
+            </variabledecl>
+            <variabledecl id="id23" name="y">
+              <usersort declaration="id21"/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>sorts&#xD;
+  RANGE = [-1..5];&#xD;
+&#xD;
+vars&#xD;
+  x:RANGE,&#xD;
+  y:RANGE;</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

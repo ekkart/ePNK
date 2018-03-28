@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="ASCII"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/ptnet" id="n1">
+    <name>
+      <text>Mutual exclusion</text>
+    </name>
+    <page id="pg0">
+      <name>
+        <text>semaphor page</text>
+      </name>
+      <place id="semaphor">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>semaphor</text>
+        </name>
+        <graphics>
+          <position x="380.0" y="140.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <initialMarking>
+          <graphics>
+            <offset x="0.0" y="-40.0"/>
+          </graphics>
+          <text>1</text>
+        </initialMarking>
+      </place>
+    </page>
+    <page id="pg1">
+      <name>
+        <text>agent1</text>
+      </name>
+      <place id="idle1">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>idle1</text>
+        </name>
+        <graphics>
+          <position x="100.0" y="220.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <initialMarking>
+          <graphics>
+            <offset x="0.0" y="-40.0"/>
+          </graphics>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="pending1">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>pending1</text>
+        </name>
+        <graphics>
+          <position x="100.0" y="60.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </place>
+      <place id="critical1">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>critical1</text>
+        </name>
+        <graphics>
+          <position x="300.0" y="140.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </place>
+      <referencePlace id="semaphor1" ref="semaphor">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>semaphor</text>
+        </name>
+        <graphics>
+          <position x="380.0" y="140.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </referencePlace>
+      <transition id="t1.1">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>t1.1</text>
+        </name>
+        <graphics>
+          <position x="40.0" y="140.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <transition id="t2.1">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>t2.1</text>
+        </name>
+        <graphics>
+          <position x="220.0" y="60.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <transition id="t3.1">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>t3.1</text>
+        </name>
+        <graphics>
+          <position x="220.0" y="220.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a1.1" source="idle1" target="t1.1"/>
+      <arc id="a2.1" source="t1.1" target="pending1"/>
+      <arc id="a3.1" source="pending1" target="t2.1"/>
+      <arc id="a4.1" source="t2.1" target="critical1"/>
+      <arc id="a5.1" source="critical1" target="t3.1"/>
+      <arc id="a6.1" source="t3.1" target="idle1"/>
+      <arc id="a7.1" source="semaphor1" target="t2.1">
+        <graphics>
+          <position x="300.0" y="60.0"/>
+        </graphics>
+      </arc>
+      <arc id="a8.1" source="t3.1" target="semaphor1">
+        <graphics>
+          <position x="300.0" y="220.0"/>
+        </graphics>
+      </arc>
+    </page>
+    <page id="pg2">
+      <name>
+        <text>agent2</text>
+      </name>
+      <place id="idle2">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>idle2</text>
+        </name>
+        <graphics>
+          <position x="100.0" y="220.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <initialMarking>
+          <graphics>
+            <offset x="0.0" y="-40.0"/>
+          </graphics>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="pending2">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>pending2</text>
+        </name>
+        <graphics>
+          <position x="100.0" y="60.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </place>
+      <place id="critical2">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>critical2</text>
+        </name>
+        <graphics>
+          <position x="300.0" y="140.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </place>
+      <referencePlace id="semaphor2" ref="semaphor">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>semaphor</text>
+        </name>
+        <graphics>
+          <position x="380.0" y="140.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </referencePlace>
+      <transition id="t1.2">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>t1.2</text>
+        </name>
+        <graphics>
+          <position x="40.0" y="140.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <transition id="t2.2">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>t2.2</text>
+        </name>
+        <graphics>
+          <position x="220.0" y="60.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <transition id="t3.2">
+        <name>
+          <graphics>
+            <offset x="0.0" y="30.0"/>
+          </graphics>
+          <text>t3.2</text>
+        </name>
+        <graphics>
+          <position x="220.0" y="220.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a1.2" source="idle2" target="t1.2"/>
+      <arc id="a2.2" source="t1.2" target="pending2"/>
+      <arc id="a3.2" source="pending2" target="t2.2"/>
+      <arc id="a4.2" source="t2.2" target="critical2"/>
+      <arc id="a5.2" source="critical2" target="t3.2"/>
+      <arc id="a6.2" source="t3.2" target="idle2"/>
+      <arc id="a7.2" source="semaphor2" target="t2.2">
+        <graphics>
+          <position x="300.0" y="60.0"/>
+        </graphics>
+      </arc>
+      <arc id="a8.2" source="t3.2" target="semaphor2">
+        <graphics>
+          <position x="300.0" y="220.0"/>
+        </graphics>
+      </arc>
+    </page>
+  </net>
+</pnml>

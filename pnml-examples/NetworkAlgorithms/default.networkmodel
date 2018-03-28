@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<networkmodel:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:networkmodel="http://org.pnml.tools/network">
+  <network xsi:type="networkmodel:Node" label="B" out="//@network.4" in="//@network.3" category="//@categories.1"/>
+  <network xsi:type="networkmodel:Node" label="A" out="//@network.3 //@network.5" in="//@network.5" category="//@categories.0"/>
+  <network xsi:type="networkmodel:Node" label="C" in="//@network.4" category="//@categories.1"/>
+  <network xsi:type="networkmodel:DirectedEdge" source="A" target="B"/>
+  <network xsi:type="networkmodel:UndirectedEdge" source="B" target="C"/>
+  <network xsi:type="networkmodel:DirectedEdge" source="A" target="A"/>
+  <categories name="RootNodes" node="A"/>
+  <categories name="InnerNodes" node="B C"/>
+</networkmodel:Network>

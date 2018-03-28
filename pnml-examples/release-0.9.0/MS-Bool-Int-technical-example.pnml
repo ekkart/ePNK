@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet" id="n1">
+    <name>
+      <text>Test of the packages multisets, booleans, and integers</text>
+    </name>
+    <page id="pg1">
+      <name>
+        <text>top</text>
+      </name>
+      <place id="p1">
+        <graphics>
+          <position x="94.5" y="89.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-29.0" y="36.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>A</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-39.0" y="-49.0"/>
+          </graphics>
+          <structure>
+            <all>
+              <usersort declaration="id1"/>
+            </all>
+          </structure>
+          <text>all:A</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t1">
+        <graphics>
+          <position x="214.5" y="89.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <condition>
+          <graphics>
+            <offset x="-74.0" y="-74.0"/>
+          </graphics>
+          <structure>
+            <or>
+              <subterm>
+                <not>
+                  <subterm>
+                    <or>
+                      <subterm>
+                        <imply>
+                          <subterm>
+                            <contains>
+                              <subterm>
+                                <variable refvariable="id4"/>
+                              </subterm>
+                              <subterm>
+                                <numberof>
+                                  <subterm>
+                                    <numberconstant value="1">
+                                      <positive/>
+                                    </numberconstant>
+                                  </subterm>
+                                  <subterm>
+                                    <variable refvariable="id3"/>
+                                  </subterm>
+                                </numberof>
+                              </subterm>
+                            </contains>
+                          </subterm>
+                          <subterm>
+                            <equality>
+                              <subterm>
+                                <variable refvariable="id3"/>
+                              </subterm>
+                              <subterm>
+                                <tuple>
+                                  <subterm>
+                                    <numberconstant value="5">
+                                      <positive/>
+                                    </numberconstant>
+                                  </subterm>
+                                  <subterm>
+                                    <numberconstant value="2">
+                                      <positive/>
+                                    </numberconstant>
+                                  </subterm>
+                                </tuple>
+                              </subterm>
+                            </equality>
+                          </subterm>
+                        </imply>
+                      </subterm>
+                      <subterm>
+                        <inequality>
+                          <subterm>
+                            <variable refvariable="id4"/>
+                          </subterm>
+                          <subterm>
+                            <all>
+                              <usersort declaration="id1"/>
+                            </all>
+                          </subterm>
+                        </inequality>
+                      </subterm>
+                    </or>
+                  </subterm>
+                </not>
+              </subterm>
+              <subterm>
+                <and>
+                  <subterm>
+                    <booleanconstant value="false"/>
+                  </subterm>
+                  <subterm>
+                    <booleanconstant value="true"/>
+                  </subterm>
+                </and>
+              </subterm>
+            </or>
+          </structure>
+          <text>not (X contains 1`x implies&#xD;
+x == (5,2) or X != all:A) or false and true</text>
+        </condition>
+      </transition>
+      <arc id="a1" source="p1" target="t1">
+        <graphics>
+          <position x="114.0" y="88.0"/>
+          <position x="229.0" y="72.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-21.0" y="-20.0"/>
+          </graphics>
+          <structure>
+            <variable refvariable="id4"/>
+          </structure>
+          <text>X</text>
+        </hlinscription>
+      </arc>
+      <place id="p2">
+        <graphics>
+          <position x="345.0" y="90.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="24.0" y="-38.0"/>
+          </graphics>
+          <structure>
+            <integer/>
+          </structure>
+          <text>INT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="50.0" y="10.0"/>
+          </graphics>
+          <structure>
+            <empty>
+              <integer/>
+            </empty>
+          </structure>
+          <text>empty:INT</text>
+        </hlinitialMarking>
+      </place>
+      <arc id="a2" source="t1" target="p2">
+        <graphics>
+          <position x="229.0" y="90.0"/>
+          <position x="399.0" y="84.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-74.0" y="28.0"/>
+          </graphics>
+          <structure>
+            <add>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <cardinality>
+                      <subterm>
+                        <variable refvariable="id4"/>
+                      </subterm>
+                    </cardinality>
+                  </subterm>
+                </numberof>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <cardinalityof>
+                      <subterm>
+                        <variable refvariable="id4"/>
+                      </subterm>
+                      <subterm>
+                        <variable refvariable="id3"/>
+                      </subterm>
+                    </cardinalityof>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>1`|X| ++ 1`#(X,x)</text>
+        </hlinscription>
+      </arc>
+      <place id="p3">
+        <graphics>
+          <position x="188.5" y="191.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-33.0" y="24.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>A</text>
+        </type>
+      </place>
+      <arc id="a3" source="t1" target="p3">
+        <graphics>
+          <position x="212.0" y="109.0"/>
+          <position x="189.0" y="210.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="30.0" y="-3.0"/>
+          </graphics>
+          <structure>
+            <subtract>
+              <subterm>
+                <scalarproduct>
+                  <subterm>
+                    <cardinality>
+                      <subterm>
+                        <variable refvariable="id4"/>
+                      </subterm>
+                    </cardinality>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id4"/>
+                  </subterm>
+                </scalarproduct>
+              </subterm>
+              <subterm>
+                <variable refvariable="id4"/>
+              </subterm>
+            </subtract>
+          </structure>
+          <text>|X|**X -- X</text>
+        </hlinscription>
+      </arc>
+      <place id="p4">
+        <graphics>
+          <position x="132.5" y="407.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-22.0" y="-52.0"/>
+          </graphics>
+          <structure>
+            <integer/>
+          </structure>
+          <text>INT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-102.0" y="43.0"/>
+          </graphics>
+          <structure>
+            <add>
+              <subterm>
+                <add>
+                  <subterm>
+                    <add>
+                      <subterm>
+                        <numberof>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <numberconstant value="-1">
+                              <integer/>
+                            </numberconstant>
+                          </subterm>
+                        </numberof>
+                      </subterm>
+                      <subterm>
+                        <numberof>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <numberconstant value="0">
+                              <natural/>
+                            </numberconstant>
+                          </subterm>
+                        </numberof>
+                      </subterm>
+                    </add>
+                  </subterm>
+                  <subterm>
+                    <numberof>
+                      <subterm>
+                        <numberconstant value="1">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <numberconstant value="3">
+                          <integer/>
+                        </numberconstant>
+                      </subterm>
+                    </numberof>
+                  </subterm>
+                </add>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="2">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>1`-1:INT ++ 1`0:NAT ++ 1`3:INT ++ 1`2:POS</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t2">
+        <graphics>
+          <position x="293.5" y="408.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <condition>
+          <structure>
+            <or>
+              <subterm>
+                <and>
+                  <subterm>
+                    <and>
+                      <subterm>
+                        <geq>
+                          <subterm>
+                            <variable refvariable="id5"/>
+                          </subterm>
+                          <subterm>
+                            <variable refvariable="id6"/>
+                          </subterm>
+                        </geq>
+                      </subterm>
+                      <subterm>
+                        <gt>
+                          <subterm>
+                            <variable refvariable="id5"/>
+                          </subterm>
+                          <subterm>
+                            <numberconstant value="0">
+                              <natural/>
+                            </numberconstant>
+                          </subterm>
+                        </gt>
+                      </subterm>
+                    </and>
+                  </subterm>
+                  <subterm>
+                    <leq>
+                      <subterm>
+                        <variable refvariable="id6"/>
+                      </subterm>
+                      <subterm>
+                        <variable refvariable="id5"/>
+                      </subterm>
+                    </leq>
+                  </subterm>
+                </and>
+              </subterm>
+              <subterm>
+                <and>
+                  <subterm>
+                    <gt>
+                      <subterm>
+                        <numberconstant value="0">
+                          <natural/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <variable refvariable="id6"/>
+                      </subterm>
+                    </gt>
+                  </subterm>
+                  <subterm>
+                    <equality>
+                      <subterm>
+                        <variable refvariable="id5"/>
+                      </subterm>
+                      <subterm>
+                        <variable refvariable="id6"/>
+                      </subterm>
+                    </equality>
+                  </subterm>
+                </and>
+              </subterm>
+            </or>
+          </structure>
+          <text>y>= z and y > 0 and z &lt;= y or 0 > z and y==z</text>
+        </condition>
+      </transition>
+      <arc id="a4" source="p4" target="t2">
+        <graphics>
+          <position x="152.0" y="409.0"/>
+          <position x="273.0" y="409.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-32.0" y="-24.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <subtraction>
+                  <subterm>
+                    <addition>
+                      <subterm>
+                        <mult>
+                          <subterm>
+                            <variable refvariable="id5"/>
+                          </subterm>
+                          <subterm>
+                            <variable refvariable="id6"/>
+                          </subterm>
+                        </mult>
+                      </subterm>
+                      <subterm>
+                        <variable refvariable="id5"/>
+                      </subterm>
+                    </addition>
+                  </subterm>
+                  <subterm>
+                    <mod>
+                      <subterm>
+                        <div>
+                          <subterm>
+                            <numberconstant value="3">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <numberconstant value="5">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                        </div>
+                      </subterm>
+                      <subterm>
+                        <variable refvariable="id5"/>
+                      </subterm>
+                    </mod>
+                  </subterm>
+                </subtraction>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(y*z+y - 3/5 %y)</text>
+        </hlinscription>
+      </arc>
+      <place id="p5">
+        <graphics>
+          <position x="415.5" y="443.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <structure>
+            <bool/>
+          </structure>
+          <text>BOOL</text>
+        </type>
+      </place>
+      <arc id="a5" source="t2" target="p5">
+        <graphics>
+          <position x="313.0" y="415.0"/>
+          <position x="416.0" y="464.0"/>
+        </graphics>
+        <hlinscription>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <equality>
+                  <subterm>
+                    <variable refvariable="id5"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id6"/>
+                  </subterm>
+                </equality>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(y==z)</text>
+        </hlinscription>
+      </arc>
+      <declaration>
+        <graphics>
+          <offset x="475.0" y="35.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <namedsort id="id1" name="A">
+              <productsort>
+                <integer/>
+                <integer/>
+              </productsort>
+            </namedsort>
+            <namedsort id="id2" name="M">
+              <multisetsort>
+                <usersort declaration="id1"/>
+              </multisetsort>
+            </namedsort>
+          </declarations>
+        </structure>
+        <text>sorts&#xD;
+  A = (INT * INT),&#xD;
+  M = MS(A);</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="480.0" y="140.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <variabledecl id="id3" name="x">
+              <usersort declaration="id1"/>
+            </variabledecl>
+            <variabledecl id="id4" name="X">
+              <usersort declaration="id2"/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>vars&#xD;
+  x: A,&#xD;
+  X:M;</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="481.0" y="401.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <variabledecl id="id5" name="y">
+              <integer/>
+            </variabledecl>
+            <variabledecl id="id6" name="z">
+              <integer/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>vars&#xD;
+  y:INT,&#xD;
+  z:INT;</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

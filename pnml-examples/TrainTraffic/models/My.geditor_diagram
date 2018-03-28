@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:geditor="http://geditor/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_4SifQCscEeGXV5IVOpJngw" type="GEditor" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_5B6twCscEeGXV5IVOpJngw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_5B7U0CscEeGXV5IVOpJngw" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_5B6twSscEeGXV5IVOpJngw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_5B6twiscEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_5B6twyscEeGXV5IVOpJngw"/>
+    <element xmi:type="geditor:Point" href="My.geditor#//@GeometryObjects.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5B6txCscEeGXV5IVOpJngw" x="48" y="156"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_5yWFICscEeGXV5IVOpJngw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_5yWFJSscEeGXV5IVOpJngw" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_5yWFISscEeGXV5IVOpJngw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_5yWFIiscEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_5yWFIyscEeGXV5IVOpJngw"/>
+    <element xmi:type="geditor:Point" href="My.geditor#//@GeometryObjects.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5yWFJCscEeGXV5IVOpJngw" x="65" y="245"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_8N7WwCscEeGXV5IVOpJngw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_8N790CscEeGXV5IVOpJngw" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_8N7WwSscEeGXV5IVOpJngw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8N7WwiscEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_8N7WwyscEeGXV5IVOpJngw"/>
+    <element xmi:type="geditor:Point" href="My.geditor#//@GeometryObjects.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8N7WxCscEeGXV5IVOpJngw" x="303" y="293"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_BADB8CsdEeGXV5IVOpJngw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_BADpACsdEeGXV5IVOpJngw" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_BADB8SsdEeGXV5IVOpJngw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_BADB8isdEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_BADB8ysdEeGXV5IVOpJngw"/>
+    <element xmi:type="geditor:Point" href="My.geditor#//@GeometryObjects.5"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BADB9CsdEeGXV5IVOpJngw" x="516" y="264"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_WCqgICsdEeGXV5IVOpJngw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WCrHMysdEeGXV5IVOpJngw" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_WCqgISsdEeGXV5IVOpJngw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_WCrHMCsdEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_WCrHMSsdEeGXV5IVOpJngw"/>
+    <element xmi:type="geditor:Point" href="My.geditor#//@GeometryObjects.9"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WCrHMisdEeGXV5IVOpJngw" x="360" y="288"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_YBQTwCsdEeGXV5IVOpJngw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_YBQTxSsdEeGXV5IVOpJngw" type="5001"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_YBQTwSsdEeGXV5IVOpJngw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_YBQTwisdEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_YBQTwysdEeGXV5IVOpJngw"/>
+    <element xmi:type="geditor:Point" href="My.geditor#//@GeometryObjects.10"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YBQTxCsdEeGXV5IVOpJngw" x="24" y="168"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_86vW4J_zEeG_Za0901Mu4w" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_86wlAJ_zEeG_Za0901Mu4w" type="5001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_86wlAZ_zEeG_Za0901Mu4w" x="-89" y="15"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_86vW4Z_zEeG_Za0901Mu4w"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_86vW4p_zEeG_Za0901Mu4w" fontName="Ubuntu"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_86vW45_zEeG_Za0901Mu4w"/>
+    <element xmi:type="geditor:Point" href="My.geditor#//@GeometryObjects.11"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_86vW5J_zEeG_Za0901Mu4w" x="300" y="252"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_4SifQSscEeGXV5IVOpJngw"/>
+  <element xmi:type="geditor:Geometry" href="My.geditor#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_6tgF0CscEeGXV5IVOpJngw" type="4001" source="_5B6twCscEeGXV5IVOpJngw" target="_5yWFICscEeGXV5IVOpJngw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_6tgF0SscEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <element xmi:type="geditor:Arc" href="My.geditor#//@GeometryObjects.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6tgF0iscEeGXV5IVOpJngw" points="[-1, 5, 8, -83]$[-7, 83, 2, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_-HoDUCscEeGXV5IVOpJngw" type="4001" source="_5yWFICscEeGXV5IVOpJngw" target="_8N7WwCscEeGXV5IVOpJngw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_-HoDUSscEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <element xmi:type="geditor:Arc" href="My.geditor#//@GeometryObjects.4"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-HoDUiscEeGXV5IVOpJngw" points="[0, 5, -238, -43]$[14, 98, -224, 50]$[98, 146, -140, 98]$[233, 51, -5, 3]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_CQTI4CsdEeGXV5IVOpJngw" type="4001" source="_8N7WwCscEeGXV5IVOpJngw" target="_BADB8CsdEeGXV5IVOpJngw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_CQTI4SsdEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <element xmi:type="geditor:Arc" href="My.geditor#//@GeometryObjects.6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CQTI4isdEeGXV5IVOpJngw" points="[5, -3, -208, 26]$[122, -66, -91, -37]$[184, -58, -29, -29]$[208, -34, -5, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_DYguICsdEeGXV5IVOpJngw" type="4001" source="_BADB8CsdEeGXV5IVOpJngw" target="_5B6twCscEeGXV5IVOpJngw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_DYguISsdEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <element xmi:type="geditor:Arc" href="My.geditor#//@GeometryObjects.7"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DYguIisdEeGXV5IVOpJngw" points="[3, 5, 471, 113]$[76, 100, 544, 208]$[182, 26, 650, 134]$[199, -233, 667, -125]$[-329, -280, 139, -172]$[-461, -221, 7, -113]$[-468, -113, 0, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_Gb_tQCsdEeGXV5IVOpJngw" type="4001" source="_8N7WwCscEeGXV5IVOpJngw" target="_5yWFICscEeGXV5IVOpJngw">
+    <styles xmi:type="notation:FontStyle" xmi:id="_Gb_tQSsdEeGXV5IVOpJngw" fontName="Segoe UI"/>
+    <element xmi:type="geditor:Arc" href="My.geditor#//@GeometryObjects.8"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Gb_tQisdEeGXV5IVOpJngw" points="[2, -5, 240, 43]$[124, -214, 362, -166]$[-32, -238, 206, -190]$[-152, -202, 86, -154]$[-236, -53, 2, -5]"/>
+  </edges>
+</notation:Diagram>

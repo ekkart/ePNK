@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<networkmodel:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:networkmodel="http://org.pnml.tools/network">
+  <network xsi:type="networkmodel:Node" label="B" out="//@network.6 //@network.7" category="//@categories.1"/>
+  <network xsi:type="networkmodel:Node" label="A" out="//@network.8 //@network.12 //@network.13" in="//@network.6" category="//@categories.1"/>
+  <network xsi:type="networkmodel:Node" label="F" out="//@network.11" in="//@network.8" category="//@categories.0"/>
+  <network xsi:type="networkmodel:Node" label="E" out="//@network.9" in="//@network.7" category="//@categories.1"/>
+  <network xsi:type="networkmodel:Node" label="C" in="//@network.10 //@network.11 //@network.13" category="//@categories.1"/>
+  <network xsi:type="networkmodel:Node" label="D" out="//@network.10" in="//@network.9 //@network.12" category="//@categories.1"/>
+  <network xsi:type="networkmodel:UndirectedEdge" source="B" target="A"/>
+  <network xsi:type="networkmodel:UndirectedEdge" source="B" target="E"/>
+  <network xsi:type="networkmodel:UndirectedEdge" source="A" target="F"/>
+  <network xsi:type="networkmodel:UndirectedEdge" source="E" target="D"/>
+  <network xsi:type="networkmodel:UndirectedEdge" source="D" target="C"/>
+  <network xsi:type="networkmodel:UndirectedEdge" source="F" target="C"/>
+  <network xsi:type="networkmodel:UndirectedEdge" source="A" target="D"/>
+  <network xsi:type="networkmodel:UndirectedEdge" source="A" target="C"/>
+  <categories name="Initiators" node="F"/>
+  <categories name="Others" node="A B C D E"/>
+</networkmodel:Network>
