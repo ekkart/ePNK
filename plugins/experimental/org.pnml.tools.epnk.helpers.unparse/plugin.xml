@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/helpers/parserrules/1.0"
+            class="parserrules.ParserrulesPackage"
+            genModel="model/ParserRules.genmodel"/>
+   </extension>
+   
+   <!-- 
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.pnml.tools.epnk.helpers.unparse.actions.contribution2"
+            objectClass="org.pnml.tools.epnk.pnmlcoremodel.Label">
+         <menu
+               id="org.pnml.tools.epnk.actions.standardmenu"
+               label="ePNK"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="action.SerialiseArcAnnotation"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.helpers.unparse.actions.displayserialisedlabel"
+               label="Display serialised label"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1">
+         </action>
+      </objectContribution>
+   </extension>
+   -->
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.pnml.tools.epnk.helpers.unparse.actions.contribution1"
+            objectClass="org.pnml.tools.epnk.pntypes.hlpng.pntd.hlpngdefinition.HLPN">
+         <menu
+               id="org.pnml.tools.epnk.actions.standardmenu"
+               label="ePNK"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="action.SerialiseAllHLPNGLabelsAction"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.helpers.unparse.actions.serialiselabels"
+               label="Serialise HLPNG Labels"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

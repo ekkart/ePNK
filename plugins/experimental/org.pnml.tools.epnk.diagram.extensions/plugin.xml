@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   
+   <!-- ekki@dtu.dk:
+          this menu definition should eventually be moved to the ePNK actions plugin
+          (when adjusting all ePNK actions to the eclipse command/handler framework),
+          so that it can be used by all ePNK extensions.
+   -->
+   <extension 
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               id="org.pnml.tools.epnk.actions.standardmenu"
+               label="ePNK">
+         </menu>
+      </menuContribution>
+   </extension>
+   
+   <extension 
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.pnml.tools.epnk.actions.standardmenu?after=additions">
+         <command
+               commandId="org.pnml.tools.epnk.diagram.extensions.command.add_default_labels">
+            <visibleWhen>
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <or>
+                     <iterate>
+                        <adapt
+                              type="org.pnml.tools.epnk.diagram.edit.parts.PlaceEditPart">
+                        </adapt>
+                     </iterate>
+                     <iterate>
+                        <adapt
+                              type="org.pnml.tools.epnk.diagram.edit.parts.TransitionEditPart">
+                        </adapt>
+                     </iterate>
+                     <iterate>
+                        <adapt
+                              type="org.pnml.tools.epnk.diagram.edit.parts.ArcEditPart">
+                        </adapt>
+                     </iterate>
+                     <iterate>
+                        <adapt
+                              type="org.pnml.tools.epnk.diagram.edit.parts.Page2EditPart">
+                        </adapt>
+                     </iterate>
+                     <iterate>
+                        <adapt
+                              type="org.pnml.tools.epnk.diagram.edit.parts.RefPlaceEditPart">
+                        </adapt>
+                     </iterate>
+                     <iterate>
+                        <adapt
+                              type="org.pnml.tools.epnk.diagram.edit.parts.RefTransitionEditPart">
+                        </adapt>
+                     </iterate>                                          
+                  </or>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Adds all default labels to this object"
+            id="org.pnml.tools.epnk.diagram.extensions.command.add_default_labels"
+            name="Add Default Labels">
+      </command>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.pnml.tools.epnk.diagram.extensions.handlers.AddDefaultLabelsHandler"
+            commandId="org.pnml.tools.epnk.diagram.extensions.command.add_default_labels">
+      </handler>
+   </extension>
+
+</plugin>

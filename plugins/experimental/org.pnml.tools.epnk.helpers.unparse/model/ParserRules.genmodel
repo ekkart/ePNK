@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="This file is part of the ePNK project (Petri Net Kernel for eclipse). The ePNK&#xD;&#xA;is platform for Petri net tools based on the PNML transfer format. Its&#xD;&#xA;main idea is to provide generic Petri net types which can be easily plugged&#xD;&#xA;in and a simple generic GMF editor, that can be used for graphically editing&#xD;&#xA;nets of any plugged in type. Additional functionality can be plugged in.&#xD;&#xA;&#xD;&#xA;Note that this project is still in an experimental phase, and is also used&#xD;&#xA;as a case study for EMF/GMF based Model-based Software Engineering.&#xD;&#xA;&#xD;&#xA;Copyright (C) 2011 Ekkart Kindler, eki@imm.dtu.dk&#xD;&#xA;The license under which this software will be distributed is still to be decided -&#xD;&#xA;it will probably be the EPL."
+    modelDirectory="/org.pnml.tools.epnk.helpers.unparse/src" modelPluginID="org.pnml.tools.epnk.helpers.unparse"
+    modelName="ParserRules" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>ParserRules.ecore</foreignModel>
+  <genPackages prefix="Parserrules" disposableProviderFactory="true" ecorePackage="ParserRules.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ParserRules.ecore#//OpType">
+      <genEnumLiterals ecoreEnumLiteral="ParserRules.ecore#//OpType/none"/>
+      <genEnumLiterals ecoreEnumLiteral="ParserRules.ecore#//OpType/left"/>
+      <genEnumLiterals ecoreEnumLiteral="ParserRules.ecore#//OpType/right"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ParserRules.ecore#//LinebreakCategory">
+      <genEnumLiterals ecoreEnumLiteral="ParserRules.ecore#//LinebreakCategory/over"/>
+      <genEnumLiterals ecoreEnumLiteral="ParserRules.ecore#//LinebreakCategory/end"/>
+      <genEnumLiterals ecoreEnumLiteral="ParserRules.ecore#//LinebreakCategory/middle"/>
+      <genEnumLiterals ecoreEnumLiteral="ParserRules.ecore#//LinebreakCategory/start"/>
+      <genEnumLiterals ecoreEnumLiteral="ParserRules.ecore#//LinebreakCategory/always"/>
+    </genEnums>
+    <genClasses ecoreClass="ParserRules.ecore#//Rules">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Rules/rule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Rules/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Rules/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Rules/maxprio"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Rules/token"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ParserRules.ecore#//Rule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Rule/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Rule/context"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Iterator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Iterator/lower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Iterator/upper"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Iterator/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Iterator/rule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Iterator/first"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Iterator/sep"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Iterator/last"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Iterator/feature"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//ClassRef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//ClassRef/package"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//ClassRef/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Feature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Feature/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Choice">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Choice/alternative"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Choice/type"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Op">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Op/lower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Op/upper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Op/prio"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Op/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Op/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Op/assoc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference ParserRules.ecore#//Op/symbol"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Atom">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Atom/prio"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Atom/def"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference ParserRules.ecore#//Atom/first"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference ParserRules.ecore#//Atom/last"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Token">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Token/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Token/separator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Token/parenthesis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Token/breakafter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Token/breakbefore"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Token/seperatorblanks"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Sequence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Sequence/sequence"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Element">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Element/feature"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Element/type"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Symbol">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Symbol/token"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ParserRules.ecore#//Parenthesis"/>
+    <genClasses ecoreClass="ParserRules.ecore#//Open">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Open/tabulate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Open/absolute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Open/offset"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Close"/>
+    <genClasses ecoreClass="ParserRules.ecore#//Separator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Separator/blankbefore"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Separator/blankafter"/>
+    </genClasses>
+    <genClasses ecoreClass="ParserRules.ecore#//Conditional">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ParserRules.ecore#//Conditional/class"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Conditional/thenCase"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ParserRules.ecore#//Conditional/elseCase"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

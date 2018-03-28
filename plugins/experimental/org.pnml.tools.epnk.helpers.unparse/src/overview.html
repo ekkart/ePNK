@@ -1,0 +1,39 @@
+<body>
+
+This project is an experimental extension of the ePNK project
+(Petri Net Kernel for eclipse). The ePNK is platform for Petri
+net tools based on the PNML transfer format. Its main idea is to
+provide generic Petri net types which can be easily plugged in
+and a simple generic GMF editor, that can be used for graphically editing
+nets of any plugged in type. Additional functionality can be plugged in.
+<p>
+
+Copyright (C) 2011 Ekkart Kindler, eki@imm.dtu.dk
+The license under which this software will be distributed is still to be decided -
+it will probably be the EPL.<p>
+
+<hr>
+
+<h3>Purpose</h3>
+
+The objective of this experimental project is a generic parsing and
+serialisation technology that could be used for parsing and serialising
+the textual labels of structured labels in new Petri net types. The
+reason is that Xtext is very nice for implementing parser, but not
+very good at the reverse direction.<p>  
+
+This project experiments with some rules that could be used for parsing
+and serialising the structural labels. Right now the focus is more on
+the serialisation and the the example for that are HLPNGs.<p>
+
+The current version seems to work fine for serialising all HLPNG
+labels. Since this is a very important functionality (PNML nets
+could come without any tectual labels or labels quite different
+ones from the ePNK), we release this experimental plugin, in spite
+of it being a bit raw, having strange names and packages are not
+being qualified (which almost certainly will change in the future).<p>
+
+<hr>
+@author Ekkart Kindler
+@version 0.1.0
+</body>

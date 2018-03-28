@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="ASCII"?>
+<parserrules:Rules xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:parserrules="http://org.pnml.tools/epnk/helpers/parserrules/1.0" xsi:schemaLocation="http://org.pnml.tools/epnk/helpers/parserrules/1.0 ParserRules.ecore" maxprio="11">
+  <rule xsi:type="parserrules:Iterator" name="Declarations" upper="-1" type="//@type.1" rule="//@rule.1"/>
+  <rule xsi:type="parserrules:Choice" name="Declaration">
+    <alternative xsi:type="parserrules:Atom" name="sortdeclarations" context="//@type.1" prio="1" def="//@rule.2" first="//@token.0" last="//@token.78"/>
+    <alternative xsi:type="parserrules:Atom" name="variabledeclarations" prio="1" def="//@rule.15" first="//@token.1" last="//@token.78"/>
+    <alternative xsi:type="parserrules:Atom" name="operatordeclarations" prio="1" def="//@rule.19" first="//@token.2" last="//@token.78"/>
+    <alternative xsi:type="parserrules:Atom" name="arbitrarysorts" prio="1" def="//@rule.24" first="//@token.3" last="//@token.78"/>
+    <alternative xsi:type="parserrules:Atom" name="arbitraryoperator" prio="1" def="//@rule.26" first="//@token.4" last="//@token.78"/>
+    <alternative xsi:type="parserrules:Atom" name="unparsed" prio="1" def="//@rule.31" first="//@token.80" last="//@token.78"/>
+  </rule>
+  <rule xsi:type="parserrules:Iterator" name="SortDeclarations" lower="1" upper="-1" rule="//@rule.3" sep="//@token.13" feature="//@feature.0"/>
+  <rule xsi:type="parserrules:Choice" name="SortDeclaration">
+    <alternative xsi:type="parserrules:Atom" name="namedsort" def="//@rule.4"/>
+    <alternative xsi:type="parserrules:Atom" name="partition" def="//@rule.7" first="//@token.64"/>
+  </rule>
+  <rule xsi:type="parserrules:Sequence" name="NamedSort" sequence="//@rule.5 //@rule.6"/>
+  <rule xsi:type="parserrules:Element" name="NamedSortName" feature="//@feature.6" type="//@type.2"/>
+  <rule xsi:type="parserrules:Iterator" name="NamedSortDefinition" context="//@type.2" lower="1" upper="1" rule="//@rule.83" first="//@token.5" feature="//@feature.17"/>
+  <rule xsi:type="parserrules:Sequence" name="Partition" sequence="//@rule.8 //@rule.9 //@rule.10"/>
+  <rule xsi:type="parserrules:Iterator" name="PartitionDefSort" lower="1" upper="1" type="//@type.64" rule="//@rule.83" last="//@token.65" feature="//@feature.17"/>
+  <rule xsi:type="parserrules:Element" name="PartitionName" feature="//@feature.6"/>
+  <rule xsi:type="parserrules:Iterator" name="PartitionElements" lower="1" upper="-1" rule="//@rule.11" first="//@token.57" sep="//@token.77" last="//@token.58" feature="//@feature.18"/>
+  <rule xsi:type="parserrules:Sequence" name="PartitionElement" sequence="//@rule.12 //@rule.14"/>
+  <rule xsi:type="parserrules:Iterator" name="PartitionElementName" lower="1" upper="1" type="//@type.65" rule="//@rule.13" last="//@token.44"/>
+  <rule xsi:type="parserrules:Element" name="PartitionElementNameValue" context="//@type.65" feature="//@feature.6"/>
+  <rule xsi:type="parserrules:Iterator" name="PartitionElementConstants" context="//@type.65" lower="1" upper="-1" rule="//@rule.33" sep="//@token.12" feature="//@feature.19"/>
+  <rule xsi:type="parserrules:Iterator" name="VariableDeclarations" lower="1" upper="-1" rule="//@rule.16" sep="//@token.13" feature="//@feature.0"/>
+  <rule xsi:type="parserrules:Sequence" name="VariableDeclaration" sequence="//@rule.17 //@rule.18"/>
+  <rule xsi:type="parserrules:Element" name="VariableDeclarationName" feature="//@feature.6" type="//@type.3"/>
+  <rule xsi:type="parserrules:Iterator" name="VariableSort" context="//@type.3" lower="1" upper="1" rule="//@rule.83" first="//@token.44" feature="//@feature.1"/>
+  <rule xsi:type="parserrules:Iterator" name="OperatorDeclarations" lower="1" upper="-1" rule="//@rule.20" sep="//@token.13" feature="//@feature.0"/>
+  <rule xsi:type="parserrules:Sequence" name="NamedOperator" sequence="//@rule.21 //@rule.22 //@rule.23"/>
+  <rule xsi:type="parserrules:Element" name="NamedOperatorName" feature="//@feature.6" type="//@type.4"/>
+  <rule xsi:type="parserrules:Iterator" name="NamedOperatorParameters" context="//@type.4" upper="-1" rule="//@rule.16" first="//@token.10" sep="//@token.12" last="//@token.11" feature="//@feature.2"/>
+  <rule xsi:type="parserrules:Iterator" name="NamedOperatorTerm" context="//@type.4" lower="1" upper="1" rule="//@rule.33" first="//@token.5" feature="//@feature.17"/>
+  <rule xsi:type="parserrules:Iterator" name="ArbitrarySorts" lower="1" upper="-1" rule="//@rule.25" sep="//@token.13" feature="//@feature.0"/>
+  <rule xsi:type="parserrules:Element" name="ArbitrarySort" feature="//@feature.6" type="//@type.5"/>
+  <rule xsi:type="parserrules:Iterator" name="ArbitraryOperators" lower="1" upper="-1" rule="//@rule.27" sep="//@token.13" feature="//@feature.0"/>
+  <rule xsi:type="parserrules:Sequence" name="ArbitraryOperator" sequence="//@rule.28 //@rule.29 //@rule.30"/>
+  <rule xsi:type="parserrules:Element" name="ArbitraryOperatorName" feature="//@feature.6" type="//@type.6"/>
+  <rule xsi:type="parserrules:Iterator" name="ArbitraryOperatorInputSorts" context="//@type.6" upper="-1" rule="//@rule.83" first="//@token.44" sep="//@token.12" feature="//@feature.3"/>
+  <rule xsi:type="parserrules:Iterator" name="ArbitraryOperatorOutputSort" context="//@type.6" lower="1" upper="1" rule="//@rule.83" first="//@token.6" feature="//@feature.4"/>
+  <rule xsi:type="parserrules:Iterator" name="Unparsed" lower="1" upper="1" rule="//@rule.32" feature="//@feature.0"/>
+  <rule xsi:type="parserrules:Element" name="UnparsedContent" feature="//@feature.21" type="//@type.79"/>
+  <rule xsi:type="parserrules:Choice" name="Term" type="//@type.0">
+    <alternative xsi:type="parserrules:Atom" name="numberconstant" prio="11" def="//@rule.34"/>
+    <alternative xsi:type="parserrules:Atom" name="product" prio="11" def="//@rule.38"/>
+    <alternative xsi:type="parserrules:Atom" name="parentheses" prio="11" def="//@rule.33" first="//@token.10" last="//@token.11"/>
+    <alternative xsi:type="parserrules:Atom" name="Variable" prio="11" def="//@rule.39"/>
+    <alternative xsi:type="parserrules:Atom" name="card" prio="11" def="//@rule.40"/>
+    <alternative xsi:type="parserrules:Atom" name="cardOf" prio="11" def="//@rule.41"/>
+    <alternative xsi:type="parserrules:Atom" name="useroperator" prio="11" def="//@rule.42"/>
+    <alternative xsi:type="parserrules:Atom" name="all" prio="11" def="//@rule.45"/>
+    <alternative xsi:type="parserrules:Atom" name="empty" prio="11" def="//@rule.48"/>
+    <alternative xsi:type="parserrules:Atom" name="dotConstant" prio="11" def="//@rule.51"/>
+    <alternative xsi:type="parserrules:Atom" name="booleanConstant" prio="11" def="//@rule.52"/>
+    <alternative xsi:type="parserrules:Atom" name="succ" prio="11" def="//@rule.53" first="//@token.59"/>
+    <alternative xsi:type="parserrules:Atom" name="pred" prio="11" def="//@rule.54" first="//@token.60"/>
+    <alternative xsi:type="parserrules:Atom" name="finiteintrangeconstant" prio="11" def="//@rule.55"/>
+    <alternative xsi:type="parserrules:Atom" name="partitionelementof" prio="11" def="//@rule.58" first="//@token.64"/>
+    <alternative xsi:type="parserrules:Atom" name="stringconcatenation" prio="11" def="//@rule.61" first="//@token.66"/>
+    <alternative xsi:type="parserrules:Atom" name="stringlength" prio="11" def="//@rule.62" first="//@token.67"/>
+    <alternative xsi:type="parserrules:Atom" name="substring" prio="11" def="//@rule.63" first="//@token.68"/>
+    <alternative xsi:type="parserrules:Atom" name="stringconstant" prio="11" def="//@rule.69" first="//@token.79" last="//@token.79"/>
+    <alternative xsi:type="parserrules:Atom" name="listconcatenation" prio="11" def="//@rule.70" first="//@token.70"/>
+    <alternative xsi:type="parserrules:Atom" name="appendtolist" prio="11" def="//@rule.71" first="//@token.71"/>
+    <alternative xsi:type="parserrules:Atom" name="listlength" prio="11" def="//@rule.72" first="//@token.72"/>
+    <alternative xsi:type="parserrules:Atom" name="sublist" prio="11" def="//@rule.73" first="//@token.73"/>
+    <alternative xsi:type="parserrules:Atom" name="memberat" prio="11" def="//@rule.77" first="//@token.74"/>
+    <alternative xsi:type="parserrules:Atom" name="makelist" prio="11" def="//@rule.80" first="//@token.75"/>
+    <alternative xsi:type="parserrules:Atom" name="emptylist" prio="11" def="//@rule.82" first="//@token.76"/>
+    <alternative xsi:type="parserrules:Op" name="Or" lower="2" upper="2" prio="2" type="//@type.7" feature="//@feature.5" assoc="left" symbol="//@token.7"/>
+    <alternative xsi:type="parserrules:Op" name="Imply" lower="2" upper="2" prio="2" type="//@type.8" feature="//@feature.5" assoc="left" symbol="//@token.8"/>
+    <alternative xsi:type="parserrules:Op" name="And" lower="2" upper="2" prio="3" type="//@type.9" feature="//@feature.5" assoc="left" symbol="//@token.9"/>
+    <alternative xsi:type="parserrules:Op" name="gt" lower="2" upper="2" prio="4" type="//@type.14" feature="//@feature.5" symbol="//@token.14"/>
+    <alternative xsi:type="parserrules:Op" name="geq" lower="2" upper="2" prio="4" type="//@type.15" feature="//@feature.5" symbol="//@token.15"/>
+    <alternative xsi:type="parserrules:Op" name="lt" lower="2" upper="2" prio="4" type="//@type.16" feature="//@feature.5" symbol="//@token.16"/>
+    <alternative xsi:type="parserrules:Op" name="leq" lower="2" upper="2" prio="4" type="//@type.17" feature="//@feature.5" symbol="//@token.17"/>
+    <alternative xsi:type="parserrules:Op" name="contains" lower="2" upper="2" prio="4" type="//@type.18" feature="//@feature.5" symbol="//@token.18"/>
+    <alternative xsi:type="parserrules:Op" name="ltr" lower="2" upper="2" prio="4" type="//@type.19" feature="//@feature.5" symbol="//@token.19"/>
+    <alternative xsi:type="parserrules:Op" name="leqr" lower="2" upper="2" prio="4" type="//@type.20" feature="//@feature.5" symbol="//@token.20"/>
+    <alternative xsi:type="parserrules:Op" name="gtr" lower="2" upper="2" prio="4" type="//@type.21" feature="//@feature.5" symbol="//@token.21"/>
+    <alternative xsi:type="parserrules:Op" name="geqr" lower="2" upper="2" prio="4" type="//@type.22" feature="//@feature.5" symbol="//@token.22"/>
+    <alternative xsi:type="parserrules:Op" name="ltp" lower="2" upper="2" prio="4" type="//@type.23" feature="//@feature.5" symbol="//@token.23"/>
+    <alternative xsi:type="parserrules:Op" name="gtp" lower="2" upper="2" prio="4" type="//@type.24" feature="//@feature.5" symbol="//@token.24"/>
+    <alternative xsi:type="parserrules:Op" name="geqs" lower="2" upper="2" prio="4" type="//@type.25" feature="//@feature.5" symbol="//@token.28"/>
+    <alternative xsi:type="parserrules:Op" name="gts" lower="2" upper="2" prio="4" type="//@type.26" feature="//@feature.5" symbol="//@token.27"/>
+    <alternative xsi:type="parserrules:Op" name="leqs" lower="2" upper="2" prio="4" type="//@type.27" feature="//@feature.5" symbol="//@token.26"/>
+    <alternative xsi:type="parserrules:Op" name="lts" lower="2" upper="2" prio="4" type="//@type.28" feature="//@feature.5" symbol="//@token.25"/>
+    <alternative xsi:type="parserrules:Op" name="equal" lower="2" upper="2" prio="5" type="//@type.29" feature="//@feature.5" symbol="//@token.29"/>
+    <alternative xsi:type="parserrules:Op" name="neq" lower="2" upper="2" prio="5" type="//@type.30" feature="//@feature.5" symbol="//@token.30"/>
+    <alternative xsi:type="parserrules:Op" name="ms-add" lower="2" upper="-1" prio="6" type="//@type.31" feature="//@feature.5" assoc="left" symbol="//@token.31"/>
+    <alternative xsi:type="parserrules:Op" name="ms-sub" lower="2" upper="2" prio="6" type="//@type.32" feature="//@feature.5" assoc="left" symbol="//@token.32"/>
+    <alternative xsi:type="parserrules:Op" name="numberof" lower="2" upper="2" prio="7" type="//@type.33" feature="//@feature.5" symbol="//@token.33"/>
+    <alternative xsi:type="parserrules:Op" name="plus" lower="2" upper="2" prio="8" type="//@type.34" feature="//@feature.5" assoc="left" symbol="//@token.34"/>
+    <alternative xsi:type="parserrules:Op" name="minus" lower="2" upper="2" prio="8" type="//@type.35" feature="//@feature.5" assoc="left" symbol="//@token.35"/>
+    <alternative xsi:type="parserrules:Op" name="mult" lower="2" upper="2" prio="9" type="//@type.36" feature="//@feature.5" assoc="left" symbol="//@token.36"/>
+    <alternative xsi:type="parserrules:Op" name="scalar-mult" lower="2" upper="2" prio="9" type="//@type.37" feature="//@feature.5" assoc="left" symbol="//@token.37"/>
+    <alternative xsi:type="parserrules:Op" name="div" lower="2" upper="2" prio="9" type="//@type.38" feature="//@feature.5" assoc="left" symbol="//@token.38"/>
+    <alternative xsi:type="parserrules:Op" name="mod" lower="2" upper="9" prio="9" type="//@type.39" feature="//@feature.5" assoc="left" symbol="//@token.39"/>
+    <alternative xsi:type="parserrules:Op" name="not" lower="1" upper="1" prio="10" type="//@type.40" feature="//@feature.5" symbol="//@token.40"/>
+  </rule>
+  <rule xsi:type="parserrules:Sequence" name="NumberConstant" sequence="//@rule.35 //@rule.36"/>
+  <rule xsi:type="parserrules:Element" name="NumberConstantElement" feature="//@feature.7" type="//@type.10"/>
+  <rule xsi:type="parserrules:Conditional" name="NumberConstantNonDefaultSort" class="hlpng.rules.IsDefaultNumberType" elseCase="//@rule.37"/>
+  <rule xsi:type="parserrules:Iterator" name="NumberSort" lower="1" upper="1" type="//@type.10" rule="//@rule.83" first="//@token.44" feature="//@feature.10"/>
+  <rule xsi:type="parserrules:Iterator" name="Product" upper="-1" type="//@type.13" rule="//@rule.33" first="//@token.10" sep="//@token.12" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Element" name="Variable" feature="//@feature.6" type="//@type.44"/>
+  <rule xsi:type="parserrules:Iterator" name="Cardinality" lower="1" upper="1" type="//@type.41" rule="//@rule.33" first="//@token.41" last="//@token.42" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Iterator" name="CardinalityOf" lower="2" upper="2" type="//@type.42" rule="//@rule.33" first="//@token.43" sep="//@token.12" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Sequence" name="UserOperator" sequence="//@rule.43 //@rule.44"/>
+  <rule xsi:type="parserrules:Element" name="UserOperatorName" feature="//@feature.6" type="//@type.43"/>
+  <rule xsi:type="parserrules:Iterator" name="OperatorParameters" upper="-1" rule="//@rule.33" first="//@token.10" sep="//@token.12" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Sequence" name="All" sequence="//@rule.46 //@rule.47"/>
+  <rule xsi:type="parserrules:Symbol" name="AllSymbol" token="//@token.52"/>
+  <rule xsi:type="parserrules:Iterator" name="AllSort" lower="1" upper="1" type="//@type.55" rule="//@rule.83" first="//@token.44" feature="//@feature.11"/>
+  <rule xsi:type="parserrules:Sequence" name="Empty" sequence="//@rule.49 //@rule.50"/>
+  <rule xsi:type="parserrules:Symbol" name="EmptySymbol" token="//@token.53"/>
+  <rule xsi:type="parserrules:Iterator" name="EmptySort" lower="1" upper="1" type="//@type.56" rule="//@rule.83" first="//@token.44" feature="//@feature.11"/>
+  <rule xsi:type="parserrules:Iterator" name="DotConstant" type="//@type.11" first="//@token.54"/>
+  <rule xsi:type="parserrules:Element" name="BooleanConstant" feature="//@feature.7" type="//@type.12"/>
+  <rule xsi:type="parserrules:Iterator" name="Successor" lower="1" upper="1" type="//@type.60" rule="//@rule.33" first="//@token.10" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Iterator" name="Predecessor" lower="1" upper="1" type="//@type.61" rule="//@rule.33" first="//@token.10" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Sequence" name="FiniteIntRangeConstant" sequence="//@rule.56 //@rule.57"/>
+  <rule xsi:type="parserrules:Element" name="FiniteIntRangeConstantValue" feature="//@feature.7" type="//@type.63"/>
+  <rule xsi:type="parserrules:Iterator" name="FiniteIntRangeConstantType" lower="1" upper="1" rule="//@rule.83" feature="//@feature.16"/>
+  <rule xsi:type="parserrules:Sequence" name="PartitionElementOf" sequence="//@rule.59 //@rule.44"/>
+  <rule xsi:type="parserrules:Iterator" name="PartitionElementOfSort" lower="1" upper="1" type="//@type.66" rule="//@rule.60" first="//@token.44" feature="//@feature.20"/>
+  <rule xsi:type="parserrules:Element" name="PartitionElementOfSortName" feature="//@feature.6" type="//@type.64"/>
+  <rule xsi:type="parserrules:Iterator" name="StringConcatenation" lower="2" upper="2" type="//@type.67" rule="//@rule.33" first="//@token.10" sep="//@token.12" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Iterator" name="StringLength" lower="1" upper="1" type="//@type.68" rule="//@rule.33" first="//@token.10" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Sequence" name="Substring" sequence="//@rule.64 //@rule.65 //@rule.66 //@rule.67 //@rule.68"/>
+  <rule xsi:type="parserrules:Symbol" name="Colon" token="//@token.44"/>
+  <rule xsi:type="parserrules:Element" name="SubstringStart" feature="//@feature.13" type="//@type.69"/>
+  <rule xsi:type="parserrules:Symbol" name="Comma" token="//@token.12"/>
+  <rule xsi:type="parserrules:Element" name="SubstringLength" feature="//@feature.15"/>
+  <rule xsi:type="parserrules:Iterator" name="SubstringParam" lower="1" upper="1" type="//@type.69" rule="//@rule.33" first="//@token.10" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Element" name="StringConstant" feature="//@feature.7" type="//@type.70"/>
+  <rule xsi:type="parserrules:Iterator" name="ListConcatenation" lower="2" upper="2" type="//@type.72" rule="//@rule.33" first="//@token.10" sep="//@token.12" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Iterator" name="AppendToList" lower="2" upper="2" type="//@type.73" rule="//@rule.33" first="//@token.10" sep="//@token.12" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Iterator" name="ListLength" lower="1" upper="1" type="//@type.74" rule="//@rule.33" first="//@token.10" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Sequence" name="SubList" sequence="//@rule.64 //@rule.74 //@rule.66 //@rule.75 //@rule.76"/>
+  <rule xsi:type="parserrules:Element" name="SubListStart" feature="//@feature.13" type="//@type.75"/>
+  <rule xsi:type="parserrules:Element" name="SubListLength" context="//@type.75" feature="//@feature.15"/>
+  <rule xsi:type="parserrules:Iterator" name="SubListParam" context="//@type.75" lower="1" upper="1" rule="//@rule.33" first="//@token.10" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Sequence" name="MemberAt" sequence="//@rule.64 //@rule.78 //@rule.79"/>
+  <rule xsi:type="parserrules:Element" name="MemberAtIndexValue" feature="//@feature.22" type="//@type.76"/>
+  <rule xsi:type="parserrules:Iterator" name="MemberAtParam" context="//@type.76" lower="1" upper="1" rule="//@rule.33" first="//@token.10" last="//@token.11" feature="//@feature.5"/>
+  <rule xsi:type="parserrules:Sequence" name="MakeList" sequence="//@rule.64 //@rule.81 //@rule.44"/>
+  <rule xsi:type="parserrules:Iterator" name="MakeListSort" lower="1" upper="1" type="//@type.77" rule="//@rule.83" feature="//@feature.11"/>
+  <rule xsi:type="parserrules:Iterator" name="EmptyList" lower="1" upper="1" type="//@type.78" rule="//@rule.83" first="//@token.44" feature="//@feature.11"/>
+  <rule xsi:type="parserrules:Choice" name="Sort" type="//@type.45">
+    <alternative xsi:type="parserrules:Atom" name="int" prio="5" def="//@rule.84"/>
+    <alternative xsi:type="parserrules:Atom" name="nat" prio="5" def="//@rule.88"/>
+    <alternative xsi:type="parserrules:Atom" name="pos" prio="5" def="//@rule.89"/>
+    <alternative xsi:type="parserrules:Atom" name="dot" prio="5" def="//@rule.90"/>
+    <alternative xsi:type="parserrules:Atom" name="bool" prio="5" def="//@rule.91"/>
+    <alternative xsi:type="parserrules:Atom" name="finiteenum" prio="5" def="//@rule.94" first="//@token.55"/>
+    <alternative xsi:type="parserrules:Atom" name="cyclicenum" prio="5" def="//@rule.95" first="//@token.56"/>
+    <alternative xsi:type="parserrules:Atom" name="finiteintrange" prio="5" def="//@rule.97" first="//@token.61" last="//@token.62"/>
+    <alternative xsi:type="parserrules:Atom" name="multiset" prio="5" def="//@rule.85" first="//@token.46"/>
+    <alternative xsi:type="parserrules:Atom" name="productsort" prio="5" def="//@rule.86" first="//@token.10" last="//@token.11"/>
+    <alternative xsi:type="parserrules:Atom" name="usersort" prio="5" def="//@rule.87"/>
+    <alternative xsi:type="parserrules:Atom" name="stringsort" prio="5" def="//@rule.92"/>
+    <alternative xsi:type="parserrules:Atom" name="listsort" prio="5" def="//@rule.93" first="//@token.69"/>
+  </rule>
+  <rule xsi:type="parserrules:Iterator" name="INT" type="//@type.49" first="//@token.45"/>
+  <rule xsi:type="parserrules:Iterator" name="Multisetsort" lower="1" upper="1" type="//@type.46" rule="//@rule.83" first="//@token.10" last="//@token.11" feature="//@feature.8"/>
+  <rule xsi:type="parserrules:Iterator" name="Productsort" upper="-1" type="//@type.47" rule="//@rule.83" sep="//@token.36" feature="//@feature.9"/>
+  <rule xsi:type="parserrules:Element" name="UserSort" feature="//@feature.6" type="//@type.48"/>
+  <rule xsi:type="parserrules:Iterator" name="NAT" type="//@type.50" first="//@token.47"/>
+  <rule xsi:type="parserrules:Iterator" name="POS" type="//@type.51" first="//@token.48"/>
+  <rule xsi:type="parserrules:Iterator" name="DOT" type="//@type.52" first="//@token.49"/>
+  <rule xsi:type="parserrules:Iterator" name="BOOL" type="//@type.53" first="//@token.50"/>
+  <rule xsi:type="parserrules:Iterator" name="StringSort" type="//@type.54" first="//@token.51"/>
+  <rule xsi:type="parserrules:Iterator" name="ListSort" lower="1" upper="1" type="//@type.71" rule="//@rule.83" first="//@token.44" feature="//@feature.8"/>
+  <rule xsi:type="parserrules:Iterator" name="ENUM" lower="1" upper="-1" rule="//@rule.96" first="//@token.57" sep="//@token.12" last="//@token.58" feature="//@feature.12"/>
+  <rule xsi:type="parserrules:Iterator" name="CYCLIC" lower="1" upper="-1" type="//@type.59" rule="//@rule.96" first="//@token.57" sep="//@token.12" last="//@token.58" feature="//@feature.12"/>
+  <rule xsi:type="parserrules:Element" name="EnumElement" feature="//@feature.6" type="//@type.58"/>
+  <rule xsi:type="parserrules:Sequence" name="FINITEINTRANGE" sequence="//@rule.98 //@rule.99 //@rule.100"/>
+  <rule xsi:type="parserrules:Element" name="FINITEINTRANGESTART" feature="//@feature.13" type="//@type.62"/>
+  <rule xsi:type="parserrules:Symbol" name="FINITINTRANGESEP" token="//@token.63"/>
+  <rule xsi:type="parserrules:Element" name="FINITINTRANGEEND" feature="//@feature.14" type="//@type.62"/>
+  <type name="Term"/>
+  <type package="terms" name="Declarations"/>
+  <type package="terms" name="NamedSort"/>
+  <type package="terms" name="VariableDecl"/>
+  <type package="terms" name="NamedOperator"/>
+  <type package="arbitrarydeclarations" name="ArbitrarySort"/>
+  <type package="arbitrarydeclarations" name="ArbitraryOperator"/>
+  <type package="" name="Or"/>
+  <type name="Imply"/>
+  <type name="And"/>
+  <type package="integers" name="NumberConstant"/>
+  <type package="dots" name="DotConstant"/>
+  <type package="booleans" name="BooleanConstant"/>
+  <type name="Tuple"/>
+  <type package="integers" name="GreaterThan"/>
+  <type package="integers" name="GreaterThanOrEqual"/>
+  <type package="integers" name="LessThan"/>
+  <type package="integers" name="LessThanOrEqual"/>
+  <type package="multisets" name="Contains"/>
+  <type package="finiteintranges" name="LessThan"/>
+  <type package="finiteintranges" name="LessThanOrEqual"/>
+  <type package="finiteintranges" name="GreaterThan"/>
+  <type package="finiteintranges" name="GreaterThanOrEqual"/>
+  <type package="partitions" name="LessThan"/>
+  <type package="partitions" name="GreaterThan"/>
+  <type package="strings" name="GreaterThanOrEqual"/>
+  <type package="strings" name="GreaterThan"/>
+  <type package="strings" name="LessThanOrEqual"/>
+  <type package="strings" name="LessThan"/>
+  <type package="booleans" name="Equality"/>
+  <type package="booleans" name="Inequality"/>
+  <type package="multisets" name="Add"/>
+  <type package="multisets" name="Subtract"/>
+  <type package="multisets" name="NumberOf"/>
+  <type package="integers" name="Addition"/>
+  <type package="integers" name="Subtraction"/>
+  <type package="integers" name="Multiplication"/>
+  <type package="multisets" name="ScalarProduct"/>
+  <type package="integers" name="Division"/>
+  <type package="integers" name="Modulo"/>
+  <type package="booleans" name="Not"/>
+  <type package="multisets" name="Cardinality"/>
+  <type package="multisets" name="CardinalityOf"/>
+  <type package="terms" name="UserOperator"/>
+  <type package="terms" name="Variable"/>
+  <type package="terms" name="Sort"/>
+  <type package="terms" name="MultiSetSort"/>
+  <type package="terms" name="ProductSort"/>
+  <type package="terms" name="UserSort"/>
+  <type package="integers" name="Integer"/>
+  <type package="integers" name="Natural"/>
+  <type package="integers" name="Positive"/>
+  <type package="dots" name="Dot"/>
+  <type package="booleans" name="Bool"/>
+  <type package="strings" name="String"/>
+  <type package="multisets" name="All"/>
+  <type package="multisets" name="Empty"/>
+  <type package="finiteenumerations" name="FiniteEnumeration"/>
+  <type package="finiteenumerations" name="FEConstant"/>
+  <type package="cyclicenumerations" name="CyclicEnumeration"/>
+  <type package="cyclicenumerations" name="Successor"/>
+  <type package="cyclicenumerations" name="Predecessor"/>
+  <type package="finiteintranges" name="FiniteIntRange"/>
+  <type package="finiteintranges" name="FiniteIntConstant"/>
+  <type package="partitions" name="Partition"/>
+  <type package="partitions" name="PartitionElement"/>
+  <type package="partitions" name="PartitionElementOf"/>
+  <type package="strings" name="Concatenation"/>
+  <type package="strings" name="Length"/>
+  <type package="strings" name="Substring"/>
+  <type package="strings" name="StringConstant"/>
+  <type package="lists" name="List"/>
+  <type package="lists" name="Concatenation"/>
+  <type package="lists" name="Append"/>
+  <type package="lists" name="Length"/>
+  <type package="lists" name="Sublist"/>
+  <type package="lists" name="MemberAtIndex"/>
+  <type package="lists" name="MakeList"/>
+  <type package="lists" name="EmptyList"/>
+  <type package="arbitrarydeclarations" name="Unparsed"/>
+  <feature name="declaration"/>
+  <feature name="sort"/>
+  <feature name="parameters"/>
+  <feature name="input"/>
+  <feature name="output"/>
+  <feature name="subterm"/>
+  <feature name="name"/>
+  <feature name="value"/>
+  <feature name="basis"/>
+  <feature name="elementSort"/>
+  <feature name="type"/>
+  <feature name="refsort"/>
+  <feature name="elements"/>
+  <feature name="start"/>
+  <feature name="end"/>
+  <feature name="length"/>
+  <feature name="range"/>
+  <feature name="def"/>
+  <feature name="partitionElements"/>
+  <feature name="partitionelementconstant"/>
+  <feature name="refpartition"/>
+  <feature name="contents"/>
+  <feature name="index"/>
+  <token text="sorts" breakafter="always" breakbefore="always">
+    <parenthesis xsi:type="parserrules:Open" tabulate="true" absolute="true" offset="3"/>
+  </token>
+  <token text="vars" breakafter="always" breakbefore="always">
+    <parenthesis xsi:type="parserrules:Open" tabulate="true" absolute="true" offset="3"/>
+  </token>
+  <token text="ops" breakafter="always" breakbefore="always">
+    <parenthesis xsi:type="parserrules:Open" tabulate="true" absolute="true" offset="3"/>
+  </token>
+  <token text="sortsymbols" breakafter="always" breakbefore="always">
+    <parenthesis xsi:type="parserrules:Open" tabulate="true" absolute="true" offset="3"/>
+  </token>
+  <token text="opsymbols" breakafter="always" breakbefore="always">
+    <parenthesis xsi:type="parserrules:Open" tabulate="true" absolute="true" offset="3"/>
+  </token>
+  <token text="=" separator="true"/>
+  <token text="->" separator="true"/>
+  <token text="or"/>
+  <token text="implies"/>
+  <token text="and"/>
+  <token text="(" separator="true">
+    <parenthesis xsi:type="parserrules:Open" tabulate="true"/>
+  </token>
+  <token text=")" separator="true">
+    <parenthesis xsi:type="parserrules:Close"/>
+  </token>
+  <token text="," separator="true"/>
+  <token text="," separator="true" breakafter="always"/>
+  <token text=">" separator="true"/>
+  <token text=">=" separator="true"/>
+  <token text="&lt;" separator="true"/>
+  <token text="&lt;=" separator="true"/>
+  <token text="contains"/>
+  <token text="&lt;r"/>
+  <token text="&lt;=r"/>
+  <token text=">r"/>
+  <token text=">=r"/>
+  <token text="&lt;p"/>
+  <token text=">p"/>
+  <token text="&lt;s"/>
+  <token text="&lt;=s"/>
+  <token text=">s"/>
+  <token text=">=s"/>
+  <token text="==" separator="true"/>
+  <token text="!=" separator="true"/>
+  <token text="++" breakafter="middle"/>
+  <token text="--" breakafter="middle"/>
+  <token text="`" separator="true"/>
+  <token text="+" separator="true"/>
+  <token text="-" separator="true"/>
+  <token text="*" separator="true"/>
+  <token text="**"/>
+  <token text="/" separator="true"/>
+  <token text="%" separator="true"/>
+  <token text="not"/>
+  <token text="|" separator="true">
+    <parenthesis xsi:type="parserrules:Open" tabulate="true"/>
+  </token>
+  <token text="|" separator="true">
+    <parenthesis xsi:type="parserrules:Close"/>
+  </token>
+  <token text="#(" separator="true">
+    <parenthesis xsi:type="parserrules:Open" tabulate="true"/>
+  </token>
+  <token text=":" separator="true"/>
+  <token text="INT"/>
+  <token text="MS"/>
+  <token text="NAT"/>
+  <token text="POS"/>
+  <token text="DOT"/>
+  <token text="BOOL"/>
+  <token text="STRING"/>
+  <token text="all"/>
+  <token text="empty"/>
+  <token text="dot"/>
+  <token text="enum"/>
+  <token text="cyclic"/>
+  <token text="{" separator="true">
+    <parenthesis xsi:type="parserrules:Open" tabulate="true"/>
+  </token>
+  <token text="}" separator="true">
+    <parenthesis xsi:type="parserrules:Close"/>
+  </token>
+  <token text="succ"/>
+  <token text="pred"/>
+  <token text="[" separator="true">
+    <parenthesis xsi:type="parserrules:Open" tabulate="true"/>
+  </token>
+  <token text="]" separator="true">
+    <parenthesis xsi:type="parserrules:Close"/>
+  </token>
+  <token text=".." separator="true"/>
+  <token text="partition"/>
+  <token text="in"/>
+  <token text="concatstring"/>
+  <token text="stringlength"/>
+  <token text="substring"/>
+  <token text="LIST"/>
+  <token text="concatlists"/>
+  <token text="appendtolist"/>
+  <token text="listlength"/>
+  <token text="sublist"/>
+  <token text="memberat"/>
+  <token text="makelist"/>
+  <token text="emptylist"/>
+  <token text=";" separator="true"/>
+  <token text=";" separator="true" breakafter="always">
+    <parenthesis xsi:type="parserrules:Close"/>
+  </token>
+  <token text="&quot;" separator="true"/>
+  <token text="!!"/>
+</parserrules:Rules>
