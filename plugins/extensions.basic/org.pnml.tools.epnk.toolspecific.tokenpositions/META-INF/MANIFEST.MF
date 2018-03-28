@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.pnml.tools.epnk.toolspecific.tokenpositions;singleton:=true
+Bundle-Version: 1.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.pnml.tools.epnk.toolspecific.tokenpositions,
+ org.pnml.tools.epnk.toolspecific.tokenpositions.impl,
+ org.pnml.tools.epnk.toolspecific.tokenpositions.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.pnml.tools.epnk;visibility:=reexport
+Bundle-ActivationPolicy: lazy
