@@ -1,0 +1,7 @@
+# Tracing options for the org.pnml.tools.epnk.diagram plug-in
+
+# Common issues
+org.pnml.tools.epnk.diagram/debug=false
+
+# Visual IDs
+org.pnml.tools.epnk.diagram/debug/visualID=false

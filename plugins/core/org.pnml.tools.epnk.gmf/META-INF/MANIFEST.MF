@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.pnml.tools.epnk.gmf
+Bundle-SymbolicName: org.pnml.tools.epnk.gmf
+Bundle-Version: 1.1.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: DTU Informatics, Software Engineering Section, E. Kindler

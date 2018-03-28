@@ -1,0 +1,27 @@
+Ideas and features for future versions
+======================================
+
+October 2012:
+  - Application registration with a configurable view
+    that shows the available applications (possibly filtered
+    by applicable net type, and user criteria, and structured
+    into definable categories or according to net types).
+    For that applications would need to be explicitly plugin
+    in together with some additional information (net types,
+    it applies to, extra parameters, etc.)
+    
+    This application view could also have fields for entering
+    input to the application before it is started.
+    
+  - Feature that adds all possible labels of an object automatically
+    (e.g. on a double click) or that adds a specific kind of
+    label (selected by the user) if there are labels already.
+    
+  - Feedback on parsing errors of structured labels (by a
+    extra tool specific information and by allowing the
+    parsing function to return an error object instead of null).
+    This also needs to be adjusted with the serialisation
+    function (delete the respective tool information when
+    serializing the labels to their text).
+    
+     

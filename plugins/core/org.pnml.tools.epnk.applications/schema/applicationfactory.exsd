@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.pnml.tools.epnk.diagram" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.pnml.tools.epnk.diagram" id="graphics" name="ePNK diagram graphical extension"/>
+      </appInfo>
+      <documentation>
+         This extension allows developers of ePNK extensions to make an
+ePNK Application known to the ePNK by plugging in a factory
+for this application.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="applicationfactory"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="applicationfactory">
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Java class that extends the class ApplicationFactory
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.pnml.tools.epnk.applications.ApplicationFactory:"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="description" type="string">
+            <annotation>
+               <documentation>
+                  A description of the application, the factory creates.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         ePNK version 0.9.2
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         Example tutorial: org.pnml.tools.epnk.extensions.tutorial.types
+      </documentation>
+   </annotation>
+
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         This file is part of the ePNK project (Petri Net Kernel for eclipse). The ePNK
+is platform for Petri net tools based on the PNML transfer format. Its main 
+idea is to provide generic Petri net types which can be easily plugged in and 
+a simple generic GMF editor, that can be used for graphically editing
+nets of any plugged in type. Additional functionality can be plugged in.
+ 
+Copyright (C) 2010-2011 Ekkart Kindler, eki@imm.dtu.dk
+The license under which this software will be distributed is still to be decided -
+it will probably be the EPL.
+      </documentation>
+   </annotation>
+
+</schema>

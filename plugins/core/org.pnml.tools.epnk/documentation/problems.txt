@@ -1,0 +1,51 @@
+Known problems and issues
+=========================
+
+  9. nov. 2010, eki: 
+   "<CNTRL> X" does not work properly: delete elements with
+   the popup menu for now!
+   
+  9. nov. 2010, eki:
+   Labels that are not yet linked to a Petri net object will
+   show up on ALL newly opened pages. The reason is that 
+   LabelProxies are "phantom nodes". Normally the labels
+   will be linked right away, so this should not be a
+   problem. Eventually, I will implement a way of
+   creating labels, so that they are immediately attached
+   to a object. Then, this should not be a problem any more.
+   For now, I consider this to be a usability issue only
+   -- and not an important one. 
+   
+ 13. nov. 2010, eki:
+   Validation of correct ArcAnnotation does not work yet, if
+   the arc is connected to reference place (for this we need
+   to implement a resolution of the reference).
+   
+
+
+Resolved problems and issues
+============================
+   
+ 13. nov. 2010, eki:
+   If a node is deleted in the GMF editor, the labels are not
+   deleted with it (which results in a problem later, since
+   these labels cannot be deleted anymore -- but the will
+   not exist anymore, when the editor is started again).
+   Anyway, this needs to be fixed.
+   Fixed partially: 17. 11. 2010, eki (the follow up problem
+         was resolved; deleting the labels with the object
+         resulted in some other errors).
+   
+ 18. nov. 2010, eki:
+   Undo of deletion of arcs does not work properly. The reason
+   seems to be that the phantom labels are removed together
+   with the arcs (similar to the reason why the full fix
+   of 17. nov. was not possible).
+   Fixed: 19.11.2010, eki: The reason was, that the method
+          getDestroyArcCommand in the ArcItemSemanticEditPolicy 
+          did not take the ObjectLabelProxyLinks into account
+          (I do not have any idea why; it seems that phantom
+          nodes are not meant to be attached to Links). Fixed
+          that; actually, this needed even be done for Nodes
+          that delete the associated arc. 
+         

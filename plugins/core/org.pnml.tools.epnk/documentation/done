@@ -1,0 +1,114 @@
+
+* Serialisation of structural labels to text
+  Done (released March 24, 2011)
+  
+  --
+
+ * Implementation of the Type function for Terms
+
+ * Constraints for HLPNG
+    - all ISO/IEC 15909-2 constraints
+    - maybe make reference to structure feature to multiplicity 1
+      instead of "0..1" (so that not correctly parsed labels are
+      reported during validation).
+      
+  --
+  
+  once -- which is quite expensive).   
+  
+  --
+  
+  * Generic GMF Editor (mostly done)!
+  Missing yet:
+    - enable multi-line labels for text in LabelProxy and PageLabelProxy
+      (in EMF actually)
+    - PageLabelProxy content propagation to label
+    - propagation for non-structural labels (interface for that)   
+    
+  More ideas:
+    - Make some stuff only readable in the properties views (EMF):
+        In LabelProxy and PageLabelProxy:
+          - Connected Label
+          - Text
+    - Cleanup of some names in GMF Editor GUI:
+        LabelLink is "Undefined" right now
+        LabelProxy and PageLabelProxy should be "Label" and "PageLabel"
+        at the end-user front-end
+    - Avoid LabelLink completely (by making a tool that directly attaches
+      the LabelProxy to an object) 
+   
+   --
+   
+* Nicer icons for the PN elements in EMF edit (Tree-editor and GMF) 
+  Mostly done: but the Page, Place, Transition elements of the
+               specific net-types also need their own (and maybe
+               distinguishable icons)    
+     
+       
+   --    
+   
+ * Full implementation of HLPNGs (as of ISO/IEC 15909)
+   Finished (29.12.2010), but needs some more testing for (List and
+   String constructs)
+  
+   --
+
+ * change the createCommands for all Petri net objects in the
+   diagram editor so that an ObjectProxy is added to the 
+   tool specific diagram information (if this diagram info
+   is present on the resp. page): see
+   org.pnml.tools.epnk.diagram.edit.commands
+   (The deletion is properly dealt with already).
+  
+   NOTE: Maybe, it would be better to make LabelProxies a  feature
+         of page (only); then we would also avoid using Phantom nodes
+         in the GMF editor (important for maintainance)
+        
+ * Save and reuse the GMF diagram information as tool specific
+   information.   
+   
+ Done 5.-9- may 2011
+  
+  --
+  
+  * Generic GMF Editor (mostly done)!
+   Missing yet:    
+    - check: correct dirty bit for modified EMF-files to be sure
+             that it is saved, when it there are (relevant)
+             changes. Track down the effect which appears to
+             be due to two not fully related command stacks.
+   More ideas:
+    - toolspecific extension for GMF diagram information within PNML
+      (including labelproxies and pagelabelproxies for all concerned
+       elements)
+    - Avoid LabelLink completely (by making a tool that directly attaches
+      the LabelProxy to an object) 
+  
+  Done 
+  
+  --
+  
+ * Make sure that when diagram files are edited as PNXD files, the PNX
+  is saved properly (switched that of for PNML files, but should be
+  on for pnx).
+  
+  Implemented differently (there are no pnxd files, if PNX is edited,
+  the diagram information is saved as toolspecific extension
+  
+  --  
+        
+  * make sure that IDs cannot contain blanks! This would (in combination with
+    the GMF diagram information) result in files that are not readable anymore.
+   
+  Done May 2011, the ids are EMF IDs now (which are XMLSchemaIDs, as defined
+    in the standard.
+    
+  --
+  
+   * Proper implementation of data types for CSS values in the graphical model 
+ 
+  --
+  
+ 
+  
+    

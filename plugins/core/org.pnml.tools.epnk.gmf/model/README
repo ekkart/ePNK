@@ -1,0 +1,9 @@
+After regenerating the GMF-gen-file, the attributes 
+
+  Target Reorientating Allowed and
+  Source Reorientating Allowed
+  
+  of the GenLink ObjectLabelProxyEditPart
+  
+should both set to be false!
+ 

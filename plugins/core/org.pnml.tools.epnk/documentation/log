@@ -1,0 +1,1239 @@
+This is a log file in order to account for the development time spent
+on this project (using ePNK as a kind of case study of using MBSE for
+tool  development). 
+
+  June 30, 2010, Ekkart Kindler (DTU Informatics, Lyngby, Denmark)
+  
+---------------------------------------------------------------------
+
+June 30, 2010: 13.45 -- 17.35 (230 min)
+---------------------------------------
+
+  13.45: Create the PNML Core model in ecore (from scratch) using
+         ECore Tools diagram editor:
+           - complete core model (with a reasonable effort on
+             proper layout)
+           - some extra twists with a future generic GMF editor
+             in mind already
+           - most Java types for graphical layout left unimplemented
+             yet (only position and size considered for now)
+                  
+  15.50: Validated and fixed model:
+           - fixed some errors
+           - made some classes abstract (forgotten that before)
+           - added the EmptyType
+           
+  16.25: First code generation:
+           - generated EMG gen-file
+           - edited base-package path in gen-file
+           - changed file extension to "pnml" (forgotten earlier)
+           - generated code for model, edit, and editor
+           - experiments with result: fixed some
+             containments (forgotten earlier)
+           - regenerated code again (with the usual issues
+             when changing containments)
+           - created a new wizard category (ePNK) and moved the
+             editor to that wizard
+
+  17.05: Made a first model for a Petri net type (P/T-Nets):
+           - edit the model (extending the core model)
+           - generated the generator file
+           - generated the model and the edit code
+             (not used yet)
+
+Overall time: 230 min
+
+July 1, 2010: 12.40 -- 13.00, 13.40 -- 17.30 (250 min)
+------------------------------------------------------       
+                     
+  12.40 Implementing Petri net types as extension:
+           - define extension point with PetriNetType
+             (of plugin org.pnml.tools.epnk)
+           - equipped the base class with the right features
+           - implemented adjustment of the tree-editor so that it
+             uses the plugged in types and uses features of the
+             type (slowly adjusted so that it properly works;
+             pages not yet taken into account)
+           - manual change in generated code from PetriNetType model:
+               * if necessary overwriting the createXXX methods
+               * making the constructor of the new Petri net type
+                 (PTNet) public (this is a hack, should be done a
+                 bit more elegant later; also the createXXX methods,
+                 could in principle be generated fully automatically,
+                 which would, however, require to change the
+                 JET-templates)
+                 
+Overall time: 480 min  
+                 
+July 6, 2010: 11.15 -- 12.00, 12.35-22.50 (660 min)
+---------------------------------------------------
+
+  11.15 Implemented an explicit XMLResource for the XMI representation
+        and changed the file extension for XMI files to "pnx".
+        
+        Created a XMLResource for the PNML representation and created
+        a (simple and a bit hacked version) of an EMF tree editor for
+        with this PNML Resource for experimentation.
+        
+        Initial setup and made PNMLResource and the involved other
+        classes (see org.pnml.tools.epnk.pnmlcoremodel.serialisation)
+        work  (just as XMI).
+        
+  12.35 Experimentation with XMLLoad, XMLSave, XMLHandler and
+        ExtendedMetaData to find out the inner workings of them and
+        how to hook in own extensions in a clean way (XML elements
+        which have the name of the type are not supported). Made
+        experiments and used the debugger to find out how models a
+        serialised and deserialised. XMLSave was easy -- XMLLoad
+        and, more importantly, XMLHandler were the part where I
+        had to spend most of the time (there are many methods,
+        with sometimes not obvious dependencies and purposes,
+        so that it took much time understanding this). In the
+        end the experiments (for places) worked for saving;
+        loading did not yet work.
+        
+        BTW: I had some understanding of ExtendedMetaData and the
+        documentation of ExtendedMetaDate (from the XMLSchema point
+        of view).
+       
+Overall time: 1140 min (19h)            
+        
+July 7, 2010: 9.00 -- 12.00, 12.45-14.45 + 30min (330 min)
+----------------------------------------------------------        
+
+   9.00 Further experiments and debugging with XMLLoad and XMLHandler
+        Found a way to load the place feature (all of it implemented
+        in the XMLHanlder: SAXPNMLHandler).
+       
+  12.45 Made the solution for loading places work (in a way that also
+        would work for transitions, pages, and also for labels later).
+        
+        Have a clear picture now how this could be done generically for
+        all relevant elements of the PNML core model and how to do this
+        in a generic way for Petri net type specific additions (but this
+        still needs to be implemented).
+
+  30min (later in the day) cleaned up the code and removed many overridden
+        methods and experimentation code used during the debugging; added
+        the feature for also loading the places attributes.
+        
+Overall time: 1470 min  (24.5h)           
+                      
+July 8, 2010: 20.30 - 21.00 (30 min)
+------------------------------------
+
+  20.30 Implemented saving and loading the top-level PNML element with
+        PNML's correct xmlns.   
+        
+Overall time: 1500 min  (25h)   
+                             
+July 9, 2010: 21.50 - 22.50 (60 min)
+------------------------------------
+  21.50 Made changes in the mode concerning containment of labels (now
+        again closer to PNML model) and regenerated the genmodel and
+        the code (tricky part was to retain the manual changes in
+        the genmodel).
+        
+        On the side: Removed the copyright-string from the automatically
+        generated classes (which came in by an accidential change of the
+        genmodel earlier -- attribute "copyright string").
+        
+  22.35 Marked all manually created classes explicitly with "@generated NOT"
+        to make it easier to track non-generated parts.
+        
+        Main reason for these cleanups: I wanted to have a clean baseline
+        before implementing a clean design infrastructure for serialising
+        all the features of the PNML core model in a generic way.                      
+                             
+Overall time: 1560 min  (26h)
+
+July 11, 2010: 17.00 - 20.30 (-15min) (195 min)
+-----------------------------------------------
+  17.00 Implemented the basic setting for a configurable serialisation of 
+        PNML and used it for a proper serialisation of Places, Transitions,
+        Arcs, and Pages.  Made some basic tests, and for the features 
+        mentioned above the framework seems to work; but for these elements,
+        not all features of the framework are used. Therefore there need
+        to be more careful tests (with some more advanced features: NetTypes,
+        Graphics, etc).
+        
+        Some code needs still needs to be refactored and cleaned up, since
+        the setting was directly implemented from my mind.
+      
+Overall time: 1755 min  (29.25h)
+
+July 12, 2010: 9.30 - 11.00, 13.00-16.00 (+15min) (285 min)
+-----------------------------------------------------------
+   9.30 Made experiments with loading and saving own attributes. Implemented
+        a first very simple (and not very robust) infrastructure for this
+        purpose and used it for properly setting the type of a net.
+        
+        Made the text feature of the Name label into an XML element.
+        
+        Moved the type feature of Petri nets to be the first feature;
+        if the type is loaded first, the PNML parser is able to cope
+        with mixed PNML XMI types and still produce the objects of
+        the right kind (provided the net was of legal type, i.e. did
+        use elements of its Petri net type only).
+         
+Overall time: 2040 min  (34h)
+
+July 12, 2010: 21.50 - 22.50 (60 min)
+-------------------------------------
+
+  22.50 Implemented some basic datatypes (also "NonImplemented") and used
+        them in PTNets. Also did some cleanups.
+        
+Overall time: 2100 min  (35h)        
+
+July 13, 2010: 8.15 - 9.15, 12.15-14.00 (165 min)  
+-------------------------------------
+   8.15: Did some refactorings, renamings and cleanups. Started implementing
+         the ExtendedPNMLMetaData framework so that more than one attribute
+         feature of an object can be handled. 
+   
+  12.15: Finished the infrastructure for multiple attributes; implemented a
+         workaround to avoid saving id features twice (unfortunately, XMLSave
+         handles id features in a different way than normal attributes).
+         Note that I did not solve this problem in a fully generic way: 
+         right now there are some restrictions (I just check for attributes
+         with name "id" and do not save them in my infrastructure).
+   
+July 13, 2010: 20.15 - 23.45 (210 min) 
+-------------------------------------- 
+ 20.15: Finished mappings for all elements of the PNML Core Model. Mostly
+        tracked down a bug, which in the end was a careless implementation
+        of my getFeatureElementMap method in the ExtendedPNMLMetaData. On
+        the way, since I did not catch the real problem right away
+        implemented a changed SAXHandler (not used in the current code but
+        added in the documentation -- you never know when we will need that).
+        
+        All features seem to be working now.   
+
+Overall time: 2475 min  (41.25h) 
+        (10h are just experimentation to find out about the technology for
+         serialisation and deserialisation)       
+
+==========================================================================
+Basic version of ePNK infrastructure seems to be working now
+==========================================================================
+
+July 14, 2010: 11.20 - 12.00, 12.40-13.00, 14.00-17.15, 20.15-23.45 (465 min)
+-----------------------------------------------------------------------------
+        Made extensions so that any tool specific extension can be parsed
+        as AnyType (not that the references to AnyType with reference
+        unknown are not made in the diagram, but only in the ecore file,
+        since I directly refer to the Class AnyType, which was not directly
+        possible in the diagram).
+        
+        On the way, implemented a mechanism so that content of an XML element
+        can be mapped directly to a feature; this, however, has no counterpart
+        yet in the SaveXML and, therefore, should be used with great care. 
+        
+Overall time: 2940 min  (49h) 
+
+July 15, 2010: 16.25 - 18.25, 20.00-20.45 (165 min)
+--------------------------------------------------- 
+
+16.25: Implemented an extension and the respective extension point for
+       plugging in toolspecific extensions. Updated the load and
+       save routines (but only via the ExtendedPNMLMetaData mechanism).
+       And added the plugged in toolspecific extensions to the providers
+       in the .edit project (so that they are available for editing).
+       
+       Note that it would make sense to make toolspecific extensions
+       specific to certain element types of the Petri net. This can
+       be easily extended, but is not done yet.
+       
+       NOTE: the PNML should probably be extended with another attribute
+       for the toolspecific element: type. This way, a tool could indicate
+       which type of extension this is. Right now, this would need to
+       be included in the tool name (e.g. org.pnml.tool/info) or in
+       the version). Both concepts have serious drawbacks.       
+
+20.00 Made some minor mistake in the implementation, which I fixed now.
+
+Overall time: 3105 min  (51.75h) 
+
+
+August 18, 2010: 16.00 - 18.00 (120 min)
+---------------------------------------- 
+
+16.00: Added the infrastructure for the validation of PNML files.
+       Only one constraint (References must be to the same net) is
+       implemented yet and only for the core structure; the infra-
+       structure for type specific constraints is yet to come. And
+       the selection of the right elements needs to be done more
+       efficiently.
+       
+Overall time: 3225 min  (53.75h) 
+
+August 19, 2010: 9.30 - 11.45 (135 min)
+---------------------------------------- 
+
+ 9.30: Improved efficiency of validation a bit by better "targeting"
+       the constraints. Implemented all remaining constraints for the PNML
+       CoreModel (Cyclic References, and Arcs on Same Page).
+       
+       Still open: Petri Net Type Specific constraints.
+
+Overall time: 3360 min  (56.00h) 
+       
+August 19, 2010: 16.00 - 17.30 (90 min)
+---------------------------------------- 
+
+16.00: Implementation of an example of a Petri Net Type specific constraint
+       in OCL.
+       
+       Still open: Restrictions to which objects which kinds of graphical
+       information may be attached (since this is less important and
+       poses not technical problem, I deferred that to later).      
+       
+Overall time: 3450 min  (57.5h) 
+
+August 19, 2010: 9.30 - 10.00, 11.00-11.45, 13.00-14.45 (180 min)
+-----------------------------------------------------------------
+
+       Some cleanups (a.o. using methods from NetFunctions instead of
+       local implementations) and implementation of an action for
+       adding all the IDs missing in an PNML document. Created a
+       separate project for such ePNK actions.  
+       
+Overall time: 3630 min  (60.5h) 
+
+August 24-27, 2010: ca. 180 min (estimated)
+-------------------------------------------
+
+       Split over several days created the model for the HLPNG
+       datatype elements. This is not yet complete; some types
+       (FiniteEnumerations, CyclicEnumerations, FiniteRanges,
+        Partitions, Strings, and Lists) are not yet there and the         
+       ArbitraryDeclarations are still missing.
+       
+August 24-27, 2010: ca. 300 min (estimated)
+------------------------------------------
+ 
+       Defined the concrete syntax for datatype labels. Most of
+       the time went to working around the problem that XText
+       initially had problems with Ecore models that contain
+       subpackages were addressed with wrong URIs.  In the end,
+       it was easy to fix by using the EmptyPackageAwareGrammarAccessFragment
+       instead of the standard GrammarAccessFragment in the mwe
+       workflow. But, I lost much time to that and some other
+       minor problems. Otherwise, however, XTexed turned out
+       to work smoothly (without much prior knowledge of XText).
+       Except for the supackge problem, there where only some
+       minor conceptual "suprises", which I easily could find out
+       of (most with help of the online XText tutorial). 
+       
+       Note: For someone coming from EMF, it was a bit irritating
+       that XText deletes all code in src-gen (where I also had
+       placed some EMF-generated code). 
+       
+Overall time: 4110 min  (68.5h) 
+       
+August 27, 2010: ca. 180 min (estimated)
+------------------------------------------       
+       
+       Finished the parser for the concrete syntax of all currently
+       supported concepts. Most problematic issue (and the one I spent
+       time on) is the use of Variables and UserOperations which was
+       difficult to refactor to a LL(1)-grammar. That is why, for
+       now backtracking is used (which is no problem since conceptually,
+       the grammar is LL(1), we just need to backtrack one step for
+       using the ID in Variables in a different way from UserOperations;
+       I hope that there is a way to do that in XText without backtracking.
+       
+Overall time: 4290 min  (71.5h) 
+
+August 30, 2010: 16.55 - 19.45 (170min)
+---------------------------------------
+
+       Start implementing the linker. First, created an interface for all
+       elements with an ID. And used this interface also for PetriNet and
+       Object in the PNMLCoreModel; this required some minor
+       adjustments, in existing code (where the id-Feature was referred
+       to). Added the SymbolDef and the SymbolUse to a package
+       structuredpntypemodel in org.pnml.tools.pnk so that they can
+       be used in general and defined the interfaces for Linkers using
+       them.
+       
+       From here, the actual Linker for the specific HLPN Type can be
+       defined now (next time).
+
+Overall time: 4460 min  (74h 20min) 
+
+September 1, 2010: 17.00 - 19.45 (1h 45min)
+-------------------------------------------  
+
+       Started implementing Linker (on the way changing the API for the
+       Linker) and implementing the refFeature for all concrete SymbolUses
+       (Variable, UserSort, UserOperator).
+       
+Overall time: 4565 min  (76h 05min)  
+
+September 3, 2010: 15.20 - 18.20 (3h)
+-------------------------------------
+
+       Implemented first version of HLPNG type definition and the infrastructure.
+       The principle implementation seems to work; but many details need to
+       be still implemented and polished:
+         - Include local linker
+         - Make concrete syntax a bit more user friendly (implicit types
+           for integers, so that we do not need to provide the type
+           explicitly)
+         - Include pages in the type-dependent features (not yet implemented
+           in the infrastructure and the type)
+         - Define mapping to XML
+         - implementation of methods from the interface (getSort)
+         - formulation of constraints
+         - action for global linking
+         - action for setting all id's
+         - Include all HLPNG features (Strings, Lists and all features from SN)
+         - action for serialising abstract syntax to concrete one (important
+           to go to other concrete syntax)
+
+4745min  (79h 05min)
+          
+September 3, 2010: 21.55 - 22.15 (1h 20min)
+-------------------------------------------
+        Included pages to be type specific features (on the way cleaned up
+        a TODO of PetriNetTypes: made toString abstract, so that implementations
+        are forced to implement that method again).
+        
+4825 min (80h 25min)
+
+September 6-16: in all (24h)
+-----------------------------
+   Implementation of the mappings for HLPNG constructs to
+   XML. This required implementing some new mapping constructs:
+   AssocClass, Class mappings, Standard Features, and
+   Bundle features.
+   
+   6.9.: 16.20-21.20 (5h):
+     Experiments and debugging in order to find out how
+     to load XML constructs that combine Feature and
+     class mappings. Came up with a first working implementation. 
+   7.9.: 16.05-18.15 (2h 10min)
+     Corrected and extended the framework and extended the Mapping
+     for HLAnnotations.
+   8.9.: 10.00-11.30, 17.00-19.00 (3h 30min)
+     Extended the mappings for all Terms and corrected some
+     problems with the parser.
+  13.9.: 15.45-21.15,  23.00-24.00 (6h 30min)
+     Implemented the concept of standard mappings
+  14.9.:  9.30-12.10 (2h 40min)
+     Moved the handling of the standard features from the XMLLoader
+     to the ExtendedPNMLMetaData and made some minor improvements.
+  15.9.: 16.10-18.00 (1h 50min)
+     Made standard features and class mappings work together properly.
+     Made the mappings for all constructs of HLPNGs in the current
+     meta model (Strings and SN constructs are not yet in the meta
+     model). Implemented bundle features.
+  16.9.: 16.30-18.30 +20min (2h 20min)            
+     Made some corrections of bundle features (in particular, bundle
+     features are not serialized, if there is not object contained
+     in that feature). Cleaned up the code.
+     Used (and corrected) the local linking and the global linking,
+     and implemented a popup action for global linking and re-
+     implemented th action for setting unique ids based on the
+     ID interface (up to now, the Classes with IDs were handled
+     explicitly).
+     
+6265min (104h 25min)            
+
+September 18, 2010: 18.45 - 19.35 (50min)
+-----------------------------------------
+     Updated log.
+     
+     Implemented a relaxed concrete syntax so that the type of
+     number constant is optional. If it is not set, the local
+     linker will set it to the best fitting type for the value.
+     
+     Adjusted the example.
+     
+6315min      
+     
+September 26, 2010: 15.30 - 17.10 (100min)
+------------------------------------------
+     
+     Started impementing the functionality for dealing with types
+     of expressions:
+     - Added operatiotions isSuperSortOf and leastCommonSuper to
+       Class Sort (and regenerated the code also on depending models)
+             
+     - implemented the above methods and the equals method on relevant
+       sorts
+       
+6415min     
+
+October 13, 2010: 11.25 - 12.55, 13.35-13.55, 15.05-16.35 (70min)
+-----------------------------------------------------------  
+     
+     Finished to implement the above methods and the equal method
+     (and the methods resolve and clone).
+     
+October 13, 2010: 16.35 - 18.00 October 14: 0.00-0.30 (125min)
+-----------------------------------------------------
+
+     Implementation of the getSort method for all Term constructs;
+     also implemented getInputSorts and getOutputSort for Operators.
+     
+
+=========================  
+Sum:  6610min (110h 10min)
+
+October 23, 2010: 16.10 - 16.50, 17.00-24.00 (460min)
+------------------------------------------------------
+
+      Start with GMF experiments (based on Lukasz and Youjuns masters
+      projects). Set up simple GMF editor (without any labels) via
+      GMF Dashboard and some manual changes. 
+      
+      17.00-24.00
+      Work on integration of EMF with GFM Editor (start GMF programmatically
+      with an EMF Page as input). Set up basic infrastructre and did lots
+      of debugging to find out how to properly set the input. The GMF
+      Editor comes up now without any exception (but it does not yet show the
+      content of the page and no elements can be created yet). And there
+      are some hacks (a dummy resource http://null for the diagram elements).
+      
+      This needs further investigation.
+      
+October 26, 2010: 16.30 - 17.30 (60min) 
+---------------------------------------
+   
+      Made GMF/EMF integration work (in a basic version). This used Lukaz
+      and Youjuns NotationModelHelper. There still seems to be a problem
+      with the dirty bit (changes are not indicated as dirty; but they are
+      there and can be saved after another change).
+      
+      Still some way to go (for the revers direction and the full functionality).
+      
+October 26, 2010: 20.30 - 22.58 (148min)
+----------------------------------------
+
+20.30 Minor improvements:
+       - Changed also PNML resource to the GMF Edit domain;
+       - Cleaned up some minor mistakes in the tooling model
+         (Transitions were connected to the wrong tool and the
+          order was a bit awkward)
+       - Changed graphical representation of Page in graph model
+         (rounded boldface box)
+         
+      Note: It appears that the changes made in the GMF editor are
+            made in the model, but outside an editing domain. This
+            must be fixed!
+        
+21.30: Implemented the listeners, so that graphics from diagram
+       is also transfered to the PNML structure (right now just
+       positions). Made a quickfix of the above problem (see Note);
+       but this requires to add the diagram to a resource --
+       right now saved to a dummy file. There must be a way
+       of adding resources that are not saved and not visible.
+       
+=============      
+Sum:  7278min
+           
+October 27, 2010: scattered over the day and into the late night ca. 7h (420min)
+--------------------------------------------------------------------------------
+
+       Analysed and resolved many problems with the integration of
+       the EMF and GMF editors:
+       - After save, the resource was empty: Found out that
+         the WorkspaceSynchronizer triggered a reload of the on
+         resource; this way distroying it. Switched the workspace
+         synchronisation off in the GMF editor (could be probably
+         done more elegantly).
+       - Multiple editors were not possible -- destroying each other:
+         The problem was that PNMLCoreModelDocumentProvider (which
+         we use for storing some information) is the same for all
+         Editors in the plugin. Solution for now: Create a separate
+         instance of the PNMLCoreModelDocumentProvider for every
+         instance of the Editor; eventually, the information stored
+         with the Provicer should be stored somewhere elese.
+       - Implemented the equals method for the PNMLPageEditorInput:
+         They are equal, if their pages are. This way, only one
+         GMF-Editor for the same page can be opened (was not problem;
+         but is better this way).
+         
+October 28 & 29, 2010: ca. 10h (600min)
+---------------------------------------
+         
+         Analysed the code and some debugging for finding out where the
+         problem with the incorrect dirty flags and the sometimes strange
+         behaviour with the redo/undo comes from (it appears that there
+         are two different commant stacks involved).  Did not solve the
+         problem yet and do not have a clear idea what causes is (except
+         that there is a GMF stack and the EditingDomain stack -- but
+         this is the same in normal GMF editors).
+         
+         On the way cleaned up some stuff. And it appears that the version
+         is at least stable now (only sometimes one needs to make a manual
+         change in the EMF-editor to save the content). 
+         
+         Cleaned up the attributes that I initially had added to the 
+         DocumentProvider (which forced me to make it a non-singleton). This
+         is now in the ResourceInfoSet. Now, the DocumentProvider is a
+         singleton again.
+         
+         Added functionality: translate bendpoints between GMF and PNML
+         model ("just for fun"; this needs to be refactored for making
+         the code better readable). 
+         
+=============      
+Sum:  8298min
+         
+October 31, 2010: 12.00- 19.00 (300min)
+---------------------------------------
+         
+         Added documentation (this log) and started with working on the
+         Labels in the GMF editor.
+         
+         Investigated whether this could be done with BorderLayouts. But,
+         it turns out that this would not work i general. Therefore,
+         I decided to make Labels phantom nodes that then can be
+         linked to object. Implemented a GMF editor with this structure;
+         changed the ECore model so that it also can deal with page
+         labels (and renamed these containers PageLabelProxy and
+         LabelProxy). For GMF reasons, it was necessary to have two
+         different classes for that.
+         
+         Due to the change of the ECore model, I had to regenerate
+         dependent stuff -- it turned out, that in the HLPNGDatatype
+         model, there was a mistake; which needed to be cleaned up.
+         
+         No everything could be regenerated. I can start now with the
+         actual functionality of the GMF-Editor and the Proxies.
+         
+         
+         20.00 - 21.35
+         Started with the part that initialises the proxies.
+         
+November 1, 2010: 20.35-23.45 (190min)
+--------------------------------------
+          Analysed in which way the EMF properties vie could be
+          used for creating the right kind of Label elements (mostly
+          by debugging the ItemProvider). Found out that this could
+          be done by over the method createItemPropertyDescriptor in
+          in the ItemProvider. This should return an instance of
+          a new class that delegates the calls to the original
+          ItemPropertyDescriptor and only override getChoiceOfValues
+          method. Tested this method, and it worked.  But, I found
+          another method on the GMF-side to do that in a simpler
+          way (and providing nicer user interactions), so that I
+          decided not to use this. For future reference copied the
+          LabelProxyItemProvider experiment to the alternatives.
+          
+=============      
+Sum:  8788min
+          
+November 3, 2010, 15.50-17.00, 17.30-18.15, 23.30-1.00 (205min)
+---------------------------------------------------------------
+          Started implementing this other method.  Works in
+          principle but needs still some fixes. 
+          
+          Problems with creating arcs now (do not know where
+          this comes from).     
+          
+November 6, 2010, 11.00-16.30, 17.00-19.45 (495min)
+---------------------------------------------------
+
+          Start extend mapping for graphical information
+          - nodes: make location center of node
+          - nodes: take size into account
+          - label: position
+          
+          Lost much time with the diagram info for the textual labels
+          (must be explicitly generated inside the node; otherwise
+          it does not show)
+          
+          Completed the features for PageLabelProxies in the GMF-Editor
+          made proxy labels wrappabel in the GMF editor (by changing
+          the code manually. Needs also be done in the EMF model.
+          
+
+November 7, 2010, 14.45-15.45 (60min)
+-------------------------------------
+          Realized a usability problem which is due to the use of Phantom nodes.
+          They will be shown on all diagrams in the same resource, which means
+          on all pages. This does not make sense in our case. Therefore, I
+          manually changed the method getPage_1000SemanticChildren() in the
+          PNMLCoreModelDiagramUpdater class.  This is a depeer intrusion
+          (and might compromise regeneration of the editor significantly;
+          I need to find a way to make the regeneration easier yet).    
+                  
+         
+November 7, 2010, 18.35-20.25 (110min)
+--------------------------------------
+          Implemented first version that propogates text labels from the label
+          proxies to the actual labels (up to now only working for structural
+          labels). 
+          
+          TODOs:
+            - Do this also for non structural labels
+            - Prevent initialisation of labels proxies while they are not connected
+            - Prevent editing and connecting proxies when not attached to a label
+            - Do all this also for page labels
+            - Make text in labelproxies multi-line (in EMF)
+            
+November 7, 2010, 20.25-21.12 (47min)
+-------------------------------------
+
+           Updated the log and notes (mostly transfered some notes from my
+           manual notes and made them more explicit).     
+           
+=============      
+Sum:  9705min
+           
+November 8, 2010, 16.15-18.20 (125min)
+--------------------------------------
+            Implemented label update for PageLabelProxies and did the
+            reflective implementation for non-strcutured labels.
+            
+November 8, 2010, 18.20-21.50 (210min)
+--------------------------------------
+            Implemented the deletion of a Label together with its LabelProxy
+            or PageLabelProxy (with EditAdvice for these elements). On the
+            way cleaned up som stuff (generated code from model elements
+            which do no longer exist, resp. where renamed).
+            
+November 9, 2010, 13.15-13.55, 15.45-17.20 (135min)
+---------------------------------------------------
+            Cleaned up some code, so that regeneration does not change unnecessary stuff.
+            Made Labels and PageLabels multi-line-editable (needed to work around a
+            GMF bug (which was using the outdated WrapLabel class instead of WrappingLabels).
+            
+            Made the label and the text feature of LabelProxies and PageLabelProxies read-only
+            in the EMF-mode, so that they cannot be changed in the properties view (which
+            could result in inconsistent models.
+            
+            Implemented the ObjectLabelproxyItemSemanticEditPolicy so that the LabelLink
+            cannot be deleted from the model once they are created (avoiding inconsistent
+            models).
+            
+            Created a problems log and updated this log.
+            
+November 10, 2010, 21.30-23.00 (150min)
+---------------------------------------
+            Tested live validation (for connecting arc). This worked smoothly -- just
+            change the properties in the constraint from batch to live.            
+
+=============      
+Sum:  10325min
+        
+November 11, 2010, 16.00-22.35 (395min)
+---------------------------------------
+             Implemented validation for labels of places, transitions and arcs. Went
+             smoothly, but:
+              - revealed some errors, which needed to be fixed
+              - some (many) minor mistakes in the getType() and getSort() methods
+                needed to be fixed (debugging for them and fixing them took most
+                of the time)
+                
+November 13, 2010, 9.25 - 9.55, 10.15-10.45 (60min)
+---------------------------------------------------
+             During validation on Nov. 11, realized that there was a problem that the
+             feature "value" of boolean constants was written twice when it is true
+             (once by PNMLSave and another time by the XMISerialisation). Fixed this
+             for now (but needs to be done in a nicer way in the future).
+             
+November 13, 2010, 16.00-20.00 (240min)
+---------------------------------------          
+             Constraints for page labels and some other more global properties.
+             Needed to add the getSort(Set<NamedOperator) method in order to avoid
+             cycles in recursive defintions (this took most of the time). Now all
+             constraints seem to work fine (except that arc annotations of arcs
+             that are connected to RefPlaces are not checked yet).   
+            
+November 14, 2010, 18.25-20:50 (145min)
+---------------------------------------
+
+ 18.30: Several ceanups and refactorings:
+         - Realized that the backtrack in the Xtext parser is still on; switched that
+           off and regenerated parser code.            
+           
+ 19:40:  - Refactored parser (now maintained as a singleton in the concrete syntax
+           package) and combined the parsing with the local linking! Local linking
+           is no longer a concept of the interface (should never have been).
+
+ 20:09:  - made the text label of the LabelProxy and the PageLabelProxy a derived
+           (volatile and transient) feature; it uses the value of the text
+           feature of the attached Label.      
+           
+ 20:22:  - also regenerated code (which worked fine)
+ 
+ 20:50:  - implemented the getStructuralFeature() method of the structured labels
+           in a reflective way (so that this does not need to be done when
+           implementing a new Petri net type).
+            
+            
+============================================
+Sum:  11165min  (= 186h 5min) ca. 4.6 weeks       
+
+
+November 17, 2010, 15.05-15.35 (30min)
+======================================
+    Implemented the createXXX() methods in a reflective way (not that this
+    requires that the Type uses the names Place, Transition, etc in the
+    Package extending it. But, a designer might chose to use another name,
+    then, he needs to implement these methods manually though.     
+    
+November 17, 2010, 16.45-17.00 (15min)
+======================================
+    Removed the ExtendedPNMLMetaDataProvider concept an made the two methods
+    part of the PetriNetType class (to simplify the definition of PNTDs).
+
+Sum:  10865min 
+
+November 17, 2010, 19.05-19.49 (44min)
+======================================
+    Implemented the deleting of the labels (proxylabels) together with
+    (or actually before) the deletion of an object.
+
+Sum:  11254min 
+    
+December 1, 2010, 16.00-17.00 (60min)
+======================================
+    Implemented FlatAccess so that the flat structure of the net can
+    be easily accessed (without explicitly flattening it). Note that
+    this is not yet carefully tested.
+    
+    Added the opposites of source and target for arcs (that took 5
+    minutes only). Briefly testet, bt not very carefully.    
+
+Sum:  11314min 
+    
+December 1, 2010, 22.05-23.10 (65min)
+=====================================
+    Implemented intitial version of model checker for PTNets based
+    on MCiE library. This was just adapted from other projects and
+    not implemented from scratch. While testing the model checker,
+    some (stupid) errors with the FlatAcess came up, which I fixed.
+    
+Sum:  11379min
+
+December 23, 2010, 9.46-12.40 (174min)
+======================================
+ 9.46: Made all the models for symmetric nets.
+       --> needed to make some changes for implementation
+           reasons and corrected a error in ISO/IEC 15909-2
+           (FiniteIntRange)
+           
+11.20: Started generating code (due to prexisting plugin.xml)
+       needed to change some stuff manually in the plugin.xml
+       and the MANIFEST
+       
+December 24, 2010, 9.38-11.25 (107min)
+======================================       
+ 9.38: Made the model for the ProxySort (needed for finite
+       enumerations and cyclic enumerations since the are
+       not sort declarations; maybe this should be changed
+       in ISO/IEC 15909-2)
+10.30: Implemented all remaining methods in Sorts for
+       symmetric nets (and checked operators and declarations
+       again).
+       
+Sum: 11660min
+
+December 24, 2010, 12.40-14.32 (112min)
+=======================================
+                   
+        Implemented mapping of Symmetric nets to XML (and the
+        method getRefFeature of PartitionElementOf). Note: not
+        tested yet.
+                           
+December 25, 2010, 15.50-16.45 (55min)
+======================================
+       Changed ePNK infrastructure so that the same PetriNetType
+       can have different type tags (as for DOT-nets, SN-nets,
+       and HLPNGs). The main extension is the
+       createPetriNetType(String type) method, which can be
+       overwritten by a new net type.
+       
+December 26, 2010, 12.20-12.40, 13.32-13.47 (35min)
+===================================================
+       Changed HLPNG model, so that it can deal with pt, sn, and hlpng
+       nets, and implemented the methods manually.
+
+December 26, 2010, ca 90min
+===========================       
+       Testing and fixing the XML Mappings
+       
+       Changed the linker so that it also uses the declarations within
+       sorts (enums).
+       
+December 27, 2010, 0.20-2.40 (140min)
+=====================================
+       Created the Xtext grammar for all the SN constructs and generated
+       code from them.
+       
+December 27, 2010, 11.17-12.20,13.12-13.46 (97min)
+==================================================
+
+       Implemented constraints for "dot nets".
+       Checked the implementation with some examples (added one
+       dot net example) and fixed some minor problems.
+       
+       
+December 27, 2010, 16.08-16.40, 17.20-18.59, 21.45-22.07 (153min)
+=================================================================
+
+       Implemented the constraints for SNs and tested them a bit (and fixed
+       some errors).      
+       
+       Changed Linker and LinkInfrastructure so that dangling references
+       (to non-existing symbol definitions) are removed, but so that the
+       name of the symbol is kept, so that it will be found again, when
+       a symbol will be defined again. 
+       
+December 28, 2010, 19.40-20.02, 21.45-22.10 (47min)
+===================================================
+       Made model and gen-model for Strings
+       
+       Made model and gen-model for Lists and ArbitraryDeclarations
+
+December 28, 2010, 22.57-01.38 (161min)
+=======================================
+22.57  Generated code (with some manual tricks) for Strings, Lists, and
+       ArbitraryDeclarations. 
+       
+23.22  Implemented manual methods for all classes (except for List)
+
+December 29, 2010, 18.31-20.00, 23.25-1.10 (194min)
+===================================================
+
+18.31  Implementation of manual methods for List.
+       
+18.42  Implementation of mappings to PNML (not yet tested).   
+
+23.25  Added mapping for content of Unparsed
+       Implementing Xtext grammar
+       
+January 1 & 2, 2011, ca. 2hours (120min)
+========================================
+
+While making some examples fixed some bugs in the mappings to PNML and
+in the concrete syntax (most importantly added a ValueConverter so
+that tokens for INT and NAT do not conflict anymore).        
+
+Sum: 12864min (214h 24min) = 5w 14h 24min
+
+
+Feb. 22, 2011
+=============
+
+Fixed a minor bug in the PNMLResource (made it more defensive);
+this fix will be part of the 0.9.2 release. Since this bug
+manifested itself in the MultiAgentMutex tutorial (though
+the bug was not there), I made a 0.9.1 version of the
+tutorial that avoided this bug.
+
+March18, 2011
+=============
+
+Realized that printing was disabled in the GMF editor. Changed
+the PNML-Editor.gmfgen respectively and the version number to 0.9.2.
+Regenerated the GMF editor (in Galileo since Helios has problems
+with phantom nodes).
+
+March 23, 2011
+==============
+
+While testing the serialisation of HLPNG labels, I realized that
+NumberConstants where not checked for illegal types with respect
+to their value: -1:NAT, 0:POS, -1:POS were not rejected as
+illegally typed. I changed this now (in the getSort() method
+of NumberConstantImpl). 
+
+March 24, 2011
+==============
+
+Changed the diagram extension for GMF diagrams to "pnxd" in order
+to avoid problem when creating pnx model files (which then are
+tried to open as a diagram). It is now possible to have pnx files
+with diagrams pnxd.
+      
+March 26, 2011
+==============
+
+Improved the update from the GMF to the PNML graphics information, so that
+- the initial position of a LabelProxy is now propagated to the label
+  (when the LabelProxy is connected)
+- the relative position of labels is updated when nodes are moved (together
+  with labels)
+- bendpoints are properly updated when groups of nodes are moved
+
+Note: if only one node is moved, the bendpoint is still calculated incorrectly
+      (the reasons seems to be that there is not propagation for the newly
+       calculated bendpointposition, which is caclualted after the 
+       nodes is notifies).
+       
+March 29, 2011
+==============
+
+Implemented a preliminary version of the toolspecific information for diagrams.
+PageLabelProxies and LabelProxies of the net are saved there. Solution
+seams to be stable (also working with undo/redo -- but did not extensively
+test this). For making undo/redo work, I  did not use automatic addition
+of ObjectProxies in the diagram info, when a object is added to a page.
+This must be done in all the createCommands of objects (yet to be implemented).
+
+May 6/7, 2011 (ca. 300min)
+========================
+
+Refactored the ePNK so that label proxies are now maintained on the page
+(and not directly) with the object. This makes it easier to save them in
+tool specific information (in particular for saving GMF diagram information).
+
+May 10, 2011 (ca 120min)
+========================
+
+Implemented the ePNK GMF editor, so that it saves the diagram information
+in the tool specific information DiagramInfo (needed to slightly adjust the
+DiagramInfo so that the factory properly sets the version number).
+
+Except for a problem, when id's contain blanks, this seems to work fine
+(though not tested extensively yet).
+
+[...]
+
+October 14, 2011 (ca. 10min)
+=============================
+
+Implemented the linkNetSymbols method more defensively, so that it does not
+raise an exception, when there is no linker.
+
+
+Novemver 18/19, 2011 (ca. 120min -- inlcuding bug tracking)
+===========================================================
+
+Made sure that empty bundle feature elements can be read again (this is a real hack).
+And made sure that empty bundle feartures are written as an empty element (for
+complying with the definition of the <parameter> element of named operators
+of PNML. Made some parts concerning the bundle features a bit more defensive
+(so that error messages on unreadable PNML files are more conclusive).
+
+
+November 20, 2011 (ca. 195min)
+==============================
+
+Implemented extended PNTDs, which allow to extend the class PetriNet so that
+Petri nets can directly contain labels (not on pages). Extended the PNTD for
+HLPNGs so that declarations can be directly contained in the net.
+
+
+November 23 - December 7 (ca. 24h, i.e. ca. 1440 min)
+=====================================================
+
+Implemented support and transfer of all graphical features of GMF editor, so
+that they are transferred to and from the PNML model. Also implemented the
+images feature, and bezier interpolator (instead of the standard GMF one).
+
+On the way changed the Place, Transition, and Arc figures implementation
+(their constructor takes a Place, Transition and Arc now). This is an
+API break (a minor one, when for graphical extensions; but it might require
+changes in existing extensions).
+
+The features that are not supported yet by the GMF editor (and therefore
+not used) are:
+  - Line width for arcs, nodes, labels, and pages
+  - Line style for arcs, nodes, labels, and pages
+  - Line colour for labels (since the line colour is used for the text of the
+      label; see comments below)
+  - Fill gradient and rotation for nodes and pages
+  - All font features for labels except for font-family and font-size
+  
+  
+Note that PNML (2011 version) does not have a text colour attribut for labels
+(annotations). Obviously, the line colour was intended for that; which the
+ePNK uses for that purpose. This should be sorted out in the standard; for
+now labels cannot have a line colour for labels.
+
+Images for Places, Transitions and Pages are supported. But the images URL
+can only be edited in the tree editor (which actually is not recommended
+below the page level). Eventually, there should be a file selection dialog
+for that purpose. The URL to the image can be relative (to the PNML file)
+or absolute. The ePNK supports all image formats required by the PNML:
+JPEG and PNG; in addition, it supports BMP and GIF. Note that images
+are scaled to the size of the respective node (in both dimensions
+independently not respecting the aspect ratio; this might be a subject
+to be discussed for the standard).
+
+Notes for PNML:
+  - text colour for annotations need to be sorted out (either make
+    explicit that line colour feature is used for that and their
+    are no lines for labels or add a text colour feature somewhere)
+  - some features of Line make only sense for lines, but not for
+    nodes, pages or annotations (e.g. shape); for other features,
+    it is not made explicit whether they should be supported or
+    not (image for labels are technically possible, but not
+    mentioned in the standard)
+  - for images, it might be intersting to have some additional
+    features like fixing the aspect ratio;
+  - Some of the font weight of CSS are relative; they question
+    would be what they refer to (e.g. hierarchicially over the
+    different pages); or just absolute. This should be made
+    explicit in the standard.
+  - Annotations do not have bounds; without a fixed weight the 
+    align feature for fonts is ambigous; should labels have
+    a width and height?
+
+
+December 8 - 14, 2011
+=====================
+
+Implemented first version of applications, application view,
+annotations, and the presentation layer for showing the annotations
+on top of the net in the graphical editor. This is still very experimental.
+
+In particular, the presentations would need a way to configure the
+presentation of the annotations; and user interaction, would need to
+be hacked into this presentation layer.
+
+This must eventually be cleaned up.
+
+
+February 26, 2012 (ca. 70 min)
+==============================
+
+Extension of ePNK's extension mechanism, so that RefPlaces
+and RefTransitions can have labels now. 
+ Implemtation of extension mechanism: ca. 30 min
+ Example for testing and test: ca. 40 min
+
+ 
+February 26, 2012 (ca. 25 min)
+===============================
+
+Extension that allows to define for Page labels whether they
+should appear on the page or a label of the Page node on
+the super page (the default is that labels with multiplicity
+* appear on the page and labels with multiplicity 1 appear
+as label of the page node on the super page).
+
+  Implementation: 15 min
+  Example and test: 10 min (extension of the example above)
+Extension of ePNK's extension mechanism, so that RefPlaces
+and RefTransitions can have labels now. 
+ Implemtation of extension mechanism: ca. 30 min
+ Example for testing and test: ca. 40 min 
+
+ 
+February 26, 2012 (ca. 20 min)
+==============================
+
+Extension that allows page nodes to be connected by arcs (note
+that only the PNMLCoremodel in ecore was changed: Pages
+are now Nodes in the core model;  the code for the model, edit
+and editor as well as the code for the GMF editor was regenerated).  
+  Implementation (and regeneration): 10min
+  Test: 10 minutes
+  
+Note that some of the existing types need to have additional
+constraints now. The constraints for P/T-nets and HLPNG
+nets however is okay (they require the explicit connection
+of PlaceNodes with TransitionNodes or vice versa).
+
+NOTE: Files with such arcs look like PNM, but they are not compliant 
+to PNML -- since arcs in PNML are between nodes only (and pages
+are not nodes in PNML!
+
+
+August - September 2012
+=======================
+
+Adjusted the HLPNG simulator from Mindaugas, fixed some bugs and
+adjusted the ePNK to use the "PresentationDescriptor" from Mindaugas.
+This is still a hack, and should be cleaned up eventually.
+
+
+October 2012
+============
+
+Made a release of the ePNK 1.0.0 and tested it on Indigo and Juno
+together with the HLPNG simulator.
+
+
+October 24, 2012
+================
+
+Implemented the ObjectItemProvider in org.pnml.tools.epnk.edit a bit more defensive
+and added an Image (new version number 1.0.1).
+
+
+October 25, 2012
+================
+
+Adjusted popup menu for label sersialisation so that it is applicable only for HLPNGs.
+Cleaned up code (new version 0.2.1)
+
+
+October 31, 2012
+================
+
+Adjusted the PopUp menus for the high-level simulators so that it can be started
+on HLPNGs only (new version number 0.1.2).
+
+
+November 2012
+=============
+
+Adjusted abortion mechanism for MCiE (checks are done more frequently now) and
+cleaned up the abortion mechanism. (new version 0.3.8 -- changed in MANIFES only
+on June 6, 2013).
+
+
+November 21, 2012
+=================
+
+Improved diagrams (without changing the underlying models) for PTnet and HLPNGDefinition.
+
+
+November 22-29, 2012
+====================
+
+Cleaned up outdated constraint and graphical extensions for signal event nets and
+changed built.properties so that source code is deployed with the projects (new version 1.0.1).
+
+
+March 6, 2013 (April 26, 2013)
+==============================
+
+Implemented the handling of Problem markers in a more defensive way (as it was, markers
+that were not EMFValidationMarkers, caused an exception). On April 26, realized that
+markers were not shown at all due to a minor error in the bugfix of March 6. Fixed this.
+
+
+April 26-27, 2013
+=================
+
+Added a new experimental feature, which adds and aligns all missing labels of a node.
+Implemented in new project: org.pnml.tools.epnk.diagram.extensions (version 0.1.0)
+
+
+May 7, 2013
+===========
+
+Changed serialisation mechanism of the ePNK, so that the AssocClass is not temprorily
+added to the PNML Document anymore. Therefore, it does not need to be extended to fit
+the respective type anymore. This makes it possible to define more completx XML mappings
+without programming (or generating) new classes (made the plugin project version 1.0.1 on June 6).
+
+Cleaned up an old unnecessary non-null entry in the ExtendedPNMLMetaData (for the
+cardinality operator) -- which would not work when using the AssocClass directly
+(made the plugin project version 1.0.1 on June 6)..
+
+
+June 6, 2013
+============
+
+Added major changes to log and adjusted the version numbers of all
+plugins and features accrodingly. In preparation of the upate site
+for the ECNO tool.
+
+June 21, 2013
+=============
+
+Created a first update site for Eclipse Kepler and adjusted Copyright Notices and
+license (EPL) and increased version numbers (for the changed features).

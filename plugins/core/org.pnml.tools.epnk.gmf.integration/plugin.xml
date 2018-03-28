@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.pnml.tools.epnk.gmf.integration.actions.contribution1"
+            objectClass="org.pnml.tools.epnk.pnmlcoremodel.Page">
+         <menu
+               id="org.pnml.tools.epnk.actions.standardmenu"
+               label="ePNK"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.pnml.tools.epnk.gmf.integration.actions.popup.InitiateGMFEditorOnPage"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.gmf.integration.actions.initiateGMFEditor1"
+               label="Start GMF Editor on Page"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1"
+               tooltip="Start GMF editor for this page">
+         </action>
+      </objectContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.pnml.tools.epnk.gmf.integration.actions.contribution2"
+            objectClass="org.pnml.tools.epnk.diagram.edit.parts.Page2EditPart">
+         <menu
+               id="org.pnml.tools.epnk.actions.standardmenu"
+               label="ePNK"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.pnml.tools.epnk.gmf.integration.actions.popup.InitiateGMFEditorOnPage"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.gmf.integration.actions.initiateGMFEditor2"
+               label="Start GMF Editor on Page"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1"
+               tooltip="Start GMF editor for this page">
+         </action>
+      </objectContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.pnml.tools.epnk.gmf.integration.actions.contribution3"
+            objectClass="org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc">
+         <menu
+               id="org.pnml.tools.epnk.actions.standardmenu"
+               label="ePNK"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.pnml.tools.epnk.gmf.integration.actions.popup.RefreshImages"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.gmf.integration.actions.refreshImageChache"
+               label="Clear Image Cache"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1"
+               tooltip="Clear image cache, so that changed images show properly">
+         </action>
+      </objectContribution>
+   </extension>   
+</plugin>

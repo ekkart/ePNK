@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.pnml.tools.epnk.actions.contribution1"
+            objectClass="org.pnml.tools.epnk.pnmlcoremodel.PetriNetDoc">
+         <menu
+               id="org.pnml.tools.epnk.actions.standardmenu"
+               label="ePNK"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.pnml.tools.epnk.actions.popup.AddMissingIDs"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.actions.SetMissingIDs"
+               label="Add missing IDs"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1">
+         </action>
+      </objectContribution>
+   </extension>
+   
+      <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.pnml.tools.epnk.actions.contribution2"
+            objectClass="org.pnml.tools.epnk.pnmlcoremodel.PetriNet">
+         <menu
+               id="org.pnml.tools.epnk.actions.standardmenu"
+               label="ePNK"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.pnml.tools.epnk.actions.popup.LinkLabels"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.actions.LinkLabels"
+               label="Link Labels (globally)"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1">
+         </action>
+      </objectContribution>
+   </extension>
+
+   <extension 
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.pnml.tools.epnk.actions.standardmenu?after=additions">
+         <command
+               commandId="org.pnml.tools.epnk.command.add_package_as_pntd">
+            <visibleWhen>
+               <with
+                     variable="selection">
+                  <count value="1"/>
+                  <iterate>
+                     <adapt
+                           type="org.eclipse.emf.ecore.EPackage">
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.pnml.tools.epnk.command.add_package_as_pntd"
+            description="Adds package as PNTD to the plugin.xml"
+            defaultHandler="org.pnml.tools.epnk.actions.handlers.AddPackageToPlugin"
+            name="Add Package as PNTD">
+      </command>
+   </extension>
+</plugin>

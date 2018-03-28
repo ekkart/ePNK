@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="netannotations"
+    nsURI="http://tools.pnml.org/epnk/netannotations/1.0" nsPrefix="netannotations">
+  <eClassifiers xsi:type="ecore:EClass" name="NetAnnotation" eSuperTypes="#//Annotation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="net" lowerBound="1" eType="ecore:EClass ../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//PetriNet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objectAnnotations" upperBound="-1"
+        eType="#//ObjectAnnotation" resolveProxies="false" eOpposite="#//ObjectAnnotation/netAnnotations"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectAnnotation" eSuperTypes="#//Annotation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="netAnnotations" upperBound="-1"
+        eType="#//NetAnnotation" transient="true" resolveProxies="false" eOpposite="#//NetAnnotation/objectAnnotations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" lowerBound="1"
+        eType="ecore:EClass ../../org.pnml.tools.epnk/model/PNMLCoreModel.ecore#//Object"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetAnnotations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="netAnnotations" upperBound="-1"
+        eType="#//NetAnnotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objectAnnotations" upperBound="-1"
+        eType="#//ObjectAnnotation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="current" eType="#//NetAnnotation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="appId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="appVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextualAnnotation" abstract="true">
+    <eOperations name="getAnnotationAttribute" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="EClass eClass = this.eClass();&#xD;&#xA;Object feature = eClass.getEStructuralFeature(&quot;text&quot;);&#xD;&#xA;if (feature instanceof EAttribute) {&#xD;&#xA;&#x9;return (EAttribute) feature;&#xD;&#xA;}&#xD;&#xA;feature = eClass.getEStructuralFeature(&quot;value&quot;);&#xD;&#xA;if (feature instanceof EAttribute) {&#xD;&#xA;&#x9;return (EAttribute) feature;&#xD;&#xA;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;for (EAttribute attribute: eClass.getEAllAttributes()) {&#xD;&#xA;&#x9;return attribute;&#xD;&#xA;}&#xD;&#xA;return null;"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuredAnnotation" abstract="true"
+      eSuperTypes="#//TextualAnnotation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation">
+    <eOperations name="getDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,8 @@
+#Sun Oct 24 16:51:33 CEST 2010
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/org.pnml.tools.epnk/model/PNMLCoreModel.genmodel
+gmf_dashboard/domainModel=platform\:/resource/org.pnml.tools.epnk/model/PNMLCoreModel.ecore
+gmf_dashboard/generationModel=platform\:/resource/org.pnml.tools.epnk.gmf/model/PNML-Editor.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/org.pnml.tools.epnk.gmf/model/PNML-Editor.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/org.pnml.tools.epnk.gmf/model/PNML-Editor.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/org.pnml.tools.epnk.gmf/model/PNML-Editor.gmftool

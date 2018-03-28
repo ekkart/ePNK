@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ This file is part of the ePNK project (Petri Net Kernel for eclipse). The ePNK
+ is platform for Petri net tools based on the PNML transfer format. Its
+ main idea is to provide generic Petri net types which can be easily plugged
+ in and a simple generic GMF editor, that can be used for graphically editing
+ nets of any plugged in type. Additional functionality can be plugged in.
+ 
+ Note that this project is still in an experimental phase, and is also used
+ as a case study for EMF/GMF based Model-based Software Engineering.
+ 
+ Copyright (C) 2010 Ekkart Kindler, eki@imm.dtu.dk
+ The license under which this software will be distributed is still to be decided -
+ it will probably be the EPL.
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.pnml.tools.epnk.pnmlcoremodel.presentation.PnmlcoremodelModelWizardID"
+            name="%_UI_PnmlcoremodelModelWizard_label"
+            class="org.pnml.tools.epnk.pnmlcoremodel.presentation.PnmlcoremodelModelWizard"
+            category="org.pnml.tools.epnk.wizards.category"
+            icon="icons/full/obj16/PnmlcoremodelModelFile.gif">
+         <description>%_UI_PnmlcoremodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.pnml.tools.epnk.pnmlcoremodel.presentation.PnmlcoremodelEditorXMI"
+            name="%_UI_PnmlcoremodelEditor_label"
+            icon="icons/full/obj16/PnmlcoremodelModelFile.gif"
+            extensions="pnx"
+            class="org.pnml.tools.epnk.pnmlcoremodel.presentation.PnmlcoremodelEditor"
+            contributorClass="org.pnml.tools.epnk.pnmlcoremodel.presentation.PnmlcoremodelActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="org.pnml.tools.epnk.pnmlcoremodel.presentation.PnmlcoremodelModelPNMLWizardID"
+            name="PNML Document"
+            class="org.pnml.tools.epnk.pnmlcoremodel.presentation.PnmlcoremodelModelPNMLWizard"
+            category="org.pnml.tools.epnk.wizards.category"
+            icon="icons/full/obj16/PnmlcoremodelModelFile.gif">
+         <description>Create a new PNML document</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.pnml.tools.epnk.pnmlcoremodel.presentation.PnmlcoremodelEditorPNML"
+            name="PNML Editor"
+            icon="icons/full/obj16/PnmlcoremodelModelFile.gif"
+            extensions="pnml"
+            class="org.pnml.tools.epnk.pnmlcoremodel.presentation.PnmlcoremodelEditor"
+            contributorClass="org.pnml.tools.epnk.pnmlcoremodel.presentation.PnmlcoremodelActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

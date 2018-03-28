@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ePNK Managers
+Bundle-SymbolicName: org.pnml.tools.epnk.managers
+Bundle-Version: 1.1.0.qualifier
+Bundle-Vendor: DTU Informatics, Software Engineering Section, E. Kindler
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.5.0",
+ org.eclipse.core.resources;bundle-version="3.5.0",
+ org.eclipse.emf.ecore;bundle-version="2.5.0",
+ org.eclipse.emf.edit;bundle-version="2.5.0",
+ org.eclipse.gmf.runtime.diagram.core;bundle-version="1.2.1",
+ org.eclipse.swt;bundle-version="3.7.0",
+ org.eclipse.jface;bundle-version="3.7.0",
+ org.pnml.tools.epnk;bundle-version="1.1.0"
+Export-Package: org.pnml.tools.epnk.managers.graphics.resources,
+ org.pnml.tools.epnk.managers.problems

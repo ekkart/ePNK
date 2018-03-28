@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension
+      point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+    <decoratorProvider
+        class="org.pnml.tools.epnk.diagram.decorators.DecoratorProvider">
+      <Priority name="Medium"/>
+      <object
+          class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)"
+          id="PetriNetPlacePart">
+          <!-- note that the reference to the plugin in the above reference to the class is necessary
+               in order for this decorator provider to properly be plugged in. It should not be
+               deleted, even though it gives a warning here! -->
+        <!-- <method
+              name="toString()"
+              notValue="wrong"></method> -->
+      </object> 
+      <context decoratorTargets="PetriNetPlacePart"></context>
+    </decoratorProvider>
+  </extension>
+</plugin>

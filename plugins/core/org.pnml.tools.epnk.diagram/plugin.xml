@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension-point
+      id="graphics" 
+      name="ePNK diagram graphical extension"
+      schema="schema/graphics.exsd"/>
+
+   <!--
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="pnxd"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="pnxd"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+   -->
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/PnmlcoremodelDiagramFile.gif"
+         extensions="pnxd"
+         default="true"
+         class="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramEditor"
+         matchingStrategy="org.pnml.tools.epnk.diagram.part.PNMLCoreModelMatchingStrategy"
+         contributorClass="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="org.pnml.tools.epnk.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <!--
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/PnmlcoremodelDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="org.pnml.tools.epnk.diagram.part.PNMLCoreModelCreationWizard"
+  	     id="org.pnml.tools.epnk.diagram.part.PNMLCoreModelCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="org.pnml.tools.epnk.diagram.InitDiagram"
+            nameFilter="*.pnx"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="org.pnml.tools.epnk.diagram.part.PNMLCoreModelInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+   -->
+   
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="PNMLCoreModelPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.printing.render.providers.DiagramWithPrintGlobalActionHandlerProvider"
+         id="PNMLCoreModelPresentationPrint">
+         <Priority name="Lowest"/>
+         <ViewId id="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="print"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="PNMLCoreModelPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="PNMLCoreModelRender">
+         <Priority name="Lowest"/>
+         <ViewId id="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="org.pnml.tools.epnk.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="org.pnml.tools.epnk.diagram.general"
+            name="%prefpage.org.pnml.tools.epnk.diagram.general"
+            class="org.pnml.tools.epnk.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="org.pnml.tools.epnk.diagram.appearance"
+            name="%prefpage.org.pnml.tools.epnk.diagram.appearance"
+            category="org.pnml.tools.epnk.diagram.general"
+            class="org.pnml.tools.epnk.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="org.pnml.tools.epnk.diagram.connections"
+            name="%prefpage.org.pnml.tools.epnk.diagram.connections"
+            category="org.pnml.tools.epnk.diagram.general"
+            class="org.pnml.tools.epnk.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="org.pnml.tools.epnk.diagram.printing"
+            name="%prefpage.org.pnml.tools.epnk.diagram.printing"
+            category="org.pnml.tools.epnk.diagram.general"
+            class="org.pnml.tools.epnk.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="org.pnml.tools.epnk.diagram.rulersAndGrid"
+            name="%prefpage.org.pnml.tools.epnk.diagram.rulersAndGrid"
+            category="org.pnml.tools.epnk.diagram.general"
+            class="org.pnml.tools.epnk.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="org.pnml.tools.epnk.diagram"
+            labelProvider="org.pnml.tools.epnk.diagram.sheet.PNMLCoreModelSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="org.pnml.tools.epnk.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="org.pnml.tools.epnk.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="org.pnml.tools.epnk.diagram.sheet.PNMLCoreModelPropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="org.pnml.tools.epnk.diagram.providers.PNMLCoreModelViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="PNMLCoreModel"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,2009,2008"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4004"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="org.pnml.tools.epnk.diagram.providers.PNMLCoreModelEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="PNMLCoreModel"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2002,2003,2004,2005,2009,2008"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4001,4004"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5004,5003"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value=""/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="org.pnml.tools.epnk.diagram.providers.PNMLCoreModelModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="org.pnml.tools.epnk.diagram.edit.parts.PageEditPart" id="Page_1000"/>
+         <object class="org.pnml.tools.epnk.diagram.edit.parts.PlaceEditPart" id="Place_2001"/>
+         <object class="org.pnml.tools.epnk.diagram.edit.parts.RefPlaceEditPart" id="RefPlace_2002"/>
+         <object class="org.pnml.tools.epnk.diagram.edit.parts.TransitionEditPart" id="Transition_2003"/>
+         <object class="org.pnml.tools.epnk.diagram.edit.parts.Page2EditPart" id="Page_2004"/>
+         <object class="org.pnml.tools.epnk.diagram.edit.parts.RefTransitionEditPart" id="RefTransition_2005"/>
+         <object class="org.pnml.tools.epnk.diagram.edit.parts.LabelProxyEditPart" id="LabelProxy_2009"/>
+         <object class="org.pnml.tools.epnk.diagram.edit.parts.PageLabelProxyEditPart" id="PageLabelProxy_2008"/>
+         <context elements="Page_1000,Place_2001,RefPlace_2002,Transition_2003,Page_2004,RefTransition_2005,LabelProxy_2009,PageLabelProxy_2008"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="org.pnml.tools.epnk.diagram.providers.PNMLCoreModelIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="http://org.pnml.tools/epnk/pnmlcoremodel">
+         <metamodelType
+               id="org.pnml.tools.epnk.diagram.Page_1000"
+               name="%metatype.name.Page_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Page"
+               edithelper="org.pnml.tools.epnk.diagram.edit.helpers.PageEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.pnml.tools/epnk/pnmlcoremodel">
+         <metamodelType
+               id="org.pnml.tools.epnk.diagram.Place_2001"
+               name="%metatype.name.Place_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Place"
+               edithelper="org.pnml.tools.epnk.diagram.edit.helpers.PlaceEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.pnml.tools/epnk/pnmlcoremodel">
+         <metamodelType
+               id="org.pnml.tools.epnk.diagram.RefPlace_2002"
+               name="%metatype.name.RefPlace_2002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="RefPlace"
+               edithelper="org.pnml.tools.epnk.diagram.edit.helpers.RefPlaceEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.pnml.tools/epnk/pnmlcoremodel">
+         <metamodelType
+               id="org.pnml.tools.epnk.diagram.Transition_2003"
+               name="%metatype.name.Transition_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Transition"
+               edithelper="org.pnml.tools.epnk.diagram.edit.helpers.TransitionEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.pnml.tools/epnk/pnmlcoremodel">
+         <specializationType
+               id="org.pnml.tools.epnk.diagram.Page_2004"
+               name="%metatype.name.Page_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.pnml.tools.epnk.diagram.Page_1000"/>
+            <param name="semanticHint" value="2004"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://org.pnml.tools/epnk/pnmlcoremodel">
+         <metamodelType
+               id="org.pnml.tools.epnk.diagram.RefTransition_2005"
+               name="%metatype.name.RefTransition_2005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="RefTransition"
+               edithelper="org.pnml.tools.epnk.diagram.edit.helpers.RefTransitionEditHelper">
+            <param name="semanticHint" value="2005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.pnml.tools/epnk/pnmlcoremodel">
+         <metamodelType
+               id="org.pnml.tools.epnk.diagram.LabelProxy_2009"
+               name="%metatype.name.LabelProxy_2009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="LabelProxy"
+               edithelper="org.pnml.tools.epnk.diagram.edit.helpers.LabelProxyEditHelper">
+            <param name="semanticHint" value="2009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.pnml.tools/epnk/pnmlcoremodel">
+         <metamodelType
+               id="org.pnml.tools.epnk.diagram.PageLabelProxy_2008"
+               name="%metatype.name.PageLabelProxy_2008"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="PageLabelProxy"
+               edithelper="org.pnml.tools.epnk.diagram.edit.helpers.PageLabelProxyEditHelper">
+            <param name="semanticHint" value="2008"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.pnml.tools/epnk/pnmlcoremodel">
+         <metamodelType
+               id="org.pnml.tools.epnk.diagram.Arc_4001"
+               name="%metatype.name.Arc_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Arc"
+               edithelper="org.pnml.tools.epnk.diagram.edit.helpers.ArcEditHelper">
+            <param name="semanticHint" value="4001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://org.pnml.tools/epnk/pnmlcoremodel">
+         <specializationType
+               id="org.pnml.tools.epnk.diagram.LabelProxyObject_4004"
+               name="%metatype.name.LabelProxyObject_4004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4004"/>
+         </specializationType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="org.pnml.tools.epnk.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="org.pnml.tools.epnk.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="org.pnml.tools.epnk.diagram.TypeContext">
+         <elementType ref="org.pnml.tools.epnk.diagram.Page_1000"/>
+         <elementType ref="org.pnml.tools.epnk.diagram.Place_2001"/>
+         <elementType ref="org.pnml.tools.epnk.diagram.RefPlace_2002"/>
+         <elementType ref="org.pnml.tools.epnk.diagram.Transition_2003"/>
+         <elementType ref="org.pnml.tools.epnk.diagram.Page_2004"/>
+         <elementType ref="org.pnml.tools.epnk.diagram.RefTransition_2005"/>
+         <elementType ref="org.pnml.tools.epnk.diagram.LabelProxy_2009"/>
+         <elementType ref="org.pnml.tools.epnk.diagram.PageLabelProxy_2008"/>
+         <elementType ref="org.pnml.tools.epnk.diagram.Arc_4001"/>
+         <elementType ref="org.pnml.tools.epnk.diagram.LabelProxyObject_4004"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="org.pnml.tools.epnk.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="org.pnml.tools.epnk.diagram"
+           properties="isURIEditorInput"
+           class="org.pnml.tools.epnk.diagram.part.PNMLCoreModelUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="org.pnml.tools.epnk.diagram.resourceContent"/>
+			<contentExtension pattern="org.pnml.tools.epnk.diagram.domainResourceContent"/>
+            <contentExtension pattern="org.pnml.tools.epnk.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="org.pnml.tools.epnk.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="org.pnml.tools.epnk.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelNavigatorContentProvider" 
+            labelProvider="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelNavigatorLabelProvider"
+            icon="icons/obj16/PnmlcoremodelDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="pnxd"/>
+               </and>
+               <instanceof value="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="org.pnml.tools.epnk.diagram.navigatorSorter" 
+               class="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="pnxd"/>
+                  </and>
+                  <instanceof value="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="org.pnml.tools.epnk.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelDomainNavigatorContentProvider" 
+            labelProvider="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelDomainNavigatorLabelProvider"
+            icon="icons/obj16/PnmlcoremodelDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="pnx"/>
+               </and>
+               <instanceof value="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="org.pnml.tools.epnk.diagram.navigatorActionProvider"
+            class="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="org.pnml.tools.epnk.diagram.navigatorLinkHelper"
+            class="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="org.pnml.tools.epnk.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="org.pnml.tools.epnk.diagram.navigator.PNMLCoreModelAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="org.pnml.tools.epnk.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="org.pnml.tools.epnk.diagram.updateDiagram"
+         contextId="org.pnml.tools.epnk.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="org.pnml.tools.epnk.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="org.pnml.tools.epnk.diagram.edit.parts.PageEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="org.pnml.tools.epnk.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="org.pnml.tools.epnk.diagram.part.PNMLCoreModelDiagramEditorID"
+         defaultHandler="org.pnml.tools.epnk.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+<extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="org.pnml.tools.epnk.diagram.providers.PNMLCoreModelParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension
+         point="org.eclipse.gmf.runtime.common.ui.services.parserProviders">
+      <ParserProvider
+            class="org.pnml.tools.epnk.gmf.integration.labelparsers.LabelParserProvider">
+         <Priority
+               name="Low">
+         </Priority>
+      </ParserProvider>
+   </extension>
+   
+      <extension
+         point="org.eclipse.gmf.runtime.common.ui.services.parserProviders">
+      <ParserProvider
+            class="org.pnml.tools.epnk.gmf.integration.labelparsers.PageLabelParserProvider">
+         <Priority
+               name="Low">
+         </Priority>
+      </ParserProvider>
+   </extension>
+<extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="pnxd"/>
+   </extension>
+
+<extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="pnxd"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/PnmlcoremodelDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="org.pnml.tools.epnk.diagram.part.PNMLCoreModelCreationWizard"
+  	     id="org.pnml.tools.epnk.diagram.part.PNMLCoreModelCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+<extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="org.pnml.tools.epnk.diagram.InitDiagram"
+            nameFilter="*.pnx"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="org.pnml.tools.epnk.diagram.part.PNMLCoreModelInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+
+   
+
+
+   <!-- optionally, specify keybindings -->
+</plugin>
