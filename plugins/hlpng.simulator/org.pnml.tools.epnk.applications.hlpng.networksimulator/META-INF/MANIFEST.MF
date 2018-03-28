@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HLPNG Network Simulator
+Bundle-SymbolicName: org.pnml.tools.epnk.applications.hlpng.networksimulator;singleton:=true
+Bundle-Version: 1.1.1.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.pnml.tools.epnk;bundle-version="1.1.0",
+ org.pnml.tools.epnk.applications;bundle-version="1.1.0",
+ org.pnml.tools.epnk.editor;bundle-version="1.1.0",
+ org.pnml.tools.epnk.pntypes.hlpngs.datatypes;bundle-version="1.1.0",
+ org.pnml.tools.epnk.pntypes.hlpng.pntd;bundle-version="1.1.0",
+ org.pnml.tools.epnk.applications.hlpng.simulator;bundle-version="1.1.0",
+ org.eclipse.emf.validation;bundle-version="1.4.0",
+ NetworkEditor;bundle-version="1.0.0"
+Export-Package: org.pnml.tools.epnk.applications.hlpng.contributors
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Activator: org.pnml.tools.epnk.applications.activator.Activator

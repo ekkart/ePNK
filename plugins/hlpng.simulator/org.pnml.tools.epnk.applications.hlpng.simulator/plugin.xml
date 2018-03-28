@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.pnml.tools.epnk.applications.hlpng.transitionBinding.extensions" name="UserExtensions" schema="schema/org.pnml.tools.epnk.applications.hlpng.transitionBinding.extensions.exsd"/>
+   <extension-point id="org.pnml.tools.epnk.applications.hlpng.simulator.firingStrategy" name="FiringStrategy" schema="schema/org.pnml.tools.epnk.applications.hlpng.simulator.firingStrategy.exsd"/>
+
+   <extension
+         id="org.pnml.tools.epnk.applications.hlpng.simulator"
+         name="HLPNG Simulator"
+         point="org.pnml.tools.epnk.applications.applicationfactory">
+      <applicationfactory
+            class="org.pnml.tools.epnk.applications.hlpng.utils.HLSimulatorFactory"
+            description="A  simulator for high-level nets (HLPNGs)">
+      </applicationfactory>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.pnml.tools.epnk.pntypes.hlpng.pntd.hlpngdefinition.HLPN"
+            id="org.pnml.tools.epnk.applications.hlpng.simulator.startsimulatorapp">
+         <menu
+               label="ePNK"
+               path="additions"
+               id="org.pnml.tools.epnk.actions.standardmenu">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.pnml.tools.epnk.applications.hlpng.utils.StartSimulatorApp"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.applications.hlpng.simulator.startsimulatorapp"
+               label="Start Simulator App"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1"
+               tooltip="Start high level Petri Net graph simulator">
+         </action>
+      </objectContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+      <category
+            name="HLPNG Simulator Constraints"
+            id="org.pnml.tools.epnk.applications.hlpng.simulator.validation"/>
+      <constraintProvider cache="true">
+         <package namespaceUri="http://org.pnml.tools/epnk/pnmlcoremodel"/>
+         <constraints categories="org.pnml.tools.epnk.applications.hlpng.simulator.validation">
+            <constraint
+                  lang="Java"
+                  class="org.pnml.tools.epnk.applications.hlpng.validation.EvaluationValidator"
+                  severity="ERROR"
+                  mode="Batch"
+                  name="Ensures that any data type or operation defined in the Petri net is supported by the Simulator"
+                  id="org.pnml.tools.epnk.applications.hlpng.simulator.evaluationConstraint"
+                  statusCode="1">
+               <description>
+                  This constraint ensures that all data types and operations defined in the Petri net are known by the Simulator.
+               </description>
+               <message>
+                  {0} is not supported by the Simulator.
+               </message>
+               <target class="PetriNet:http://org.pnml.tools/epnk/pnmlcoremodel"/>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+   </extension>
+   
+   <extension
+         point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext
+            default="false"
+            id="org.pnml.tools.epnk.applications.hlpng.simulator.validationContext">
+         <selector class="org.pnml.tools.epnk.applications.hlpng.validation.ValidationDelegateClientSelector"/>
+      </clientContext>
+      <binding
+            context="org.pnml.tools.epnk.applications.hlpng.simulator.validationContext"
+            category="org.pnml.tools.epnk.applications.hlpng.simulator.validation"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.pnml.tools.epnk.applications.hlpng.simulator.simulation.view"
+            name="HLPNG Simulator Category">
+      </category>
+      <view
+            category="org.pnml.tools.epnk.applications.hlpng.simulator.simulation.view"
+            class="org.pnml.tools.epnk.applications.hlpng.simulator.views.SimulationView"
+            icon="icons/favicon.ico"
+            id="org.pnml.tools.epnk.applications.hlpng.simulator.views.SimulationView"
+            name="Simulation View">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="org.pnml.tools.epnk.applications.hlpng.simulator.views.SimulationView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.TaskList">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+</plugin>

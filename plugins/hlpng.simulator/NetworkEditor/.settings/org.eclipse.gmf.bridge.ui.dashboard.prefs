@@ -1,0 +1,8 @@
+#Fri Apr 20 10:32:26 CEST 2012
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/NetworkEditor/model/Network.genmodel
+gmf_dashboard/domainModel=platform\:/resource/NetworkEditor/model/Network.ecore
+gmf_dashboard/generationModel=platform\:/resource/NetworkEditor/model/Network.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/NetworkEditor/model/Network.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/NetworkEditor/model/Network.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/NetworkEditor/model/Network.gmftool

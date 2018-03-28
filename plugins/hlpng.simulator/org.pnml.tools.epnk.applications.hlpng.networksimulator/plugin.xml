@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.pnml.tools.epnk.pntypes.hlpng.pntd.hlpngdefinition.HLPN"
+            id="org.pnml.tools.epnk.applications.hlpng.simulator.startnetworksimulatorapp">
+         <menu
+               label="ePNK"
+               path="additions"
+               id="org.pnml.tools.epnk.actions.standardmenu">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.pnml.tools.epnk.applications.hlpng.network.utils.StartSimulatorApp"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.applications.hlpng.simulator.startnetworksimulatorapp"
+               label="Start Network Simulator App"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1"
+               tooltip="Start a high level Petri Net simulator for network analysis">
+         </action>
+      </objectContribution>
+   </extension>
+   
+   <extension
+         id="org.pnml.tools.epnk.applications.hlpng.networlsimulator"
+         name="Network Algorithm Simulator"
+         point="org.pnml.tools.epnk.applications.applicationfactory">
+      <applicationfactory
+            class="org.pnml.tools.epnk.applications.hlpng.network.utils.NetworkAlgorithmSimulatorFactory"
+            description="Simulator for network algorithms modelled as high-level Petri nets (HLPNGs)">
+      </applicationfactory>
+   </extension>
+   
+   <extension
+         point="org.pnml.tools.epnk.applications.hlpng.transitionBinding.extensions">
+      <client
+            class="org.pnml.tools.epnk.applications.hlpng.contributors.NetworkExtensionManager">
+      </client>
+   </extension>
+
+</plugin>

@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HLPNG Simulator
+Bundle-SymbolicName: org.pnml.tools.epnk.applications.hlpng.simulator; singleton:=true
+Bundle-Version: 1.1.1.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.draw2d;visibility:=reexport,
+ org.eclipse.gef,
+ org.junit,
+ org.pnml.tools.epnk;bundle-version="1.1.0",
+ org.pnml.tools.epnk.applications;bundle-version="1.1.0",
+ org.pnml.tools.epnk.editor;bundle-version="1.1.0",
+ org.pnml.tools.epnk.pntypes.hlpngs.datatypes;bundle-version="1.1.0",
+ org.pnml.tools.epnk.pntypes.hlpng.pntd;bundle-version="1.1.0",
+ org.eclipse.emf.validation;bundle-version="1.4.0",
+ org.pnml.tools.epnk.pntypes.hlpngs.datatypes.concretesyntax;bundle-version="1.1.0",
+ org.pnml.tools.epnk.helpers.unparse;bundle-version="0.2.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Activator: org.pnml.tools.epnk.applications.activator.Activator
+Export-Package: org.pnml.tools.epnk.applications.hlpng.presentation.actions,
+ org.pnml.tools.epnk.applications.hlpng.presentation.animation,
+ org.pnml.tools.epnk.applications.hlpng.presentation.decorations,
+ org.pnml.tools.epnk.applications.hlpng.presentation.popup,
+ org.pnml.tools.epnk.applications.hlpng.resources,
+ org.pnml.tools.epnk.applications.hlpng.runtime,
+ org.pnml.tools.epnk.applications.hlpng.runtimeStates,
+ org.pnml.tools.epnk.applications.hlpng.simulator,
+ org.pnml.tools.epnk.applications.hlpng.simulator.views,
+ org.pnml.tools.epnk.applications.hlpng.transitionBinding,
+ org.pnml.tools.epnk.applications.hlpng.transitionBinding.comparators,
+ org.pnml.tools.epnk.applications.hlpng.transitionBinding.extensions,
+ org.pnml.tools.epnk.applications.hlpng.transitionBinding.firing,
+ org.pnml.tools.epnk.applications.hlpng.transitionBinding.operators,
+ org.pnml.tools.epnk.applications.hlpng.transitionBinding.operators.reversible,
+ org.pnml.tools.epnk.applications.hlpng.validation

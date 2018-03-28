@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/NetworkEditor/src"
+    modelPluginID="NetworkEditor" modelName="Network" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>Network.ecore</foreignModel>
+  <genPackages prefix="Networkmodel" disposableProviderFactory="true" ecorePackage="Network.ecore#/">
+    <genClasses ecoreClass="Network.ecore#//Network">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Network.ecore#//Network/network"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Network.ecore#//Network/categories"/>
+    </genClasses>
+    <genClasses ecoreClass="Network.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Network.ecore#//Node/label"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Network.ecore#//Node/out"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Network.ecore#//Node/in"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Network.ecore#//Node/category"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Network.ecore#//NetworkObject"/>
+    <genClasses ecoreClass="Network.ecore#//DirectedEdge"/>
+    <genClasses ecoreClass="Network.ecore#//Category">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Network.ecore#//Category/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Network.ecore#//Category/node"/>
+    </genClasses>
+    <genClasses ecoreClass="Network.ecore#//UndirectedEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Network.ecore#//UndirectedEdge/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Network.ecore#//UndirectedEdge/target"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

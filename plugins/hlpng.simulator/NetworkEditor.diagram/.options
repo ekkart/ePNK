@@ -1,0 +1,7 @@
+# Tracing options for the NetworkEditor.diagram plug-in
+
+# Common issues
+NetworkEditor.diagram/debug=false
+
+# Visual IDs
+NetworkEditor.diagram/debug/visualID=false
