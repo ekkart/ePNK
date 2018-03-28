@@ -1,0 +1,59 @@
+private NetAnnotation computeAnnotation(NetMarking marking) {
+	FlatAccess flatAccess = this.getFlatAccess();
+	
+	NetAnnotation annotation =
+		NetannotationsFactory.eINSTANCE.createNetAnnotation();
+	annotation.setNet(getPetrinet());
+	for (Object object: flatAccess.getTransitions()) {
+		if (object instanceof Transition) {
+			Transition transition = (Transition) object;
+			if (isWeaklyEnabled(marking, transition)) {
+				EnabledTransition enabledTransition =
+					TechsimannotationsFactory.eINSTANCE.
+					createEnabledTransition();
+				enabledTransition.setObject(transition);
+				annotation.getObjectAnnotations().add(enabledTransition);
+				Collection<Arc> preventingArcs =
+					this.preventingArcs(marking, transition);
+				if (preventingArcs.isEmpty()) {
+					enabledTransition.setEnabled(true);
+				} else {
+					enabledTransition.setEnabled(false);
+					for (Arc arc : preventingArcs) {
+						InvolvedArc involvedArc =
+							TechsimannotationsFactory.eINSTANCE.
+							createInvolvedArc();
+						involvedArc.setObject(arc);
+						involvedArc.setTarget(enabledTransition);
+						involvedArc.setActive(true);
+						annotation.getObjectAnnotations().add(involvedArc);
+				}	}
+				for (RefTransition refTransition:
+						flatAccess.getRefTransitions(transition)) {
+					EnabledTransition enabledTransition2 = 
+						TechsimannotationsFactory.eINSTANCE.
+						createEnabledTransition();
+					enabledTransition2.setObject(refTransition);
+					enabledTransition2.setResolve(enabledTransition);
+					enabledTransition2.setEnabled(enabledTransition.
+						isEnabled());
+					annotation.getObjectAnnotations().add(enabledTransition2);
+	}	}	}	}
+
+	for (Place place: marking.getSupport()) {
+		int m = marking.getMarking(place);
+		if (m > 0) {
+			Marking mAnnotation =
+				TechsimannotationsFactory.eINSTANCE.createMarking();
+			mAnnotation.setObject(place);
+			mAnnotation.setValue(m);
+			annotation.getObjectAnnotations().add(mAnnotation);
+			for (RefPlace refPlace: flatAccess.getRefPlaces(place)) {
+				Marking mAnnotation2 =
+					TechsimannotationsFactory.eINSTANCE.createMarking();
+				mAnnotation2.setObject(refPlace);
+				mAnnotation2.setValue(m);
+				annotation.getObjectAnnotations().add(mAnnotation2);
+	}	}	}
+	return annotation;
+}

@@ -1,0 +1,15 @@
+<numberof>
+	<subterm>
+		<variable refvariable="5"/>
+	</subterm>
+	<subterm>
+		<useroperator declaration="1">
+			<subterm>
+				<variable refvariable="5"/>
+			</subterm>
+			<subterm>
+				<variable refvariable="5"/>
+			</subterm>
+		</useroperator>
+	</subterm>
+</numberof>

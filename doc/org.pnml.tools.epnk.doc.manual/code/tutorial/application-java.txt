@@ -1,0 +1,57 @@
+package org.pnml.tools.epnk.tutorials.app.simulator.application;
+
+\\ [...]
+
+public class TechnicalSimulator extends ApplicationWithUIManager {
+
+	FlatAccess flatAccess;
+	private NetChangeListener adapter;
+	
+	public TechnicalSimulator(PetriNet petrinet) {
+		super(petrinet);
+		getNetAnnotations().setName("A simple technical simulator");
+		ApplicationUIManager manager = this.getPresentationManager();
+		manager.addActionHandler(new EnabledTransitionHandler(this));
+		manager.addActionHandler(new InvolvedArcHandler(this));
+		manager.addPresentationHandler(
+			new TechnicalAnnotationsPresentationHandler());
+		
+		adapter = new NetChangeListener(this);
+	}
+
+	public FlatAccess getFlatAccess() {
+		if (flatAccess == null) {
+			flatAccess = FlatAccess.getFlatAccess(this.getPetrinet());
+			if (adapter != null) {
+				flatAccess.addInvalidationListener(adapter);
+			}
+		}
+		return flatAccess;
+	}
+
+	@Override
+	protected void initializeContents() {
+		NetMarking initialMarking = computeInitialMarking();
+		NetAnnotation initialAnnotation =
+			computeAnnotation(initialMarking);
+		this.getNetAnnotations().getNetAnnotations().
+			add(initialAnnotation);
+		this.getNetAnnotations().setCurrent(initialAnnotation);
+	}
+
+	\\ [...]
+
+	@Override
+	public boolean isSavable() {
+		return true;
+	}
+
+	@Override
+	protected void shutDown() {
+		super.shutDown();
+		if (flatAccess != null && adapter != null) {
+			flatAccess.removeInvalidationListener(adapter);
+			flatAccess = null;
+	}	}
+
+}

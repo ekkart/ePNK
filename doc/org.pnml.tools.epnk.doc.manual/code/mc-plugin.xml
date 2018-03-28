@@ -1,0 +1,22 @@
+<extension
+		point="org.eclipse.ui.popupMenus">
+	<objectContribution
+			id="org.pnml.tools.epnk.functions.modelchecking.contribution1"
+			objectClass="org.pnml.tools.epnk.pnmlcoremodel.PetriNet">
+		<menu
+				id="org.pnml.tools.epnk.actions.standardmenu"
+				label="ePNK"
+				path="additions">
+			<separator
+					name="group1">
+			</separator>
+		</menu>
+		<action
+				class="org.pnml.tools.epnk. ... .action.ModelcheckingAction"
+				enablesFor="1"
+				id="org.pnml.tools.epnk.functions.modelchecking"
+				label="Model checker"
+				menubarPath="org.pnml.tools. ... .standardmenu/group1">
+		</action>
+	</objectContribution>
+</extension>

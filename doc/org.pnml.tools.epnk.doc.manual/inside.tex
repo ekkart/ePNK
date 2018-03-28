@@ -1,0 +1,201 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Inside the ePNK                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Experience and outlook}
+\label{chap:inside}
+
+With version~1.0.0, the ePNK has reached a mature state and it should be
+useful for end users who want to use its graphical editor for creating
+PNML files and for using the simple function of the ePNK as they are.
+The ePNK should be even more useful for developers who want to implement new
+Petri net types and new functionality. In particular, it should be an ideal
+platform for scientists who quickly want to test new functions and still want a
+graphical editor that is nicely embedded to an IDE.
+Actually, we use the ePNK ourselves for implementing the tool support for
+the Event Coordination Notation (ECNO) \cite{Kin12b}.
+
+Some of the plans for future extensions of the ePNK are discussed in
+Sect.~\ref{sec:inside:plans}. Before discussing the future plans, we
+briefly discuss the past in Sect.~\ref{sec:inside:experiences}:
+the experiences with developing the ePNK in a model based way and in particular
+with using EMF, GMF, and some related technologies
+
+\section{Experiences with MBSE}
+\label{sec:inside:experiences}
+
+There are many Petri net tools out there already. Therefore, implementing
+yet another one needed some additional motivation. When developing
+the ePNK, this additional motivation was to gain some more experience with
+the use of EMF and model-based development. To this end, we kept a
+detailed log of how much time was spent on which parts of the development
+(up to the first major release of version 0.9.1, the log accounts for
+minutes).
+
+Eventually, we might break down the time and experiences made in more detail.
+Here we give an overview of the major steps and the rough time spent on
+the major parts of the ePNK only:
+
+\begin{description}
+\item[40h] The (roughly) first 40~hours were spent on making a first model of
+           the PNML core model and implementing the extensions necessary
+           for plugging in new Petri net types and for hooking into the
+           serialisation mechanisms of Eclipse and EMF, so that it could
+           be configured -- and on using this new configuration mechanism for
+           implementing the PNML syntax for serialisation instead of standard
+           XMI. Of these 40~hours, about 10~hours were spent on debugging
+           Eclipse's and EMF's serialisation mechanism in order to
+           understand this serialisation mechanism, which unfortunately is
+           not very well documented.
+           
+           After these first 40 hours, a basic version of the ePNK was working
+           -- not supporting HLPNGs yet and without any graphical editor.
+           
+\item[20h] The next 20~hours were spent on implementing the framework
+           for tool specific extensions -- and ignoring unknown tool specifc
+           extensions, as well as on implementing the validation mechanisms
+           and most of the constraints for the PNML core model\footnote
+             {This concerns not only the constraints that are
+             explicitly formulated as OCL constraints in the
+             models of ISO/IEC~15909-2; this concerns all the constraints
+             that are stated somewhere in the text of the standard,
+             such as forbidden cycles between reference nodes, etc.}.
+             
+\item[50h] About 50~hours were spent on implementing HLPNGs, which includes
+           making the models for most of the sorts and operators
+           of HLPNGs, implementing a type system for checking correct
+           typing, and for validating correctness, and implementing parsing
+           and linking functions. These 50~hours include the time spent
+           on adjusting the mechanisms of the ePNK so that it could deal
+           with parsing and linking structured Petri net types. The
+           parser itself is based on Xtext.
+           
+           Implementing a basic version of HLPNGs with only a few
+           but representative sorts and operators took roughly 20~hours.
+ 
+\item[80h] Implementing the GMF editor in a generic way and properly 
+           integrating it with the EMF tree editor, and the parsing mechanisms
+           for structured labels took about 80~hours. This time includes
+           a lot of time investigating and experimenting with different
+           options in achieving this.  
+           
+\item[30h] The remaining 30~hours were spent on implementing some functions
+          as examples (used for the tutorials), on adding some of the
+          last remaining sorts to the definition of HLPNGs, as well
+          as on cleaning up the code and fixing some errors.           
+\end{description}
+
+Altogether, it took about 5 $\frac{1}{2}$ weeks working time (spent scattered
+over about 7~month) to implement version~0.9.1 of the ePNK, which was the
+first stable version of the ePNK. The core part of the ePNK was implemented
+in 60~hours. About the same time went into implementing HLPNGs. The
+implementation of the graphical editor took a major part of the time (80~hours).
+The reason for that was that GMF itself was not made for building
+generic editors, and we had to find ways of bringing genericity into GMF --
+and we had to work around several GMF problems and quirks. Still, using GMF
+might have saved us a significant amount of time considering the overall functionality
+that we get for free by a GMF generated graphical editor -- and its smooth
+integration with the Eclipse IDE.  
+
+The overall experience was that the parts of the ePNK that concern EMF only
+worked very smoothly and the use of EMF significantly sped up the
+development process -- for a developer who has some experience with EMF
+and some of its more advanced concepts already. Working with GMF was more
+tedious and required much more experience and much more endurance --
+using the debugger digging in the inner workings of GMF in order to find out
+how some things work. This is partly due to the fact that GMF was lacking
+the concepts for generic editors; but, genericity aside, GMF requires
+much more experience than EMF in order to use it with benefit.
+
+\section{Future plans}
+\label{sec:inside:plans}
+
+The ePNK can be and is used for different kinds of applications -- and it
+makes it easy to quickly implement new Petri net types and new functions
+and application. For making these functions more usable and also for
+easing the fast creation of Petri nets with the ePNK editors, some
+extension of the ePNK would be useful.
+ 
+In this section, we give an overview of some extensions that are planned
+for the ePNK in the future. These extensions concern ePNK's flexibility and
+ease of use as well as some additional extension mechanisms. The order
+indicates some priorities, and might be roughly the order in which the features are
+implemented -- but, since nobody is paid for the work, it needs to be seen
+how things turn out:
+\begin{itemize}
+  \item Right now, the ePNK does not ``know'' the functions and applications
+        that are available for the ePNK. These are plugged in to the
+        Eclipse platform as actions or commands -- and initiated by
+        the Eclipse platform. It would be nice if there was an
+        ePNK view that would, for a selected Petri net, show all
+        the available functions and applications, which could be started
+        from there by a single mouse click.
+  
+        To this end, an explicit extension point to plug in functions and
+        applications for the ePNK needs to be defined. This extension point
+        could also provide some means to give some meta information about
+        the function or application, saying to which net types it applies
+        and on its characteristics. 
+        
+        Such a plug-in mechanism along with a view for showing the
+        functions and applications available for the selected Petri net
+        will be implemented in a future version of the ePNK.
+        
+  \item Right now, the annotations are shown by marking the elements with
+        a red overlay. Changing this is possible but quite complicated.
+        
+        A future version of the ePNK will support a mechanism for applications
+        to provide a presentation descriptor, which defines how annotations
+        should be shown (with some reasonable default implementation). And this
+        descriptor should also be able to define how the end user can
+        interact with the annotated elements and define actions that
+        are initiated by that.
+     
+  \item Right now, adding all the needed labels to a Petri net element of
+        a more complex net types such as HLPNGs with the ePNK editor is quite
+        tedious: First, each label must be created, then the label must
+        be connected to the element, and its type must be selected.
+        
+        In a future version of the ePNK, an action will be installed that,
+        e.\,g.\ on a double click on a node, will add all the labels required by
+        the Petri net type for that node. 
+
+  \item Right now only the ePNK tree editor will show the correct ``dirty flag''
+        after a change of the model. And the PNML document can be saved
+        only from this tree editor.
+  
+        In a future version of the ePNK, the ``dirty flag'' will be updated in
+        all editors that are open on that document and saving (in particular with CTRL-S)
+        will work from any of these editors.
+
+  \item Right now, the mapping of the model elements of the ePNK and of
+        Petri net types to their XML representation must be programmed --
+        if it needs to be changed. This means programming large tables,
+        which is boring, tedious and error prone.
+        
+        In a future version of the ePNK, we might define an extension point for
+        such XML mapping that directly takes a table instead of
+        ``programming the table''.
+        
+  \item Right now, the ePNK comes with its own specific and fixedly
+        implemented concrete syntax for the labels of HLPNGs. Since this
+        syntax is not mandated by ISO/IEC~15909-2, different tools might
+        use different concrete syntax for these labels. 
+        
+        It would be nice, if different versions of such concrete syntax for
+        labels of HLPNGs could be plugged in to the ePNK, from which the user
+        could choose.
+          
+  \item Up to now, the ePNK supports basic and structured PNML
+        \cite{WeKi03} only. Modular PNML is not supported by the ePNK yet 
+        -- nor is it part of ISO/IEC~15909-2:2011.
+        
+        In the long term, the ePNK should support also modular PNML
+        (which was proposed in \cite{WeKi03} and some aspects worked
+         out in more detail in \cite{Kin07} already). Implementing the
+        EMF models would actually not be a big issue -- implementing
+        the graphical editor of the ePNK so that it works for both
+        PNML as of ISO/IEC~15909-2:2011 as well as for modular PNML
+        is the actual challenge here -- and the reason for not
+        having started on this endeavor yet.
+\end{itemize}
+  

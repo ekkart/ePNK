@@ -1,0 +1,11 @@
+private NetMarking computeInitialMarking() {
+	NetMarking marking = new NetMarking();;
+	for (org.pnml.tools.epnk.pnmlcoremodel.Place place:
+			this.getFlatAccess().getPlaces()) {
+		if (place instanceof Place) {
+			int number = TechnicalNetTypeFunctions.getMarking(place);
+			if (number > 0) {
+				marking.setMarking((Place) place, number);
+	}	}	}
+	return marking;
+}

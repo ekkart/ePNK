@@ -1,0 +1,30 @@
+private boolean isWeaklyEnabled(NetMarking marking,
+		Transition transition) {
+	NetMarking consumes = consumes(transition);
+	return marking.isGreaterOrEqual(consumes);
+}
+	
+private Collection<Arc> preventingArcs(NetMarking marking,
+		Transition transition) {
+	FlatAccess flatAccess= this.getFlatAccess();
+		
+	Collection<Arc> preventors = new ArrayList<Arc>();
+	for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc:
+			flatAccess.getIn(transition)) {
+		ArcType arcType = TechnicalNetTypeFunctions.getArcType(arc);
+		if (arc instanceof Arc &&
+				( arcType == ArcType.INHIBITOR ||
+				  arcType == ArcType.READ)) {
+			Node source = arc.getSource();
+			if (source instanceof PlaceNode) {
+					source = flatAccess.resolve((PlaceNode) source);
+				if (source instanceof Place) {
+					if (arcType == ArcType.INHIBITOR && 
+							marking.getMarking((Place) source) > 0) {
+						preventors.add((Arc) arc);
+					} else if (arcType == ArcType.READ &&
+							marking.getMarking((Place) source) == 0) {
+						preventors.add((Arc) arc);
+	}	}	}	}	}
+	return preventors;
+}

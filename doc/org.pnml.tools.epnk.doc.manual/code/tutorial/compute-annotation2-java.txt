@@ -1,0 +1,17 @@
+	for (Place place: marking.getSupport()) {
+		int m = marking.getMarking(place);
+		if (m > 0) {
+			Marking mAnnotation =
+				TechsimannotationsFactory.eINSTANCE.createMarking();
+			mAnnotation.setObject(place);
+			mAnnotation.setValue(m);
+			annotation.getObjectAnnotations().add(mAnnotation);
+			for (RefPlace refPlace: flatAccess.getRefPlaces(place)) {
+				Marking mAnnotation2 =
+					TechsimannotationsFactory.eINSTANCE.createMarking();
+				mAnnotation2.setObject(refPlace);
+				mAnnotation2.setValue(m);
+				annotation.getObjectAnnotations().add(mAnnotation2);
+	}	}	}
+	return annotation;
+}

@@ -1,0 +1,41 @@
+package org.pnml.tools.epnk.tutorials.app.simulator.application;
+// [...]
+public class InvolvedArcHandler implements IActionHandler {
+	private TechnicalSimulator application;
+	
+	public InvolvedArcHandler(TechnicalSimulator application) {
+		super();
+		this.application = application;
+	}
+	
+	@Override
+	public boolean mousePressed(MouseEvent arg0,
+			ObjectAnnotation annotation) {
+		if (annotation instanceof InvolvedArc) {
+			InvolvedArc involvedArc = (InvolvedArc) annotation;
+			involvedArc.setActive(!involvedArc.isActive());
+			EnabledTransition transition = involvedArc.getTarget();
+			if (transition != null) {
+				boolean active = transition.isEnabled();
+				boolean result = true;
+				for (InvolvedArc other: transition.getIn()) {
+					if (other.isActive()) {
+						result = false;
+						break;
+				}	}
+				if (active != result) {
+					transition.setEnabled(result);
+					for (EnabledTransition refTrans: transition.getRefs()) {
+						refTrans.setEnabled(result);
+				}	}
+				int size = application.getNetAnnotations().
+						getNetAnnotations().size();
+				application.deleteNetAnnotationAfterCurrent();
+				if (size == application.getNetAnnotations().
+								getNetAnnotations().size()) {
+					application.update();
+				}
+				return true;
+		}	}
+		return false; 
+	} // [...]

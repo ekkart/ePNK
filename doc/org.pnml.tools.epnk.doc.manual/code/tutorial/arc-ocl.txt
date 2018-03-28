@@ -1,0 +1,11 @@
+context technical::Arc inv:
+( self.source.oclIsKindOf(pnmlcoremodel::PlaceNode) and
+  self.target.oclIsKindOf(pnmlcoremodel::TransitionNode) )
+or
+( self.source.oclIsKindOf(pnmlcoremodel::TransitionNode) and
+  self.target.oclIsKindOf(pnmlcoremodel::PlaceNode) and
+  self.type->size() = 0 )
+or
+( self.source.oclIsKindOf(pnmlcoremodel::Page) and
+  self.target.oclIsKindOf(pnmlcoremodel::TransitionNode) and
+  self.type->size() = 0 )

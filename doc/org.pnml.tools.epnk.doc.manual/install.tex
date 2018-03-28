@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Installation                                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Installation}
+\label{chap:install}
+
+
+This chapter discusses the installation of the ePNK (version 1.0.0). Readers who
+are interested in getting an idea of what the ePNK is and who do not want to
+work with the PNK right away can skip this chapter.
+
+\section{Prerequisites}
+\urldef{\JRE16URL}{\url}{http://wiki.eclipse.org/FAQ_How_do_I_run_Eclipse%3F
+}
+In order to install the ePNK, you need to have Java~1.6 (or higher)
+and Eclipse~3.7 (Indigo) or Eclipse~4.2 (Juno) installed on your computer.
+In this version of the manual, we discuss the installation of the ePNK 
+version 1.0.0 only. For installing other versions of the ePNK or for
+installing it on other versions of Eclipse, you might find information
+on the \emph{ePNK installation page}\footnote
+  {\url{http://www2.imm.dtu.dk/~ekki/projects/ePNK/install-details.html}}%
+.
+
+For the installation of Java, please refer to \url{http://www.java.com/}.
+
+
+If you are new to Eclipse, it is recommended that you install the \emph{Eclipse
+Classic} version.%
+  \index{Eclipse!Installation|DEF}
+Download this Eclipse version for your operating
+system from \url{http://www.eclipse.org/downloads/} and extract the
+downloaded file to some directory; after the extraction,  you will find a folder
+named ``eclipse'' in this directory, and in this folder, you will find an
+executable file also called ``eclipse'' (e.\,g.\ ``eclipse.exe'' on the Windows platform). 
+Executing this file will start Eclipse.
+
+If you are new to Eclipse, you can get a quick overview of the
+Eclipse Integrated Development Environment (IDE) at% 
+  \index{Eclipse!IDE}%
+  \index{IDE|see{Eclipse}}
+\url{http://www.vogella.de/articles/Eclipse/article.html}. Once you have
+installed and started Eclipse, you will find much more information on
+Eclipse in the ``Workbench User Guide" in the Eclipse help: You can open it
+via the ``Help'' menu in the Eclipse toolbar under ``Help Contents''.
+
+\section{Installing the ePNK in Eclipse}
+\index{ePNK!Installation|(DEF}
+Once you have installed Eclipse, you can install the ePNK from
+the Eclipse workbench. To this end, the ePNK is made available
+via an \emph{Eclipse update site}%
+  \index{ePNK!Update site|DEF}%
+  \index{Update site|see{ePNK}}%
+: \url{http://www2.imm.dtu.dk/~ekki/projects/ePNK/indigo/update/}
+
+
+In order to install the ePNK from there to your Eclipse installation, you should
+proceed as follows (after you have started it and selected a workspace):
+\begin{enumerate}
+\item In the Eclipse toolbar, select 
+      ``Help'' $\rightarrow$ ``Install New Software...'', which will open
+      an install dialog.
+
+\item  In the install dialog, press the ``Add...'' button to add
+       a new update site. In the ``Add Site'' dialog, enter some name 
+       (e.\,g.\ ``ePNK Update Site'') and the URL
+       
+       \url{http://www2.imm.dtu.dk/~ekki/projects/ePNK/indigo/update/}
+       
+       as location, and then press okay.
+       
+\item Now, select the newly created ePNK update site in the still open
+      install dialog. After some time, some ePNK items should pop up in the
+      dialog. From there, you can select the features of the ePNK
+      you want.
+      
+      For working with this manual, you should at least select the following
+      features from the category ``ePNK Features'':
+      \begin{itemize}
+      \item ePNK Basic Extensions~1.0.0
+      \item ePNK Core~1.0.0
+      \item ePNK HLPNGs~1.0.0
+      \item ePNK Tutorial~1.0.0 
+      \end{itemize}
+      
+      If you intend to import high-level nets from other tools than the
+      ePNK, it is recommended that you also install the feature 
+      \begin{itemize}
+      \item ePNK: HLPNG Label Serialisation (experimental)~0.2.0 
+      \end{itemize}
+      from category ``ePNK Experimental Projects''.
+      
+      If you want to simulate high-level nets, you should also select
+      the feature
+      \begin{itemize}
+      \item ePNK: HLPNG Simulator~0.1.1  
+      \end{itemize}
+      from category "HLPNG Simulator".
+      
+      You will not need the features from the ``ECNO Projects'' category,
+      which are a project in their own right (see \cite{Kin12b} for more
+      information on the ECNO project). Since they are based on the ePNK, they
+      are deployed from the same update site.
+
+\item After you have selected the features you want, make sure that
+      the box ``Contact all update sites during
+      install to find required software'' is checked; this will guarantee that
+      all additional features from Eclipse that the ePNK requires will be
+      automatically installed together with the ePNK features (EMF, GMF, Xtext,
+      etc.).
+      
+      Then press press okay.
+      
+\item Follow through the installation process (don't forget to
+      accept the license agreement).
+ 
+      \begin{quote} 
+      {\bf Note}:  If you get an error of the kind
+      \begin{quote}
+      {\tt Cannot complete the install because one\\
+           or more required items could not be found.\\
+            ... }
+      \end{quote}
+      you probably forgot to check the box ``Contact all update sites during
+      install to find required software'' or have selected a wrong combination
+      of features. In that case, go back and select the right combination as
+      explained above.
+      \end{quote}
+
+\item Then, the selected features of the ePNK and all other required features
+      will be installed; it is a good idea to restart Eclipse after that
+      (Eclipse will ask you to do that anyway).
+\end{enumerate}
+
+In case you intend to develop new functions and, in particular, new Petri net
+types for the ePNK, you might want to install the tools necessary for that
+purpose already now -- while at it. You need to install the
+``EMF Modeling Framework SDK'' and the ``Ecore Tools SDK'' from the standard
+Eclipse update site. The details are described in Sect.~\ref{subsec:installingEcoreTools}.%
+  \index{ePNK!Installation|)}

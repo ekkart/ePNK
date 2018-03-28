@@ -1,0 +1,49 @@
+package org.pnml.tools.epnk.tutorials.app.simulator.application;
+
+// [...]
+public class TechnicalAnnotationsPresentationHandler
+		implements IPresentationHandler {
+
+	@Override
+	public IFigure handle(ObjectAnnotation annotation,
+			AbstractGraphicalEditPart editPart) {
+		if (§annotation instanceof EnabledTransition§) {
+			if (§editPart instanceof GraphicalEditPart§) {
+				GraphicalEditPart graphicalEditPart =
+					(GraphicalEditPart) editPart;
+				java.lang.Object modelObject =
+					graphicalEditPart.resolveSemanticElement();
+				if (modelObject instanceof TransitionNode) {
+					§RectangleOverlay overlay =
+						new RectangleOverlay(graphicalEditPart);
+					if (((EnabledTransition) annotation).isEnabled()) {
+						overlay.setForegroundColor(ColorConstants.red);
+						overlay.setBackgroundColor(ColorConstants.red);
+					} else {
+						overlay.setForegroundColor(ColorConstants.lightGray);
+						overlay.setBackgroundColor(ColorConstants.lightGray);
+					}
+					return overlay§;
+			}	}
+		} else if (§annotation instanceof InvolvedArc§) {
+			InvolvedArc involvedArc = (InvolvedArc) annotation;
+			if (§editPart instanceof ConnectionNodeEditPart§) {
+				ConnectionNodeEditPart connectionEditPart =
+					(ConnectionNodeEditPart) editPart;
+				java.lang.Object modelObject =
+					connectionEditPart.resolveSemanticElement();
+				if (modelObject instanceof Arc) {
+					§PolylineOverlay overlay =
+						new PolylineOverlay(connectionEditPart);
+					if (involvedArc.isActive()) {
+						overlay.setForegroundColor(ColorConstants.lightGray);
+						overlay.setBackgroundColor(ColorConstants.lightGray);
+					} else {
+						overlay.setForegroundColor(ColorConstants.red);
+						overlay.setBackgroundColor(ColorConstants.red);	
+					}
+					return overlay§;
+		}	}	}
+		return null;
+	}
+}

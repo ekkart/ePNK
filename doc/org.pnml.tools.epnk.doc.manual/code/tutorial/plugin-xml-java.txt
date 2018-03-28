@@ -1,0 +1,29 @@
+<extension point="org.eclipse.emf.validation.constraintProviders">
+   <constraintProvider cache="true">
+      <package namespaceUri=
+            "http://epnk.tools.pnml.org/tutorials/app/technical"/>
+      <constraints categories="org.pnml.tools.epnk.validation">
+         ...
+
+         <constraint
+               §lang="Java"§
+               §class="org.pnml.tools.epnk.tutorials.app.technical.
+constraints.NoDuplicateArcs"§
+               severity="ERROR"
+               §mode="Batch"§
+               name="No duplicate arcs"
+               id="org.pnml.tools.epnk.tutorials.app.technical.
+validation.no-duplicate-arcs"
+               statusCode="402">
+            §<target class="Arc"/>§
+            <message>
+               The arc {0} is a duplicate arc.
+            </message>
+            <description>
+               Arcs of the same type (read or inhibitor) are not
+               allowed between the same nodes.
+            </description>
+         </constraint> 
+      </constraints>
+   </constraintProvider>
+</extension>   

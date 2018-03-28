@@ -1,0 +1,31 @@
+package org.pnml.tools.epnk.tutorials.app.simulator.application;
+
+// [...]
+
+public class TechnicalSimulatorFactory extends ApplicationFactory {
+
+	public TechnicalSimulatorFactory() {
+		super();
+	}
+
+	@Override
+	public String getName() {
+		return "Technical Simulator (Tutorial)";
+	}
+
+	@Override
+	public String getDescription() {
+		return "A technical simulator used in the ePNK tutorial";
+	}
+
+	@Override
+	public boolean isApplicable(PetriNet net) {
+		return net.getType() instanceof TechnicalNetType;
+	}
+
+	@Override
+	public ApplicationWithUIManager startApplication(PetriNet net) {
+		return new TechnicalSimulator(net);
+	}
+
+}

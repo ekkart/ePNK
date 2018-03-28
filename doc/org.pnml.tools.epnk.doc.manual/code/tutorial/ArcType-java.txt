@@ -1,0 +1,14 @@
+package org.pnml.tools.epnk.tutorials.app.technical.helpers;
+
+/**
+ * [...]
+ * 
+ * @author ekki@dtu.dk
+ * @generated NOT
+ *
+ */
+public enum ArcType {
+
+	NORMAL, READ, RESET, INHIBITOR
+
+}

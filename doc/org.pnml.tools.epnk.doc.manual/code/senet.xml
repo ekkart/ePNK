@@ -1,0 +1,9 @@
+<extension
+		id="org.pnml.tools.epnk.pntypes.signalnets"
+		name="Signal Nets"
+		point="org.pnml.tools.epnk.pntd">
+	<type
+			class="org.pnml. ... .signalnets.factories.SignalNetFactory"
+			description="Signal nets">
+	</type>
+</extension>

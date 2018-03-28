@@ -1,0 +1,39 @@
+<extension point="org.eclipse.emf.validation.constraintProviders">
+	<constraintProvider cache="true">
+		<package
+			namespaceUri="http://org.pnml.tools/epnk/pnmlcoremodel">
+		</package>
+		    
+		<constraints categories="org.pnml.tools.epnk.validation">
+			<constraint
+					id=
+	"org.pnml.tools.epnk.pntypes.ptnet.validation.PT_TP_ArcsOnly"
+					lang="OCL"
+					mode="Live"
+					name="PT or TP Arcs only"
+					severity="ERROR"
+					statusCode="301">
+				<message>
+The arc {0} must run from a place to a transition or vice versa.
+				</message>
+				<description>
+Arcs between two places or transitions are forbidden in
+P/T-nets (see Clause 5.3.1 of ISO/IEC 15909-2).
+				</description>
+				<target
+						class="Arc:http://org.pnml.tools/epnk/types/ptnet">
+					<event name="Set">
+						<feature name="source"/>
+						<feature name="target"/>
+					</event>
+ 				</target>               
+<![CDATA[
+ ( self.source.oclIsKindOf(pnmlcoremodel::PlaceNode) and
+   self.target.oclIsKindOf(pnmlcoremodel::TransitionNode) ) or
+ ( self.source.oclIsKindOf(pnmlcoremodel::TransitionNode) and
+   self.target.oclIsKindOf(pnmlcoremodel::PlaceNode) )
+]]>
+			</constraint>      
+		</constraints>
+	</constraintProvider>
+</extension>

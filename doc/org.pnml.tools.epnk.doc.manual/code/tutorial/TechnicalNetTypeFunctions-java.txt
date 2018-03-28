@@ -1,0 +1,41 @@
+package org.pnml.tools.epnk.tutorials.app.technical.helpers;
+// [...]
+
+/** 
+ * @author ekki@dtu.dk
+ * @generated NOT
+ */
+public class TechnicalNetTypeFunctions {
+
+	public static ArcType getArcType(Arc arc) {
+		if (arc instanceof
+				org.pnml.tools.epnk.tutorials.app.technical.Arc) {
+			org.pnml.tools.epnk.tutorials.app.technical.Arc tArc =
+					(org.pnml.tools.epnk.tutorials.app.technical.Arc) arc;
+			Node source = arc.getSource();
+			Node target = arc.getTarget();
+			ArcTypeAttribute type = tArc.getType();
+			
+			if (source instanceof Page &&
+				target instanceof TransitionNode) {
+				return ArcType.RESET;
+			} 
+			if (type != null) {
+				if (source instanceof PlaceNode ||
+					source instanceof TransitionNode) {
+					switch (type.getText()) {
+					case READ: return ArcType.READ;
+					case INHBITOR: return ArcType.INHIBITOR;
+					default: return ArcType.NORMAL;
+					}
+				}
+			} else {
+				if (source instanceof PlaceNode ||
+					source instanceof TransitionNode) {
+					return ArcType.NORMAL;
+		}	}	}
+		return null;	
+	}
+	
+	// [...] other helper methods omitted
+}

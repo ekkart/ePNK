@@ -1,0 +1,35 @@
+private NetMarking consumes(Transition transition) {
+	FlatAccess flatAccess = this.getFlatAccess();
+		
+	NetMarking consumes = new NetMarking();
+	for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc:
+			flatAccess.getIn(transition)) {
+		if (arc instanceof Arc &&
+				TechnicalNetTypeFunctions.getArcType(arc) ==
+					ArcType.NORMAL ) {
+			Node source = arc.getSource();
+			if (source instanceof PlaceNode) {
+				source = flatAccess.resolve((PlaceNode) source);
+				if (source instanceof Place) {
+					consumes.incrementMarkingBy((Place) source, 1);
+	}	}	}	}
+	return consumes;
+}
+	
+private NetMarking produces(Transition transition) {
+	FlatAccess flatAccess = this.getFlatAccess();
+		
+	NetMarking produces = new NetMarking();
+	for (org.pnml.tools.epnk.pnmlcoremodel.Arc arc:
+			flatAccess.getOut(transition)) {
+		if (arc instanceof Arc &&
+				TechnicalNetTypeFunctions.getArcType(arc) ==
+					ArcType.NORMAL ) {
+			Node target = arc.getTarget();
+			if (target instanceof PlaceNode) {
+				target = flatAccess.resolve((PlaceNode) target);
+				if (target instanceof Place) {
+					produces.incrementMarkingBy((Place) target, 1);
+	}	}	}	}
+	return produces;
+}

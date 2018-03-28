@@ -1,0 +1,41 @@
+<extension point="org.eclipse.emf.validation.constraintProviders">
+	<constraintProvider cache="true" mode="Live">
+		<package
+				namespaceUri="http://org.pnml.tools/epnk/types/signalnets">
+		</package>
+		<constraints categories="org.pnml.tools.epnk.validation">
+			<constraint
+					id="org.pnml. ... .validation.correct-arc-connection"
+					lang="OCL" mode="Live"
+					name="Arc connection constraint for signal nets"
+					severity="ERROR" statusCode="401">
+				<message>
+					The arc {0} with this arc type is not allowed ...
+				</message>
+				<description>
+					Arcs must be between a place and a transition, ...
+				</description>
+				<target
+						class="Arc:http://org.pnml.tools/epnk/types/signalnets">
+					<event name="Set">
+						<feature name="source"></feature>
+						<feature name="target"></feature>
+						<feature name="type"></feature>
+					</event>
+				</target>            
+				<![CDATA[
+				( self.source.oclIsKindOf(pnmlcoremodel::PlaceNode) and
+				  self.target.oclIsKindOf(pnmlcoremodel::TransitionNode) )
+				or
+				( self.source.oclIsKindOf(pnmlcoremodel::TransitionNode) and
+				  self.target.oclIsKindOf(pnmlcoremodel::PlaceNode) and
+				  self.type->size() = 0 )
+				or
+				( self.source.oclIsKindOf(pnmlcoremodel::TransitionNode) and
+				  self.target.oclIsKindOf(pnmlcoremodel::TransitionNode) and
+				  self.type->size() = 0 )
+				]]>
+			</constraint>
+		</constraints>
+	</constraintProvider>
+</extension>

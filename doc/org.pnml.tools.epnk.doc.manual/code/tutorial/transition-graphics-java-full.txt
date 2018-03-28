@@ -1,0 +1,41 @@
+package org.pnml.tools.epnk.tutorials.app.graphics.figures;
+// [...] import org.eclipse.draw2d.Graphics;
+
+public class TechnicalNetTypeTransitionFigure 
+               extends TransitionFigure {
+
+	private boolean hasNormalInArcs;
+	private boolean hasNormalOutArcs;	
+	
+	public TechnicalNetTypeTransitionFigure(Transition transition) {
+		super(transition);
+		§hasNormalInArcs = TechnicalNetTypeFunctions.hasNormalInArcs(
+				(org.pnml.tools.epnk.tutorials.app.technical.Transition)
+				transition);
+		hasNormalOutArcs = TechnicalNetTypeFunctions.hasNormalOutArcs(
+				(org.pnml.tools.epnk.tutorials.app.technical.Transition)
+				transition);§
+	}
+
+	§@Override
+	public void update() {
+		boolean oldHasNormalInArcs = this.hasNormalInArcs;
+		boolean oldhasNormalOutArcs = this.hasNormalOutArcs;
+		hasNormalInArcs = TechnicalNetTypeFunctions.hasNormalInArcs(
+				(org.pnml.tools.epnk.tutorials.app.technical.Transition)
+				transition);
+		hasNormalOutArcs = TechnicalNetTypeFunctions.hasNormalOutArcs(
+				(org.pnml.tools.epnk.tutorials.app.technical.Transition)
+				transition);
+		if (oldHasNormalInArcs != this.hasNormalInArcs ||
+				 oldhasNormalOutArcs != this.hasNormalOutArcs) {
+			this.repaint();
+		}
+	}§
+	
+	@Override
+	protected void fillShape(Graphics graphics) {
+		// [...] discussed earlier already
+	}
+
+}

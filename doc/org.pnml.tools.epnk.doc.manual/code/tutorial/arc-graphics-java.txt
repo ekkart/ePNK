@@ -1,0 +1,20 @@
+	private void setGraphics() {
+		if (arcType == ArcType.READ){
+			this.setTargetDecoration(null);
+			this.setSourceDecoration(null);
+			this.setLineStyle(SWT.LINE_SOLID);
+		} else if (arcType == ArcType.INHIBITOR){
+			this.setTargetDecoration(new CircleDecoration());
+			this.setSourceDecoration(null);
+			this.setLineStyle(SWT.LINE_SOLID);
+		} else if (arcType == ArcType.RESET) {
+			this.setTargetDecoration(new DoubleArrowHeadDecoration());
+			this.setSourceDecoration(null);
+			this.setLineStyle(SWT.LINE_DASH);
+		} else {
+			// everything else is interpreted as NORMAL arc
+			this.setTargetDecoration(new ArrowHeadDecoration());
+			this.setSourceDecoration(null);
+			this.setLineStyle(SWT.LINE_SOLID);
+		}
+	}

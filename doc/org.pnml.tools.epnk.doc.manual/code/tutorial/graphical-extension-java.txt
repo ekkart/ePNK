@@ -1,0 +1,41 @@
+package org.pnml.tools.epnk.tutorials.app.graphics.factory;
+// [...]
+public class TechnicalNetGraphics extends GraphicalExtension {
+
+	@Override
+	public List<EClass> getExtendedNetTypes() {
+		ArrayList<EClass> results = new ArrayList<EClass>();
+		results.add(TechnicalPackage.eINSTANCE.getTechnicalNetType());
+		return results;
+	}
+
+	@Override
+	public List<EClass> getExtendedNetObjects(EClass netType) {
+		ArrayList<EClass> results = new ArrayList<EClass>();
+		if (netType.equals(TechnicalPackage.eINSTANCE.
+				getTechnicalNetType())) {
+			results.add(TechnicalPackage.eINSTANCE.getArc());
+			results.add(TechnicalPackage.eINSTANCE.getTransition());
+		}
+		return results;
+	}
+
+	@Override
+	public IArcFigure createArcFigure(Arc arc) {
+		if (arc instanceof
+				org.pnml.tools.epnk.tutorials.app.technical.Arc) {
+			return new TechnicalNetTypeArcFigure(arc);
+		}
+		return null;
+	}
+
+	@Override
+	public IUpdateableFigure createTransitionFigure(
+			Transition transition) {
+		if (transition instanceof
+				org.pnml.tools.epnk.tutorials.app.technical.Transition) {
+			return new TechnicalNetTypeTransitionFigure(transition);
+		}
+		return null;
+	}
+}

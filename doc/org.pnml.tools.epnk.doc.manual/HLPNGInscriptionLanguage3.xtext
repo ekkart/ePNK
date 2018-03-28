@@ -1,0 +1,30 @@
+BuiltInSort  :
+    Dot | Boolean | Number | FiniteEnumeration | CyclicEnumeration |
+    FiniteIntRange | StringSort | ListSort ;
+   
+BuiltInConst  :
+    DotConstant | BooleanConstant | MultisetConstant |
+    NumberConstant | FiniteIntRangeConstant |
+    StringConstant | ListConstant ;
+
+MultisetConstant  :
+    'all' ':' Sort  |
+    'empty' ':' Sort;
+    
+Dot :
+    'DOT';  
+    
+DotConstant :
+    'dot';    
+
+Boolean :
+    'BOOL';
+    
+BooleanConstant :
+    'true' | 'false';
+     
+Number :
+    'INT' | 'NAT' | 'POS' ;
+
+NumberConstant :
+    INT (':' Number)?;

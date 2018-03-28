@@ -1,0 +1,9 @@
+<extension
+	id="org.pnml.tools.epnk.toolspecific.tokenpositions"
+	name="Token Positions"
+	point="org.pnml.tools.epnk.toolspecific">
+	<type
+		class="org.pnml. ... .factory.TokenpositionsExtensionFactory"
+		description="The tool specific extension for token positions">
+	</type>
+</extension>

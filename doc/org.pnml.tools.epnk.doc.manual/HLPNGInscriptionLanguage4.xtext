@@ -1,0 +1,40 @@
+FiniteEnumeration : 'enum' '{' ID ( ',' ID)* '}' ;
+
+CyclicEnumeration : 'cyclic' '{' ID (',' ID)* '}' ;
+     
+CyclicEnumsBuiltInOperator :
+     'succ' '(' Term ')'   |   'pred' '(' Term ')' ;
+
+FiniteIntRange : '[' INT '..' INT ']' ;
+     
+FiniteIntRangeConstant : INT FiniteIntRange ;
+
+Partition :
+     'partition' Sort 'in' ID
+       '{' PartitionElement ( ';' PartitionElement )* '}';
+         
+PartitionElement : ID ':' Term  ( ',' Term )* ;
+         
+PartitionsBuiltInOperator : 'partition' ':' ID '(' Term ')'; 
+
+StringSort : "STRING" ;
+
+StringsBuiltInOperator :
+     "concatstring" "(" Term "," Term ")"      |
+     // note that we do not have append (does not make sense)
+     "stringlength" "("  Term  ")"             |
+     "substring" ":" NAT "," NAT "(" Term  ")" ;
+     
+StringConstant : STRING ;     
+
+ListSort :  "LIST" ":" Sort;
+     
+ListsBuiltInOperator :
+     "concatlists" "(" Term "," Term ")"                |
+     "appendtolist" "(" Term "," Term ")"               |
+     "listlength" "("  Term  ")"                        |
+     "sublist" ":" NAT "," NAT "(" Term  ")"            |
+     "memberat" ":" NAT "(" Term  ")"                   |
+     "makelist" ":" Sort "(" (Term ( "," Term)* )? ")"  ;
+           
+ListConstant : "emptylist" ":" Sort ;

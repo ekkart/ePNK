@@ -1,0 +1,230 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Technical Report        %%
+%%  ePNK: manual            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,twoside]{article}
+% \documentclass[twoside,11pt]{report}
+% \usepackage{a4}
+% \usepackage{paperA4}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   additional packages    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[latin1]{inputenc}
+% \usepackage{courier}
+
+\usepackage[hyphens]{url}
+\Urlmuskip = 0mu plus 2mu
+
+\ifx\pdfoutput\undefined
+\usepackage{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\fi
+
+\graphicspath{{figures/}}
+
+\usepackage{subfigure}
+\usepackage{rotating}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{pnml}
+
+% \lstset{language=[structured]PNML,basicstyle=\ttfamily\small,commentstyle=\itshape,%
+%   stringstyle=\itshape,keywordstyle=\underbar,numberstyle=\tiny,%
+%   stepnumber=5,showstringspaces=false,numbers=left,%
+%   belowcaptionskip=\bigskipamount,basewidth=.5em,escapechar=\$}
+\lstset{language=Java,basicstyle=\ttfamily\small,commentstyle=\itshape,%
+%  stringstyle=\itshape,keywordstyle=\bfseries,numberstyle=\tiny,%
+  stringstyle=\itshape,numberstyle=\tiny,%
+  stepnumber=5,showstringspaces=false,numbers=left,%
+  belowcaptionskip=\bigskipamount,basewidth=.5em,escapechar=\$,%
+  moredelim=**[is][\color{red}]{§}{§}}
+  
+\newcommand{\qnsep}{%
+  \nolinebreak%
+  \hspace{0pt plus 0.07em}%
+  .%
+  \hspace{0pt plus 0.07em}}
+
+\newcommand{\optsep}{%
+  \hspace{0pt}%
+}
+
+\usepackage{tocbibind}
+
+\usepackage{makeidx}
+\makeindex
+
+\setcounter{secnumdepth}{3}
+
+\makeatletter
+\def\@maketitle{
+\raggedleft
+bla\includegraphics{DTU-logo.jpg}
+\raggedright
+\begin{center}
+{\Huge \bfseries \sffamily \@title }\\[4ex] 
+{\Large \sffamily \@author}\\[4ex]
+{\Large \sffamily DTU Compute Technical Report 2017-XX}
+~\\
+{%\color{red} \Large
+  Revised, updated, and extended version of\\
+  IMM-Technical Report-2012-14\\}
+{\sffamily \@date\\[8ex]}
+\end{center}}
+\makeatother
+
+\makeatletter
+\renewcommand\maketitle{\begin{titlepage}%
+  {\sffamily 
+  \hspace*{\fill}\includegraphics{DTU-logo.jpg}
+  \let\footnotesize\small
+  \let\footnoterule\relax
+  \let \footnote \thanks
+  \null\vfil
+  \vskip 60\p@
+  \begin{center}%
+    {\LARGE \@title \par}%
+    \vskip 3em%
+    {\large
+     \lineskip .75em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+      \vskip 1.5em%
+  {\Large DTU Compute Technical Report 2017-XX}\\[.75em]
+  Revised, updated, and extended version of\\
+  IMM-Technical Report-2012-14\\[1.5em]
+
+  {\large \@date \par}%       % Set date in \large size.
+  \end{center}\par
+  \@thanks
+  \vfil\null
+  }
+  \end{titlepage}%
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      main document       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% switches on printing of running heads
+\pagenumbering{roman}
+
+\title{%
+  The ePNK: A generic Petri net tool\\
+  Users' and developers' guide\\
+  for Version~1.2
+}
+
+
+\vspace{2cm}
+
+\author{
+  Ekkart Kindler\\
+  Technical University of Denmark\\
+  DTU Compute\\
+  DK-2800 Kgs. Lyngby\\
+  Denmark\\
+  {\tt ekki@dtu.dk}
+}
+
+\date{%
+  {\color{red} Draft version: \today}
+}
+  
+\maketitle
+
+
+\thispagestyle{empty}
+
+\clearpage
+
+~
+\vspace{\fill}
+
+\begin{raggedright}
+{\sf
+Technical University of Denmark\\
+Department of Applied Mathematics and Computer Science (DTU Compute)\\
+Richard Petersens Plads, Building 324\\
+DK-2800 Kgs. Lyngby, Denmark\\
+Phone: +45\,4525\,3031\\
+compute@compute.dtu.dk\\
+www.compute.dtu.dk\\
+\vspace*{2cm}
+~\\
+{\large DTU Compute Technical Reports: ISSN~1601-2321}
+}
+\end{raggedright}
+
+\cleardoublepage
+
+\input{abstract}
+
+\cleardoublepage
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\cleardoublepage
+
+\pagestyle{headings}  
+\pagenumbering{arabic}
+
+\input{index-see}
+
+
+
+\input{intro}
+\cleardoublepage
+
+\input{user}
+\cleardoublepage
+
+\input{developer}
+\cleardoublepage
+
+\input{tutorial}
+\cleardoublepage
+
+\input{install}
+\cleardoublepage
+
+\input{inside}
+\cleardoublepage
+
+% \input{pnml-suggestions}
+% \cleardoublepage
+
+% \appendix
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bibliography              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{abbrv}
+\bibliography{all}
+
+\raggedright
+
+\input{index}
+
+\end{document} 

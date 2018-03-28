@@ -1,0 +1,226 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PNML Suggestions                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{PNML: Observations and suggestions}
+\label{chap:pnml-suggestions}
+
+During the work on the ePNK, several issues came up concerning PNML.
+In this chapter, these issues will be summarized and some suggestions
+on how to improve future versions of PNML will be made. 
+
+
+\section{Toolspecific extensions: Type attribute}
+
+The toolspecific extensions should probably be equipped with an
+optional attribute type: The rational is that the same tool
+could have different toolspecific extensions. With the additional
+attribute, we would not force the tool to mix all its extensions
+in a single class (or define the type in an extension of the
+tool name, which would be also a mess).
+
+\section{Relaxing requirement for ids everywhere}  
+PNML requires an id for every element in the document. In the ePNK,
+I have made the ids optional, when they are not needed for referring
+to an element. And id is only required, if there is a reference to such an
+element (and actually the document can still be serialized using XPath
+expressions without ids at all, which however is not compatible with PNML);
+
+For future versions of PNML, it should be considered to make ids optional in
+case elements cannot be referenced at all or when elements are not referenced
+from other elements in the net.
+  
+\section{Naming in PNML standard}
+The feature variableDecl in the UML model of Variable in the
+terms package is later mapped to refvariable in XML. This
+could actually be the same name in both cases (the ePNK model used
+``refvariable'' in the model). 
+%
+For the definition of PNML as an exchange format, this does not make any 
+difference -- but, it is smoother conceptually, technically, and from a
+readability point of view, since we do not need an extra mapping.
+
+In the terms package, there is a class BuiltInConst. Later (e.\,g.\ in
+packages dots, booleans, integers) it is referred to as BuiltInConstants.
+this needs to be aligned. In ePNK, BuiltInConst is use in all cases.
+  
+In package booleans, Equality and Inequality are directly derived from
+Operators. Though, it does not make a difference for PNML as a transfer
+format, this is probably an error. In the ePNK model, Equality and Inequality
+are derived from BuiltInOperators, which makes explicit that these are
+built-in operators in the model.  
+
+In ISO/IEC 15909-2, Table~8 (p.~35) the declaration feature of a variable is
+mapped to the attribute variabledecl; in the RELAX NG grammar, however,
+this is represented as "refvariable" (Annex B.2.1, p.~54) and also in the
+example of Symmetric Nets (AnnexC, e.\,g.\ p.~93). This is probably a type
+and should be aligned! In the ePNK ``refvariable'' was used.  
+  
+Also in Table~8, the Integer::Addition class is mapped to "add". But,
+in the RELAX/NG grammars this is called ``addition''. 
+The ePNK uses ``addition'', and ``subtraction'' to be consistent with
+the RELAX/NG grammar. But ``addition'' and ``subtraction'' is not
+consistent with the naming of ``div'', ``mod'', and ``mult''. This could
+be aligned.
+   
+\section{Mapping of models to XML}   
+
+The sorts ProductSort and MultisetSort (and their children) are not
+mapped to XML in the same style as Terms (there is no element for
+the feature (elementSort or basis), but just an element for the
+sort itself. That is a bit awkward and we might want to align this.
+  
+The same applies for NamedSorts.
+  
+In order to map these features of PNML (resp. HLPNG) to XML, the
+ePNK introduced the concept of \emph{standard features}.  
+
+\section{Explict result type for NamedOperators}
+A NamedOperator should have an explicit sort for its return value. Right
+now, we rely on that the definition of NamedOperators is not cyclic --
+which is explicitly required. But, if this is not checked,
+other calculations might run into infinite loops, if not done
+properly. This could be done more easily if the return type
+of an operator was made explicit.
+   
+\section{Opposite references for source and target}
+Maybe, the source and target references of arcs in the
+PNML Core Model should have opposites, so that the arcs can
+be accessed from the  nodes more easily (they should be transient
+though, since they do not need to be serialized). I will
+make this change in the ePNK anyway (technically, this
+has nothing to do with ISO/IEC 15909-2, since it does not
+mandate the PNML Core Model, but only the XML format -- but,
+it might be relevant for Part~3).   
+
+\section{Name labels for arcs}   
+I still do not see any reason, why arcs of a Petri net should
+have a name.
+
+\section{Remove the possibility of net labels}   
+We should consider to remove the labels that are directly contained
+in a net (and not on page) from the PNML Core Model; this does
+not make much sense conceptually and makes things more difficult
+to implement (see Sect.~\ref{subsec:user-netlabels}).
+
+\section{Attributes with default values}    
+The RELAX/NG grammars of ISO/IEC~15909-2 require that all attributes of
+all elements must of must always be there. Many other formats allow omitting
+attributes with default values. We should discuss, whether ISO/IEC~15909 should
+also allow to omit attributes that have a default value (and define what the
+default values are). 
+
+In the current implementation, the ePNK serializes all attributes as defined
+in ISO/IEC~15909-2, but it is no problem changing that (and for all attributes,
+the ePNK defines some default values in the models -- since, strangely enough,
+this was the only way to enforce their serialisation in the EMF technology).
+
+\section{Recursive sort and operator definitions}
+Up to now, PNML does not allow defining recursive sorts and has
+limited expressibility for defining recursive functions. There
+could be more constructs for that; but this would require to
+have a more careful definition of this (right now the semantics
+of sorts is to flatten them, which would not work for recursive
+types anymore).
+
+We also might want unions for defining recursive sorts in an easy
+way. But, this would impose a great burden on all implementations
+of PNML even if they do not use it -- therefore, we should be
+very careful with that (it could be part of a even more general
+kind of HLPNGs).
+
+\section{Names for ArbitrayDeclarations}
+
+As mentioned in Sect.~\ref{subsec:user-netlabels} already, {\tt Unparsed}
+declarations of ISO/IEC do not have a name attribute. Since, any
+declaration is a symbol definition, of some kind, it would be
+reasonable, if this would be aligned. Therefore, {\tt Unparsed}
+should have a name attribute of type String.
+
+
+\section{Incorrect types in the HLPNG models}   
+\label{ISO-IEC15909-problem:typing} 
+In ISO/IEC 15909-2, some classes in the packages FiniteIntRanges, Strings, and
+Lists, have attributes that are technically incorrect. They are on the
+wrong meta-level: they refer to a PNML/HLPNG type instead of a data type
+in UML. This should be changed
+
+Here is a list of the required changes:
+\begin{itemize}
+\item {\tt FiniteIntRange}: {\tt start} and {\tt end} should refer to {\tt int}
+      ({\tt EInt})
+       
+\item {\tt FiniteIntRangeConstant}: {\tt value} should refer to {\tt int}
+      ({\tt EInt})
+      
+\item {\tt Substring}: {\tt start} and {\tt length} should refer to
+      {\tt NonNegativeInteger} (is defined as a separate basic datatype in the
+      ePNK) 
+
+\item {\tt Sublist}: {\tt start} and {\tt length}  should refer to {\tt NonNegativeInteger}
+       
+\item {\tt MemberAtIndex}: {\tt index} should refer to {\tt NonNegativeInteger}
+      (this attribute is capitalized in the wrong way in Fig. 19, which should
+      also be changed) 
+\end{itemize}
+
+Moreover, the type {\tt PrimitiveType::Integer} that is used in the {\tt value}
+feature of {\tt NumberConstant} in the Integers package is not defined within
+ISO/IEC~15909-2. This should be changed (in the ePNK the type  {\tt EInt} is
+used).
+
+\section{Reference to Sort in FiniteIntRangeConstants}  
+The {\tt range} feature of {\tt FiniteIntRangeConstant} refers to 
+{\tt FiniteIntRange}. This makes the concrete syntax for
+these constants (and the implementation of a parser for this concrete syntax)
+very inconvenient. It would be much easier, if this {\tt range} feature referred
+to {\tt Sort} in general, and there was an additional constraint that
+this sort is (or refers to) a {\tt FiniteIntRange}.
+
+\section{Omitting redundant opposit references}
+In the package for Partitions, there are the features {\tt refpartition} and
+{\tt refpartitionelement}, which are redandant and are not serialised. It
+would be better to delete them form these models (in the API generatded by
+EMF, the respective elements can be accessed via the eContainer, if necessary).
+    
+\section{Useless operator: Append}    
+The {\tt Append} operator in package Strings, does not make any sense, if
+there is no data type for characters. So, either a data type for characters
+should be introduced, or {\tt Append} should be removed. 
+
+{\bf Note:} In the ePNK, the  {\tt Append} it is included for compatibility
+reasons; but terms using it, will never be typed correctly and cannot be
+resolved. If this operator is used, there will be validation errors, but the
+respective nets can be serialised.
+    
+\section{Incorrect constraints for List Append}    
+The constraint for the {\tt Append} operator in Lists is incorrect (and
+not complete): It requires both arguments to be lists; but if this
+was meant seriously, the {\tt Append} operator would not be different
+from the list concatenation. One of the arguments of the {\tt Append}
+should be of the basis sort of the list (representing a single
+element that is appended to the list).  In the ePNK, the first
+argument is the of the basis sort for now. 
+    
+\section{Implicit and constant parameteres}    
+The operators {\tt Substring} of package Strings and {\tt MemberAtIndex} and
+{\tt Sublist} of package Lists have constant implicit parameters for
+the start, length, resp. index. These should rather be subterms
+of the respective types (expressed as constraints); maybe this was the intention
+with the wrong types (see~\ref{ISO-IEC15909-problem:typing}), but the
+RELAX/NG grammar clearly states that these are not subterms.
+
+In the ePNK, this is implemented according to ISO/IEC 15909-2, but in a
+future version, we will (optionally) allow resp.\ subterms; having only
+constants here, is not too useful.
+    
+\section{Mismatch between tables and grammars} 
+In the mapping of the PNML core model and type specific models to XML in
+Clause~7 (Table~8) of ISO/IEC~15909-2, the {\tt FiniteIntRangeConstant} has a
+PNML attribute {\tt range} which is an IDREF.
+This does not correspond to the RELAX/NG grammar and the UML model. This
+should rather be a (default) sub-element of type Sort (this is what was
+implemented in the ePNK and is suggested by the RELAX/NG gammar).
+In ISO/IEC 15909-2, the entry "range:IDREF" in Table~8 for
+{\tt FiniteIntRangeConstant} should be deleted.
+  

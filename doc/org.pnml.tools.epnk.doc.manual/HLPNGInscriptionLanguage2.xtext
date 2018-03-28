@@ -1,0 +1,40 @@
+Term :
+    Term BinOp Term |
+    UnOp Term       |
+    BasicTerm;
+    
+BinOp : 
+    // all binary operators are left-associative
+    'or' | 'implies'                     |  // lowest priority
+    'and'                                |
+    '>' | '>=' | '<' | '<=' | 'contains' |  // all comparison ops
+          '<r' | '<=r' | '>r' | '>=r' |     // on same level
+          '<p' | '>p'  |                    //
+          '<s' | '<=s' | '>s' | '>=s'    |  //
+    '==' | '!='                          |
+    '++' | '--'                          |
+    '`'                                  |
+    '+' | '-'                            |
+    '*' | '**' | '/' | '%'               ;  // highest priority
+    
+UnOp :
+    'not' ;     // higher priority than all binary operators 
+        
+BasicTerm :
+    Variable                  |
+    UserOperator              |
+    OtherBuiltInOperator      |
+    BuiltInConst              |
+    '(' Term ')'              |  // a sub-term in parentheses
+    '(' Term ( ',' Term )+ ')';  // a tuple 
+                 
+Variable :
+    ID;        
+
+UserOperator :
+    ID '(' ( Term (',' Term )* )?  ')' ;
+    
+OtherBuiltInOperator  :
+    '|' BasicTerm '|' |  '#(' Term ',' Term  ')'  |
+    CyclicEnumsBuiltInOperator  | PartitionsBuiltInOperator   |
+    StringsBuiltInOperator | ListsBuiltInOperator;

@@ -1,0 +1,28 @@
+protected void fillShape(Graphics graphics) {
+	super.fillShape(graphics);
+	graphics.pushState();
+	
+	graphics.setLineWidth(1);
+	Rectangle rectangle = this.getClientArea();
+	int w = rectangle.width / 3;
+	if (!this.hasNormalInArcs) {
+		graphics.drawLine(rectangle.x + w, rectangle.y,
+			rectangle.x + w, rectangle.y + rectangle.height-1);
+		graphics.drawLine(rectangle.x + w, rectangle.y,
+			rectangle.x, rectangle.y + rectangle.height-1);
+		graphics.drawLine(rectangle.x, rectangle.y,
+			rectangle.x + w, rectangle.y + rectangle.height-1);
+	}
+		
+	if (!this.hasNormalOutArcs) {
+		graphics.drawLine(rectangle.x + 2*w, rectangle.y,
+			rectangle.x + 2*w, rectangle.y + rectangle.height-1);
+		graphics.drawLine(rectangle.x + rectangle.width-1, rectangle.y,
+			rectangle.x + 2*w, rectangle.y + rectangle.height-1);
+		graphics.drawLine(rectangle.x + 2*w, rectangle.y,
+			rectangle.x + rectangle.width-1,
+			rectangle.y + rectangle.height-1);
+	}
+		
+	graphics.popState();
+}

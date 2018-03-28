@@ -1,0 +1,32 @@
+package org.pnml.tools.epnk.tutorials.app.graphics.figures;
+
+// [...]
+
+public class TechnicalNetTypeArcFigure extends ArcFigure {
+
+	private ArcType arcType;
+	
+	public TechnicalNetTypeArcFigure(Arc arc) {
+		super(arc);
+		§arcType = TechnicalNetTypeFunctions.getArcType(arc);
+		setGraphics();§
+	}
+
+	@Override
+	§public void update() {
+		ArcType oldArcType = arcType;
+		arcType = TechnicalNetTypeFunctions.getArcType(arc);
+		if (arcType != oldArcType) {
+			setGraphics();
+			Node target = arc.getTarget();
+			if (target instanceof InternalEObject) {
+				target.eNotify(new ENotificationImpl(
+					(InternalEObject) target,
+					Notification.NO_FEATURE_ID, null, null, null));
+	}	}	}§
+
+	private void setGraphics() {
+		// [ ... ] discusses before
+	}
+
+}

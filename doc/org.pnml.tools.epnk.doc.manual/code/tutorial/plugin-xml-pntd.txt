@@ -1,0 +1,9 @@
+<extension
+	id="org.pnml.tools.epnk.tutorials.app.pntd"
+	name="Technical Net Type (for app tutorial)"
+	point="org.pnml.tools.epnk.pntd">
+	<type
+		class="org.pnml.tools.epnk.tutorials.app.technical.impl.
+TechnicalNetTypeImpl"
+		description="Technical Net Type for ePNK app tutorial" />
+</extension>

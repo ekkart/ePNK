@@ -1,0 +1,11 @@
+<extension
+		id="org.pnml.tools.epnk.pntypes.signalnets.graphics"
+		name="Signal event net graphical extensions"
+		point="org.pnml.tools.epnk.diagram.graphics">
+	<graphicsextension
+		class="org.pnml. ... .signalnets.graphics.SignalnetGraphics"
+		description="Special graphics for ... signal event nets">
+	</graphicsextension>
+</extension>
+   
+ 

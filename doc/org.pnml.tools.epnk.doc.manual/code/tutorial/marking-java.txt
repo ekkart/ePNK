@@ -1,0 +1,14 @@
+private NetMarking computeMarking() {
+	NetMarking marking = new NetMarking();
+	for (ObjectAnnotation annotation:
+			getNetAnnotations().getCurrent().getObjectAnnotations()) {
+		if (annotation instanceof Marking) {
+			Marking markingAnnotation = (Marking) annotation;
+			Object object = markingAnnotation.getObject();
+			int value = markingAnnotation.getValue();
+			if (object instanceof Place &&  value > 0) {
+				Place place = (Place) object;
+				marking.setMarking(place, value);
+	}	}	}
+	return marking;
+}

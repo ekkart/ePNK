@@ -1,0 +1,11 @@
+<extension
+      id=§"org.pnml.tools.epnk.tutorials.app.simulator.application"§
+      name=§"Technical Simulator (Tutorial)"§
+      point=§"org.pnml.tools.epnk.applications.applicationfactory"§>
+   <applicationfactory
+         class=§"org.pnml.tools.epnk.tutorials.app.simulator.
+application.TechnicalSimulatorFactory"§
+         description=§"A simple simulator used as technical example
+in the ePNK tutorial"§>
+   </applicationfactory>
+</extension>   

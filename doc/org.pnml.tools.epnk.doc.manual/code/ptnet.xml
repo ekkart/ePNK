@@ -1,0 +1,9 @@
+<extension
+		id="org.pnml.tools.epnk.pntypes.ptnet"
+		name="PTNets"
+		point="org.pnml.tools.epnk.pntd">
+	<type
+			class="org.pnml.tools.epnk.pntypes.ptnet.impl.PTNetImpl"
+			description="Place/Transition Nets">
+	</type>
+</extension>

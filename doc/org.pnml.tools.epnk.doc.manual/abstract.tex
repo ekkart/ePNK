@@ -1,0 +1,78 @@
+\begin{quote}
+\centerline{{\bf Abstract}}
+
+The \emph{ePNK} is an Eclipse based framework and platform for developing
+and integrating Petri net tools and applications. One of its core features
+is that new \emph{Petri net types} can be plugged in, which does not require
+any programming. A new Petri net type can be defined by providing a model
+of its concepts, the so-called \emph{Petri net type definition} (\emph{PNTD}).
+In addition, the ePNK allows adding new \emph{applications} on Petri nets
+to the ePNK.
+
+The ePNK builds on the concepts and models of the
+\emph{Petri Net Markup Language} (\emph{PNML}), which is an XML based
+interchange format for all kinds of Petri nets, which was published
+as International Standard ISO/IEC~15909-2 in February 2011.
+Technically, ISO/IEC 15909-2 is defining an interchange
+format for three different kinds of high-level Petri nets and a simple version
+of Place/Transition systems only. But, one of the objectives of PNML was to provide
+a means for exchanging any kind of Petri net \cite{JKW00b,WeKi03,BCea03}. To this end, the concept of a 
+\emph{Petri Net Type Definition} (\emph{PNTD}) was introduced, which is subject
+of a newly issued standardisation project: ISO/IEC 15909-3.
+
+There are many tools supporting one form of PNML or the other, and, in
+particular, there is the PNML Framework \cite{DBLP:conf/apn/HillahKPT10}, which
+helps tool developers to ease the implementation of PNML by providing a
+framework and an API for loading and saving Petri net documents in PNML. This framework is
+based on the \emph{Eclipse Modeling Framework} (\emph{EMF}) \cite{BSM06} and has
+its focus on the underlying meta-models of Petri nets. The PNML Framework,
+however, is not generic in the following sense: Whenever a new Petri net type is
+created, the code for the complete tool needs to be regenerated.
+Moreover, the PNML Framework does not come with a graphical editor
+for Petri nets.
+
+The ePNK overcomes these limitations: It provides an extension-point, so
+that new Petri net types can be plugged in to the existing tool without
+touching the code of the ePNK. For defining a new Petri net type, the developer,
+basically, needs to create a class diagram defining the concepts of the new
+Petri net type, along with a mapping of these concepts to XML syntax. This type can then
+be plugged into the ePNK, and the graphical editor of the ePNK will be able
+to edit nets of this new type with all its features. Likewise, the ePNK
+allows to plug in new applications for the analysis, verification or
+simulation of Petri nets. Moreover, it is possible to customize the
+graphical representation of Petri nets and their specific features, and 
+applications can visualize their results and interact with the user on top of
+the graphic representation of the net in the graphical editor of the ePNK.
+
+Actually, this was the idea when we started the development of the
+\emph{Petri Net Kernel} (\emph{PNK}) about 20 years ago
+\cite{KiDe96,Kin97d,KiWe01c}. At that time, however, we had to implement
+the complete IDE functionality of the PNK ourselves. The ePNK is based
+on Eclipse \cite{Eclipse-WWW}, so in the ePNK, we could focus on the
+Petri net specific parts of such a tool. We get all the functionality
+of a nice IDE, basically, for free. Therefore, we named the tool
+\emph{ePNK} for \emph{Eclipse-based Petri Net Kernel}. But, it is only
+the spirit and their idea that the PNK and the ePNK have in common;
+technically, there is not a single line of code from the PNK in the ePNK,
+and the ePNK is not compatible with the PNK.
+
+What is more, we use the nice features of EMF, GMF, and Xtext
+for developing the ePNK in a model-based way. In this way, the
+complete development process of the ePNK is a case study in model-based
+software engineering using EMF and related technologies. This, actually,
+was the driving force behind this project.
+
+This manual focuses on how
+to use the ePNK as an end user, and on how a developer can use the
+extension mechanisms of the ePNK for providing new Petri net types along
+with their XML syntax, and how to add new applications to the ePNK.
+
+A first version of this manual has been published in February 2011 as
+IMM-Technical Report-2011-03 already, which referred to version 0.9.1 of the
+ePNK. The second version of this document (IMM-Technical Reprot-2012-14)
+referred to version 1.0 of the ePNK, which was released in October 2012. The
+current version of this report refers to version 1.2 of the ePNK, which
+was released in August 2017. It was updated with respect to the new features
+of the ePNK and extended by a detailed tutorial, which discusses a
+complete example in all technical details.
+\end{quote}

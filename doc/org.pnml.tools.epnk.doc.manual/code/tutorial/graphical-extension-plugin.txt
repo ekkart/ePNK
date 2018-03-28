@@ -1,0 +1,10 @@
+<extension
+      id=§"org.pnml.tools.epnk.tutorials.app.graphics"§
+      name=§"Technical Net Graphics"§
+      point="org.pnml.tools.epnk.diagram.graphics">
+   <graphicsextension
+         class=§"org.pnml.tools.epnk.tutorials.app.graphics.
+factory.TechnicalNetGraphics"§
+         description=§"Dedicated graphics for Technical Net Type"§>
+   </graphicsextension>
+</extension>

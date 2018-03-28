@@ -1,0 +1,31 @@
+public class NetMarking {
+	
+	private Map<Place,Integer> marking;
+
+	 // Creates a new empty marking.
+	public NetMarking()
+
+	//Creates a new marking, which is a copy of a given marking.
+	public NetMarking(NetMarking marking)
+
+	public void setMarking(Place place,int value)
+
+	public int getMarking(Place place)
+
+	public void incrementMarkingBy(Place place, int increment)
+
+	public void decrementMarkingBy(Place place, int decrement)
+
+	// Adds marking2 to this marking
+	public void add(NetMarking marking2)
+
+	// Subtracts marking2 from this marking
+	public void subtract(NetMarking marking2)
+
+	// Checks whether this marking is greater or equal than marking2
+	public boolean isGreaterOrEqual(NetMarking marking2) 
+
+	// Returns the set of all places that have at least one token
+	public Collection<Place> getSupport()
+
+}

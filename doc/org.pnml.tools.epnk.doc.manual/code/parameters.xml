@@ -1,0 +1,20 @@
+<namedoperator id="1" name="f">
+	<parameter>
+		<variabledecl id="2" name="x">
+			<integer/>
+		</variabledecl>
+		<variabledecl id="3" name="y">
+			<integer/>
+		</variabledecl>
+	</parameter>
+	<def>
+		<mult>
+			<subterm>
+				<variable refvariable="2"/>
+			</subterm>
+			<subterm>
+				<variable refvariable="3"/>
+			</subterm>
+		</mult>
+	</def>
+</namedoperator>

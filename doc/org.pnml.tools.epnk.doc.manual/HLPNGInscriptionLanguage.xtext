@@ -1,0 +1,40 @@
+Declarations :
+    ( 'sorts' SortDecl ( ',' SortDecl )* ';'                   |
+      'vars'  VariableDecl ( ',' VariableDecl )* ';'           |
+      'ops'   OperatorDecl ( ',' OperatorDecl )* ';'           |
+      'sortsymbols' ArbitrarySort ( ',' declaration )* ';'     |
+      'opsymbols' ArbitraryOperator ( ',' ArbitraryOperator )*
+    )*;
+	    	
+SortDecl :
+    NamedSort | Partition;
+
+NamedSort :
+    ID '=' Sort;	
+    
+VariableDecl :
+    ID ':' Sort;
+	
+OperatorDecl :
+    NamedOperator;
+    
+NamedOperator :    
+    ID '(' ( VariableDecl ( ',' VariableDecl )* )? ')' '=' Term;
+    
+Sort :
+    BuiltInSort | MultiSetSort | ProductSort | UserSort;
+       
+MultiSetSort :
+    'MS' '(' Sort ')';
+        
+ProductSort :
+    '(' ( Sort ( '*' Sort )*)? ')'; 
+                        
+UserSort :
+    ID;
+
+ArbitrarySort :
+     ID;     
+               
+ArbitraryOperator :
+     ID ":" ( Sort ("," Sort )* )? "->" Sort;    

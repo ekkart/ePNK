@@ -1,0 +1,29 @@
+<extension point="org.eclipse.emf.validation.constraintProviders">
+	<constraintProvider cache="true">
+		<package
+			namespaceUri="http://org.pnml.tools/epnk/pnmlcoremodel">
+		</package>    
+		
+		<constraints categories="org.pnml.tools.epnk.validation">
+		...
+			<constraint
+				lang="Java"
+				class="org.pnml. ... .validation.ConditionIsBoolType"
+				severity="ERROR"
+				mode="Batch"
+				name="Condition is of type boolean"
+				id="org.pnml. ... .validation.ConditionIsBoolType"
+				statusCode="314">
+				<target class=
+  "Transition:http://org.pnml.tools/epnk/pntypes/hlpng/pntd/hlpng"/>
+				<description>
+  The condition must be of type BOOL.
+				</description>
+				<message>
+  The condition {1} of transition {0} is not of type BOOL.
+				</message>
+			</constraint>     
+		...                       
+		</constraints>                                 
+	</constraintProvider>
+ </extension>

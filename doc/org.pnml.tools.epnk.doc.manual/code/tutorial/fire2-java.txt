@@ -1,0 +1,19 @@
+boolean fireTransition(Transition transition,
+		Collection<Arc> inactiveInArcs,
+		Collection<Arc> inactiveOutArcs) {
+	NetMarking marking1 = this.computeMarking();
+
+	Collection<Arc> preventors =
+		this.preventingArcs(marking1, transition);
+	preventors.removeAll(inactiveInArcs);
+	if (this.isWeaklyEnabled(marking1, transition) &&
+			preventors.isEmpty()) {
+		NetMarking marking2 = this.fireTransition(marking1, transition);
+		NetAnnotation netAnnotation = this.computeAnnotation(marking2);
+
+		this.deleteNetAnnotationAfterCurrent();
+		this.addNetAnnotationAsCurrent(netAnnotation);
+		return true;
+	}
+	return false;
+}

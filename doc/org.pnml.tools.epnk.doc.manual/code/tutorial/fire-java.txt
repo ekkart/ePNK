@@ -1,0 +1,33 @@
+private NetMarking fireTransition(NetMarking marking1,
+		Transition transition ) {
+	FlatAccess flatAccess= this.getFlatAccess();
+
+	NetMarking marking2 = new NetMarking(marking1);
+
+	// consume tokens from preset
+	NetMarking consumes = consumes(transition);
+	marking2.subtract(consumes);
+
+	// reset places on page connected to reset arc
+	for (Object a: flatAccess.getIn(transition)) {
+		if (a instanceof Arc &&
+				TechnicalNetTypeFunctions.getArcType((Arc) a) ==
+				ArcType.RESET) {
+			Arc arc = (Arc) a;
+			Node source = arc.getSource();
+			if (source instanceof Page) {
+				Page page = (Page) source;
+				for (Object object: page.getObject()) {
+					if (object instanceof PlaceNode) {
+						Object resolved =
+							flatAccess.resolve((PlaceNode) object);
+						if (resolved instanceof Place) {
+							marking2.setMarking((Place) resolved, 0);
+	}	}	}	}	}	}
+
+	// produce tokens on postset
+	NetMarking produces = produces(transition);
+	marking2.add(produces);
+
+	return marking2;
+}
