@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmfgraph:Canvas xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="geditor">
+  <figures
+      name="Default">
+    <descriptors
+        name="PointFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Ellipse"
+          outline="false">
+        <backgroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="red"/>
+        <preferredSize
+            dx="10"
+            dy="10"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="ArcFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ArcFigure"/>
+    </descriptors>
+  </figures>
+  <nodes
+      name="Point"
+      figure="PointFigure"/>
+  <connections
+      name="Arc"
+      figure="ArcFigure"/>
+  <labels
+      name="Node Label"
+      elementIcon="false"/>
+</gmfgraph:Canvas>

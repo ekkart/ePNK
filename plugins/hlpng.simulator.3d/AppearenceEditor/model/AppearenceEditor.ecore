@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Appearence"
+    nsURI="Appearence" nsPrefix="Appearence">
+  <eClassifiers xsi:type="ecore:EClass" name="Shapes">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="appearence" upperBound="-1"
+        eType="#//Shape" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shape">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ObjectStringPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

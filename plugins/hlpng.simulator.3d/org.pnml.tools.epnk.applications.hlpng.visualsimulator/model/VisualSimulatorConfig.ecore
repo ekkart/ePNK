@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="visualsimulationconfig"
+    nsURI="http://visualsimulationconfig/1.0" nsPrefix="visualsimulationconfig">
+  <eClassifiers xsi:type="ecore:EClass" name="VisualSimulatorConfig">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shapes" eType="ecore:EClass ../../AppearenceEditor/model/AppearenceEditor.ecore#//Shapes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" eType="ecore:EClass ../../GEditor/model/GEditor.ecore#//Geometry"/>
+  </eClassifiers>
+</ecore:EPackage>

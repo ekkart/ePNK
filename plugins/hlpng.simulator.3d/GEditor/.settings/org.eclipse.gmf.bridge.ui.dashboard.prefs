@@ -1,0 +1,8 @@
+#Thu Oct 27 15:55:20 CEST 2011
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/GEditor/model/GEditor.genmodel
+gmf_dashboard/domainModel=platform\:/resource/GEditor/model/GEditor.ecore
+gmf_dashboard/generationModel=platform\:/resource/GEditor/model/GEditor.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/GEditor/model/GEditor.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/GEditor/model/GEditor.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/GEditor/model/GEditor.gmftool

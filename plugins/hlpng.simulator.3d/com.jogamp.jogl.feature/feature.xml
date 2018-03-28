@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.jogamp.jogl.feature"
+      label="JOGL Eclipse Binding"
+      version="2.0.0.qualifier"
+      provider-name="JogAmp.org"
+      os="linux,macosx,win32"
+      arch="x86,x86_64">
+
+   <description url="http://jogamp.org/jogl/www/">
+      Eclipse JOGL deployment for the respective platforms (Linux, MacOS, and Windows).
+   </description>
+
+   <copyright url="http://jogamp.org">
+      JOGL is copyrighted by JogAmp.org. On this deployment for the
+      eclipse platfor there are no copyrights.
+   </copyright>
+
+   <license url="http://creativecommons.org/licenses/by/3.0/us/">
+      JOGL as well as this eclipse deployment of it is licensed under the
+      Creative Commons Attribution 3.0 License.
+   </license>
+
+   <plugin
+         id="com.jogamp.jogl-linux-amd64"
+         os="linux"
+         arch="x86_64"
+         download-size="0"
+         install-size="0"
+         version="2.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.jogamp.jogl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="com.jogamp.jogl-linux-i586"
+         os="linux"
+         arch="x86"
+         download-size="0"
+         install-size="0"
+         version="2.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.jogamp.jogl-macosx-universal"
+         os="macosx"
+         download-size="0"
+         install-size="0"
+         version="2.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.jogamp.jogl-windows-amd64"
+         os="win32"
+         arch="x86_64"
+         download-size="0"
+         install-size="0"
+         version="2.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.jogamp.jogl-windows-i586"
+         os="win32"
+         arch="x86"
+         download-size="0"
+         install-size="0"
+         version="2.0.0"
+         fragment="true"
+         unpack="false"/>
+
+</feature>

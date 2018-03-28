@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="geditor.presentation.GeditorModelWizardID"
+            name="%_UI_GeditorModelWizard_label"
+            class="geditor.presentation.GeditorModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GeditorModelFile.gif">
+         <description>%_UI_GeditorModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="geditor.presentation.GeditorEditorID"
+            name="%_UI_GeditorEditor_label"
+            icon="icons/full/obj16/GeditorModelFile.gif"
+            extensions="geditor"
+            class="geditor.presentation.GeditorEditor"
+            contributorClass="geditor.presentation.GeditorActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

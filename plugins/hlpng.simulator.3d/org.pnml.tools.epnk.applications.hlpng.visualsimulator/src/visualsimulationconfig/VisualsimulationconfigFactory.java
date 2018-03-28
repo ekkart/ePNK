@@ -1,0 +1,47 @@
+/**
+ * <copyright>
+ * </copyright>
+ *
+ * $Id$
+ */
+package visualsimulationconfig;
+
+import org.eclipse.emf.ecore.EFactory;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Factory</b> for the model.
+ * It provides a create method for each non-abstract class of the model.
+ * <!-- end-user-doc -->
+ * @see visualsimulationconfig.VisualsimulationconfigPackage
+ * @generated
+ */
+public interface VisualsimulationconfigFactory extends EFactory
+{
+    /**
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    VisualsimulationconfigFactory eINSTANCE = visualsimulationconfig.impl.VisualsimulationconfigFactoryImpl.init();
+
+    /**
+     * Returns a new object of class '<em>Visual Simulator Config</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Visual Simulator Config</em>'.
+     * @generated
+     */
+    VisualSimulatorConfig createVisualSimulatorConfig();
+
+    /**
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the package supported by this factory.
+     * @generated
+     */
+    VisualsimulationconfigPackage getVisualsimulationconfigPackage();
+
+} //VisualsimulationconfigFactory

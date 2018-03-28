@@ -1,0 +1,7 @@
+# Tracing options for the GEditor.diagram plug-in
+
+# Common issues
+GEditor.diagram/debug=false
+
+# Visual IDs
+GEditor.diagram/debug/visualID=false

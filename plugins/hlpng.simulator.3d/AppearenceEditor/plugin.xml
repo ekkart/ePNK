@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="Appearence"
+            class="Appearence.AppearencePackage"
+            genModel="model/AppearenceEditor.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <category
+            id="appearenceeditor.importWizards.sampleCategory"
+            name="Sample File Import">
+      </category>
+      <wizard
+            category="appearenceeditor.importWizards.sampleCategory"
+            class="appearenceeditor.importWizards.ImportWizard"
+            icon="icons/sample.gif"
+            id="appearenceeditor.importWizards.ImportWizard"
+            name="Import File">
+         <description>
+            Import a file from the local file system into the workspace.
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="AppearenceEditor.contribution1"
+            objectClass="Appearence.impl.ShapeImpl">
+         <menu
+               id="AppearenceEditor.menu1"
+               label="Appearence">
+            <separator
+                  name="Separator">
+            </separator>
+         </menu>
+         <action
+               class="actions.ShowFileDialog"
+               enablesFor="1"
+               id="AppearenceEditor.newAction"
+               label="Set FilePath"
+               menubarPath="AppearenceEditor.menu1/group1">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

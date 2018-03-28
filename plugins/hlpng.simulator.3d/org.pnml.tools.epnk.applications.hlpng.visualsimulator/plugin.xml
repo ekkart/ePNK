@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.pnml.tools.epnk.pntypes.hlpng.pntd.hlpngdefinition.HLPN"
+            id="org.pnml.tools.epnk.applications.hlpng.simulator.startvisualsimulatorapp">
+         <menu
+               label="ePNK"
+               path="additions"
+               id="org.pnml.tools.epnk.actions.standardmenu">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.pnml.tools.epnk.applications.hlpng.vis.utils.StartSimulatorApp"
+               enablesFor="1"
+               id="org.pnml.tools.epnk.applications.hlpng.simulator.startvisualsimulatorapp"
+               label="Start Visual Simulator App"
+               menubarPath="org.pnml.tools.epnk.actions.standardmenu/group1"
+               tooltip="Start a high level Petri Net simulator for 3D visualization">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.pnml.tools.epnk.applications.hlpng.transitionBinding.extensions">
+      <client
+            class="org.pnml.tools.epnk.applications.hlpng.contributors.ExtensionManager">
+      </client>
+   </extension>
+
+</plugin>

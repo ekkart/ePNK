@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/AppearenceEditor/src"
+    modelPluginID="AppearenceEditor" modelName="AppearenceEditor" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>AppearenceEditor.ecore</foreignModel>
+  <genPackages prefix="Appearence" disposableProviderFactory="true" ecorePackage="AppearenceEditor.ecore#/">
+    <genClasses ecoreClass="AppearenceEditor.ecore#//Shapes">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppearenceEditor.ecore#//Shapes/appearence"/>
+    </genClasses>
+    <genClasses ecoreClass="AppearenceEditor.ecore#//Shape">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppearenceEditor.ecore#//Shape/ObjectStringPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppearenceEditor.ecore#//Shape/id"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

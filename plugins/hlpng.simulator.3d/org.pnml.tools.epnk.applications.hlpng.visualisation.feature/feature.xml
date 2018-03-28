@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.pnml.tools.epnk.applications.hlpng.visualisation.feature"
+      label="HLPNG Simulator 3D Visualisation"
+      version="0.1.1"
+      provider-name="Software Engineering Section, DTU Informatics">
+
+   <description url="http://www2.imm.dtu.dk/~eki/projects/ePNK/">
+      This is a 3D visualisation extension for the simulatopn feature for the ePNK for high-level Petri
+nets (HLPNGs as of ISO/IEC 15909). Note that this is the result
+of a masters project (and a student in the course Software Engineering
+2), and some features might still be bit unstable. The simulator
+comes with a 3D Visualisation component, which uses JOGL and
+is platform specific. It works for Linux, Windows, and MacOS
+(MacOS is not yet tested).
+   </description>
+
+   <copyright>
+      Copyright (C) 2011-2012 DTU Informatics, Mindaugas Laganeckas, Ekkart
+Kindler and students from the course SE2 in autumn 2011.
+   </copyright>
+
+   <license url="">
+      The license under which this software will be distributed is
+still to be decided - it will probably be the EPL.
+   </license>
+
+   <requires>
+      <import feature="com.jogamp.jogl.feature" version="2.0.0.qualifier"/>
+      <import feature="org.pnml.tools.epnk.applications.hlpng.simulator.feature" version="0.1.1.qualifier"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.emf.common.ui"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.emf.transaction"/>
+      <import plugin="org.eclipse.gmf.runtime.notation"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.navigator"/>
+      <import plugin="org.eclipse.ui.navigator.resources"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.core"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.commands.core"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.ui.properties"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.properties"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.providers"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.providers.ide"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.render"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide"/>
+      <import plugin="org.eclipse.draw2d"/>
+      <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
+      <import plugin="org.eclipse.gef"/>
+      <import plugin="org.pnml.tools.epnk.editor" version="0.9.3" match="greaterOrEqual"/>
+      <import plugin="org.pnml.tools.epnk.pntypes.hlpngs.datatypes" version="0.9.2" match="greaterOrEqual"/>
+      <import plugin="org.pnml.tools.epnk.pntypes.hlpng.pntd" version="0.9.3" match="greaterOrEqual"/>
+      <import plugin="org.pnml.tools.epnk.applications.hlpng.simulator" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.pnml.tools.epnk.applications" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.validation" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="com.jogamp.jogl" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="AppearenceEditor" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="GEditor" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="dk.dtu.imm.se2.group6.VisualizationEngine" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.7.0" match="greaterOrEqual"/>
+      <import plugin="GEditor.diagram" version="1.0.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="AppearenceEditor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="AppearenceEditor.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="AppearenceEditor.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="GEditor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="GEditor.diagram"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="GEditor.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="GEditor.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.pnml.tools.epnk.applications.hlpng.visualsimulator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.pnml.tools.epnk.applications.hlpng.visualsimulator.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.pnml.tools.epnk.applications.hlpng.visualsimulator.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="dk.dtu.imm.se2.group6.VisualizationEngine"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
