@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet" id="n1">
+    <page id="pg1">
+      <place id="p1">
+        <graphics>
+          <position x="359.5" y="83.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-34.0" y="37.0"/>
+          </graphics>
+          <structure>
+            <list>
+              <string/>
+            </list>
+          </structure>
+          <text>LIST:STRING</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-314.0" y="-13.0"/>
+          </graphics>
+          <structure>
+            <add>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <makelist>
+                      <subterm>
+                        <stringconstant value="A"/>
+                      </subterm>
+                      <subterm>
+                        <stringconstant value="BM"/>
+                      </subterm>
+                      <subterm>
+                        <stringconstant value="C"/>
+                      </subterm>
+                      <string/>
+                    </makelist>
+                  </subterm>
+                </numberof>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <makelist>
+                      <subterm>
+                        <stringconstant value="A"/>
+                      </subterm>
+                      <subterm>
+                        <stringconcatenation>
+                          <subterm>
+                            <stringconstant value="B"/>
+                          </subterm>
+                          <subterm>
+                            <stringconstant value="M"/>
+                          </subterm>
+                        </stringconcatenation>
+                      </subterm>
+                      <subterm>
+                        <stringconstant value="C"/>
+                      </subterm>
+                      <string/>
+                    </makelist>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>1`makelist:STRING(&quot;A&quot;, &quot;BM&quot;, &quot;C&quot;)++
+1`makelist:STRING(&quot;A&quot;, concatstring(&quot;B&quot;,&quot;M&quot;), &quot;C&quot;)</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t1">
+        <graphics>
+          <position x="503.5" y="191.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <condition>
+          <graphics>
+            <offset x="-423.0" y="-11.0"/>
+          </graphics>
+          <structure>
+            <and>
+              <subterm>
+                <and>
+                  <subterm>
+                    <equality>
+                      <subterm>
+                        <listlength>
+                          <subterm>
+                            <makelist>
+                              <subterm>
+                                <stringconstant value="A"/>
+                              </subterm>
+                              <subterm>
+                                <stringconstant value="B"/>
+                              </subterm>
+                              <subterm>
+                                <stringconstant value="C"/>
+                              </subterm>
+                              <string/>
+                            </makelist>
+                          </subterm>
+                        </listlength>
+                      </subterm>
+                      <subterm>
+                        <numberconstant value="3">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                    </equality>
+                  </subterm>
+                  <subterm>
+                    <equality>
+                      <subterm>
+                        <memberatindex index="2">
+                          <subterm>
+                            <makelist>
+                              <subterm>
+                                <stringconstant value="A"/>
+                              </subterm>
+                              <subterm>
+                                <stringconstant value="B"/>
+                              </subterm>
+                              <subterm>
+                                <stringconstant value="C"/>
+                              </subterm>
+                              <string/>
+                            </makelist>
+                          </subterm>
+                        </memberatindex>
+                      </subterm>
+                      <subterm>
+                        <stringconstant value="C"/>
+                      </subterm>
+                    </equality>
+                  </subterm>
+                </and>
+              </subterm>
+              <subterm>
+                <equality>
+                  <subterm>
+                    <sublist start="0" length="2">
+                      <subterm>
+                        <makelist>
+                          <subterm>
+                            <stringconstant value="A"/>
+                          </subterm>
+                          <subterm>
+                            <stringconstant value="B"/>
+                          </subterm>
+                          <subterm>
+                            <stringconstant value="C"/>
+                          </subterm>
+                          <string/>
+                        </makelist>
+                      </subterm>
+                    </sublist>
+                  </subterm>
+                  <subterm>
+                    <makelist>
+                      <subterm>
+                        <stringconstant value="A"/>
+                      </subterm>
+                      <subterm>
+                        <stringconstant value="B"/>
+                      </subterm>
+                      <string/>
+                    </makelist>
+                  </subterm>
+                </equality>
+              </subterm>
+            </and>
+          </structure>
+          <text>listlength(makelist:STRING(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;))==3 and
+memberat:2(makelist:STRING(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;))==&quot;C&quot; and
+sublist:0,2(makelist:STRING(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;))==makelist:STRING(&quot;A&quot;, &quot;B&quot;)</text>
+        </condition>
+      </transition>
+      <place id="p2">
+        <graphics>
+          <position x="731.5" y="191.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="29.0" y="4.0"/>
+          </graphics>
+          <structure>
+            <list>
+              <string/>
+            </list>
+          </structure>
+          <text>LIST:STRING</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="14.0" y="-36.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <emptylist>
+                  <string/>
+                </emptylist>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`emptylist:STRING</text>
+        </hlinitialMarking>
+      </place>
+      <arc id="a1" source="p1" target="t1">
+        <graphics>
+          <position x="378.0" y="86.0"/>
+          <position x="519.0" y="86.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-18.0" y="29.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <makelist>
+                  <subterm>
+                    <stringconstant value="A"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id1"/>
+                  </subterm>
+                  <subterm>
+                    <stringconstant value="C"/>
+                  </subterm>
+                  <string/>
+                </makelist>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`makelist:STRING(&quot;A&quot;, x, &quot;C&quot;)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a2" source="t1" target="p2">
+        <graphics>
+          <position x="523.0" y="193.0"/>
+          <position x="620.0" y="205.0"/>
+          <position x="711.0" y="193.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="1.0" y="25.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <listappend>
+                  <subterm>
+                    <variable refvariable="id2"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id1"/>
+                  </subterm>
+                </listappend>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`appendtolist(y,x)</text>
+        </hlinscription>
+      </arc>
+      <place id="p7">
+        <graphics>
+          <position x="731.5" y="275.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="27.0" y="10.0"/>
+          </graphics>
+          <structure>
+            <list>
+              <string/>
+            </list>
+          </structure>
+          <text>LIST:STRING</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="24.0" y="-20.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <emptylist>
+                  <string/>
+                </emptylist>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`emptylist:STRING</text>
+        </hlinitialMarking>
+      </place>
+      <arc id="a3" source="p2" target="t1">
+        <graphics>
+          <position x="711.0" y="186.0"/>
+          <position x="615.0" y="165.0"/>
+          <position x="523.0" y="186.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-5.0" y="-20.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id2"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`y</text>
+        </hlinscription>
+      </arc>
+      <arc id="a4" source="t1" target="p7">
+        <graphics>
+          <position x="503.0" y="211.0"/>
+          <position x="503.0" y="267.0"/>
+          <position x="712.0" y="267.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="52.0" y="8.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <listconcatenation>
+                  <subterm>
+                    <variable refvariable="id2"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id3"/>
+                  </subterm>
+                </listconcatenation>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`concatlists(y,z)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a5" source="p7" target="t1">
+        <graphics>
+          <position x="712.0" y="268.0"/>
+          <position x="523.0" y="198.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-27.0" y="2.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id3"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`z</text>
+        </hlinscription>
+      </arc>
+      <declaration>
+        <graphics>
+          <offset x="-20.0" y="20.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <variabledecl id="id1" name="x">
+              <string/>
+            </variabledecl>
+            <variabledecl id="id2" name="y">
+              <list>
+                <string/>
+              </list>
+            </variabledecl>
+            <variabledecl id="id3" name="z">
+              <list>
+                <string/>
+              </list>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>vars x:STRING, y:LIST:STRING, z:LIST:STRING;</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

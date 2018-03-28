@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Examples
+Bundle-SymbolicName: dk.dtu.compute.mbse.tutorial.yawl.examples
+Bundle-Version: 1.0.0.qualifier

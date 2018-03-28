@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ptnet="http://org.pnml.tools/epnk/types/ptnet" xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/empty">
+    <page>
+      <place id="4">
+        <name text="bla"/>
+      </place>
+      <transition id="3"/>
+      <arc source="4" target="3"/>
+      <page>
+        <page>
+          <place/>
+        </page>
+        <place/>
+      </page>
+    </page>
+    <page/>
+  </net>
+  <net type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <page>
+      <place id="1">
+        <name text="p1"/>
+        <toolspecific/>
+      </place>
+      <place id="2"/>
+      <arc id="blabla" source="4" target="2"/>
+      <place id="5"/>
+    </page>
+  </net>
+</pnml>

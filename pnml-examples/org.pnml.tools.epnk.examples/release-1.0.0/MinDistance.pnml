@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet" id="n1">
+    <name>
+      <text>Minimal distance to root algorithm</text>
+    </name>
+    <page id="pg1">
+      <name>
+        <text>The page</text>
+      </name>
+      <place id="p1">
+        <name>
+          <graphics>
+            <offset x="-89.0" y="-9.0"/>
+          </graphics>
+          <text>root nodes</text>
+        </name>
+        <graphics>
+          <position x="94.5" y="89.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-14.0" y="-39.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>AGENT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="11.0" y="26.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id4"/>
+          </structure>
+          <text>R()</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t1">
+        <name>
+          <graphics>
+            <offset x="-14.0" y="-39.0"/>
+          </graphics>
+          <text>init root</text>
+        </name>
+        <graphics>
+          <position x="214.5" y="89.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <place id="p2">
+        <name>
+          <graphics>
+            <offset x="-94.0" y="-9.0"/>
+          </graphics>
+          <text>inner nodes</text>
+        </name>
+        <graphics>
+          <position x="94.5" y="329.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-14.0" y="-39.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>AGENT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="11.0" y="26.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id6"/>
+          </structure>
+          <text>I()</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t2">
+        <name>
+          <graphics>
+            <offset x="-19.0" y="26.0"/>
+          </graphics>
+          <text>init inner</text>
+        </name>
+        <graphics>
+          <position x="214.5" y="329.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <place id="p3">
+        <name>
+          <graphics>
+            <offset x="-79.0" y="-4.0"/>
+          </graphics>
+          <text>messages</text>
+        </name>
+        <graphics>
+          <position x="214.5" y="209.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-79.0" y="-34.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id2"/>
+          </structure>
+          <text>MESSAGE</text>
+        </type>
+      </place>
+      <arc id="a1" source="p1" target="t1">
+        <graphics>
+          <position x="112.0" y="84.0"/>
+          <position x="244.0" y="72.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-33.0" y="-8.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <arc id="a2" source="p2" target="t2">
+        <graphics>
+          <position x="114.0" y="329.0"/>
+          <position x="194.0" y="329.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-9.0" y="-19.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <arc id="a3" source="t1" target="p3">
+        <graphics>
+          <position x="214.0" y="109.0"/>
+          <position x="214.0" y="189.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="11.0" y="-9.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id5">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>N(x,1)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a4" source="p3" target="t2">
+        <graphics>
+          <position x="209.0" y="229.0"/>
+          <position x="199.0" y="269.0"/>
+          <position x="209.0" y="309.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-39.0" y="1.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,n)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a5" source="t2" target="p3">
+        <graphics>
+          <position x="218.0" y="309.0"/>
+          <position x="228.0" y="269.0"/>
+          <position x="218.0" y="229.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="12.0" y="6.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id5">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+              <subterm>
+                <addition>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                </addition>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>N(x,n+1)</text>
+        </hlinscription>
+      </arc>
+      <place id="p4">
+        <name>
+          <graphics>
+            <offset x="26.0" y="-4.0"/>
+          </graphics>
+          <text>distances</text>
+        </name>
+        <graphics>
+          <position x="459.5" y="209.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="26.0" y="-29.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id3"/>
+          </structure>
+          <text>DISTANCE</text>
+        </type>
+      </place>
+      <arc id="a6" source="t1" target="p4">
+        <graphics>
+          <position x="234.0" y="89.0"/>
+          <position x="459.0" y="89.0"/>
+          <position x="459.0" y="189.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-134.0" y="-19.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="0">
+                      <natural/>
+                    </numberconstant>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,0)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a7" source="t2" target="p4">
+        <graphics>
+          <position x="234.0" y="329.0"/>
+          <position x="459.0" y="329.0"/>
+          <position x="459.0" y="229.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-139.0" y="-19.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,n)</text>
+        </hlinscription>
+      </arc>
+      <transition id="t3">
+        <name>
+          <graphics>
+            <offset x="-19.0" y="-39.0"/>
+          </graphics>
+          <text>update</text>
+        </name>
+        <graphics>
+          <position x="334.5" y="209.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <condition>
+          <graphics>
+            <offset x="-14.0" y="26.0"/>
+          </graphics>
+          <structure>
+            <lt>
+              <subterm>
+                <variable refvariable="id8"/>
+              </subterm>
+              <subterm>
+                <variable refvariable="id9"/>
+              </subterm>
+            </lt>
+          </structure>
+          <text>n &lt; m</text>
+        </condition>
+      </transition>
+      <arc id="a8" source="p3" target="t3">
+        <graphics>
+          <position x="234.0" y="201.0"/>
+          <position x="269.0" y="189.0"/>
+          <position x="314.0" y="202.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-19.0" y="-14.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,n)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a9" source="t3" target="p3">
+        <graphics>
+          <position x="314.0" y="214.0"/>
+          <position x="274.0" y="224.0"/>
+          <position x="234.0" y="214.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-19.0" y="11.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id5">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+              <subterm>
+                <addition>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                </addition>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>N(x,n+1)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a10" source="p4" target="t3">
+        <graphics>
+          <position x="439.0" y="204.0"/>
+          <position x="397.0" y="194.0"/>
+          <position x="354.0" y="204.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-17.0" y="-19.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id9"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,m)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a11" source="t3" target="p4">
+        <graphics>
+          <position x="354.0" y="213.0"/>
+          <position x="399.0" y="224.0"/>
+          <position x="439.0" y="214.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-14.0" y="11.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,n)</text>
+        </hlinscription>
+      </arc>
+      <declaration>
+        <graphics>
+          <offset x="565.0" y="65.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <arbitrarysort id="id1" name="AGENT"/>
+            <namedsort id="id2" name="MESSAGE">
+              <productsort>
+                <usersort declaration="id1"/>
+                <natural/>
+              </productsort>
+            </namedsort>
+            <namedsort id="id3" name="DISTANCE">
+              <productsort>
+                <usersort declaration="id1"/>
+                <natural/>
+              </productsort>
+            </namedsort>
+            <arbitraryoperator id="id4" name="R">
+              <output>
+                <multisetsort>
+                  <usersort declaration="id1"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <arbitraryoperator id="id5" name="N">
+              <input>
+                <usersort declaration="id1"/>
+              </input>
+              <input>
+                <natural/>
+              </input>
+              <output>
+                <multisetsort>
+                  <usersort declaration="id2"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <namedoperator id="id6" name="I">
+              <parameter/>
+              <def>
+                <subtract>
+                  <subterm>
+                    <all>
+                      <usersort declaration="id1"/>
+                    </all>
+                  </subterm>
+                  <subterm>
+                    <useroperator declaration="id4"/>
+                  </subterm>
+                </subtract>
+              </def>
+            </namedoperator>
+          </declarations>
+        </structure>
+        <text>sortsymbols&#xD;
+  AGENT;&#xD;
+&#xD;
+sorts&#xD;
+  MESSAGE = (AGENT*NAT),&#xD;
+  DISTANCE = (AGENT*NAT); &#xD;
+&#xD;
+opsymbols&#xD;
+  R: -> MS(AGENT),&#xD;
+  N: AGENT, NAT -> MS(MESSAGE);&#xD;
+&#xD;
+ops&#xD;
+  I() = all:AGENT -- R();</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="568.0" y="298.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <variabledecl id="id7" name="x">
+              <usersort declaration="id1"/>
+            </variabledecl>
+            <variabledecl id="id8" name="n">
+              <natural/>
+            </variabledecl>
+            <variabledecl id="id9" name="m">
+              <natural/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>vars&#xD;
+  x: AGENT,&#xD;
+  n: NAT,&#xD;
+  m: NAT;</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

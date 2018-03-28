@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnmlcoremodel:PetriNetDoc xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pnmlcoremodel="http://org.pnml.tools/epnk/pnmlcoremodel" xmlns:ptnet="http://org.pnml.tools/epnk/types/ptnet" xmi:id="_j5CfoInaEd-Vp6IMut0Vlw">
+  <net xmi:id="_k6TvYInaEd-Vp6IMut0Vlw" id="n1">
+    <type xsi:type="pnmlcoremodel:EmptyType" xmi:id="_lhzNMInaEd-Vp6IMut0Vlw"/>
+    <page xmi:id="_mB_JIInaEd-Vp6IMut0Vlw">
+      <object xsi:type="pnmlcoremodel:Place" xmi:id="_mcpr4InaEd-Vp6IMut0Vlw" id="1"/>
+      <object xsi:type="pnmlcoremodel:Transition" xmi:id="_nC824InaEd-Vp6IMut0Vlw" id="2"/>
+      <object xsi:type="pnmlcoremodel:Arc" xmi:id="_nftrYInaEd-Vp6IMut0Vlw" source="_nC824InaEd-Vp6IMut0Vlw" target="_mcpr4InaEd-Vp6IMut0Vlw"/>
+    </page>
+  </net>
+  <net xmi:id="_tl-fAInaEd-Vp6IMut0Vlw" id="n2">
+    <type xsi:type="ptnet:PTNet" xmi:id="_uE-IIInaEd-Vp6IMut0Vlw"/>
+    <page xmi:id="_uc0AYInaEd-Vp6IMut0Vlw">
+      <object xsi:type="pnmlcoremodel:Transition" xmi:id="_vfQ74InaEd-Vp6IMut0Vlw" id="3"/>
+      <object xsi:type="ptnet:Place" xmi:id="_wHNFoInaEd-Vp6IMut0Vlw" id="4"/>
+      <object xsi:type="ptnet:Arc" xmi:id="_QjZ4AIuYEd-n4tjYPJXzpw" id="5" source="_vfQ74InaEd-Vp6IMut0Vlw" target="_wHNFoInaEd-Vp6IMut0Vlw">
+        <inscription xmi:id="_RwvN0IuYEd-n4tjYPJXzpw"/>
+      </object>
+    </page>
+  </net>
+</pnmlcoremodel:PetriNetDoc>

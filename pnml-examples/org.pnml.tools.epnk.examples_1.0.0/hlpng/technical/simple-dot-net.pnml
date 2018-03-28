@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/pt-hlpng" id="n1">
+    <page id="pg1">
+      <name>
+        <text>The page</text>
+      </name>
+      <transition id="t1">
+        <name>
+          <graphics>
+            <offset x="-9.0" y="-39.0"/>
+          </graphics>
+          <text>t1</text>
+        </name>
+        <graphics>
+          <position x="294.5" y="49.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <place id="p1">
+        <name>
+          <graphics>
+            <offset x="-44.0" y="-4.0"/>
+          </graphics>
+          <text>init</text>
+        </name>
+        <graphics>
+          <position x="134.5" y="99.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-9.0" y="26.0"/>
+          </graphics>
+          <structure>
+            <dot/>
+          </structure>
+          <text>DOT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-19.0" y="-39.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="3">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <dotconstant/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>3`dot</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p2">
+        <name>
+          <graphics>
+            <offset x="30.0" y="-5.0"/>
+          </graphics>
+          <text>loop</text>
+        </name>
+        <graphics>
+          <position x="435.0" y="100.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-5.0" y="30.0"/>
+          </graphics>
+          <structure>
+            <dot/>
+          </structure>
+          <text>DOT</text>
+        </type>
+      </place>
+      <arc id="a1" source="p1" target="t1">
+        <graphics>
+          <position x="150.0" y="109.0"/>
+          <position x="294.0" y="123.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-32.0" y="-66.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <dotconstant/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`dot</text>
+        </hlinscription>
+      </arc>
+      <arc id="a2" source="t1" target="p2">
+        <graphics>
+          <position x="314.0" y="102.0"/>
+          <position x="420.0" y="87.0"/>
+        </graphics>
+      </arc>
+      <transition id="t2">
+        <name>
+          <graphics>
+            <offset x="-4.0" y="-39.0"/>
+          </graphics>
+          <text>t2</text>
+        </name>
+        <graphics>
+          <position x="294.5" y="154.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <condition>
+          <graphics>
+            <offset x="-9.0" y="26.0"/>
+          </graphics>
+          <structure>
+            <booleanconstant value="true"/>
+          </structure>
+          <text>true</text>
+        </condition>
+      </transition>
+      <arc id="a3" source="p2" target="t2">
+        <graphics>
+          <position x="415.0" y="112.0"/>
+          <position x="306.0" y="167.0"/>
+        </graphics>
+      </arc>
+      <arc id="a4" source="t2" target="p1">
+        <graphics>
+          <position x="288.0" y="181.0"/>
+          <position x="114.0" y="119.0"/>
+        </graphics>
+      </arc>
+    </page>
+  </net>
+</pnml>

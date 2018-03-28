@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/symmetricnet" id="n1">
+    <name>
+      <text>Access Policy</text>
+    </name>
+    <page id="top-level">
+      <place id="p1">
+        <name>
+          <graphics>
+            <offset x="-20.0" y="-45.0"/>
+          </graphics>
+          <text>Users</text>
+        </name>
+        <graphics>
+          <position x="210.0" y="95.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-60.0" y="-10.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="usersnamed"/>
+          </structure>
+          <text>USERS</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="35.0" y="-10.0"/>
+          </graphics>
+          <structure>
+            <all>
+              <usersort declaration="usersnamed"/>
+            </all>
+          </structure>
+          <text>all:USERS</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p2">
+        <name>
+          <graphics>
+            <offset x="-15.0" y="-40.0"/>
+          </graphics>
+          <text>Files</text>
+        </name>
+        <graphics>
+          <position x="435.0" y="85.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-100.0" y="-10.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="filesusersnamed"/>
+          </structure>
+          <text>OwnedFiles</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="32.0" y="-30.0"/>
+          </graphics>
+          <structure>
+            <add>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <natural/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <useroperator declaration="indexId"/>
+                      </subterm>
+                      <subterm>
+                        <useroperator declaration="apacheId"/>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <natural/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <useroperator declaration="emacsId"/>
+                      </subterm>
+                      <subterm>
+                        <useroperator declaration="chrisId"/>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <natural/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <useroperator declaration="articleId"/>
+                      </subterm>
+                      <subterm>
+                        <useroperator declaration="chrisId"/>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <natural/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <useroperator declaration="etc-passwdId"/>
+                      </subterm>
+                      <subterm>
+                        <useroperator declaration="rootId"/>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>1:NAT`(index_html(),apache())++&#xD;
+1:NAT`(emacs(),chris())++&#xD;
+1:NAT`(article_tex(),chris())++&#xD;
+1:NAT`(etc_passwd(),root())</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p3">
+        <name>
+          <graphics>
+            <offset x="-45.0" y="30.0"/>
+          </graphics>
+          <text>FilesBeingAccessed</text>
+        </name>
+        <graphics>
+          <position x="335.0" y="265.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-105.0" y="-5.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="usersfilesnamed"/>
+          </structure>
+          <text>AccessedFiles</text>
+        </type>
+      </place>
+      <transition id="t1">
+        <name>
+          <graphics>
+            <offset x="-100.0" y="-5.0"/>
+          </graphics>
+          <text>Grant Access</text>
+        </name>
+        <graphics>
+          <position x="335.0" y="180.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <condition>
+          <graphics>
+            <offset x="30.0" y="-10.0"/>
+          </graphics>
+          <structure>
+            <or>
+              <subterm>
+                <equality>
+                  <subterm>
+                    <variable refvariable="varu"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="varv"/>
+                  </subterm>
+                </equality>
+              </subterm>
+              <subterm>
+                <gtp>
+                  <subterm>
+                    <partitionelementof refpartition="accessrightId">
+                      <subterm>
+                        <variable refvariable="varu"/>
+                      </subterm>
+                    </partitionelementof>
+                  </subterm>
+                  <subterm>
+                    <partitionelementof refpartition="accessrightId">
+                      <subterm>
+                        <variable refvariable="varv"/>
+                      </subterm>
+                    </partitionelementof>
+                  </subterm>
+                </gtp>
+              </subterm>
+            </or>
+          </structure>
+          <text>u==v or&#xD;
+partition:AccessRight(u) >p partition:AccessRight(v)</text>
+        </condition>
+      </transition>
+      <arc id="a1" source="p1" target="t1">
+        <graphics/>
+        <hlinscription>
+          <graphics>
+            <offset x="-37.0" y="18.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <natural/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="varu"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1:NAT`u</text>
+        </hlinscription>
+      </arc>
+      <arc id="a2" source="p2" target="t1">
+        <graphics/>
+        <hlinscription>
+          <graphics>
+            <offset x="40.0" y="18.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <natural/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="varf"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="varv"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1:NAT`(f,v)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a3" source="t1" target="p3">
+        <graphics/>
+        <hlinscription>
+          <graphics>
+            <offset x="25.0" y="13.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <natural/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="varu"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="varf"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1:NAT`(u,f)</text>
+        </hlinscription>
+      </arc>
+    </page>
+      <declaration>
+        <structure>
+          <declarations>
+            <namedsort id="usersnamed" name="USERS">
+              <finiteenumeration>
+                <feconstant id="apacheId" name="apache"/>
+                <feconstant id="iisId" name="iis"/>
+                <feconstant id="chrisId" name="chris"/>
+                <feconstant id="deniseId" name="denise"/>
+                <feconstant id="rootId" name="root"/>
+              </finiteenumeration>
+            </namedsort>
+            <namedsort id="filesnamed" name="FILES">
+              <finiteenumeration>
+                <feconstant id="indexId" name="index_html"/>
+                <feconstant id="emacsId" name="emacs"/>
+                <feconstant id="articleId" name="article_tex"/>
+                <feconstant id="etc-passwdId" name="etc_passwd"/>
+              </finiteenumeration>
+            </namedsort>
+            <partition id="accessrightId" name="AccessRight">
+              <usersort declaration="usersnamed"/>
+              <partitionelement id="wwwId" name="www">
+                <useroperator declaration="apacheId"/>
+                <useroperator declaration="iisId"/>
+              </partitionelement>
+              <partitionelement id="workId" name="work">
+                <useroperator declaration="chrisId"/>
+                <useroperator declaration="deniseId"/>
+              </partitionelement>
+              <partitionelement id="adminId" name="admin">
+                <useroperator declaration="rootId"/>
+              </partitionelement>
+            </partition>
+            <namedsort id="filesusersnamed" name="OwnedFiles">
+              <productsort>
+                <usersort declaration="filesnamed"/>
+                <usersort declaration="usersnamed"/>
+              </productsort>
+            </namedsort>
+            <namedsort id="usersfilesnamed" name="AccessedFiles">
+              <productsort>
+                <usersort declaration="usersnamed"/>
+                <usersort declaration="filesnamed"/>
+              </productsort>
+            </namedsort>
+            <variabledecl id="varu" name="u">
+              <usersort declaration="usersnamed"/>
+            </variabledecl>
+            <variabledecl id="varv" name="v">
+              <usersort declaration="usersnamed"/>
+            </variabledecl>
+            <variabledecl id="varf" name="f">
+              <usersort declaration="filesnamed"/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>sorts&#xD;
+   USERS=enum{apache,iis,chris,denise,root},&#xD;
+   FILES=enum{index_html,emacs,article_tex,etc_passwd},&#xD;
+   partition USERS in AccessRight{www:apache(),iis();work:chris(),denise();admin&#xD;
+                                  :root()},&#xD;
+   OwnedFiles=(FILES*USERS),&#xD;
+   AccessedFiles=(USERS*FILES);&#xD;
+&#xD;
+vars&#xD;
+   u:USERS,&#xD;
+   v:USERS,&#xD;
+   f:FILES;&#xD;
+</text>
+      </declaration>
+  </net>
+</pnml>

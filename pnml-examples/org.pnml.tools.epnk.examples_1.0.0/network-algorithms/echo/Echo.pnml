@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet" id="n1">
+    <name>
+      <text>Echo algorithm</text>
+    </name>
+    <page id="pg1">
+      <name>
+        <text>The page</text>
+      </name>
+      <place id="p1">
+        <name>
+          <graphics>
+            <offset x="-72.0" y="-4.0"/>
+          </graphics>
+          <text>initiators</text>
+        </name>
+        <graphics>
+          <position x="97.5" y="159.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-22.0" y="31.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>AGENT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-42.0" y="-44.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id3"/>
+          </structure>
+          <text>Initiators()</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p2">
+        <name>
+          <graphics>
+            <offset x="-64.0" y="-5.0"/>
+          </graphics>
+          <text>others</text>
+        </name>
+        <graphics>
+          <position x="94.5" y="495.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-19.0" y="30.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>AGENT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-34.0" y="-45.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id4"/>
+          </structure>
+          <text>Others()</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t1">
+        <name>
+          <graphics>
+            <offset x="-5.0" y="-42.0"/>
+          </graphics>
+          <text>t1</text>
+        </name>
+        <graphics>
+          <position x="225.5" y="157.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a1" source="p1" target="t1">
+        <graphics>
+          <position x="115.0" y="166.0"/>
+          <position x="222.0" y="153.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-18.0" y="-19.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <transition id="t2">
+        <name>
+          <graphics>
+            <offset x="-5.0" y="27.0"/>
+          </graphics>
+          <text>t3</text>
+        </name>
+        <graphics>
+          <position x="225.5" y="493.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a2" source="p2" target="t2">
+        <graphics>
+          <position x="113.0" y="500.0"/>
+          <position x="205.0" y="498.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-9.0" y="-24.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <place id="p3">
+        <name>
+          <graphics>
+            <offset x="-22.0" y="-42.0"/>
+          </graphics>
+          <text>waiting</text>
+        </name>
+        <graphics>
+          <position x="417.5" y="157.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-17.0" y="23.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>AGENT</text>
+        </type>
+      </place>
+      <arc id="a3" source="t1" target="p3">
+        <graphics>
+          <position x="245.0" y="164.0"/>
+          <position x="402.0" y="163.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-13.0" y="-28.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <transition id="t3">
+        <name>
+          <graphics>
+            <offset x="-4.0" y="-37.0"/>
+          </graphics>
+          <text>t2</text>
+        </name>
+        <graphics>
+          <position x="609.5" y="157.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a4" source="p3" target="t3">
+        <graphics>
+          <position x="436.0" y="155.0"/>
+          <position x="589.0" y="155.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-2.0" y="-20.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <place id="p4">
+        <name>
+          <graphics>
+            <offset x="26.0" y="-7.0"/>
+          </graphics>
+          <text>terminated</text>
+        </name>
+        <graphics>
+          <position x="789.5" y="157.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-14.0" y="33.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>AGENT</text>
+        </type>
+      </place>
+      <arc id="a5" source="t3" target="p4">
+        <graphics>
+          <position x="629.0" y="153.0"/>
+          <position x="769.0" y="153.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-9.0" y="-18.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <place id="p5">
+        <name>
+          <graphics>
+            <offset x="-34.0" y="-38.0"/>
+          </graphics>
+          <text>pending-with</text>
+        </name>
+        <graphics>
+          <position x="429.5" y="493.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-24.0" y="27.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id2"/>
+          </structure>
+          <text>MESSAGE</text>
+        </type>
+      </place>
+      <place id="p6">
+        <name>
+          <graphics>
+            <offset x="29.0" y="-8.0"/>
+          </graphics>
+          <text>accepted</text>
+        </name>
+        <graphics>
+          <position x="801.5" y="493.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-17.0" y="27.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>AGENT</text>
+        </type>
+      </place>
+      <transition id="t4">
+        <name>
+          <graphics>
+            <offset x="1.0" y="27.0"/>
+          </graphics>
+          <text>t4</text>
+        </name>
+        <graphics>
+          <position x="609.5" y="493.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a6" source="t2" target="p5">
+        <graphics>
+          <position x="245.0" y="501.0"/>
+          <position x="364.0" y="501.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="6.0" y="-31.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,y)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a7" source="p5" target="t4">
+        <graphics>
+          <position x="432.0" y="493.0"/>
+          <position x="573.0" y="504.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-2.0" y="-28.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,y)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a8" source="t4" target="p6">
+        <graphics>
+          <position x="629.0" y="495.0"/>
+          <position x="790.0" y="494.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-14.0" y="-19.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <place id="p7">
+        <name>
+          <graphics>
+            <offset x="-19.0" y="-44.0"/>
+          </graphics>
+          <text>mailbox</text>
+        </name>
+        <graphics>
+          <position x="419.5" y="299.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-19.0" y="31.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id2"/>
+          </structure>
+          <text>MESSAGE</text>
+        </type>
+      </place>
+      <arc id="a9" source="t1" target="p7">
+        <graphics>
+          <position x="245.0" y="173.0"/>
+          <position x="426.0" y="305.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-30.0" y="-49.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id5">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>S(x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a10" source="p7" target="t3">
+        <graphics>
+          <position x="434.0" y="286.0"/>
+          <position x="610.0" y="151.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-17.0" y="-23.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id6">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>R(x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a11" source="p7" target="t2">
+        <graphics>
+          <position x="399.0" y="299.0"/>
+          <position x="225.0" y="299.0"/>
+          <position x="225.0" y="473.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-50.0" y="91.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,y)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a12" source="t4" target="p7">
+        <graphics>
+          <position x="609.0" y="473.0"/>
+          <position x="609.0" y="299.0"/>
+          <position x="439.0" y="299.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="11.0" y="86.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(y,x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a13" source="t2" target="p7">
+        <graphics>
+          <position x="244.0" y="473.0"/>
+          <position x="410.0" y="316.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-27.0" y="36.0"/>
+          </graphics>
+          <structure>
+            <subtract>
+              <subterm>
+                <useroperator declaration="id5">
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                </useroperator>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <variable refvariable="id8"/>
+                      </subterm>
+                      <subterm>
+                        <variable refvariable="id7"/>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </subtract>
+          </structure>
+          <text>S(x)--1`(y,x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a14" source="p7" target="t4">
+        <graphics>
+          <position x="433.0" y="312.0"/>
+          <position x="612.0" y="473.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-57.0" y="38.0"/>
+          </graphics>
+          <structure>
+            <subtract>
+              <subterm>
+                <useroperator declaration="id6">
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                </useroperator>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <variable refvariable="id7"/>
+                      </subterm>
+                      <subterm>
+                        <variable refvariable="id8"/>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </subtract>
+          </structure>
+          <text>R(x)--1`(x,y)</text>
+        </hlinscription>
+      </arc>
+      <declaration>
+        <graphics>
+          <offset x="10.0" y="20.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <arbitrarysort id="id1" name="AGENT"/>
+            <namedsort id="id2" name="MESSAGE">
+              <productsort>
+                <usersort declaration="id1"/>
+                <usersort declaration="id1"/>
+              </productsort>
+            </namedsort>
+          </declarations>
+        </structure>
+        <text>sortsymbols
+   AGENT;
+
+sorts
+   MESSAGE=(AGENT*AGENT);</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="420.0" y="20.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <variabledecl id="id7" name="x">
+              <usersort declaration="id1"/>
+            </variabledecl>
+            <variabledecl id="id8" name="y">
+              <usersort declaration="id1"/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>vars
+   x:AGENT,
+   y:AGENT;
+</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="215.0" y="25.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <arbitraryoperator id="id3" name="Initiators">
+              <output>
+                <multisetsort>
+                  <usersort declaration="id1"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <arbitraryoperator id="id4" name="Others">
+              <output>
+                <multisetsort>
+                  <usersort declaration="id1"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <arbitraryoperator id="id5" name="S">
+              <input>
+                <usersort declaration="id1"/>
+              </input>
+              <output>
+                <multisetsort>
+                  <usersort declaration="id2"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <arbitraryoperator id="id6" name="R">
+              <input>
+                <usersort declaration="id1"/>
+              </input>
+              <output>
+                <multisetsort>
+                  <usersort declaration="id2"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+          </declarations>
+        </structure>
+        <text>opsymbols
+   Initiators:->MS(AGENT),
+   Others:->MS(AGENT),
+   S:AGENT->MS(MESSAGE),
+   R:AGENT->MS(MESSAGE);</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

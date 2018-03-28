@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net>
+    <page>
+      <place/>
+      <place/>
+      <object xsi:type="Transition"/>
+      <place/>
+      <place/>
+      <place>
+        <toolspecific/>
+      </place>
+      <place>
+        <toolspecific/>
+      </place>
+    </page>
+  </net>
+</pnml>

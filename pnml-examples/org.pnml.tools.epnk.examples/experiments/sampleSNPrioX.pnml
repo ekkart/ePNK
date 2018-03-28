@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/symmetricnet" id="n1">
+    <name>
+      <text>Access Policy</text>
+    </name>
+    <page id="top-level">
+      <place id="p1">
+        <name>
+          <graphics>
+            <offset x="5.0" y="-30.0"/>
+          </graphics>
+          <text>Users</text>
+        </name>
+        <graphics>
+          <position x="139.5" y="74.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-40.0" y="-15.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="1"/>
+          </structure>
+          <text>USERS</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-55.0" y="30.0"/>
+          </graphics>
+          <structure>
+            <all>
+              <usersort declaration="1"/>
+            </all>
+          </structure>
+          <text>all:USERS</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p2">
+        <name>
+          <graphics>
+            <offset x="15.0" y="-25.0"/>
+          </graphics>
+          <text>Files</text>
+        </name>
+        <graphics>
+          <position x="374.5" y="64.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-60.0" y="-20.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="16"/>
+          </structure>
+          <text>OwnedFiles</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="60.0" y="-15.0"/>
+          </graphics>
+          <structure>
+            <add>
+              <subterm>
+                <add>
+                  <subterm>
+                    <add>
+                      <subterm>
+                        <numberof>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <tuple>
+                              <subterm>
+                                <useroperator declaration="8"/>
+                              </subterm>
+                              <subterm>
+                                <useroperator declaration="2"/>
+                              </subterm>
+                            </tuple>
+                          </subterm>
+                        </numberof>
+                      </subterm>
+                      <subterm>
+                        <numberof>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <tuple>
+                              <subterm>
+                                <useroperator declaration="9"/>
+                              </subterm>
+                              <subterm>
+                                <useroperator declaration="4"/>
+                              </subterm>
+                            </tuple>
+                          </subterm>
+                        </numberof>
+                      </subterm>
+                    </add>
+                  </subterm>
+                  <subterm>
+                    <numberof>
+                      <subterm>
+                        <numberconstant value="1">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <tuple>
+                          <subterm>
+                            <useroperator declaration="10"/>
+                          </subterm>
+                          <subterm>
+                            <useroperator declaration="4"/>
+                          </subterm>
+                        </tuple>
+                      </subterm>
+                    </numberof>
+                  </subterm>
+                </add>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <useroperator declaration="11"/>
+                      </subterm>
+                      <subterm>
+                        <useroperator declaration="6"/>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>1`(index(),apache()) ++&#xD;
+1`(emacs(),chris()) ++&#xD;
+1`(article(),chris()) ++&#xD;
+1`(passwd(),root())</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p3">
+        <name>
+          <graphics>
+            <offset x="-25.0" y="75.0"/>
+          </graphics>
+          <text>FilesBeingAccessed</text>
+        </name>
+        <graphics>
+          <position x="284.5" y="294.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="50.0" y="10.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="17"/>
+          </structure>
+          <text>AccessedFiles</text>
+        </type>
+      </place>
+      <transition id="t1">
+        <name>
+          <graphics>
+            <offset x="70.0" y="10.0"/>
+          </graphics>
+          <text>Grant Access</text>
+        </name>
+        <graphics>
+          <position x="279.5" y="189.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+        <condition>
+          <graphics>
+            <offset x="-210.0" y="10.0"/>
+          </graphics>
+          <structure>
+            <or>
+              <subterm>
+                <equality>
+                  <subterm>
+                    <variable refvariable="18"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="19"/>
+                  </subterm>
+                </equality>
+              </subterm>
+              <subterm>
+                <gtp>
+                  <subterm>
+                    <partitionelementof refpartition="12">
+                      <subterm>
+                        <variable refvariable="18"/>
+                      </subterm>
+                    </partitionelementof>
+                  </subterm>
+                  <subterm>
+                    <partitionelementof refpartition="12">
+                      <subterm>
+                        <variable refvariable="19"/>
+                      </subterm>
+                    </partitionelementof>
+                  </subterm>
+                </gtp>
+              </subterm>
+            </or>
+          </structure>
+          <text>u==v or&#xD;
+partition:Access(u) >p partition:Access(v)</text>
+        </condition>
+      </transition>
+      <arc id="a1" source="p1" target="t1">
+        <hlinscription>
+          <graphics>
+            <offset x="-15.0" y="-5.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="18"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`u</text>
+        </hlinscription>
+      </arc>
+      <arc id="a2" source="p2" target="t1">
+        <hlinscription>
+          <graphics>
+            <offset x="53.0" y="18.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="20"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="19"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(f,v)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a3" source="t1" target="p3">
+        <hlinscription>
+          <graphics>
+            <offset x="48.0" y="13.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="18"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="20"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(u,f)</text>
+        </hlinscription>
+      </arc>
+      <declaration>
+        <graphics>
+          <offset x="15.0" y="415.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <namedsort id="1" name="USERS">
+              <finiteenumeration>
+                <feconstant id="2" name="apache"/>
+                <feconstant id="3" name="iis"/>
+                <feconstant id="4" name="chris"/>
+                <feconstant id="5" name="denise"/>
+                <feconstant id="6" name="root"/>
+              </finiteenumeration>
+            </namedsort>
+            <namedsort id="7" name="FILES">
+              <finiteenumeration>
+                <feconstant id="8" name="index"/>
+                <feconstant id="9" name="emacs"/>
+                <feconstant id="10" name="article"/>
+                <feconstant id="11" name="passwd"/>
+              </finiteenumeration>
+            </namedsort>
+            <partition id="12" name="Access">
+              <usersort declaration="1"/>
+              <partitionelement id="13" name="www">
+                <useroperator declaration="2"/>
+                <useroperator declaration="3"/>
+              </partitionelement>
+              <partitionelement id="14" name="work">
+                <useroperator declaration="4"/>
+                <useroperator declaration="5"/>
+              </partitionelement>
+              <partitionelement id="15" name="admin">
+                <useroperator declaration="6"/>
+              </partitionelement>
+            </partition>
+            <namedsort id="16" name="OwnedFiles">
+              <productsort>
+                <usersort declaration="7"/>
+                <usersort declaration="1"/>
+              </productsort>
+            </namedsort>
+            <namedsort id="17" name="AccessedFiles">
+              <productsort>
+                <usersort declaration="1"/>
+                <usersort declaration="7"/>
+              </productsort>
+            </namedsort>
+            <variabledecl id="18" name="u">
+              <usersort declaration="1"/>
+            </variabledecl>
+            <variabledecl id="19" name="v">
+              <usersort declaration="1"/>
+            </variabledecl>
+            <variabledecl id="20" name="f">
+              <usersort declaration="7"/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>sorts&#xD;
+  USERS = enum { apache, iis, chris, denise, root },&#xD;
+  FILES = enum { index, emacs, article, passwd },&#xD;
+  partition  USERS in Access {www: apache(), iis(); work: chris(), denise(); admin:root() },&#xD;
+  OwnedFiles = (FILES *USERS),&#xD;
+  AccessedFiles = (USERS * FILES);&#xD;
+&#xD;
+vars&#xD;
+  u: USERS,&#xD;
+  v:USERS,&#xD;
+  f: FILES;</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

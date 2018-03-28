@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet" id="n1">
+    <name>
+      <text>A high-level net example</text>
+    </name>
+    <page id="pg1">
+      <name>
+        <text>page 1</text>
+      </name>
+      <arc id="a1" source="p1" target="t1">
+        <graphics>
+          <position x="114.0" y="129.0"/>
+          <position x="214.0" y="129.0"/>
+          <position x="319.0" y="214.0"/>
+          <position x="429.0" y="214.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-76.0" y="74.0"/>
+          </graphics>
+          <structure>
+            <add>
+              <subterm>
+                <add>
+                  <subterm>
+                    <add>
+                      <subterm>
+                        <numberof>
+                          <subterm>
+                            <variable refvariable="5"/>
+                          </subterm>
+                          <subterm>
+                            <useroperator declaration="1">
+                              <subterm>
+                                <variable refvariable="5"/>
+                              </subterm>
+                              <subterm>
+                                <variable refvariable="5"/>
+                              </subterm>
+                            </useroperator>
+                          </subterm>
+                        </numberof>
+                      </subterm>
+                      <subterm>
+                        <numberof>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <variable refvariable="5"/>
+                          </subterm>
+                        </numberof>
+                      </subterm>
+                    </add>
+                  </subterm>
+                  <subterm>
+                    <numberof>
+                      <subterm>
+                        <variable refvariable="5"/>
+                      </subterm>
+                      <subterm>
+                        <useroperator declaration="4"/>
+                      </subterm>
+                    </numberof>
+                  </subterm>
+                </add>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="5">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>x`f(x,x) ++&#xD;
+1`x ++ &#xD;
+x`g() ++ &#xD;
+1`5 </text>
+        </hlinscription>
+      </arc>
+      <place id="p1">
+        <graphics>
+          <position x="94.5" y="129.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="10.0" y="65.0"/>
+          </graphics>
+          <structure>
+            <integer/>
+          </structure>
+          <text>INT</text>
+        </type>
+      </place>
+      <transition id="t1">
+        <name>
+          <graphics>
+            <offset x="110.0" y="15.0"/>
+          </graphics>
+          <text>t3</text>
+        </name>
+        <graphics>
+          <position x="515.5" y="235.5"/>
+          <dimension x="131.0" y="181.0"/>
+        </graphics>
+        <condition>
+          <graphics>
+            <offset x="-50.0" y="140.0"/>
+          </graphics>
+          <structure>
+            <and>
+              <subterm>
+                <gt>
+                  <subterm>
+                    <variable refvariable="5"/>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                </gt>
+              </subterm>
+              <subterm>
+                <lt>
+                  <subterm>
+                    <variable refvariable="5"/>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="5">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                </lt>
+              </subterm>
+            </and>
+          </structure>
+          <text>x > 1 and x &lt; 5</text>
+        </condition>
+      </transition>
+      <page id="pg3">
+        <name>
+          <graphics>
+            <offset x="40.0" y="-30.0"/>
+          </graphics>
+          <text>Page 3</text>
+        </name>
+        <graphics>
+          <position x="439.5" y="504.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+        <place id="p4">
+          <graphics>
+            <position x="219.5" y="219.5"/>
+            <dimension x="-1.0" y="-1.0"/>
+          </graphics>
+          <type>
+            <graphics>
+              <offset x="-10.0" y="60.0"/>
+            </graphics>
+            <structure>
+              <dot/>
+            </structure>
+            <text>DOT</text>
+          </type>
+        </place>
+        <referencePlace id="rp1" ref="p1">
+          <graphics>
+            <position x="409.5" y="219.5"/>
+            <dimension x="-1.0" y="-1.0"/>
+          </graphics>
+        </referencePlace>
+        <transition id="t3">
+          <graphics>
+            <position x="319.5" y="219.5"/>
+            <dimension x="-1.0" y="-1.0"/>
+          </graphics>
+        </transition>
+        <arc id="a3" source="p4" target="t3">
+          <graphics>
+            <position x="286.0" y="239.0"/>
+            <position x="313.0" y="302.0"/>
+          </graphics>
+        </arc>
+        <arc id="a4" source="t3" target="rp1">
+          <graphics>
+            <position x="350.0" y="282.0"/>
+            <position x="426.0" y="194.0"/>
+          </graphics>
+        </arc>
+      </page>
+      <place id="p5">
+        <graphics>
+          <position x="169.5" y="494.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-50.0" y="70.0"/>
+          </graphics>
+          <structure>
+            <productsort>
+              <dot/>
+              <natural/>
+            </productsort>
+          </structure>
+          <text>(DOT * NAT)</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="40.0" y="65.0"/>
+          </graphics>
+          <structure>
+            <add>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <dotconstant/>
+                      </subterm>
+                      <subterm>
+                        <numberconstant value="1">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <dotconstant/>
+                      </subterm>
+                      <subterm>
+                        <mult>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                        </mult>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>1`(dot,1) ++ 1`(dot,1*1)</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p8">
+        <graphics>
+          <position x="447.5" y="63.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-33.0" y="-29.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="8"/>
+          </structure>
+          <text>B</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="62.0" y="11.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <numberof>
+                      <subterm>
+                        <numberconstant value="1">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <booleanconstant value="false"/>
+                      </subterm>
+                    </numberof>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="0">
+                      <natural/>
+                    </numberconstant>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(1`false, 0)</text>
+        </hlinitialMarking>
+      </place>
+      <declaration>
+        <graphics>
+          <offset x="180.0" y="20.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <namedoperator id="1" name="f">
+              <parameter>
+                <variabledecl id="2" name="x">
+                  <integer/>
+                </variabledecl>
+                <variabledecl id="3" name="y">
+                  <integer/>
+                </variabledecl>
+              </parameter>
+              <def>
+                <mult>
+                  <subterm>
+                    <variable refvariable="2"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="3"/>
+                  </subterm>
+                </mult>
+              </def>
+            </namedoperator>
+            <namedoperator id="4" name="g">
+              <def>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </def>
+            </namedoperator>
+          </declarations>
+        </structure>
+        <text>ops&#xD;
+  f(x:INT, y:INT) =  x * y,&#xD;
+  g() = 1;</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="55.0" y="20.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <variabledecl id="5" name="x">
+              <natural/>
+            </variabledecl>
+            <namedsort id="6" name="A">
+              <multisetsort>
+                <bool/>
+              </multisetsort>
+            </namedsort>
+          </declarations>
+        </structure>
+        <text>vars&#xD;
+  x:NAT;&#xD;
+sorts&#xD;
+  A = MS(BOOL);&#xD;
+</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="255.0" y="130.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <namedsort id="8" name="B">
+              <productsort>
+                <usersort declaration="6"/>
+                <integer/>
+              </productsort>
+            </namedsort>
+            <namedsort id="9" name="C">
+              <productsort>
+                <usersort declaration="8"/>
+                <usersort declaration="8"/>
+              </productsort>
+            </namedsort>
+          </declarations>
+        </structure>
+        <text>sorts B = (A*INT), C = (B*B);</text>
+      </declaration>
+    </page>
+  </net>
+  <net type="http://www.pnml.org/version-2009/grammar/ptnet" id="n2">
+    <page id="pg2">
+      <place id="p2">
+        <graphics>
+          <position x="219.5" y="236.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+        <initialMarking>
+          <graphics>
+            <offset x="-15.0" y="63.0"/>
+          </graphics>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <transition id="t2">
+        <name>
+          <graphics>
+            <offset x="-1.0" y="67.0"/>
+          </graphics>
+          <text>new name</text>
+        </name>
+        <graphics>
+          <position x="410.5" y="272.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+      </transition>
+      <arc id="a2" source="p2" target="t2">
+        <graphics>
+          <position x="239.0" y="239.0"/>
+          <position x="430.0" y="252.0"/>
+        </graphics>
+        <inscription>
+          <graphics>
+            <offset x="1.0" y="-15.0"/>
+          </graphics>
+          <text>3</text>
+        </inscription>
+      </arc>
+      <place id="p3">
+        <graphics>
+          <position x="274.5" y="373.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+      </place>
+      <place id="p6">
+        <graphics>
+          <position x="345.5" y="134.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+      </place>
+      <arc id="a5" source="t2" target="p6">
+        <graphics>
+          <position x="400.0" y="252.0"/>
+          <position x="354.0" y="154.0"/>
+        </graphics>
+      </arc>
+    </page>
+  </net>
+  <net type="http://www.pnml.org/version-2009/grammar/empty" id="n3">
+    <page id=" pg4">
+      <place id="p7">
+        <graphics>
+          <position x="184.5" y="249.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+      </place>
+      <transition id="t4">
+        <graphics>
+          <position x="325.5" y="250.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+      </transition>
+      <place id="p9">
+        <graphics>
+          <position x="459.5" y="249.5"/>
+          <dimension x="-1.0" y="-1.0"/>
+        </graphics>
+      </place>
+      <arc id="a6" source="p7" target="t4">
+        <graphics>
+          <position x="196.0" y="244.0"/>
+          <position x="324.0" y="230.0"/>
+        </graphics>
+      </arc>
+      <arc id="a7" source="t4" target="p9">
+        <graphics>
+          <position x="334.0" y="250.0"/>
+          <position x="429.0" y="257.0"/>
+        </graphics>
+      </arc>
+    </page>
+  </net>
+</pnml>

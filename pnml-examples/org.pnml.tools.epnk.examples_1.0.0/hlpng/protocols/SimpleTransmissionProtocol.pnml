@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet" id="n1">
+    <page id="pg1">
+      <place id="p1">
+        <name>
+          <graphics>
+            <offset x="-115.0" y="-15.0"/>
+          </graphics>
+          <text>Packets to send</text>
+        </name>
+        <graphics>
+          <position x="150.0" y="130.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-85.0" y="5.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id2"/>
+          </structure>
+          <text>INTxDATA</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="30.0" y="5.0"/>
+          </graphics>
+          <structure>
+            <add>
+              <subterm>
+                <add>
+                  <subterm>
+                    <numberof>
+                      <subterm>
+                        <numberconstant value="1">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <tuple>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <stringconstant value="COL"/>
+                          </subterm>
+                        </tuple>
+                      </subterm>
+                    </numberof>
+                  </subterm>
+                  <subterm>
+                    <numberof>
+                      <subterm>
+                        <numberconstant value="1">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <tuple>
+                          <subterm>
+                            <numberconstant value="2">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <stringconstant value="ORED  "/>
+                          </subterm>
+                        </tuple>
+                      </subterm>
+                    </numberof>
+                  </subterm>
+                </add>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <numberconstant value="3">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <stringconstant value="PNET"/>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>1`(1,&quot;COL&quot;)++
+1`(2, &quot;ORED  &quot;)++
+1`(3,&quot;PNET&quot;)</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t1">
+        <name>
+          <graphics>
+            <offset x="-95.0" y="-10.0"/>
+          </graphics>
+          <text>Send packet</text>
+        </name>
+        <graphics>
+          <position x="150.0" y="240.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a1" source="p1" target="t1">
+        <graphics>
+          <position x="152.0" y="151.0"/>
+          <position x="152.0" y="192.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-52.0" y="4.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id3"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id4"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(n,d)</text>
+        </hlinscription>
+      </arc>
+      <place id="p2">
+        <name>
+          <graphics>
+            <offset x="-5.0" y="-45.0"/>
+          </graphics>
+          <text>A</text>
+        </name>
+        <graphics>
+          <position x="285.0" y="240.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-30.0" y="30.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id2"/>
+          </structure>
+          <text>INTxDATA</text>
+        </type>
+      </place>
+      <arc id="a2" source="t1" target="p2">
+        <graphics>
+          <position x="170.0" y="241.0"/>
+          <position x="311.0" y="258.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-43.0" y="-30.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id3"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id4"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(n,d)</text>
+        </hlinscription>
+      </arc>
+      <place id="p3">
+        <name>
+          <graphics>
+            <offset x="-85.0" y="-25.0"/>
+          </graphics>
+          <text>Next send</text>
+        </name>
+        <graphics>
+          <position x="150.0" y="335.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-50.0" y="5.0"/>
+          </graphics>
+          <structure>
+            <integer/>
+          </structure>
+          <text>INT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-15.0" y="-5.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`1</text>
+        </hlinitialMarking>
+      </place>
+      <arc id="a3" source="p3" target="t1">
+        <graphics>
+          <position x="150.0" y="329.0"/>
+          <position x="166.0" y="235.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-38.0" y="-2.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id3"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`n</text>
+        </hlinscription>
+      </arc>
+      <transition id="t2">
+        <name>
+          <graphics>
+            <offset x="-40.0" y="-40.0"/>
+          </graphics>
+          <text>Transmit packet</text>
+        </name>
+        <graphics>
+          <position x="445.0" y="240.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a4" source="p2" target="t2">
+        <graphics>
+          <position x="304.0" y="236.0"/>
+          <position x="469.0" y="235.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-41.0" y="-15.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id3"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id4"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(n,d)</text>
+        </hlinscription>
+      </arc>
+      <place id="p4">
+        <name>
+          <graphics>
+            <offset x="-5.0" y="-40.0"/>
+          </graphics>
+          <text>B</text>
+        </name>
+        <graphics>
+          <position x="600.0" y="240.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="25.0" y="-5.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id2"/>
+          </structure>
+          <text>INTxDATA</text>
+        </type>
+      </place>
+      <arc id="a5" source="t2" target="p4">
+        <graphics>
+          <position x="465.0" y="235.0"/>
+          <position x="654.0" y="232.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-44.0" y="-13.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id3"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id4"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(n,d)</text>
+        </hlinscription>
+      </arc>
+      <transition id="t3">
+        <name>
+          <graphics>
+            <offset x="-109.0" y="-5.0"/>
+          </graphics>
+          <text>Receive packet</text>
+        </name>
+        <graphics>
+          <position x="599.5" y="335.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a6" source="p4" target="t3">
+        <graphics>
+          <position x="599.0" y="259.0"/>
+          <position x="599.0" y="352.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="6.0" y="-25.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id3"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id4"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(n,d)</text>
+        </hlinscription>
+      </arc>
+      <place id="p5">
+        <name>
+          <graphics>
+            <offset x="27.0" y="-20.0"/>
+          </graphics>
+          <text>Received packets</text>
+        </name>
+        <graphics>
+          <position x="743.0" y="330.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="32.0" y="0.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>DATA</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-13.0" y="-5.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <stringconstant value=""/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`&quot;&quot;</text>
+        </hlinitialMarking>
+      </place>
+      <arc id="a7" source="t3" target="p5">
+        <graphics>
+          <position x="619.0" y="338.0"/>
+          <position x="675.0" y="350.0"/>
+          <position x="723.0" y="335.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-50.0" y="10.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <stringconcatenation>
+                  <subterm>
+                    <variable refvariable="id5"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id4"/>
+                  </subterm>
+                </stringconcatenation>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(concatstring(data,  d))</text>
+        </hlinscription>
+      </arc>
+      <place id="p6">
+        <name>
+          <graphics>
+            <offset x="30.0" y="-20.0"/>
+          </graphics>
+          <text>C</text>
+        </name>
+        <graphics>
+          <position x="600.0" y="445.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="30.0" y="0.0"/>
+          </graphics>
+          <structure>
+            <integer/>
+          </structure>
+          <text>INT</text>
+        </type>
+      </place>
+      <arc id="a8" source="t3" target="p6">
+        <graphics>
+          <position x="601.0" y="355.0"/>
+          <position x="601.0" y="449.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="9.0" y="-17.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <addition>
+                  <subterm>
+                    <variable refvariable="id3"/>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                </addition>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(n+1)</text>
+        </hlinscription>
+      </arc>
+      <transition id="t4">
+        <name>
+          <graphics>
+            <offset x="-35.0" y="-40.0"/>
+          </graphics>
+          <text>Transmit ack</text>
+        </name>
+        <graphics>
+          <position x="445.0" y="445.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a9" source="p6" target="t4">
+        <graphics>
+          <position x="591.0" y="449.0"/>
+          <position x="383.0" y="467.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="28.0" y="-33.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id3"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`n</text>
+        </hlinscription>
+      </arc>
+      <place id="p7">
+        <name>
+          <graphics>
+            <offset x="-5.0" y="-40.0"/>
+          </graphics>
+          <text>D</text>
+        </name>
+        <graphics>
+          <position x="285.0" y="445.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-5.0" y="25.0"/>
+          </graphics>
+          <structure>
+            <integer/>
+          </structure>
+          <text>INT</text>
+        </type>
+      </place>
+      <arc id="a10" source="t4" target="p7">
+        <graphics>
+          <position x="425.0" y="447.0"/>
+          <position x="307.0" y="447.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-11.0" y="-22.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id3"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`n</text>
+        </hlinscription>
+      </arc>
+      <transition id="t5">
+        <name>
+          <graphics>
+            <offset x="-90.0" y="-5.0"/>
+          </graphics>
+          <text>Receive ack</text>
+        </name>
+        <graphics>
+          <position x="150.0" y="445.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a11" source="p7" target="t5">
+        <graphics>
+          <position x="265.0" y="450.0"/>
+          <position x="106.0" y="436.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="25.0" y="-18.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id3"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`n</text>
+        </hlinscription>
+      </arc>
+      <arc id="a12" source="t5" target="p3">
+        <graphics>
+          <position x="151.0" y="431.0"/>
+          <position x="165.0" y="338.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-33.0" y="1.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id3"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`n</text>
+        </hlinscription>
+      </arc>
+      <arc id="a13" source="p5" target="t3">
+        <graphics>
+          <position x="723.0" y="326.0"/>
+          <position x="676.0" y="317.0"/>
+          <position x="619.0" y="330.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-16.0" y="-17.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id5"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`data</text>
+        </hlinscription>
+      </arc>
+      <declaration>
+        <graphics>
+          <offset x="10.0" y="25.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <namedsort id="id1" name="DATA">
+              <string/>
+            </namedsort>
+            <namedsort id="id2" name="INTxDATA">
+              <productsort>
+                <integer/>
+                <usersort declaration="id1"/>
+              </productsort>
+            </namedsort>
+            <variabledecl id="id3" name="n">
+              <integer/>
+            </variabledecl>
+            <variabledecl id="id4" name="d">
+              <usersort declaration="id1"/>
+            </variabledecl>
+            <variabledecl id="id5" name="data">
+              <usersort declaration="id1"/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>sorts 
+DATA=STRING,
+INTxDATA = (INT*DATA);
+vars
+n:INT, d:DATA, data:DATA;</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

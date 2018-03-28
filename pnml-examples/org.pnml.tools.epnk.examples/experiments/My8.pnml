@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <net>
+    <page>
+      <object xsi:type="Page"/>
+      <object xsi:type="Place"/>
+      <object xsi:type="Place"/>
+      <object xsi:type="Arc"/>
+    </page>
+  </net>
+</pnml>

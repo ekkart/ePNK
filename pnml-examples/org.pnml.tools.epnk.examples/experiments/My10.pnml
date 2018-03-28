@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/ptnet" id="4711">
+    <page>
+      <place id="1">
+        <name>
+          <text>p1</text>
+        </name>
+        <initialMarking/>
+      </place>
+      <place id="2"/>
+      <referencePlace id="3" ref="1">
+        <name>
+          <text>rp1</text>
+        </name>
+      </referencePlace>
+      <referencePlace id="7" ref="3">
+        <name>
+          <text>rp2</text>
+        </name>
+      </referencePlace>
+      <arc id="9" source="7" target="8"/>
+      <transition id="8"/>
+    </page>
+  </net>
+  <net type="http://www.pnml.org/version-2009/grammar/empty" id="4712">
+    <page>
+      <place id="4">
+        <name>
+          <text>p4</text>
+        </name>
+        <toolspecific tool="org.pnml.tool.text">
+          <info>test</info>
+        </toolspecific>
+      </place>
+      <place id="5"/>
+      <arc id="blabla" source="1" target="2"/>
+      <place id="6"/>
+    </page>
+  </net>
+</pnml>

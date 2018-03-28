@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<netannotations:NetAnnotations xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:netannotations="http://tools.pnml.org/epnk/netannotations/1.0" xmlns:yannot="http://se.compute.dtu.dk/mbse/yawl/simulator/annotations" xmlns:yawl="http://se.compute.dtu.dk/mbse/yawl" name="YAWL Simulator" current="//@netAnnotations.2" appId="dk.dtu.compute.mbse.tutorial.yawl.simulator.simapp" appVersion="0.0.0" date="Mon Jan 15 20:43:38 CET 2018">
+  <netAnnotations objectAnnotations="//@objectAnnotations.0 //@objectAnnotations.1 //@objectAnnotations.2 //@objectAnnotations.3">
+    <net href="simple_yawl.pnml#n1"/>
+  </netAnnotations>
+  <netAnnotations objectAnnotations="//@objectAnnotations.4 //@objectAnnotations.5 //@objectAnnotations.6 //@objectAnnotations.7">
+    <net href="simple_yawl.pnml#n1"/>
+  </netAnnotations>
+  <netAnnotations objectAnnotations="//@objectAnnotations.8 //@objectAnnotations.9 //@objectAnnotations.10 //@objectAnnotations.11 //@objectAnnotations.12 //@objectAnnotations.13 //@objectAnnotations.14 //@objectAnnotations.15 //@objectAnnotations.16 //@objectAnnotations.17 //@objectAnnotations.18">
+    <net href="simple_yawl.pnml#n1"/>
+  </netAnnotations>
+  <netAnnotations objectAnnotations="//@objectAnnotations.19 //@objectAnnotations.20 //@objectAnnotations.21 //@objectAnnotations.22 //@objectAnnotations.23 //@objectAnnotations.24 //@objectAnnotations.25 //@objectAnnotations.26">
+    <net href="simple_yawl.pnml#n1"/>
+  </netAnnotations>
+  <netAnnotations objectAnnotations="//@objectAnnotations.27 //@objectAnnotations.28 //@objectAnnotations.29">
+    <net href="simple_yawl.pnml#n1"/>
+  </netAnnotations>
+  <netAnnotations objectAnnotations="//@objectAnnotations.30">
+    <net href="simple_yawl.pnml#n1"/>
+  </netAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p1"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition" outArcs="//@objectAnnotations.2 //@objectAnnotations.3">
+    <object xsi:type="yawl:Action" href="simple_yawl.pnml#t1"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:SelectArc" sourceTransition="//@objectAnnotations.1" selected="true">
+    <object xsi:type="yawl:Arc" href="simple_yawl.pnml#a2"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:SelectArc" sourceTransition="//@objectAnnotations.1" selected="true">
+    <object xsi:type="yawl:Arc" href="simple_yawl.pnml#a3"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p3"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p4"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition">
+    <object xsi:type="yawl:Action" href="simple_yawl.pnml#t3"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition">
+    <object xsi:type="yawl:Action" href="simple_yawl.pnml#t4"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p5"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p4"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition">
+    <object xsi:type="yawl:Action" href="simple_yawl.pnml#t2"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition">
+    <object xsi:type="yawl:Action" href="simple_yawl.pnml#t4"/>
+  </objectAnnotations>
+  <objectAnnotations>
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p6"/>
+  </objectAnnotations>
+  <objectAnnotations>
+    <object xsi:type="yawl:Arc" href="simple_yawl.pnml#a5"/>
+  </objectAnnotations>
+  <objectAnnotations>
+    <object xsi:type="yawl:Action" href="simple_yawl.pnml#t5"/>
+  </objectAnnotations>
+  <objectAnnotations>
+    <object xsi:type="yawl:Arc" href="simple_yawl.pnml#a11"/>
+  </objectAnnotations>
+  <objectAnnotations>
+    <object xsi:type="yawl:Arc" href="simple_yawl.pnml#a10"/>
+  </objectAnnotations>
+  <objectAnnotations>
+    <object xsi:type="yawl:Arc" href="simple_yawl.pnml#a12"/>
+  </objectAnnotations>
+  <objectAnnotations>
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p7"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p5"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p7"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition">
+    <object xsi:type="yawl:Action" href="simple_yawl.pnml#t2"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition">
+    <object xsi:type="yawl:Action" href="simple_yawl.pnml#t5"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition">
+    <object xsi:type="yawl:Action" href="simple_yawl.pnml#t6"/>
+  </objectAnnotations>
+  <objectAnnotations>
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p6"/>
+  </objectAnnotations>
+  <objectAnnotations>
+    <object xsi:type="yawl:Arc" href="simple_yawl.pnml#a5"/>
+  </objectAnnotations>
+  <objectAnnotations>
+    <object xsi:type="yawl:Arc" href="simple_yawl.pnml#a11"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p5"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p6"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition">
+    <object xsi:type="yawl:Action" href="simple_yawl.pnml#t2"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="simple_yawl.pnml#p2"/>
+  </objectAnnotations>
+</netannotations:NetAnnotations>

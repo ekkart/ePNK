@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet" id="n1">
+    <page id="pg1">
+      <name>
+        <text>page 1</text>
+      </name>
+      <arc id="a1" source="p1" target="t1">
+        <hlinscription>
+          <structure>
+            <add>
+              <subterm>
+                <add>
+                  <subterm>
+                    <numberof>
+                      <subterm>
+                        <numberconstant value="1">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <variable/>
+                      </subterm>
+                    </numberof>
+                  </subterm>
+                  <subterm>
+                    <numberof>
+                      <subterm>
+                        <variable/>
+                      </subterm>
+                      <subterm>
+                        <useroperator/>
+                      </subterm>
+                    </numberof>
+                  </subterm>
+                </add>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="5">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>1`x ++ x`g() ++ 1`5</text>
+        </hlinscription>
+      </arc>
+      <place id="p1">
+        <type>
+          <structure>
+            <productsort>
+              <multisetsort>
+                <dot/>
+              </multisetsort>
+              <integer/>
+              <positive/>
+              <natural/>
+            </productsort>
+          </structure>
+          <text>( MS(DOT)  * INT * POS * NAT)</text>
+        </type>
+      </place>
+      <transition id="t1">
+        <condition>
+          <structure>
+            <gt>
+              <subterm>
+                <variable refvariable="5"/>
+              </subterm>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+            </gt>
+          </structure>
+          <text>x >  1</text>
+        </condition>
+      </transition>
+      <declaration>
+        <structure>
+          <declarations>
+            <namedoperator id="1" name="f">
+              <parameter>
+                <variabledecl id="2" name="x">
+                  <integer/>
+                </variabledecl>
+                <variabledecl id="3" name="y">
+                  <integer/>
+                </variabledecl>
+              </parameter>
+              <def>
+                <mult>
+                  <subterm>
+                    <variable refvariable="2"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="3"/>
+                  </subterm>
+                </mult>
+              </def>
+            </namedoperator>
+            <namedoperator id="4" name="g">
+              <def>
+                <dotconstant/>
+              </def>
+            </namedoperator>
+          </declarations>
+        </structure>
+        <text>ops&#xD;
+  f(x:INT, y:INT) =  x * y,&#xD;
+  g() = dot;</text>
+      </declaration>
+      <declaration>
+        <structure>
+          <declarations>
+            <variabledecl id="5" name="x">
+              <integer/>
+            </variabledecl>
+            <namedsort id="6" name="A">
+              <multisetsort>
+                <bool/>
+              </multisetsort>
+            </namedsort>
+          </declarations>
+        </structure>
+        <text>vars&#xD;
+  x:INT;&#xD;
+&#xD;
+sorts&#xD;
+  A = MS(BOOL);&#xD;
+</text>
+      </declaration>
+      <declaration>
+        <structure>
+          <declarations>
+            <namedoperator id="7" name="h">
+              <def>
+                <useroperator declaration="4"/>
+              </def>
+            </namedoperator>
+          </declarations>
+        </structure>
+        <text>ops h() =  g();</text>
+      </declaration>
+      <declaration>
+        <structure>
+          <declarations>
+            <namedsort id="8" name="B">
+              <productsort>
+                <usersort declaration="6"/>
+                <integer/>
+              </productsort>
+            </namedsort>
+            <namedsort id="9" name="C">
+              <productsort>
+                <usersort declaration="8"/>
+                <usersort declaration="8"/>
+              </productsort>
+            </namedsort>
+          </declarations>
+        </structure>
+        <text>sorts B = (A*INT), C = (B*B);</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

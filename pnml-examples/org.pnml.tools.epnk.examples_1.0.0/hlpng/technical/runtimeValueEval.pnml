@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet" id="n1">
+    <page id="pg1">
+      <place id="p1">
+        <name>
+          <graphics>
+            <offset x="-15.0" y="-37.0"/>
+          </graphics>
+          <text>simple</text>
+        </name>
+        <graphics>
+          <position x="75.5" y="227.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-10.0" y="28.0"/>
+          </graphics>
+          <structure>
+            <integer/>
+          </structure>
+          <text>INT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-10.0" y="-7.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`1</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p2">
+        <name>
+          <graphics>
+            <offset x="-39.0" y="-59.0"/>
+          </graphics>
+          <text>arithmetic
+expression</text>
+        </name>
+        <graphics>
+          <position x="239.5" y="239.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-4.0" y="26.0"/>
+          </graphics>
+          <structure>
+            <integer/>
+          </structure>
+          <text>INT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="26.0" y="-19.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <addition>
+                  <subterm>
+                    <numberconstant value="5">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="8">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                </addition>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(5+8)</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p3">
+        <name>
+          <graphics>
+            <offset x="-41.0" y="-64.0"/>
+          </graphics>
+          <text>user
+defined
+operation</text>
+        </name>
+        <graphics>
+          <position x="411.5" y="239.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-6.0" y="26.0"/>
+          </graphics>
+          <structure>
+            <integer/>
+          </structure>
+          <text>INT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="24.0" y="-19.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <addition>
+                  <subterm>
+                    <useroperator declaration="id3">
+                      <subterm>
+                        <numberconstant value="5">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <numberconstant value="8">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                    </useroperator>
+                  </subterm>
+                  <subterm>
+                    <useroperator declaration="id6"/>
+                  </subterm>
+                </addition>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(sum(5,8)+g())</text>
+        </hlinitialMarking>
+      </place>
+      <place id="p4">
+        <name>
+          <graphics>
+            <offset x="-24.0" y="-43.0"/>
+          </graphics>
+          <text>advanced</text>
+        </name>
+        <graphics>
+          <position x="239.5" y="383.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-29.0" y="37.0"/>
+          </graphics>
+          <structure>
+            <multisetsort>
+              <usersort declaration="id2"/>
+            </multisetsort>
+          </structure>
+          <text>MS(INTxINT)</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-219.0" y="-18.0"/>
+          </graphics>
+          <structure>
+            <add>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <add>
+                      <subterm>
+                        <numberof>
+                          <subterm>
+                            <numberconstant value="2">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <tuple>
+                              <subterm>
+                                <numberconstant value="1">
+                                  <positive/>
+                                </numberconstant>
+                              </subterm>
+                              <subterm>
+                                <numberconstant value="1">
+                                  <positive/>
+                                </numberconstant>
+                              </subterm>
+                            </tuple>
+                          </subterm>
+                        </numberof>
+                      </subterm>
+                      <subterm>
+                        <numberof>
+                          <subterm>
+                            <numberconstant value="1">
+                              <positive/>
+                            </numberconstant>
+                          </subterm>
+                          <subterm>
+                            <tuple>
+                              <subterm>
+                                <useroperator declaration="id3">
+                                  <subterm>
+                                    <numberconstant value="0">
+                                      <natural/>
+                                    </numberconstant>
+                                  </subterm>
+                                  <subterm>
+                                    <numberconstant value="1">
+                                      <positive/>
+                                    </numberconstant>
+                                  </subterm>
+                                </useroperator>
+                              </subterm>
+                              <subterm>
+                                <useroperator declaration="id6"/>
+                              </subterm>
+                            </tuple>
+                          </subterm>
+                        </numberof>
+                      </subterm>
+                    </add>
+                  </subterm>
+                </numberof>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <numberconstant value="1">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                  <subterm>
+                    <numberof>
+                      <subterm>
+                        <numberconstant value="3">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                      <subterm>
+                        <tuple>
+                          <subterm>
+                            <div>
+                              <subterm>
+                                <numberconstant value="3">
+                                  <positive/>
+                                </numberconstant>
+                              </subterm>
+                              <subterm>
+                                <numberconstant value="3">
+                                  <positive/>
+                                </numberconstant>
+                              </subterm>
+                            </div>
+                          </subterm>
+                          <subterm>
+                            <mod>
+                              <subterm>
+                                <numberconstant value="3">
+                                  <positive/>
+                                </numberconstant>
+                              </subterm>
+                              <subterm>
+                                <numberconstant value="2">
+                                  <positive/>
+                                </numberconstant>
+                              </subterm>
+                            </mod>
+                          </subterm>
+                        </tuple>
+                      </subterm>
+                    </numberof>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </add>
+          </structure>
+          <text>1`(2`(1,1)++1`(sum(0,1),g()))++
+1`(3`(3/3,3%2))</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t1">
+        <graphics>
+          <position x="431.5" y="383.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <condition>
+          <graphics>
+            <offset x="-26.0" y="-43.0"/>
+          </graphics>
+          <structure>
+            <and>
+              <subterm>
+                <equality>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="3">
+                      <positive/>
+                    </numberconstant>
+                  </subterm>
+                </equality>
+              </subterm>
+              <subterm>
+                <gt>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                  <subterm>
+                    <numberconstant value="0">
+                      <natural/>
+                    </numberconstant>
+                  </subterm>
+                </gt>
+              </subterm>
+            </and>
+          </structure>
+          <text>x == 3 and y > 0</text>
+        </condition>
+      </transition>
+      <arc id="a1" source="p4" target="t1">
+        <graphics>
+          <position x="258.0" y="384.0"/>
+          <position x="451.0" y="379.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-39.0" y="-21.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <numberof>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <tuple>
+                      <subterm>
+                        <variable refvariable="id8"/>
+                      </subterm>
+                      <subterm>
+                        <numberconstant value="1">
+                          <positive/>
+                        </numberconstant>
+                      </subterm>
+                    </tuple>
+                  </subterm>
+                </numberof>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x`(y,1))</text>
+        </hlinscription>
+      </arc>
+      <place id="p5">
+        <name>
+          <graphics>
+            <offset x="-25.0" y="-45.0"/>
+          </graphics>
+          <text>allAgents</text>
+        </name>
+        <graphics>
+          <position x="335.5" y="95.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-15.0" y="30.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>AGENT</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="20.0" y="-25.0"/>
+          </graphics>
+          <structure>
+            <all>
+              <usersort declaration="id1"/>
+            </all>
+          </structure>
+          <text>all:AGENT</text>
+        </hlinitialMarking>
+      </place>
+      <declaration>
+        <graphics>
+          <offset x="12.0" y="36.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <arbitrarysort id="id1" name="AGENT"/>
+            <namedsort id="id2" name="INTxINT">
+              <productsort>
+                <integer/>
+                <integer/>
+              </productsort>
+            </namedsort>
+            <namedoperator id="id3" name="sum">
+              <parameter>
+                <variabledecl id="id4" name="x">
+                  <integer/>
+                </variabledecl>
+                <variabledecl id="id5" name="y">
+                  <integer/>
+                </variabledecl>
+              </parameter>
+              <def>
+                <addition>
+                  <subterm>
+                    <variable refvariable="id4"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id5"/>
+                  </subterm>
+                </addition>
+              </def>
+            </namedoperator>
+            <namedoperator id="id6" name="g">
+              <parameter/>
+              <def>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </def>
+            </namedoperator>
+            <variabledecl id="id7" name="x">
+              <positive/>
+            </variabledecl>
+            <variabledecl id="id8" name="y">
+              <integer/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>sortsymbols
+   AGENT;
+sorts
+  INTxINT=(INT*INT);
+ops&#xD;
+  sum(x:INT, y:INT) =  x + y,&#xD;
+  g() = 1;
+vars
+  x:POS,y:INT;</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/ptnet" id="4711">
+    <name>
+      <graphics>
+        <offset x="10" y="15"/>
+        <font family="some family" style="ddd" weight="dd" size="dd" decoration="blubs" align="bla" rotation="180.0"/>
+      </graphics>
+      <text>Net 4711</text>
+    </name>
+    <page id="pg1">
+      <place id="p1">
+        <name>
+          <text>p1</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <arc id="a1" source="p1" target="t1">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <transition id="t1">
+        <name>
+          <text>t1</text>
+        </name>
+      </transition>
+    </page>
+    <page id="pg2">
+      <referencePlace id="rp1" ref="p1">
+        <name>
+          <graphics>
+            <offset x="1.0" y="1.0"/>
+          </graphics>
+          <text>a reference to place p1</text>
+        </name>
+        <graphics>
+          <position x="50.0" y="50.0"/>
+          <dimension x="10.0" y="10.0"/>
+        </graphics>
+      </referencePlace>
+      <transition id="t2"/>
+      <arc id="a2" source="rp1" target="t2"/>
+      <page>
+        <name>
+          <text>and another page</text>
+        </name>
+        <referenceTransition id="rt1" ref="t1"/>
+        <referencePlace id="rp2" ref="rp1"/>
+      </page>
+    </page>
+  </net>
+  <net id="4712">
+    <name>
+      <text>Another net 4712</text>
+    </name>
+    <page id="3">
+      <place id="p2">
+        <name>
+          <text>p2</text>
+        </name>
+        <toolspecific/>
+      </place>
+      <arc id="a3" source="p2" target="t3"/>
+      <transition id="t3"/>
+    </page>
+  </net>
+</pnml>
