@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="datatypes"
+    nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes" nsPrefix="datatypes">
+  <eSubpackages name="terms" nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes/terms"
+      nsPrefix="terms">
+    <eClassifiers xsi:type="ecore:EClass" name="Declarations">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" upperBound="-1"
+          eType="#//terms/Declaration" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Declaration" abstract="true" eSuperTypes="../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.ecore#//SymbolDef"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SortDecl" abstract="true" eSuperTypes="#//terms/Declaration"/>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableDecl" eSuperTypes="#//terms/Declaration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sort" lowerBound="1"
+          eType="#//terms/Sort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//terms/Term ../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.ecore#//SymbolUse">
+      <eOperations name="getSort" eType="#//terms/Sort"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refvariable" lowerBound="1"
+          eType="#//terms/VariableDecl"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Term" abstract="true">
+      <eOperations name="getSort" eType="#//terms/Sort"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Sort" abstract="true">
+      <eOperations name="equals" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="object" eType="#//terms/Sort"/>
+      </eOperations>
+      <eOperations name="isSuperSortOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="sort" eType="#//terms/Sort"/>
+      </eOperations>
+      <eOperations name="leastCommonSuper" eType="#//terms/Sort">
+        <eParameters name="sort" eType="#//terms/Sort"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//terms/Term">
+      <eOperations name="getInputSorts" unique="false" upperBound="-1" eType="#//terms/Sort"/>
+      <eOperations name="getOutputSort" eType="#//terms/Sort"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subterm" upperBound="-1"
+          eType="#//terms/Term" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamedSort" eSuperTypes="#//terms/SortDecl">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="def" lowerBound="1" eType="#//terms/Sort"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BuiltInSort" abstract="true" eSuperTypes="#//terms/Sort"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MultiSetSort" eSuperTypes="#//terms/Sort">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="basis" lowerBound="1"
+          eType="#//terms/Sort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProductSort" eSuperTypes="#//terms/Sort">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elementSort" upperBound="-1"
+          eType="#//terms/Sort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UserSort" eSuperTypes="#//terms/Sort ../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.ecore#//SymbolUse">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
+          eType="#//terms/SortDecl"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BuiltInOperator" abstract="true" eSuperTypes="#//terms/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BuiltInConst" abstract="true" eSuperTypes="#//terms/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MultiSetOperator" abstract="true"
+        eSuperTypes="#//terms/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Tuple" eSuperTypes="#//terms/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UserOperator" eSuperTypes="#//terms/Operator ../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.ecore#//SymbolUse">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
+          eType="#//terms/OperatorDecl"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OperatorDecl" abstract="true" eSuperTypes="#//terms/Declaration">
+      <eOperations name="getInputSorts" unique="false" upperBound="-1" eType="#//terms/Sort"/>
+      <eOperations name="getOutPutSort" eType="#//terms/Sort"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamedOperator" eSuperTypes="#//terms/OperatorDecl">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//terms/VariableDecl" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="def" lowerBound="1" eType="#//terms/Term"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="dots" nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes/dots"
+      nsPrefix="dots">
+    <eClassifiers xsi:type="ecore:EClass" name="Dot" eSuperTypes="#//terms/BuiltInSort"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DotConstant" eSuperTypes="#//terms/BuiltInConst"/>
+  </eSubpackages>
+  <eSubpackages name="multisets" nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes/multisets"
+      nsPrefix="multisets">
+    <eClassifiers xsi:type="ecore:EClass" name="Cardinality" eSuperTypes="#//terms/BuiltInOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CardinalityOf" eSuperTypes="#//terms/BuiltInOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Contains" eSuperTypes="#//terms/BuiltInOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Add" eSuperTypes="#//terms/MultiSetOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="All" eSuperTypes="#//terms/MultiSetOperator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refsort" lowerBound="1"
+          eType="#//terms/Sort" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberOf" eSuperTypes="#//terms/MultiSetOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Subtract" eSuperTypes="#//terms/MultiSetOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ScalarProduct" eSuperTypes="#//terms/MultiSetOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Empty" eSuperTypes="#//terms/MultiSetOperator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="refsort" lowerBound="1"
+          eType="#//terms/Sort" containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="booleans" nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes/booleans"
+      nsPrefix="booleans">
+    <eClassifiers xsi:type="ecore:EClass" name="Equality" eSuperTypes="#//terms/BuiltInOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Inequality" eSuperTypes="#//terms/BuiltInOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Bool" eSuperTypes="#//terms/BuiltInSort"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//terms/BuiltInOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//booleans/BooleanOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//booleans/BooleanOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Imply" eSuperTypes="#//booleans/BooleanOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//booleans/BooleanOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanConstant" eSuperTypes="#//terms/BuiltInConst">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="integers" nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes/integers"
+      nsPrefix="integers">
+    <eClassifiers xsi:type="ecore:EClass" name="IntegerOperator" abstract="true" eSuperTypes="#//terms/BuiltInOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="#//integers/IntegerOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Subtraction" eSuperTypes="#//integers/IntegerOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="#//integers/IntegerOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Division" eSuperTypes="#//integers/IntegerOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GreaterThan" eSuperTypes="#//integers/IntegerOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GreaterThanOrEqual" eSuperTypes="#//integers/IntegerOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LessThan" eSuperTypes="#//integers/IntegerOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LessThanOrEqual" eSuperTypes="#//integers/IntegerOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Modulo" eSuperTypes="#//integers/IntegerOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Number" abstract="true" eSuperTypes="#//terms/BuiltInSort"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberConstant" eSuperTypes="#//terms/BuiltInConst">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
+          eType="#//integers/Number" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Natural" eSuperTypes="#//integers/Number"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Positive" eSuperTypes="#//integers/Number"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Integer" eSuperTypes="#//integers/Number"/>
+  </eSubpackages>
+</ecore:EPackage>

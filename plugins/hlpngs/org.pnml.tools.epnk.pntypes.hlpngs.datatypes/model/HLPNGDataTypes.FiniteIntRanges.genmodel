@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/src"
+    modelPluginID="org.pnml.tools.epnk.pntypes.hlpngs.datatypes" modelName="HLPNGDataTypes"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="HLPNGDataTypes.genmodel#//datatypes ../../org.pnml.tools.epnk/model/PNMLCoreModel.genmodel#//pnmlcoremodel ../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.genmodel#//structuredpntypemodel">
+  <foreignModel>HLPNGDataTypes.FiniteIntRanges.ecore</foreignModel>
+  <genPackages prefix="Finiteintranges" basePackage="org.pnml.tools.epnk.pntypes.hlpngs.datatypes"
+      disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="HLPNGDataTypes.FiniteIntRanges.ecore#/">
+    <genClasses ecoreClass="HLPNGDataTypes.FiniteIntRanges.ecore#//FiniteIntRange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HLPNGDataTypes.FiniteIntRanges.ecore#//FiniteIntRange/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HLPNGDataTypes.FiniteIntRanges.ecore#//FiniteIntRange/end"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="HLPNGDataTypes.FiniteIntRanges.ecore#//FiniteIntRangeOperator"/>
+    <genClasses ecoreClass="HLPNGDataTypes.FiniteIntRanges.ecore#//LessThan"/>
+    <genClasses ecoreClass="HLPNGDataTypes.FiniteIntRanges.ecore#//LessThanOrEqual"/>
+    <genClasses ecoreClass="HLPNGDataTypes.FiniteIntRanges.ecore#//GreaterThan"/>
+    <genClasses ecoreClass="HLPNGDataTypes.FiniteIntRanges.ecore#//GreaterThanOrEqual"/>
+    <genClasses ecoreClass="HLPNGDataTypes.FiniteIntRanges.ecore#//FiniteIntConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HLPNGDataTypes.FiniteIntRanges.ecore#//FiniteIntConstant/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HLPNGDataTypes.FiniteIntRanges.ecore#//FiniteIntConstant/range"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,148 @@
+module org.pnml.tools.epnk.pntypes.hlpngs.datatypes.concretesyntax.HLPNGInscriptionLanguage
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
+
+var grammarURI = "classpath:/org/pnml/tools/epnk/pntypes/hlpngs/datatypes/concretesyntax/HLPNGInscriptionLanguage.xtext"
+var file.extensions = "hlpngil"
+var projectName = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.concretesyntax"
+var runtimeProject = "../${projectName}"
+
+Workflow {
+	bean = StandaloneSetup {
+		platformUri = "${runtimeProject}/.."
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.lists.ListsPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.hlpnghelpers.HlpnghelpersPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.partitions.PartitionsPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.strings.StringsPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.finiteintranges.FiniteintrangesPackage"
+		// eki: registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.DatatypesPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.multisets.MultisetsPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.arbitrarydeclarations.ArbitrarydeclarationsPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.concretesyntax.hlpnginscriptiondocument.HlpnginscriptiondocumentPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.booleans.BooleansPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.integers.IntegersPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.terms.TermsPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.cyclicenumerations.CyclicenumerationsPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.dots.DotsPackage"
+		registerGeneratedEPackage = "org.pnml.tools.epnk.pntypes.hlpngs.datatypes.finiteenumerations.FiniteenumerationsPackage"
+	
+		// registerGenModelFile = "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGLists.genmodel"
+	
+		// registerGenModelFile = "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGHelpers.genmodel"
+	
+		// registerGenModelFile = "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.Partitions.genmodel"
+	
+		// registerGenModelFile = "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGStrings.genmodel"
+	
+		// registerGenModelFile = "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.FiniteIntRanges.genmodel"
+	
+		// registerGenModelFile = "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.genmodel"
+	
+		// registerGenModelFile = "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGArbitraryDeclarations.genmodel"
+	
+		// registerGenModelFile = "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes.concretesyntax.X/model/HLPNGInscriptionDocument.genmodel"
+	
+		// registerGenModelFile = "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.CyclicEnumerations.genmodel"
+	
+		// registerGenModelFile = "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.FiniteEnumerations.genmodel"
+	
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}/src-gen"
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}.ui/src-gen"
+	}
+
+	component = Generator {
+		pathRtProject = runtimeProject
+		pathUiProject = "${runtimeProject}.ui"
+		projectNameRt = projectName
+		projectNameUi = "${projectName}.ui"
+		language = {
+			uri = grammarURI
+			fileExtensions = file.extensions
+
+			// Java API to access grammar elements (required by several other fragments)
+			fragment = grammarAccess.GrammarAccessFragment {}
+
+			// generates Java API for the generated EPackages
+			// fragment = ecore.EcoreGeneratorFragment {}
+
+			// the serialization component
+			fragment = parseTreeConstructor.ParseTreeConstructorFragment {}
+
+			// a custom ResourceFactory for use with EMF 
+			fragment = resourceFactory.ResourceFactoryFragment {
+				fileExtensions = file.extensions
+			}
+
+			// the Antlr parser
+			fragment = parser.antlr.XtextAntlrGeneratorFragment {
+				options = {
+					classSplitting = true
+				}
+			}
+
+			// the Ecore2Xtext specific terminal converter
+			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment {}
+
+			// java-based API for validation 
+			fragment = validation.JavaValidatorFragment {
+			// composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+			// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+			}
+
+			// scoping and exporting API
+			fragment = scoping.ImportURIScopingFragment {}
+			fragment = exporting.SimpleNamesFragment {}
+
+			// scoping and exporting API 
+
+			// fragment = scoping.ImportNamespacesScopingFragment {}
+			// fragment = exporting.QualifiedNamesFragment {}
+
+
+			// formatter API 
+			fragment = ecore2xtext.FormatterFragment {}
+
+			// labeling API 
+			fragment = labeling.LabelProviderFragment {}
+
+			// outline API 
+            fragment = outline.OutlineTreeProviderFragment {}
+            fragment = outline.QuickOutlineFragment {}
+
+			// java-based API for content assistance 
+			fragment = contentAssist.JavaBasedContentAssistFragment {}
+
+			// antlr parser generator tailored for content assist 
+			fragment = parser.antlr.XtextAntlrUiGeneratorFragment {
+				options = {
+					classSplitting = true
+				}
+			}
+
+			// provides a compare view
+            fragment = compare.CompareFragment {
+                fileExtensions = file.extensions
+            }
+
+			fragment = builder.BuilderIntegrationFragment {}
+
+			// project wizard (optional) 
+
+			// fragment = projectWizard.SimpleProjectWizardFragment {
+			//		generatorProjectName = "${projectName}.generator" 
+			//		modelFileExtension = file.extensions
+			// }
+
+			// quickfix API 
+			fragment = quickfix.QuickfixProviderFragment {}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="partitions"
+    nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes/partitions" nsPrefix="partitions">
+  <eClassifiers xsi:type="ecore:EClass" name="Partition" eSuperTypes="HLPNGDataTypes.ecore#//terms/SortDecl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="def" lowerBound="1" eType="ecore:EClass HLPNGDataTypes.ecore#//terms/Sort"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="partitionElements" lowerBound="1"
+        upperBound="-1" eType="#//PartitionElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PartitionElement" eSuperTypes="HLPNGDataTypes.ecore#//terms/OperatorDecl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="partitionelementconstant"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass HLPNGDataTypes.ecore#//terms/Term"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PartitionOperator" abstract="true" eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PartitionElementOf" eSuperTypes="#//PartitionOperator ../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.ecore#//SymbolUse">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refpartition" lowerBound="1"
+        eType="#//Partition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LessThan" eSuperTypes="#//PartitionOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterThan" eSuperTypes="#//PartitionOperator"/>
+</ecore:EPackage>

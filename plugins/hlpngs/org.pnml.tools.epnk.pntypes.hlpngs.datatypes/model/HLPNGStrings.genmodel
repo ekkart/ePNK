@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/src"
+    modelPluginID="org.pnml.tools.epnk.pntypes.hlpngs.datatypes" modelName="HLPNGStrings"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="HLPNGDataTypes.genmodel#//datatypes ../../org.pnml.tools.epnk/model/PNMLCoreModel.genmodel#//pnmlcoremodel ../../org.pnml.tools.epnk/model/PNMLDataTypes.genmodel#//pnmldatatypes ../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.genmodel#//structuredpntypemodel">
+  <foreignModel>HLPNGStrings.ecore</foreignModel>
+  <genPackages prefix="Strings" basePackage="org.pnml.tools.epnk.pntypes.hlpngs.datatypes"
+      disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="HLPNGStrings.ecore#/">
+    <genClasses ecoreClass="HLPNGStrings.ecore#//String"/>
+    <genClasses image="false" ecoreClass="HLPNGStrings.ecore#//StringOperator"/>
+    <genClasses ecoreClass="HLPNGStrings.ecore#//StringConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HLPNGStrings.ecore#//StringConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="HLPNGStrings.ecore#//Substring">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HLPNGStrings.ecore#//Substring/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HLPNGStrings.ecore#//Substring/length"/>
+    </genClasses>
+    <genClasses ecoreClass="HLPNGStrings.ecore#//Concatenation"/>
+    <genClasses ecoreClass="HLPNGStrings.ecore#//Append"/>
+    <genClasses ecoreClass="HLPNGStrings.ecore#//Length"/>
+    <genClasses ecoreClass="HLPNGStrings.ecore#//GreaterThan"/>
+    <genClasses ecoreClass="HLPNGStrings.ecore#//GreaterThanOrEqual"/>
+    <genClasses ecoreClass="HLPNGStrings.ecore#//LessThan"/>
+    <genClasses ecoreClass="HLPNGStrings.ecore#//LessThanOrEqual"/>
+  </genPackages>
+</genmodel:GenModel>

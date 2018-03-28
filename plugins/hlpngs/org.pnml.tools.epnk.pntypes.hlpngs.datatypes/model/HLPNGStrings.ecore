@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="strings"
+    nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes/strings" nsPrefix="strings">
+  <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInSort"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringOperator" abstract="true" eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringConstant" eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInConst">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Substring" eSuperTypes="#//StringOperator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" lowerBound="1" eType="ecore:EDataType ../../org.pnml.tools.epnk/model/PNMLDataTypes.ecore#//NonNegativeInteger"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
+        eType="ecore:EDataType ../../org.pnml.tools.epnk/model/PNMLDataTypes.ecore#//NonNegativeInteger"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Concatenation" eSuperTypes="#//StringOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Append" eSuperTypes="#//StringOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Length" eSuperTypes="#//StringOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterThan" eSuperTypes="#//StringOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterThanOrEqual" eSuperTypes="#//StringOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LessThan" eSuperTypes="#//StringOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LessThanOrEqual" eSuperTypes="#//StringOperator"/>
+</ecore:EPackage>

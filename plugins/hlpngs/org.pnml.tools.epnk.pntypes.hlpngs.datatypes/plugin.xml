@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/terms"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.terms.TermsPackage"
+            genModel="model/HLPNGDataTypes.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/dots"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.dots.DotsPackage"
+            genModel="model/HLPNGDataTypes.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/multisets"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.multisets.MultisetsPackage"
+            genModel="model/HLPNGDataTypes.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/booleans"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.booleans.BooleansPackage"
+            genModel="model/HLPNGDataTypes.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/integers"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.integers.IntegersPackage"
+            genModel="model/HLPNGDataTypes.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/finiteenumerations"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.finiteenumerations.FiniteenumerationsPackage"
+            genModel="model/HLPNGDataTypes.FiniteEnumerations.genmodel"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/cyclicenumerations"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.cyclicenumerations.CyclicenumerationsPackage"
+            genModel="model/HLPNGDataTypes.CyclicEnumerations.genmodel"/>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/finiteintranges"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.finiteintranges.FiniteintrangesPackage"
+            genModel="model/HLPNGDataTypes.FiniteIntRanges.genmodel"/>
+   </extension>  
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/partitions"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.partitions.PartitionsPackage"
+            genModel="model/HLPNGDataTypes.Partitions.genmodel"/>
+   </extension> 
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/helpers"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.hlpnghelpers.HlpnghelpersPackage"
+            genModel="model/HLPNGHelpers.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/strings"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.strings.StringsPackage"
+            genModel="model/HLPNGStrings.genmodel"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/lists"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.lists.ListsPackage"
+            genModel="model/HLPNGLists.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://org.pnml.tools/epnk/types/hlpngs/datatypes/arbitrarydeclarations"
+            class="org.pnml.tools.epnk.pntypes.hlpngs.datatypes.arbitrarydeclarations.ArbitrarydeclarationsPackage"
+            genModel="model/HLPNGArbitraryDeclarations.genmodel"/>
+   </extension>
+   
+</plugin>

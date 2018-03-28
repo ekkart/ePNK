@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/src"
+    modelPluginID="org.pnml.tools.epnk.pntypes.hlpngs.datatypes" modelName="HLPNGDataTypes"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="HLPNGDataTypes.genmodel#//datatypes ../../org.pnml.tools.epnk/model/PNMLCoreModel.genmodel#//pnmlcoremodel ../../org.pnml.tools.epnk/model/PNMLStructuredPNTypeModel.genmodel#//structuredpntypemodel">
+  <foreignModel>HLPNGDataTypes.Partitions.ecore</foreignModel>
+  <genPackages prefix="Partitions" basePackage="org.pnml.tools.epnk.pntypes.hlpngs.datatypes"
+      disposableProviderFactory="true" multipleEditorPages="false" generateModelWizard="false"
+      ecorePackage="HLPNGDataTypes.Partitions.ecore#/">
+    <genClasses ecoreClass="HLPNGDataTypes.Partitions.ecore#//Partition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HLPNGDataTypes.Partitions.ecore#//Partition/def"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HLPNGDataTypes.Partitions.ecore#//Partition/partitionElements"/>
+    </genClasses>
+    <genClasses ecoreClass="HLPNGDataTypes.Partitions.ecore#//PartitionElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HLPNGDataTypes.Partitions.ecore#//PartitionElement/partitionelementconstant"/>
+    </genClasses>
+    <genClasses ecoreClass="HLPNGDataTypes.Partitions.ecore#//PartitionOperator"/>
+    <genClasses ecoreClass="HLPNGDataTypes.Partitions.ecore#//PartitionElementOf">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HLPNGDataTypes.Partitions.ecore#//PartitionElementOf/refpartition"/>
+    </genClasses>
+    <genClasses ecoreClass="HLPNGDataTypes.Partitions.ecore#//LessThan"/>
+    <genClasses ecoreClass="HLPNGDataTypes.Partitions.ecore#//GreaterThan"/>
+  </genPackages>
+</genmodel:GenModel>

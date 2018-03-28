@@ -1,0 +1,362 @@
+grammar org.pnml.tools.epnk.pntypes.hlpngs.datatypes.concretesyntax.HLPNGInscriptionLanguage
+  with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+import "platform:/resource/org.pnml.tools.epnk/model/PNMLDataTypes.ecore" as pnmldatatypes
+
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.ecore#//terms" as terms
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.ecore#//dots" as dots
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.ecore#//multisets" as multisets
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.ecore#//booleans" as booleans
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.ecore#//integers" as integers
+
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.FiniteEnumerations.ecore" as finiteenums
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.CyclicEnumerations.ecore" as cyclicenums
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.FiniteIntRanges.ecore" as finiteintranges
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.Partitions.ecore" as partitions
+
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGStrings.ecore" as strings
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGLists.ecore" as lists
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGArbitraryDeclarations.ecore" as arbitrary
+
+import "platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes.concretesyntax/model/HLPNGInscriptionDocument.ecore" as document
+
+/* -------------------------------------------------------------
+ * Concrete syntax for package hlpnginscriptiondocument
+ * ------------------------------------------------------------- */
+Document returns document::HLPNGInscriptionDocument :
+    ( declarations += Declarations ';' | term += Term ';' )*;
+    
+// We did not yet define a syntax for terms, so it
+// is just a single keyword 'term' for now and return a DotConstant.
+// The syntax for Terms needs to be added though.
+// Term returns terms::Term :
+//    'term' {dots::DotConstant} ';';    
+
+
+/* -------------------------------------------------------------
+ * Concrete syntax for package terms
+ * ------------------------------------------------------------- */
+ 
+Declarations returns terms::Declarations :
+    {terms::Declarations}
+    ( 'sorts' declaration += SortDecl
+	          ( ',' declaration += SortDecl )* ';'
+	  |
+	  'vars'  declaration += VariableDecl
+	          ( ',' declaration += VariableDecl )* ';'
+	  |
+	  'ops'   declaration += OperatorDecl
+	          ( ',' declaration += OperatorDecl )* ';'
+	  |	          
+	  'sortsymbols' declaration += ArbitrarySort
+	          ( ',' declaration += ArbitrarySort )* ';'
+	  |	          
+	  'opsymbols' declaration += ArbitraryOperator
+	          ( ',' declaration += ArbitraryOperator )* ';'	          
+	)*;
+	
+Declaration returns terms::Declaration :
+    SortDecl | VariableDecl;
+    	
+SortDecl returns terms::SortDecl : 
+    // for now there are only named sorts as sort declarations
+    // but there will be more
+    NamedSort | Partition;
+
+VariableDecl returns terms::VariableDecl : 
+    name = ID ':' sort = Sort;
+	
+NamedSort returns terms::NamedSort : 
+    name = ID '=' def = Sort;	
+
+OperatorDecl returns terms::OperatorDecl :
+    NamedOperator;
+    
+NamedOperator returns terms::NamedOperator :    
+    name = ID '(' ( parameters += VariableDecl ( ',' parameters += VariableDecl )* )? ')' '=' def = Term;
+    
+Sort returns terms::Sort :
+    BuiltInSort | MultiSetSort | ProductSort | UserSort ;
+       
+MultiSetSort returns terms::MultiSetSort :
+    'MS' '(' basis = Sort ')';
+        
+ProductSort returns terms::ProductSort :
+    '('  {terms::ProductSort} (elementSort += Sort ( '*' elementSort += Sort )*)? ')'; 
+                        
+UserSort returns terms::UserSort :
+    // declaration = [terms::SortDecl|SortDecl];
+    // Unfortunately, crossreferencing works for
+    // simple datatypes only; but I will use my own
+    // linker anyway, so setting the name of the
+    // SymbolUse is fine for now:
+    name = ID;
+
+Term returns terms::Term :
+    Term1;
+    
+Term1 returns terms::Term :
+    Term2 (
+      ( {booleans::Or.subterm += current} 'or' subterm += Term2 ) |
+      ( {booleans::Imply.subterm += current} 'implies' subterm += Term2 )
+    )*;    
+    
+Term2 returns terms::Term :
+    Term3 (
+        {booleans::And.subterm += current} 'and' subterm += Term3 
+    )*; 
+    
+Term3 returns terms::Term :
+    Term4 (
+      ( {integers::GreaterThan.subterm += current} '>' subterm += Term4 ) |
+      ( {integers::GreaterThanOrEqual.subterm += current} '>=' subterm += Term4 ) |
+      ( {integers::LessThan.subterm += current} '<' subterm += Term4 ) | 
+      ( {integers::LessThanOrEqual.subterm += current} '<=' subterm += Term4 ) |
+      ( {multisets::Contains.subterm += current} 'contains' subterm += Term4 ) |
+      ( {finiteintranges::LessThan.subterm += current} '<r' subterm += Term4 )            |
+      ( {finiteintranges::LessThanOrEqual.subterm += current} '<=r' subterm += Term4 )    |
+      ( {finiteintranges::GreaterThan.subterm += current} '>r' subterm += Term4 )         |
+      ( {finiteintranges::GreaterThanOrEqual.subterm += current} '>=r' subterm += Term4 ) |
+      ( {partitions::LessThan.subterm += current} '<p' subterm += Term4 )                 |
+      ( {partitions::GreaterThan.subterm += current} '>p' subterm += Term4 )              |
+      ( {strings::GreaterThanOrEqual.subterm += current} '>=s' subterm += Term4 )         |
+      ( {strings::GreaterThan.subterm += current} '>s' subterm += Term4 )                 |
+      ( {strings::LessThanOrEqual.subterm += current} '<=s' subterm += Term4 )            |
+      ( {strings::LessThan.subterm += current} '<s' subterm += Term4 )
+    )*;  
+    
+Term4 returns terms::Term :
+    Term5 (
+      ( {booleans::Equality.subterm += current} '==' subterm += Term5 ) |
+      ( {booleans::Inequality.subterm += current} '!=' subterm += Term5 )
+    )*;  
+    
+Term5 returns terms::Term :
+    Term6 (
+      ( {multisets::Add.subterm += current} '++' subterm += Term6 ) |
+      ( {multisets::Subtract.subterm += current} '--' subterm += Term6 )
+    )*;  
+    
+Term6 returns terms::Term :
+    Term7 (
+        {multisets::NumberOf.subterm += current} '`' subterm += Term7 
+    )*;        
+
+Term7 returns terms::Term :
+    Term8 (
+      ( {integers::Addition.subterm += current} '+' subterm += Term8 ) |
+      ( {integers::Subtraction.subterm += current} '-' subterm += Term8 )
+    )*;  
+    
+Term8 returns terms::Term :
+    Term9 (
+      ( {integers::Multiplication.subterm += current} '*' subterm += Term9 ) |
+      ( {multisets::ScalarProduct.subterm += current} '**' subterm += Term9 ) |
+      ( {integers::Division.subterm += current} '/' subterm += Term9 ) |
+      ( {integers::Modulo.subterm += current} '%' subterm += Term9 )
+    )*;
+
+Term9 returns terms::Term :
+    'not'  {booleans::Not} subterm += Term9 | 
+    Term10;     
+    
+Term10 returns terms::Term :
+    Variable |
+    UserOperator |
+    OtherBuiltInOperator |
+    BuiltInConst |
+    '(' Term
+        ( ')'  | ',' {terms::Tuple.subterm += current} subterm += Term ( ',' subterm += Term )* ')' );
+                 
+Variable returns terms::Variable :
+    name = ID;        
+
+UserOperator returns terms::UserOperator :
+//    '$' {terms::UserOperator} name = ID '(' ( subterm += Term (',' subterm += Term )* )?  ')' ;
+      name = ID '(' ( subterm += Term (',' subterm += Term )* )?  ')' ;
+    
+OtherBuiltInOperator returns terms::Term :
+    ( '|' {multisets::Cardinality} subterm+= Term10 '|' )                           |
+    ( '#(' {multisets::CardinalityOf}   subterm += Term ',' subterm += Term  ')' )  |
+    CyclicEnumsBuiltInOperator  |
+    PartitionsBuiltInOperator   |
+    StringsBuiltInOperator      |
+    ListsBuiltInOperator
+    ;
+        
+/* -------------------------------------------------------------
+ * Dispatch for concrete syntax for BuiltInSort
+ * ------------------------------------------------------------- */
+
+BuiltInSort returns terms::BuiltInSort :
+    Dot | Boolean | Number | FiniteEnumeration | CyclicEnumeration |
+    FiniteIntRange | StringSort | ListSort ;
+    
+    
+BuiltInConst returns terms::Term :
+    DotConstant | BooleanConstant | MultisetConstant | NumberConstant |
+    FiniteIntRangeConstant | StringConstant | ListConstant ;
+                      
+/* -------------------------------------------------------------
+ * Concrete syntax for package multisets
+ * ------------------------------------------------------------- */
+ 
+// Technically, All is an operator. But in the concrete syntax, I
+// made it a constant. 
+MultisetConstant returns terms::MultiSetOperator :
+    ( 'all' {multisets::All} ':' refsort = Sort ) |
+    ( 'empty' {multisets::Empty} ':' refsort = Sort )  ;
+    
+/* -------------------------------------------------------------
+ * Concrete syntax for package dots
+ * ------------------------------------------------------------- */ 
+
+Dot returns dots::Dot :   
+    'DOT' {dots::Dot};  
+    
+DotConstant returns dots::DotConstant :
+    'dot' {dots::DotConstant};    
+
+
+/* -------------------------------------------------------------
+ * Concrete syntax for package boolean
+ * ------------------------------------------------------------- */    
+
+Boolean returns booleans::Bool :
+    'BOOL' {booleans::Bool};
+    
+BooleanConstant returns booleans::BooleanConstant :
+//    value = BOOL;
+    {booleans::BooleanConstant} ( value ?= 'true' | 'false') ;
+     
+// terminal BOOL returns ecore::EBoolean :
+//    'true' | 'false';      
+         
+         
+/* -------------------------------------------------------------
+ * Concrete syntax for package integer
+ * ------------------------------------------------------------- */
+ 
+Number returns integers::Number :
+     ( 'INT' {integers::Integer} ) |
+     ( 'NAT' {integers::Natural} ) |
+     ( 'POS' {integers::Positive} );
+
+NumberConstant returns integers::NumberConstant :
+    {integers::NumberConstant} value = INTEGER (':' type = Number)?;
+
+INTEGER returns ecore::EInt :
+    INTSTRING;
+    
+NAT returns pnmldatatypes::NonNegativeInteger :
+    // Note that negative values are impossible, due
+    // to a value converter for this rule.
+    INTSTRING;
+    
+terminal INTSTRING :
+    ('-')? ('0'..'9')+;
+
+    
+/* -------------------------------------------------------------
+ * Concrete syntax for package finite enumerations
+ * ------------------------------------------------------------- */
+ 
+FiniteEnumeration returns finiteenums::FiniteEnumeration :
+     'enum' '{' elements += FEConstant (',' elements += FEConstant)* '}';
+     
+FEConstant returns finiteenums::FEConstant :
+     name = ID;     
+     
+/* -------------------------------------------------------------
+ * Concrete syntax for package cyclic enumerations
+ * ------------------------------------------------------------- */
+ 
+CyclicEnumeration returns cyclicenums::CyclicEnumeration :
+     'cyclic' '{' elements += FEConstant (',' elements += FEConstant)* '}';
+     
+CyclicEnumsBuiltInOperator returns terms::Term :
+     ( 'succ' '(' {cyclicenums::Successor} subterm += Term ')' )  |
+     ( 'pred' '(' {cyclicenums::Predecessor} subterm += Term ')' );
+
+/* -------------------------------------------------------------
+ * Concrete syntax for package finite int ranges
+ * ------------------------------------------------------------- */
+
+FiniteIntRange returns finiteintranges::FiniteIntRange :
+     '[' start = INTEGER '..' end = INTEGER ']' ;
+     
+FiniteIntRangeConstant returns finiteintranges::FiniteIntConstant :
+     value = INTEGER range = FiniteIntRange;
+     
+/* -------------------------------------------------------------
+ * Concrete syntax for package partitions
+ * ------------------------------------------------------------- */
+ 
+Partition returns partitions::Partition :
+     'partition' def = Sort 'in' name = ID 
+     '{' partitionElements += PartitionElement 
+         ( ';' partitionElements += PartitionElement )* '}';
+         
+PartitionElement returns partitions::PartitionElement :
+     name = ID ':' partitionelementconstant += Term 
+         ( ',' partitionelementconstant += Term )* ;
+         
+PartitionsBuiltInOperator returns terms::Term :
+     'partition' ':' {partitions::PartitionElementOf} name= ID
+     '(' subterm += Term ')'; 
+  
+/* -------------------------------------------------------------
+ * Concrete syntax for package strings
+ * ------------------------------------------------------------- */     
+
+
+StringSort returns strings::String :
+     "STRING" {strings::String} ;
+
+
+StringsBuiltInOperator returns strings::StringOperator :
+     ( "concatstring" "(" {strings::Concatenation} subterm += Term "," subterm += Term ")" ) |
+     // note that we do not have append (does not make sense)
+     ( "stringlength" "("  {strings::Length} subterm += Term  ")" ) |
+     ( "substring" {strings::Substring} ":"
+         start = NAT "," length = NAT "(" subterm += Term  ")" );
+     
+StringConstant returns strings::StringConstant :
+     value = STRING ;     
+
+
+/* -------------------------------------------------------------
+ * Concrete syntax for package lists
+ * ------------------------------------------------------------- */     
+ 
+ListSort returns lists::List: 
+     "LIST" ":" basis = Sort;
+     
+  
+ListsBuiltInOperator returns lists::ListOperator :
+     ( "concatlists" "(" {lists::Concatenation} subterm += Term "," subterm += Term ")" )    |
+     ( "appendtolist" "(" {lists::Append} subterm += Term "," subterm += Term ")" )          |
+     ( "listlength" "("  {lists::Length} subterm += Term  ")" )                              |
+     ( "sublist" ":" {lists::Sublist} 
+           start= NAT "," length = NAT "(" subterm += Term  ")" )                            |
+     ( "memberat" ":" {lists::MemberAtIndex} index = NAT "(" subterm += Term  ")" )          |
+     ( "makelist" ":" {lists::MakeList} refsort = Sort
+           "(" (subterm += Term ("," subterm += Term)* )? ")" ) ;
+           
+ListConstant returns lists::EmptyList :
+     "emptylist" ":" refsort = Sort ;
+            
+/* -------------------------------------------------------------
+ * Concrete syntax for package arbitrary declarations
+ * ------------------------------------------------------------- */
+ 
+ArbitrarySort returns arbitrary::ArbitrarySort :
+     name = ID;     
+               
+ArbitraryOperator returns arbitrary::ArbitraryOperator :
+     name = ID ":"
+         (input += Sort ("," input += Sort )* )?
+         "->"
+         output = Sort ;

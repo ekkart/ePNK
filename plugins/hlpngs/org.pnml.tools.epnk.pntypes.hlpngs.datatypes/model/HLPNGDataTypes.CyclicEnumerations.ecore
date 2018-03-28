@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cyclicenumerations"
+    nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes/cyclicenumerations" nsPrefix="cyclicenumerations">
+  <eClassifiers xsi:type="ecore:EClass" name="CyclicEnumeration" eSuperTypes="HLPNGDataTypes.FiniteEnumerations.ecore#//FiniteEnumeration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CyclicEnumOperator" abstract="true"
+      eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Successor" eSuperTypes="#//CyclicEnumOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Predecessor" eSuperTypes="#//CyclicEnumOperator"/>
+</ecore:EPackage>

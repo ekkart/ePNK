@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_0AaKALElEd-keYELjAOriQ" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_-BAsQLElEd-keYELjAOriQ" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-BAsTLElEd-keYELjAOriQ" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-BAsTbElEd-keYELjAOriQ" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_-BAsQ7ElEd-keYELjAOriQ" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_-BAsRLElEd-keYELjAOriQ" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_-BAsRbElEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_-BAsRrElEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_-BAsR7ElEd-keYELjAOriQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_-BAsSLElEd-keYELjAOriQ" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_-BAsSbElEd-keYELjAOriQ" collapsed="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_-BAsSrElEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_-BAsS7ElEd-keYELjAOriQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_-BAsQbElEd-keYELjAOriQ" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.ecore#//terms/Term"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-BAsQrElEd-keYELjAOriQ" x="180" y="135"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_ABA1ILEmEd-keYELjAOriQ" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_ABA1I7EmEd-keYELjAOriQ" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_ABA1JLEmEd-keYELjAOriQ" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ABA1JbEmEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ABA1JrEmEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ABA1J7EmEd-keYELjAOriQ"/>
+      <layoutConstraint xmi:type="notation:Ratio" xmi:id="_d_JCgLE2Ed-ecIFoALmGgQ" value="0.3"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ABA1KLEmEd-keYELjAOriQ" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ABA1KbEmEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ABA1KrEmEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ABA1K7EmEd-keYELjAOriQ"/>
+      <layoutConstraint xmi:type="notation:Ratio" xmi:id="_d_JCgbE2Ed-ecIFoALmGgQ" value="0.3"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ABA1IbEmEd-keYELjAOriQ" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="HLPNGInscriptionDocument.ecore#//HLPNGInscriptionDocument"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ABA1IrEmEd-keYELjAOriQ" x="50" y="35"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_PZ-jMLEmEd-keYELjAOriQ" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PZ-jPLEmEd-keYELjAOriQ" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PZ-jPbEmEd-keYELjAOriQ" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_PZ-jM7EmEd-keYELjAOriQ" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_PZ-jNLEmEd-keYELjAOriQ" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_PZ-jNbEmEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_PZ-jNrEmEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_PZ-jN7EmEd-keYELjAOriQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_PZ-jOLEmEd-keYELjAOriQ" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_PZ-jObEmEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_PZ-jOrEmEd-keYELjAOriQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_PZ-jO7EmEd-keYELjAOriQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_PZ-jMbEmEd-keYELjAOriQ" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.pnml.tools.epnk.pntypes.hlpngs.datatypes/model/HLPNGDataTypes.ecore#//terms/Declarations"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PZ-jMrEmEd-keYELjAOriQ" x="35" y="135"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_0AaKAbElEd-keYELjAOriQ"/>
+  <element xmi:type="ecore:EPackage" href="HLPNGInscriptionDocument.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_QWxioLEmEd-keYELjAOriQ" type="3002" source="_ABA1ILEmEd-keYELjAOriQ" target="_PZ-jMLEmEd-keYELjAOriQ">
+    <children xmi:type="notation:Node" xmi:id="_QWxipLEmEd-keYELjAOriQ" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QWxipbEmEd-keYELjAOriQ" x="12" y="44"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_QWxiprEmEd-keYELjAOriQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QWxip7EmEd-keYELjAOriQ" x="-13" y="-16"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_QWxiobEmEd-keYELjAOriQ" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_QWxiorEmEd-keYELjAOriQ" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="HLPNGInscriptionDocument.ecore#//HLPNGInscriptionDocument/declarations"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QWxio7EmEd-keYELjAOriQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XmM9wLEmEd-keYELjAOriQ" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_YTgIoLEmEd-keYELjAOriQ" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_UKHRYLEmEd-keYELjAOriQ" type="3002" source="_ABA1ILEmEd-keYELjAOriQ" target="_-BAsQLElEd-keYELjAOriQ">
+    <children xmi:type="notation:Node" xmi:id="_UKHRZLEmEd-keYELjAOriQ" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_UKHRZbEmEd-keYELjAOriQ" x="1" y="-21"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_UKHRZrEmEd-keYELjAOriQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_UKHRZ7EmEd-keYELjAOriQ" x="-8" y="13"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_UKHRYbEmEd-keYELjAOriQ" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_UKHRYrEmEd-keYELjAOriQ" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="HLPNGInscriptionDocument.ecore#//HLPNGInscriptionDocument/term"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UKHRY7EmEd-keYELjAOriQ" points="[0, 0, -119, 60]$[119, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_b2cq8LEmEd-keYELjAOriQ" id="(0.7471264367816092,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ai2VELEmEd-keYELjAOriQ" id="(0.5,1.0)"/>
+  </edges>
+</notation:Diagram>

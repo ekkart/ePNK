@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ePNK HLPNG Concrete Syntax (Test project)
+Bundle-Vendor: DTU Informatics, Software Engineering Section, E. Kindler
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.pnml.tools.epnk.pntypes.hlpngs.datatypes.concretesyntax.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.xtext,
+ org.eclipse.xtext.junit4,
+ org.eclipse.xtext.ui.junit,
+ org.junit4,
+ org.eclipse.ui.workbench;resolution:=optional,
+ org.pnml.tools.epnk.pntypes.hlpngs.datatypes.concretesyntax;bundle-version="1.0.0",
+ org.pnml.tools.epnk.pntypes.hlpngs.datatypes.concretesyntax.ui;bundle-version="1.0.0"
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

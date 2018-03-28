@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="finiteintranges"
+    nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes/finiteintranges" nsPrefix="finiteintranges">
+  <eClassifiers xsi:type="ecore:EClass" name="FiniteIntRange" eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInSort">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FiniteIntRangeOperator" abstract="true"
+      eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LessThan" eSuperTypes="#//FiniteIntRangeOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LessThanOrEqual" eSuperTypes="#//FiniteIntRangeOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterThan" eSuperTypes="#//FiniteIntRangeOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterThanOrEqual" eSuperTypes="#//FiniteIntRangeOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FiniteIntConstant" eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInConst">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" lowerBound="1" eType="#//FiniteIntRange"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

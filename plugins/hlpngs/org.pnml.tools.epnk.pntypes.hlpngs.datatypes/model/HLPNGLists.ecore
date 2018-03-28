@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lists"
+    nsURI="http://org.pnml.tools/epnk/types/hlpngs/datatypes/lists" nsPrefix="lists">
+  <eClassifiers xsi:type="ecore:EClass" name="List" eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInSort">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="basis" lowerBound="1" eType="ecore:EClass HLPNGDataTypes.ecore#//terms/Sort"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EmptyList" eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInConst">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refsort" lowerBound="1"
+        eType="ecore:EClass HLPNGDataTypes.ecore#//terms/Sort" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MakeList" eSuperTypes="#//ListOperator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refsort" lowerBound="1"
+        eType="ecore:EClass HLPNGDataTypes.ecore#//terms/Sort" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Concatenation" eSuperTypes="#//ListOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Length" eSuperTypes="#//ListOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MemberAtIndex" eSuperTypes="#//ListOperator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType ../../org.pnml.tools.epnk/model/PNMLDataTypes.ecore#//NonNegativeInteger"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Append" eSuperTypes="#//ListOperator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sublist" eSuperTypes="#//ListOperator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" lowerBound="1" eType="ecore:EDataType ../../org.pnml.tools.epnk/model/PNMLDataTypes.ecore#//NonNegativeInteger"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
+        eType="ecore:EDataType ../../org.pnml.tools.epnk/model/PNMLDataTypes.ecore#//NonNegativeInteger"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListOperator" abstract="true" eSuperTypes="HLPNGDataTypes.ecore#//terms/BuiltInOperator"/>
+</ecore:EPackage>
