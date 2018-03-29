@@ -1,0 +1,202 @@
+\begin{thebibliography}{10}
+
+\bibitem{BCea03}
+J.~Billington, S.~Christensen, K.~van Hee, E.~Kindler, O.~Kummer, L.~Petrucci,
+  R.~Post, C.~Stehno, and M.~Weber.
+\newblock The {Petri Net Markup Language}: Concepts, technology, and tools.
+\newblock In W.~van~der Aalst and E.~Best, editors, {\em Application and Theory
+  of {Petri} Nets 2003, 24$^{th}$ International Conference}, volume 2679 of
+  {\em LNCS}, pages 483--505. Springer, June 2003.
+
+\bibitem{BSM06}
+F.~Budinsky, D.~Steinberg, E.~Merks, R.~Ellersick, and T.~J. Grose.
+\newblock {\em Eclipse Modeling Framework}.
+\newblock The Eclipse Series. Addison-Wesley, 2nd edition, Apr. 2006.
+
+\bibitem{CGP99}
+E.~Clarke, O.~Grumberg, and D.~Peled.
+\newblock {\em Model checking}.
+\newblock MIT Press, 1999.
+
+\bibitem{ClRu08}
+E.~Clayberg and D.~Rubel.
+\newblock {\em Eclipse Plug-ins}.
+\newblock The Eclipse Series. Addison-Wesley, 3rd edition edition, 2008.
+
+\bibitem{Gro09}
+R.~C. Gronback.
+\newblock {\em {Eclipse Modeling Project}: A Domain-Specific Language ({DSL})
+  Toolkit}.
+\newblock The Eclipse Series. Addison-Wesley Professional, Mar. 2009.
+
+\bibitem{HKea09}
+L.~Hillah, E.~Kindler, F.~Kordon, L.~Petrucci, and N.~Treves.
+\newblock A primer on the {Petri Net Markup Language} and {ISO/IEC 15909-2}.
+\newblock In K.~Jensen, editor, {\em $10^{th}$ Workshop on Coloured Petri Nets
+  (CPN 09)}, pages 101--120, Oct. 2009.
+
+\bibitem{DBLP:conf/apn/HillahKPT10}
+L.-M. Hillah, F.~Kordon, L.~Petrucci, and N.~Tr{\`e}ves.
+\newblock {PNML Framework}: An extendable reference implementation of the
+  {Petri Net Markup Language}.
+\newblock In J.~Lilius and W.~Penczek, editors, {\em Petri Nets}, volume 6128
+  of {\em Lecture Notes in Computer Science}, pages 318--327. Springer, 2010.
+
+\bibitem{ISO-IEC:15909-2-2011}
+ISO/IEC.
+\newblock {Systems and software engineering -- High-level Petri nets -- Part 2:
+  Transfer format, International Standard ISO/IEC 15909-2:2011}, Feb. 2011.
+
+\bibitem{JeKr09}
+K.~Jensen and L.~M. Kristensen.
+\newblock {\em Coloured {Petri} Nets -- Modelling and Validation of Concurrent
+  Systems}.
+\newblock Springer-Verlag, 2009.
+
+\bibitem{JKW00b}
+M.~J\"ungel, E.~Kindler, and M.~Weber.
+\newblock The {Petri Net Markup Language}.
+\newblock {\em Petri Net Newsletter}, 59:24--29, Oct. 2000.
+
+\bibitem{JKW00}
+M.~J\"ungel, E.~Kindler, and M.~Weber.
+\newblock Towards a generic interchange format for {Petri} nets -- position
+  paper.
+\newblock In R.~Bastide, J.~Billington, E.~Kindler, F.~Kordon, and K.~H.
+  Mortensen, editors, {\em Meeting on {XML/SGML} based Interchange Formats for
+  {Petri} Nets}, pages 1--5, June 2000.
+
+\bibitem{Kin97d}
+E.~Kindler.
+\newblock {Der Petrinetz-Kern: Ein Traum wird wahr}.
+\newblock In H.~Ehrig, W.~Reisig, and H.~Weber, editors, {\em Move-On-Workshop
+  der DFG-Forschergruppe Petrinetz-Technologie}, pages 121--124. Technische
+  Universi\"at Berlin, 1997.
+
+\bibitem{Kin06}
+E.~Kindler.
+\newblock The {Petri Net Markup Language} and {ISO/IEC 15909-2}: Concepts,
+  status, and future directions.
+\newblock In E.~Schnieder, editor, {\em Entwurf komplexer
+  Automatisierungssysteme, 9. Fachtagung}, pages 35--55, May 2006.
+\newblock invited paper.
+
+\bibitem{Kin07}
+E.~Kindler.
+\newblock Modular {PNML} revisited: Some ideas for strict typing.
+\newblock In {\em Proc.\ AWPN 2007, Koblenz, Germany}, pages 20--25, Sept.
+  2007.
+
+\bibitem{Kin09c}
+E.~Kindler.
+\newblock Model-based software engineering and process-aware information
+  systems.
+\newblock In K.~Jensen and W.~van~der Aalst, editors, {\em Transactions on
+  Petri Nets and Other Models of Concurrency II: Special Issue on Concurrency
+  in Process-Aware Information Systems}, volume 5460 of {\em LNCS}, pages
+  27--45. Springer-Verlag, 2009.
+
+\bibitem{Kin12b}
+E.~Kindler.
+\newblock Modelling local and global behaviour: {Petri} nets and event
+  coordination.
+\newblock {\em Transactions on {Petri} Nets and Other Models of Concurrency},
+  6:71--93, 2012.
+
+\bibitem{Kin14a}
+E.~Kindler.
+\newblock Coordinating interactions: The {Event Coordination Notation}.
+\newblock Technical Report DTU Compute Technical Report 2014-05, DTU Compute,
+  Kgs. Lyngby, Denmark, May 2014.
+
+\bibitem{KiDe96}
+E.~Kindler and J.~Desel.
+\newblock {Der Traum von einem universellen Petrinetz-Werkzeug --- Der
+  Petrinetz-Kern}.
+\newblock In J.~Desel, A.~Oberweis, and E.~Kindler, editors, {\em 3.~Workshop
+  Algorithmen und Werkzeuge f\"ur Petrinetze}, number 341 in
+  Forschungsberichte. Institut AIFB, Universit\"at Karlsruhe, Oct. 1996.
+
+\bibitem{KiRe96}
+E.~Kindler and W.~Reisig.
+\newblock Algebraic system nets for modelling distributed algorithms.
+\newblock {\em Petri Net Newsletter}, 51:16--31, Dec. 1996.
+
+\bibitem{KRVW97}
+E.~Kindler, W.~Reisig, H.~V\"olzer, and R.~Walter.
+\newblock {Petri} net based verification of distributed algorithms: An example.
+\newblock {\em Formal Aspects of Computing}, 9:409--424, 1997.
+
+\bibitem{KiWe01c}
+E.~Kindler and M.~Weber.
+\newblock The {Petri Net Kernel} -- an infrastructure for building {Petri} net
+  tools.
+\newblock {\em Software Tools for Technology Transfer}, 3(4):486--497, July
+  2001.
+
+\bibitem{Lag12}
+M.~Laganeckas.
+\newblock A simulator for high-level {Petri} nets: Model-based design and
+  implementation.
+\newblock Master's thesis, {IMM-M.Sc.-2012-101}, DTU Informatics, Technical
+  University of Denmark, Sept. 2012.
+
+\bibitem{MOF05}
+{OMG}.
+\newblock {Meta Object Facility} ({MOF}) specification, version 1.4.1.
+\newblock Technical Report formal/05-05-05, The Object Management Group, Inc.,
+  May 2005.
+
+\bibitem{Rei98}
+W.~Reisig.
+\newblock {\em Elements of Distributed Algorithms --- Modeling and Analysis
+  with {Petri} Nets}.
+\newblock Springer, 1998.
+
+\bibitem{RKea98}
+W.~Reisig, E.~Kindler, T.~Vesper, H.~V\"olzer, and R.~Walter.
+\newblock Distributed algorithms for networks of agents.
+\newblock In W.~Reisig and G.~Rozenberg, editors, {\em Lectures on {Petri} Nets
+  {II}: Applications}, volume 1492 of {\em LNCS}, pages 331--385. Springer,
+  1998.
+
+\bibitem{Roz87}
+G.~Rozenberg.
+\newblock Behaviour of elementary net systems.
+\newblock In W.~Brauer, W.~Reisig, and G.~Rozenberg, editors, {\em Petri Nets:
+  Central Models and Their Properties}, volume 254 of {\em LNCS}, pages 60--94.
+  Springer-Verlag, 1987.
+
+\bibitem{StHa97}
+P.~H. Starke and H.-M. Hanisch.
+\newblock Analysis of signal/event nets.
+\newblock In {\em Emerging Technologies and Factory Automation (ETFA '97),
+  Proceedings, $6^{th}$ International Conference on}, pages 253--257. IEEE,
+  Sept. 1997.
+
+\bibitem{Eclipse-WWW}
+{The Eclipse Foundation}.
+\newblock The {Eclipse} platform.
+\newblock http://www.eclipse.org.
+
+\bibitem{Thi87}
+P.~Thiagarajan.
+\newblock Elementary net systems.
+\newblock In W.~Brauer, W.~Reisig, and G.~Rozenberg, editors, {\em Petri Nets:
+  Central Models and Their Properties}, volume 254 of {\em LNCS}, pages 26--59.
+  Springer-Verlag, 1987.
+
+\bibitem{WeKi03}
+M.~Weber and E.~Kindler.
+\newblock The {Petri Net Markup Language}.
+\newblock In H.~Ehrig, W.~Reisig, G.~Rozenberg, and H.~Weber, editors, {\em
+  Petri Net Technologies for Modeling Communication Based Systems}, volume 2472
+  of {\em LNCS}, pages 124--144. Springer, 2003.
+
+\bibitem{WWea97}
+M.~Weber, R.~Walter, H.~V\"olzer, T.~Vesper, W.~Reisig, S.~Peuker, E.~Kindler,
+  J.~Freiheit, and J.~Desel.
+\newblock {DAWN}: {Petrinetzmodelle zur Verifikation Verteilter Algorithmen}.
+\newblock Informatik-Bericht~88, Humboldt-Universit\"at zu Berlin, Dec. 1997.
+
+\end{thebibliography}
