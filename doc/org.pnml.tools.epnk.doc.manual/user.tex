@@ -1424,8 +1424,8 @@ be instantiated with some communication network in order to simulate
 a network algorithm on a specific network \cite{RKea98}.
 
 Note that all examples that are discussed in this section can be obtained
-from the ePNK home page together with release 1.0.0 of the ePNK:
-\url{http://www2.imm.dtu.dk/~ekki/projects/ePNK/release-1.0.0.html}.
+from the ePNK home page together with release 1.2.0 of the ePNK:
+\url{http://www2.compute.dtu.dk/~ekki/projects/ePNK/}.
 
 \subsubsection{The basic simulator for high-level nets}
 \label{subsubsec:user:sim:basic}
@@ -1440,7 +1440,7 @@ computes the prime numbers according to the principle of the ``Sieve of
 Eratosthenes'':%
   \index{Sieve of Eratosthenes}
 It starts with a multiset of all the numbers from $2$ up to some upper limit
-($11$ in our example) on place {\sf numbers}. Then, the transition {\sf t}
+($11$ in our example) on the place called {\sf numbers}. Then, transition {\sf t}
 removes a number (the value of {\sf x*y}) from this place, if this number is a
 multiple of some other number (the value assigned to {\sf x}) on that place.
 When no number on the place is a multiple of another number on that place, 
@@ -1448,24 +1448,24 @@ the transition cannot fire anymore -- and the algorithm terminates. The
 numbers that are left on place {\sf numbers} are prime numbers.
 %
 \begin{figure}[hbt!!]
-  \centerline{\includegraphics[scale=.33]{HL-SimulatorPrimes}}
+  \centerline{\includegraphics[scale=.5]{HL-SimulatorPrimes.jpg}}
   \caption{ePNK with a simulation application running on a HLPNG}
   \label{fig:user:hl-simulator-1}
 \end{figure}
 %
-In Fig.~\ref{fig:user:hl-simulator-1} there is only one last non-prime
+In Fig.~\ref{fig:user:hl-simulator-1}, there is only one last non-prime
 number left: $6$. The current marking of the place is shown as a blue
 label at the top-right corner of the place (a long stack of tokens
 represented as a multiset term in the concrete syntax for HLPNGs of the
 ePNK).
 
-Assuming that you have obtained and installed the examples from the ePNK home
-page, we will now explain how to start the simulator and how to open the
-additional simulator view, which shows the firing sequence up to the latest
-point in the simulation. Then we will explain how to interact with the simulator.
+We assuming that you have obtained and installed the examples from the ePNK home
+page already. Next, we explain how to start the simulator on these examples
+and how to open the additional simulator view, which shows the firing sequence
+up to the latest point in the simulation. Then, we will explain how to interact
+with the simulator.
 
-If you did not do that yet, you need to open the \emph{ePNK applications view}%
-  \index{ePNK!Applications view}
+If you did not do that already, you need to open the \emph{ePNK applications view}
 as described\footnote
   {In short:
    Choose ``Window''$\rightarrow$``Show View''$\rightarrow$``Other...'';
@@ -1476,21 +1476,25 @@ can be opened in a similar way: Choose
 ``Window''$\rightarrow$``Show View''$\rightarrow$``Other...''; then, in
 the ``Show View'' dialog, select ``Simulation View'' from the ``HLPNG
 Simulator Category''. By clicking on the tab at the top of the views,
-you can arrange them in a way similar to Fig.~\ref{fig:user:hl-simulator-1}
--- it is convenient to see the applications view and the simulation view
-at the same time.
+you can arrange them in a way similar to Fig.~\ref{fig:user:hl-simulator-1},
+since it will be convenient, if you can see the applications view and the
+simulation view at the same time.
 
+The easiest way to start the simulator on a high-level net is to open
+the graphical editor on one of the nets pages. Then, right-clicking on
+the drop-down menu in the ePNK applications view will show all the
+applications that are available on this type of net. Selecting the
 The simulator can be started on a high-level net by right-clicking on the
-HLPNG element in the ePNK tree editor and then selecting 
-``ePNK''$\rightarrow$ ``Start Simulator App''.
+HLPNG element in the ePNK tree editor and then selecting ``HLPNG Simulator''
+will start the simulator on this net.
 
-Once the simulator application is started and selected in the applications view,
+Once the simulator application is started and selected in the ePNK application view,
 the simulation view shows the firing sequence of all transitions (along with the firing mode)
 from the initial marking up to the last step of the current simulation.
 If no simulation application is selected, the simulation view shows the
 firing sequence of the last active simulation.  You can click on the different
 entries and navigate up and down with the resp.\ buttons of the keyboard; then
-the net will show the marking before the selected transition fired. The
+the net will show the marking before the selected transition is fired. The
 current marking for each place is shown as a blue label at the
 top right of every place -- if there is no label, the place's marking is
 currently empty.
@@ -1519,8 +1523,9 @@ The automatic simulation can be started any time by pressing the play button
 again. By pressing the \emph{stop button},%
   \index{Simulator!Stop button|DEF}
 (red box), the simulator is reset to the initial marking as defined by
-the net. The cross to the right will delete the simulator completely
-(actually this is the general control for all applications).
+the net. Pressing the cross icon (delete button) to the right will stop
+and shut down the simulator; note that this is actually a general functionality provided by the
+ePNK application view, which is available for all running applications.
 
 The automatic simulation will randomly choose any of the currently activated
 transitions, and randomly choose a firing mode. If the simulation is paused,
@@ -1531,7 +1536,7 @@ can click on these green transitions\footnote
 ; then, a menu will pop up, which shows all the possible firing modes for
 that transition from which you can select. Then, the transition will be
 fired in the selected mode. Clicking somewhere else or pressing the ESC
-button, will cancel the selection though.
+button, will cancel the selection.
 
 Note that if you go back to some earlier state of the simulation by
 selecting a transition in the simulator view or by the back button in
@@ -1547,7 +1552,7 @@ high-lighted, since it might be able to fire it in different firing modes.
 If you are in such an intermediate state of a firing sequence, you can
 still interact with the transitions by clicking on them as discussed
 above and by selecting a firing mode, which will fire this alternative
-transition in that marking. Note that in this case, all the later firing steps
+transition in that marking. Note that, in this case, all the later firing steps
 of the earlier firing sequence are deleted.
 From the current point on, a new branch of simulation will be followed.
 This way, you will be able to explore different branches of the reachability
@@ -1572,16 +1577,16 @@ only if you provide values for which the transition can fire (or enough
 information for the simulator to figure that out), the transition will actually
 become enabled.
 
-\subsubsection{Supported operations}
+\subsubsection{HLPNG operations supported by the ePNK simulator}
 \label{subsubsec:user:sim:supported}
 
-Note that the simulator is still in an experimental phase. In particular, some
-of the more specific operations of ISO/IEC~15909-2 are not supported yet. This,
-in particular, applies to the sorts and operators for symmetric nets
-which currently are not supported by the simulator.
+High-level nets as defined in ISO/IEC~15909-2 have quite many built-in operations.
+The simulator of high-level nets for the ePNK does, unfortunately, not yet
+support all these operations. This,
+in particular, applies to the sorts and operators for symmetric nets.
 
 The following sorts of ISO/IEC~15909-2 are supported in the current
-version (0.1.2) of the simulator: {\sf DOT}, {\sf BOOL}, {\sf NAT}, {\sf POS},
+version (1.1.1) of the simulator: {\sf DOT}, {\sf BOOL}, {\sf NAT}, {\sf POS},
 {\sf INT}, and {\sf STRING} as well as the generic sorts product, multiset
 and lists over existing sorts.
 
@@ -1602,17 +1607,18 @@ supported by the simulator at all.
 \subsubsection{The simulator for network algorithms}
 \label{subsubsec:user:sim:networks}
 
-In this section, we discuss the simulator for network algorithms. Before
-discussing the simulator itself, we discuss the concept of network
+In this section, we discuss the \emph{simulator for network algorithms}.%
+  \index{Simulator!for network algorithms|DEF}
+Before discussing the simulator itself, we discuss the concept of network
 algorithms and the way they are modelled as algebraic nets schemas
-or -- in the terminology of ISO/IEC~15909 -- high-level Petri net schema
+or -- in the terminology of ISO/IEC~15909 -- high-level Petri net schemas
 (HLPNGS).%
   \index{HLPNGS|DEF}
 To this end, we use an example which -- except for syntactic sugar --
 is almost identical to the first publications that used algebraic
 net schemas for modelling and verifying network algorithms%
   \index{Network algorithm}
-\cite{KiRe96, WWea97, Rei98}: a simple algorithm that, for a given network
+\cite{KiRe96, WWea97, Rei98}: it is a simple algorithm that, for a given network
 of computing agents with some distinguished root agents, computes the
 minimal distance of each agent from a root agent. The Petri net modelling
 the algorithm is shown in Fig.~\ref{fig:user:sim:mindistance-exmpl}.%
@@ -1624,7 +1630,7 @@ the algorithm is shown in Fig.~\ref{fig:user:sim:mindistance-exmpl}.%
   \label{fig:user:sim:mindistance-exmpl}
 \end{figure}
 %
-In the example projects deployed for the ePNK 1.0.0, you will find it
+In the example projects deployed for the ePNK 1.2.0, you will find it
 in subfolder min-distance of folder network-algorithms.
 
 One of the main features of a Petri net schema is that, the Petri net
@@ -1667,7 +1673,7 @@ distance $n+1$ to all its neighbours. This is modelled by transition
 {\sf update}.
 
 As said before, the Petri net model from
-Fig.~\ref{fig:user:sim:mindistance-exmpl} models an the minimal
+Fig.~\ref{fig:user:sim:mindistance-exmpl} models a minimal
 distance algorithm for any network. If we want to simulate the
 algorithm, we need to know on which network it should run. To this end,
 a very simple network editor is deployed together with the high-level
@@ -1681,9 +1687,11 @@ is a network with directed arcs.
   \label{fig:user:sim:network}
 \end{figure}
 %
-The network simulator can be started by right-clicking on the HLPN element in
-the ePNK tree editor and then selecting ``ePNK''$\rightarrow$``Start Network
-Simulator App''; if there is a network file with the same name as the Petri
+The network simulator can be started in the same way as the simulator for
+general high-level nets. Once, a page of the net is open in the graphical
+editor, right-click the drop-down menu in the ePNK application view, and
+select ``Network algorithm simulator''. If there is a network file with
+the same name as the Petri
 net model in the same folder, the network simulator chooses this network for
 the simulation. If there is no such file, the user will be prompted for
 a file with a network model. Once the network model is selected, the
@@ -1726,14 +1734,15 @@ nodes, as well as categories for nodes. When a node is selected,
 each node can be associated with any number of categories by
 a menu that pops up when clicking in the category property in
 the properties view. In Fig.~\ref{fig:user:sim:network}, the
-association with categories is also shown by the same colour for
+association with categories is also shown by using the same colour for
 the category and the resp.\ nodes; but the colour itself does not have
-any meaning in the diagrams.
+any meaning in the diagrams, its only purpose is to make the network diagrams
+easier to grasp on a single glance.
 
 For a given network, the sort {\sf AGENT} is associated with
 the set of nodes; for every category, the respective constant
 symbol is associated with the multiset of nodes that are in
-that category (in our example these are the root nodes and
+that category (in our example, these are the root nodes and
 the inner nodes). For the operation symbol {\sf N}, 
 $N(x,m)$ denotes a multiset of pairs, where for each outgoing
 arc from $x$ to $y$ there is a pair $(y,m)$ in the multiset.
@@ -1754,59 +1763,69 @@ algorithm here -- see \cite{WWea97, KRVW97} for details\footnote
 .%
   \index{Simulator|)}
 
+
 \section{Limitations and pitfalls}  
 
-The current version of the ePNK (1.0.0) still has some minor limitations,
-which are discussed in this section in order to avoid some unpleasant
-surprises. If you identify other issues or problems, please, let us know. 
+The current version of the ePNK (1.2.0) still has some minor limitations.
+Moreover, some functionality of the ePNK's functionality might
+not be exactly where you would expect it.  In order to avoid some
+unpleasant surprises these issues are briefly discussed in this section. 
   
 \subsection{Saving files: Tree editor}
-Technically, the tree editor and the graphical editor for pages are
-different editors. The graphical editors can be initiated via
-the tree editor only (via the pop-up menu ``Start GMF Editor on Page'' or
-a double click on a page in the tree editor or the graphical editor).
-The tree editor, however, serves as the main editor; saving a PNML document
+Technically, the tree editor and the graphical editor of the ePNK are
+different editors, they just work on the same underlying model. The
+graphical editors can be initiated via the tree editor only (via the
+pop-up menu ``Start GMF Editor on Page'' or a double click on a page
+in the tree editor or the graphical editor). The tree editor always
+serves as the master editor; in particular, saving a PNML document
 is possible only from the tree editor -- and only the tree editor
 shows a valid ``dirty-flag'' when the file contains unsaved changes
-(see Sect.~\ref{subsec:save-documents})
+(see Sect.~\ref{subsec:save-documents}).
 
 \subsection{Reset an attribute}
 \label{subsec:user:reset-attribute}
-In case some attribute is set to some value and you would like to remove
-that value (meaning that actually, the attribute is removed completely),
-it is no good to enter an empty string as a value for that property. And
-if it is an attribute with finitely many possible values, the drop down
-menu does not give you an option to not select any value. To restore
-the default situation of unsetting the attribute, you can right-click
-into the property column of that attribute in the properties view and then
-select ``Restore default value'' (see Sect.~\ref{subsec:attributes}).
 
+In the user interface of the ePNK there is no explicit way to create
+\emph{attributes}%
+  \index{Attribute|DEF}
+for net object, as you can do for labels. The reason is that attributes are
+not supposed to be shown as labels in the graphical editor at all. They
+are shown only in the properties view when the respective object is
+selected. When a value is entered for an attribute for the first time
+in the properties view, the attribute is created; and the value of
+the attribute changes whenever the value is changed in the properties view.
+
+The question, however, is how the attribute can be deleted? Entering
+an empty string is not removing the attribute. To actually remove
+an existing attribute from an object, you would select the respective
+object, and then, in the properties view, right-click on the respective
+property and select ``Restore default value'' (see 
+Sect.~\ref{subsec:attributes}). 
 
 \subsection{Graphical features}
 \label{subsec:supported-graphical-features}
 
 The graphical editor of the ePNK supports many graphical features, such as
 positions and size of nodes, intermediate positions for arcs, fonts, size and
-colours for labels, colours and line-width for nodes and arcs. Up to now, not
-all of these graphical features are transferred back to the actual
-PNML document (some of this information it is not even supported by PNML).
-Some graphical information is stored only as (ePNK) tool specific information.
+colours for labels, colours and line-width for nodes and arcs. Not
+all of these graphical features, however, are transferred back to the actual
+PNML document---some of this information cannot not even be represented in PNML.
+
+All graphical information of the ePNK is stored as tool specific information in PNML,
+so that the net in the graphical editor of ePNK always shows the way as you have
+edited it even when the PNML does not support the used graphical features.
 
 The graphical information that is used and made available in PNML
 so that it can be used by other tools that support PNML is the following:
 \begin{itemize}
   \item Position and size of nodes.
   \item Line colour and background colour for nodes.
-  \item Image information for nodes\footnote
-          {Up to version 1.0.0 of the ePNK, the path to an image can be changed
-          only in the tree editor. But the image is shown in the graphical editor
-          once it is set. From version 1.0.1 and higher, it will be possible to
-          set the image URI in the properties view of the node directly}.
+  \item Image information for nodes.
   \item Position resp.\ relative position of labels\footnote
           {The size of labels is not supported by PNML}.
   \item Text colour\footnote
-          {For the text colour the ePNK is actually abusing the line colour
-           attribute of PNML, since PNML does not have a text colour
+          {For the text colour, the ePNK is actually abusing the line colour
+           attribute of PNML, since PNML does not support a text colour
            attribute.}
         and background colour for labels.
   \item The font and the font-size of labels.
@@ -1820,13 +1839,14 @@ to PNML features -- is saved by the ePNK as tool specific information. You can
 even put notes on the graphical canvas, which will be saved. The graphical
 information not covered in the above list, however, will not be available to
 other tools, and will be gone, when the tool specific information
-(org.pnml.tools.epnk.diagraminfo) for the resp.\ page is deleted.
+(org.pnml.tools.epnk.diagraminfo) for the respective page is deleted.
 
 The ePNK reads all graphical attributes that are supported by PNML;
 but, only the ones discussed above are used and shown in the graphical editor.
 Moreover, the unused graphically attributes are not checked for
-validity; they will be written exactly the same way they were, when
-loading the PNML file (see also Sect.~\ref{subsec:graceful-PNML}).
+validity; they will be written in exactly the same way as they were loaded
+from the PNML file (see also Sect.~\ref{subsec:graceful-PNML})---even if
+they were not valid PNML.
 
 Due to some limitations in the automatically generated GMF editor on which
 the graphical editor of the ePNK for pages is based, there is another quirk
@@ -1834,32 +1854,34 @@ of the graphical ePNK editor: When a node is moved, the intermediate points of
 the attached arcs are also changing in the diagram; these changes are, however,
 not propagated to the PNML model. If you want to make sure that the
 intermediate points of an arc of the diagram and the PNML are exactly the same,
-the you need to explicitly touch and slightly move an intermediate point of each
-attached arc -- only then, the exact positions of the intermediate points
+you need to explicitly touch and slightly move one intermediate point of each
+attached arc; only then, the exact positions of the intermediate points
 are properly propagated to the PNML model.
 
 Note that some Petri net type definitions might define some graphical appearance
 for some of its elements. In that case, this graphical appearance overrides the
 graphical attributes of PNML.
 
-\subsection{Petri net types}
+\subsection{Petri net type: Should not be changed in an existing net}
 
 As mentioned in Sect.~\ref{subsec:creating-elements}, the type of a Petri net
 should never be changed after a net of that type was created --
 unless you know exactly what you are doing. Otherwise, it could happen
 that the produced PNML is invalid.
 
-For HLPNGs, it is no problem to change its kind any time, since this
+For HLPNGs, it is no problem to change its kind any time, since the
 kind has an effect on the validation only, but no effect on the
 serialisation of the net to a PNML file. Changing the ``kind'', actually,
-does not change the Petri net type -- just the sub sets of features that
+does not change the Petri net type -- just the subsets of features that
 are supported.
 
  
-\subsection{Wrapping labels}
+\subsection{Line-breaks in labels}
 
-All labels in ePNK can have line-breaks. In the graphical editor,
-line-breaks can be added by pressing the CNTRL and ENTER at the same time.
+All labels in ePNK Petri net types can have line-breaks (if the Petri net types
+syntax allows it. In order to create line-breaks in labels with the graphical editor, 
+you need to press CNTRL and ENTER at the same time; ENTER alone would actually
+finish editing the label.
 
 \subsection{Graceful PNML interpretation}  
 \label{subsec:graceful-PNML}
@@ -1880,7 +1902,7 @@ load them. For example, when some elements do not have ids (as required
 by PNML), references to these elements cannot be made via their id. In that
 case, the ePNK uses XPath references to these elements, which is not conformant
 to PNML. If such an invalid PNML file is loaded later by the ePNK again,
-the ids are added then, and validation is successful, saving this
+and the ids are added, and validation is successful, saving this
 file  will produce a conformant PNML documents again.
 
 \subsection{Deviation from PNML}
@@ -1889,7 +1911,8 @@ file  will produce a conformant PNML documents again.
 There is one minor deviation of the ePNK from PNML as of ISO/IEC~15909-2:2011:
 In the ePNK, all declarations of HLPNGs can have a name attribute, 
 which comes from the fact that {\tt Declaration} implements the interface for
-symbol definitions ({\tt SymbolDef}). As a consequence, also the {\tt Unparsed}
+symbol definitions ({\tt SymbolDef}). As a consequence, also the {\tt Unparsed}%
+  \index{ePNK!Unparsed@{\tt Unparsed}}
 declaration can have a name attribute. In ISO/IEC~15909-2, {\tt Unparsed} does
 not have a name attribute -- as the only exception among all declarations of
 PNML. Therefore, if an {\tt Unparsed} operation declaration with a name
@@ -1905,8 +1928,6 @@ without a name attribute (as it would be according to the standard), the
 ePNK would show this as an error under validation. But, it would still be able
 to read and write the PNML document.
 
-In future versions of ISO/IEC~15909-2\footnote
-  {Currently ISO/IEC~15909-2:2011 is under revision, which might fix
-   this problem in the standard.}, this might be resolved by requiring that
+In future versions of ISO/IEC~15909-2, this might be resolved by requiring that
 all declarations -- including {\tt Unparsed} -- should or, at least, could have
 a name attribute.
