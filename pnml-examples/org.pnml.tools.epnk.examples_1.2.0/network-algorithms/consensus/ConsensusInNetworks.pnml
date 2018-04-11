@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pnml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net type="http://www.pnml.org/version-2009/grammar/highlevelnet" id="n1">
+    <name>
+      <text>Consensus in networks algorithm</text>
+    </name>
+    <page id="pg1">
+      <name>
+        <text>The page</text>
+      </name>
+      <toolspecific tool="org.pnml.tools.epnk.diagraminfo" version="0.9.2">
+        <pageLabelProxy label="//@net.0/@page.0/@declaration.0"/>
+        <pageLabelProxy label="//@net.0/@page.0/@declaration.1"/>
+        <pageLabelProxy label="//@net.0/@page.0/@declaration.2"/>
+        <diagram visible="true" type="PNMLCoreModel" element="pg1" name="The page" measurementUnit="Pixel">
+          <children visible="true" type="2008" element="//@net.0/@page.0/@pageLabelProxy.0">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5003" element="//@net.0/@page.0/@pageLabelProxy.0"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="40" y="35" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2008" element="//@net.0/@page.0/@pageLabelProxy.1">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5003" element="//@net.0/@page.0/@pageLabelProxy.1"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="420" y="35" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2008" element="//@net.0/@page.0/@pageLabelProxy.2">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5003" element="//@net.0/@page.0/@pageLabelProxy.2"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="235" y="35" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2001" element="p1">
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="11579568" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="106" y="387" width="40" height="40"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.0">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.0"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="10" y="399" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.1">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.1"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="70" y="370" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.2">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.2"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="115" y="400" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2003" element="t1">
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="11579568" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="228" y="384" width="40" height="40"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.3">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.3"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="245" y="365" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2003" element="t2">
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="11579568" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="373" y="366" width="40" height="40"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.6">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.6"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="410" y="345" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2003" element="t3">
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="11579568" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="375" y="123" width="40" height="40"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.9">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.9"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="395" y="100" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2001" element="p2">
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="11579568" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="375" y="231" width="40" height="40"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.10">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.10"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="425" y="240" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.11">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.11"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="306" y="240" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.12">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.12"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="385" y="240" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2001" element="p3">
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="11579568" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="375" y="510" width="40" height="40"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.18">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.18"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="420" y="520" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.19">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.19"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="310" y="525" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2003" element="t4">
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="11579568" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="507" y="363" width="40" height="40"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.22">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.22"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="525" y="340" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2001" element="p4">
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="11579568" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="663" y="363" width="40" height="40"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.26">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.26"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="715" y="375" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.27">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.27"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="675" y="415" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.4">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.4"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="180" y="365" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.5">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.5"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="175" y="430" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.7">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.7"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="240" y="320" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.8">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.8"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="235" y="458" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.13">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.13"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="415" y="185" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.14">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.14"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="345" y="190" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.15">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.15"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="405" y="315" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.16">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.16"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="90" y="224" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.17">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.17"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="295" y="300" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.20">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.20"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="285" y="480" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.21">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.21"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="405" y="465" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.23">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.23"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="470" y="300" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.24">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.24"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="470" y="455" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.25">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.25"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="545" y="485" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.28">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.28"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="600" y="360" width="-1" height="-1"/>
+          </children>
+          <children visible="true" type="2009" element="//@net.0/@page.0/@labelproxy.29">
+            <children xsi:type="notation:DecorationNode" visible="true" type="5004" element="//@net.0/@page.0/@labelproxy.29"/>
+            <styles xsi:type="notation:ShapeStyle" fontColor="0" fontName="Tahoma" fontHeight="9" bold="false" italic="false" underline="false" strikeThrough="false" description="" fillColor="16777215" transparency="-1" lineColor="16777215" lineWidth="-1" roundedBendpointsRadius="0"/>
+            <layoutConstraint xsi:type="notation:Bounds" x="695" y="220" width="-1" height="-1"/>
+          </children>
+          <styles xsi:type="notation:DiagramStyle" pageX="0" pageY="0" pageWidth="100" pageHeight="100" description=""/>
+          <edges visible="true" type="4001" element="a1" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.3" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.7">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="Normal" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[18, -7, -104, -4]$[59, -22, -63, -19]$[102, -10, -20, -7]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a2" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.7" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.3">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="Normal" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[-20, 7, 102, 4]$[-58, 21, 64, 18]$[-103, 8, 19, 5]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a3" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.3" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.9">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[11, -17, -256, 4]$[44, -62, -223, -41]$[214, -62, -53, -41]$[247, -37, -20, -16]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a4" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.9" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.3">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[-16, 20, 251, -1]$[-53, 69, 214, 48]$[-223, 69, 44, 48]$[-254, 35, 13, 14]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a5" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.11" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.13">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="Normal" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[3, 20, 3, -88]$[11, 56, 11, -52]$[11, 56, 11, -52]$[4, 88, 4, -20]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a6" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.13" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.11">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="Normal" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[-7, -19, -7, 89]$[-20, -56, -20, 52]$[-11, -88, -11, 20]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a7" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.13" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.9">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[14, 13, 16, -122]$[160, 139, 162, 4]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a8" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.3" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.11">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, -20, -269, 244]$[0, -257, -269, 7]$[249, -257, -20, 7]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a9" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.7" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.13">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[20, -19, -127, 134]$[159, -139, 12, 14]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a10" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.17" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.7">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[-16, -13, 131, 113]$[-155, -128, -8, -2]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a11" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.9" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.17">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[-2, 20, -4, -124]$[-2, 127, -4, -17]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a12" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.20" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.13">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[-9, -12, 123, 120]$[-116, -134, 16, -2]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a13" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.17" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.20">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[13, -16, -119, 131]$[110, -128, -22, 19]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a14" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.20" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.3">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[4, 20, 405, -4]$[4, 186, 405, 162]$[-407, 186, -6, 162]$[-407, 43, -6, 19]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a15" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.22" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.20">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[-20, 0, 136, 0]$[-192, -16, -36, -16]"/>
+          </edges>
+          <edges visible="true" type="4001" element="a16" source="//@net.0/@page.0/@toolspecific.0/@diagram/@children.11" target="//@net.0/@page.0/@toolspecific.0/@diagram/@children.22">
+            <styles xsi:type="notation:ConnectorStyle" roundedBendpointsRadius="0" routing="Manual" smoothness="None" avoidObstructions="false" closestDistance="false" jumpLinkStatus="None" jumpLinkType="Semicircle" jumpLinksReverse="false" lineColor="11579568" lineWidth="-1"/>
+            <bendpoints xsi:type="notation:RelativeBendpoints" points="[20, 0, -268, -240]$[288, 0, 0, -240]$[288, 220, 0, -20]"/>
+          </edges>
+        </diagram>
+        <labelProxy label="//@net.0/@page.0/@object.0/@name"/>
+        <labelProxy label="//@net.0/@page.0/@object.0/@type"/>
+        <labelProxy label="//@net.0/@page.0/@object.0/@hlinitialMarking"/>
+        <labelProxy label="//@net.0/@page.0/@object.1/@name"/>
+        <labelProxy label="//@net.0/@page.0/@object.2/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.3/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.4/@name"/>
+        <labelProxy label="//@net.0/@page.0/@object.5/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.6/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.7/@name"/>
+        <labelProxy label="//@net.0/@page.0/@object.8/@name"/>
+        <labelProxy label="//@net.0/@page.0/@object.8/@type"/>
+        <labelProxy label="//@net.0/@page.0/@object.8/@hlinitialMarking"/>
+        <labelProxy label="//@net.0/@page.0/@object.9/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.10/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.11/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.12/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.13/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.14/@name"/>
+        <labelProxy label="//@net.0/@page.0/@object.14/@type"/>
+        <labelProxy label="//@net.0/@page.0/@object.15/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.16/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.17/@name"/>
+        <labelProxy label="//@net.0/@page.0/@object.18/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.19/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.20/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.21/@name"/>
+        <labelProxy label="//@net.0/@page.0/@object.21/@type"/>
+        <labelProxy label="//@net.0/@page.0/@object.22/@hlinscription"/>
+        <labelProxy label="//@net.0/@page.0/@object.23/@hlinscription"/>
+      </toolspecific>
+      <place id="p1">
+        <name>
+          <graphics>
+            <offset x="-116.0" y="-8.0"/>
+          </graphics>
+          <text>pending sites</text>
+        </name>
+        <graphics>
+          <position x="126.0" y="407.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-56.0" y="-37.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>SITE</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-11.0" y="-7.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id3"/>
+          </structure>
+          <text>U()</text>
+        </hlinitialMarking>
+      </place>
+      <transition id="t1">
+        <name>
+          <graphics>
+            <offset x="-3.0" y="-39.0"/>
+          </graphics>
+          <text>b</text>
+        </name>
+        <graphics>
+          <position x="248.0" y="404.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a1" source="p1" target="t1">
+        <graphics>
+          <line shape="curve" width="1.0"/>
+          <position x="144.0" y="400.0"/>
+          <position x="185.0" y="385.0"/>
+          <position x="228.0" y="397.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-5.0" y="-20.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <arc id="a2" source="t1" target="p1">
+        <graphics>
+          <line shape="curve" width="1.0"/>
+          <position x="228.0" y="411.0"/>
+          <position x="190.0" y="425.0"/>
+          <position x="145.0" y="412.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-15.0" y="5.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <transition id="t2">
+        <name>
+          <graphics>
+            <offset x="17.0" y="-41.0"/>
+          </graphics>
+          <text>a</text>
+        </name>
+        <graphics>
+          <position x="393.5" y="386.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a3" source="p1" target="t2">
+        <graphics>
+          <position x="137.0" y="390.0"/>
+          <position x="170.0" y="345.0"/>
+          <position x="340.0" y="345.0"/>
+          <position x="373.0" y="370.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-15.0" y="-25.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <arc id="a4" source="t2" target="p1">
+        <graphics>
+          <position x="377.0" y="406.0"/>
+          <position x="340.0" y="455.0"/>
+          <position x="170.0" y="455.0"/>
+          <position x="139.0" y="421.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-20.0" y="3.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <transition id="t3">
+        <name>
+          <graphics>
+            <offset x="0.0" y="-43.0"/>
+          </graphics>
+          <text>d</text>
+        </name>
+        <graphics>
+          <position x="395.5" y="143.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <place id="p2">
+        <name>
+          <graphics>
+            <offset x="30.0" y="-11.0"/>
+          </graphics>
+          <text>completed requests</text>
+        </name>
+        <graphics>
+          <position x="395.5" y="251.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-89.0" y="-11.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id2"/>
+          </structure>
+          <text>MESSAGE</text>
+        </type>
+        <hlinitialMarking>
+          <graphics>
+            <offset x="-10.0" y="-11.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id4"/>
+          </structure>
+          <text>M()</text>
+        </hlinitialMarking>
+      </place>
+      <arc id="a5" source="t3" target="p2">
+        <graphics>
+          <line shape="curve" width="1.0"/>
+          <position x="398.0" y="163.0"/>
+          <position x="406.0" y="199.0"/>
+          <position x="406.0" y="199.0"/>
+          <position x="399.0" y="231.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="9.0" y="-14.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id6">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>R(x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a6" source="p2" target="t3">
+        <graphics>
+          <line shape="curve" width="1.0"/>
+          <position x="388.0" y="232.0"/>
+          <position x="375.0" y="195.0"/>
+          <position x="384.0" y="163.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-30.0" y="-5.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id6">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>R(x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a7" source="p2" target="t2">
+        <graphics>
+          <position x="409.0" y="264.0"/>
+          <position x="555.0" y="390.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-77.0" y="-12.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id6">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>R(x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a8" source="p1" target="t3">
+        <graphics>
+          <position x="126.0" y="387.0"/>
+          <position x="126.0" y="150.0"/>
+          <position x="375.0" y="150.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-36.0" y="74.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <arc id="a9" source="t1" target="p2">
+        <graphics>
+          <position x="268.0" y="385.0"/>
+          <position x="407.0" y="265.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-42.0" y="-25.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(y,x)</text>
+        </hlinscription>
+      </arc>
+      <place id="p3">
+        <name>
+          <graphics>
+            <offset x="25.0" y="-10.0"/>
+          </graphics>
+          <text>initiated requests</text>
+        </name>
+        <graphics>
+          <position x="395.0" y="530.0"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-85.0" y="-5.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id2"/>
+          </structure>
+          <text>MESSAGE</text>
+        </type>
+      </place>
+      <arc id="a10" source="p3" target="t1">
+        <graphics>
+          <position x="379.0" y="517.0"/>
+          <position x="240.0" y="402.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="-24.0" y="21.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,y)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a11" source="t2" target="p3">
+        <graphics>
+          <position x="391.0" y="406.0"/>
+          <position x="391.0" y="513.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="14.0" y="6.0"/>
+          </graphics>
+          <structure>
+            <useroperator declaration="id5">
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </useroperator>
+          </structure>
+          <text>S(x)</text>
+        </hlinscription>
+      </arc>
+      <transition id="t4">
+        <name>
+          <graphics>
+            <offset x="-2.0" y="-43.0"/>
+          </graphics>
+          <text>c</text>
+        </name>
+        <graphics>
+          <position x="527.5" y="383.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+      </transition>
+      <arc id="a12" source="t4" target="p2">
+        <graphics>
+          <position x="518.0" y="371.0"/>
+          <position x="411.0" y="249.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="6.0" y="-10.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(y,x)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a13" source="p3" target="t4">
+        <graphics>
+          <position x="408.0" y="514.0"/>
+          <position x="505.0" y="402.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="14.0" y="-3.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <tuple>
+                  <subterm>
+                    <variable refvariable="id7"/>
+                  </subterm>
+                  <subterm>
+                    <variable refvariable="id8"/>
+                  </subterm>
+                </tuple>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`(x,y)</text>
+        </hlinscription>
+      </arc>
+      <arc id="a14" source="t4" target="p1">
+        <graphics>
+          <position x="531.0" y="403.0"/>
+          <position x="531.0" y="569.0"/>
+          <position x="120.0" y="569.0"/>
+          <position x="120.0" y="426.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="220.0" y="-84.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <place id="p4">
+        <name>
+          <graphics>
+            <offset x="32.0" y="-8.0"/>
+          </graphics>
+          <text>agreed sites</text>
+        </name>
+        <graphics>
+          <position x="683.5" y="383.5"/>
+          <dimension x="40.0" y="40.0"/>
+        </graphics>
+        <type>
+          <graphics>
+            <offset x="-8.0" y="32.0"/>
+          </graphics>
+          <structure>
+            <usersort declaration="id1"/>
+          </structure>
+          <text>SITE</text>
+        </type>
+      </place>
+      <arc id="a15" source="p4" target="t4">
+        <graphics>
+          <position x="663.0" y="383.0"/>
+          <position x="491.0" y="367.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="23.0" y="-15.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <arc id="a16" source="t3" target="p4">
+        <graphics>
+          <position x="415.0" y="143.0"/>
+          <position x="683.0" y="143.0"/>
+          <position x="683.0" y="363.0"/>
+        </graphics>
+        <hlinscription>
+          <graphics>
+            <offset x="12.0" y="77.0"/>
+          </graphics>
+          <structure>
+            <numberof>
+              <subterm>
+                <numberconstant value="1">
+                  <positive/>
+                </numberconstant>
+              </subterm>
+              <subterm>
+                <variable refvariable="id7"/>
+              </subterm>
+            </numberof>
+          </structure>
+          <text>1`x</text>
+        </hlinscription>
+      </arc>
+      <declaration>
+        <graphics>
+          <offset x="40.0" y="35.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <arbitrarysort id="id1" name="SITE"/>
+            <namedsort id="id2" name="MESSAGE">
+              <productsort>
+                <usersort declaration="id1"/>
+                <usersort declaration="id1"/>
+              </productsort>
+            </namedsort>
+          </declarations>
+        </structure>
+        <text>sortsymbols
+   SITE;
+
+sorts
+   MESSAGE=(SITE*SITE);</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="420.0" y="35.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <variabledecl id="id7" name="x">
+              <usersort declaration="id1"/>
+            </variabledecl>
+            <variabledecl id="id8" name="y">
+              <usersort declaration="id1"/>
+            </variabledecl>
+          </declarations>
+        </structure>
+        <text>vars
+   x:SITE,
+   y:SITE;
+</text>
+      </declaration>
+      <declaration>
+        <graphics>
+          <offset x="235.0" y="35.0"/>
+        </graphics>
+        <structure>
+          <declarations>
+            <arbitraryoperator id="id3" name="U">
+              <output>
+                <multisetsort>
+                  <usersort declaration="id1"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <arbitraryoperator id="id4" name="M">
+              <output>
+                <multisetsort>
+                  <usersort declaration="id2"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <arbitraryoperator id="id5" name="S">
+              <input>
+                <usersort declaration="id1"/>
+              </input>
+              <output>
+                <multisetsort>
+                  <usersort declaration="id2"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+            <arbitraryoperator id="id6" name="R">
+              <input>
+                <usersort declaration="id1"/>
+              </input>
+              <output>
+                <multisetsort>
+                  <usersort declaration="id2"/>
+                </multisetsort>
+              </output>
+            </arbitraryoperator>
+          </declarations>
+        </structure>
+        <text>opsymbols
+   U:->MS(SITE),
+   M:->MS(MESSAGE),
+   S:SITE->MS(MESSAGE),
+   R:SITE->MS(MESSAGE);</text>
+      </declaration>
+    </page>
+  </net>
+</pnml>

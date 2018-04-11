@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:networkmodel="http://org.pnml.tools/network" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_Xh7_gJs0EeGPD8ETVogvjQ" type="Network" name="Echo.networkmodel_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_ZQsAUJs0EeGPD8ETVogvjQ" type="2002" fontName="Ubuntu" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_ZQtOcJs0EeGPD8ETVogvjQ" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="Echo.networkmodel#B"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZQsAUZs0EeGPD8ETVogvjQ" x="240" y="12"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_ajV7AJs0EeGPD8ETVogvjQ" type="2002" fontName="Ubuntu" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_ajWiEJs0EeGPD8ETVogvjQ" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="Echo.networkmodel#A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ajV7AZs0EeGPD8ETVogvjQ" x="108" y="120"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_bGjVwJs0EeGPD8ETVogvjQ" type="2002" fontName="Ubuntu" fillColor="10011046" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_bGkj4Js0EeGPD8ETVogvjQ" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="Echo.networkmodel#F"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bGjVwZs0EeGPD8ETVogvjQ" x="252" y="120"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_bmgoMJs0EeGPD8ETVogvjQ" type="2002" fontName="Ubuntu" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_bmhPQJs0EeGPD8ETVogvjQ" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="Echo.networkmodel#E"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bmgoMZs0EeGPD8ETVogvjQ" x="384" y="120"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_cQQIwJs0EeGPD8ETVogvjQ" type="2002" fontName="Ubuntu" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_cQRW4Js0EeGPD8ETVogvjQ" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="Echo.networkmodel#C"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cQQIwZs0EeGPD8ETVogvjQ" x="108" y="264"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_cy9NMJs0EeGPD8ETVogvjQ" type="2002" fontName="Ubuntu" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_cy90QJs0EeGPD8ETVogvjQ" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="Echo.networkmodel#D"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cy9NMZs0EeGPD8ETVogvjQ" x="264" y="264"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_fZJMUJs0EeGPD8ETVogvjQ" type="2001" fontName="Ubuntu" fillColor="10011046" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_fZJzYJs0EeGPD8ETVogvjQ" type="5001"/>
+    <element xmi:type="networkmodel:Category" href="Echo.networkmodel#//@categories.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fZJMUZs0EeGPD8ETVogvjQ" x="12" y="12"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_hc5MwJs0EeGPD8ETVogvjQ" type="2001" fontName="Ubuntu" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_hc5z0Js0EeGPD8ETVogvjQ" type="5001"/>
+    <element xmi:type="networkmodel:Category" href="Echo.networkmodel#//@categories.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hc5MwZs0EeGPD8ETVogvjQ" x="13" y="90"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_Xh7_gZs0EeGPD8ETVogvjQ"/>
+  <element xmi:type="networkmodel:Network" href="Echo.networkmodel#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_e3giEZs4EeGVxdOo4aYm_g" type="4002" source="_ZQsAUJs0EeGPD8ETVogvjQ" target="_ajV7AJs0EeGPD8ETVogvjQ" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_e3giEps4EeGVxdOo4aYm_g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:UndirectedEdge" href="Echo.networkmodel#//@network.6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_e3giE5s4EeGVxdOo4aYm_g" points="[-20, 15, 143, -114]$[-167, 109, -4, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_fy9dsJs4EeGVxdOo4aYm_g" type="4002" source="_ZQsAUJs0EeGPD8ETVogvjQ" target="_bmgoMJs0EeGPD8ETVogvjQ" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_fy9dsZs4EeGVxdOo4aYm_g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:UndirectedEdge" href="Echo.networkmodel#//@network.7"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fy9dsps4EeGVxdOo4aYm_g" points="[20, 10, -217, -118]$[240, 148, 3, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_gyUB4Js4EeGVxdOo4aYm_g" type="4002" source="_ajV7AJs0EeGPD8ETVogvjQ" target="_bGjVwJs0EeGPD8ETVogvjQ" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_gyUB4Zs4EeGVxdOo4aYm_g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:UndirectedEdge" href="Echo.networkmodel#//@network.8"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gyUB4ps4EeGVxdOo4aYm_g" points="[20, 0, -169, 3]$[183, 17, -6, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_h09xsJs4EeGVxdOo4aYm_g" type="4002" source="_bmgoMJs0EeGPD8ETVogvjQ" target="_cy9NMJs0EeGPD8ETVogvjQ" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_h09xsZs4EeGVxdOo4aYm_g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:UndirectedEdge" href="Echo.networkmodel#//@network.9"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_h09xsps4EeGVxdOo4aYm_g" points="[-20, 16, 183, -155]$[-201, 151, 2, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_ii09QJs4EeGVxdOo4aYm_g" type="4002" source="_cy9NMJs0EeGPD8ETVogvjQ" target="_cQQIwJs0EeGPD8ETVogvjQ" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_ii09QZs4EeGVxdOo4aYm_g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:UndirectedEdge" href="Echo.networkmodel#//@network.10"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ii09Qps4EeGVxdOo4aYm_g" points="[-20, -1, 168, 2]$[-183, 17, 5, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_jXrhoJs4EeGVxdOo4aYm_g" type="4002" source="_bGjVwJs0EeGPD8ETVogvjQ" target="_cQQIwJs0EeGPD8ETVogvjQ" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_jXrhoZs4EeGVxdOo4aYm_g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:UndirectedEdge" href="Echo.networkmodel#//@network.11"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jXrhops4EeGVxdOo4aYm_g" points="[-20, 19, 160, -151]$[-181, 190, -1, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_kQ1-QJs4EeGVxdOo4aYm_g" type="4002" source="_ajV7AJs0EeGPD8ETVogvjQ" target="_cy9NMJs0EeGPD8ETVogvjQ" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_kQ1-QZs4EeGVxdOo4aYm_g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:UndirectedEdge" href="Echo.networkmodel#//@network.12"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kQ1-Qps4EeGVxdOo4aYm_g" points="[20, 16, -177, -154]$[195, 150, -2, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_lKEFQJs4EeGVxdOo4aYm_g" type="4002" source="_ajV7AJs0EeGPD8ETVogvjQ" target="_cQQIwJs0EeGPD8ETVogvjQ" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_lKEFQZs4EeGVxdOo4aYm_g" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:UndirectedEdge" href="Echo.networkmodel#//@network.13"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lKEFQps4EeGVxdOo4aYm_g" points="[1, 20, -8, -147]$[11, 147, 2, -20]"/>
+  </edges>
+</notation:Diagram>

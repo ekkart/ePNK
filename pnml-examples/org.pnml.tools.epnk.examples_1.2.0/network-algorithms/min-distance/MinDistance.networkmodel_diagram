@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:networkmodel="http://org.pnml.tools/network" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_RWBzEJkUEeGfcowuPMkKRg" type="Network" name="MinDistance.networkmodel_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_Tl91YJkUEeGfcowuPMkKRg" type="2002" fontName="Ubuntu" fillColor="10011046" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Tl_DgJkUEeGfcowuPMkKRg" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="MinDistance.networkmodel#A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tl91YZkUEeGfcowuPMkKRg" x="60" y="48"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_T4E5EJkUEeGfcowuPMkKRg" type="2002" fontName="Ubuntu" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_T4FgIJkUEeGfcowuPMkKRg" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="MinDistance.networkmodel#C"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T4E5EZkUEeGfcowuPMkKRg" x="319" y="49"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_UGMNkJkUEeGfcowuPMkKRg" type="2002" fontName="Ubuntu" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_UGM0oJkUEeGfcowuPMkKRg" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="MinDistance.networkmodel#D"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UGMNkZkUEeGfcowuPMkKRg" x="60" y="216"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_UWghgJkUEeGfcowuPMkKRg" type="2002" fontName="Ubuntu" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_UWhvoJkUEeGfcowuPMkKRg" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="MinDistance.networkmodel#E"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UWghgZkUEeGfcowuPMkKRg" x="324" y="216"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_UpRsgJkUEeGfcowuPMkKRg" type="2002" fontName="Ubuntu" fillColor="10011046" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_UpS6oJkUEeGfcowuPMkKRg" type="5002"/>
+    <element xmi:type="networkmodel:Node" href="MinDistance.networkmodel#B"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UpRsgZkUEeGfcowuPMkKRg" x="204" y="312"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_VPq-IJkUEeGfcowuPMkKRg" type="2001" fontName="Ubuntu" fillColor="10011046" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_VPsMQJkUEeGfcowuPMkKRg" type="5001"/>
+    <element xmi:type="networkmodel:Category" href="MinDistance.networkmodel#//@categories.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VPq-IZkUEeGfcowuPMkKRg" x="420" y="48"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_VeTQAJkUEeGfcowuPMkKRg" type="2001" fontName="Ubuntu" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_VeUeIJkUEeGfcowuPMkKRg" type="5001"/>
+    <element xmi:type="networkmodel:Category" href="MinDistance.networkmodel#//@categories.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VeTQAZkUEeGfcowuPMkKRg" x="492" y="48"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_RWBzEZkUEeGfcowuPMkKRg"/>
+  <element xmi:type="networkmodel:Network" href="MinDistance.networkmodel#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_cd6tgJkUEeGfcowuPMkKRg" type="4001" source="_Tl91YJkUEeGfcowuPMkKRg" target="_T4E5EJkUEeGfcowuPMkKRg" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_cd6tgZkUEeGfcowuPMkKRg" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:DirectedEdge" href="MinDistance.networkmodel#//@network.5"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cd6tgpkUEeGfcowuPMkKRg" points="[20, -1, -239, -2]$[262, -19, 3, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_c3Y9cJkUEeGfcowuPMkKRg" type="4001" source="_Tl91YJkUEeGfcowuPMkKRg" target="_UGMNkJkUEeGfcowuPMkKRg" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_c3Y9cZkUEeGfcowuPMkKRg" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:DirectedEdge" href="MinDistance.networkmodel#//@network.6"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_c3Y9cpkUEeGfcowuPMkKRg" points="[1, 20, 1, -148]$[1, 148, 1, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_dXrAAJkUEeGfcowuPMkKRg" type="4001" source="_T4E5EJkUEeGfcowuPMkKRg" target="_UWghgJkUEeGfcowuPMkKRg" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_dXrAAZkUEeGfcowuPMkKRg" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:DirectedEdge" href="MinDistance.networkmodel#//@network.7"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dXrAApkUEeGfcowuPMkKRg" points="[2, 20, 0, -124]$[-1, 135, -3, -9]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dXuqYJkUEeGfcowuPMkKRg" id="(0.425,0.225)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_eGZHMJkUEeGfcowuPMkKRg" type="4001" source="_T4E5EJkUEeGfcowuPMkKRg" target="_UGMNkJkUEeGfcowuPMkKRg" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_eGZHMZkUEeGfcowuPMkKRg" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:DirectedEdge" href="MinDistance.networkmodel#//@network.8"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_eGZHMpkUEeGfcowuPMkKRg" points="[-20, 13, 239, -154]$[-260, 187, -1, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_ej0DAJkUEeGfcowuPMkKRg" type="4001" source="_UWghgJkUEeGfcowuPMkKRg" target="_UGMNkJkUEeGfcowuPMkKRg" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_ej0DAZkUEeGfcowuPMkKRg" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:DirectedEdge" href="MinDistance.networkmodel#//@network.9"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ej0DApkUEeGfcowuPMkKRg" points="[-20, 6, 244, -6]$[-284, 6, -20, -6]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_fePD4JkUEeGfcowuPMkKRg" type="4001" source="_UGMNkJkUEeGfcowuPMkKRg" target="_UpRsgJkUEeGfcowuPMkKRg" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_fePD4ZkUEeGfcowuPMkKRg" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:DirectedEdge" href="MinDistance.networkmodel#//@network.10"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fePD4pkUEeGfcowuPMkKRg" points="[20, 13, -136, -95]$[150, 88, -6, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_f9fywJkUEeGfcowuPMkKRg" type="4001" source="_UWghgJkUEeGfcowuPMkKRg" target="_UpRsgJkUEeGfcowuPMkKRg" lineColor="0">
+    <styles xmi:type="notation:FontStyle" xmi:id="_f9gZ0JkUEeGfcowuPMkKRg" fontName="Ubuntu"/>
+    <element xmi:type="networkmodel:DirectedEdge" href="MinDistance.networkmodel#//@network.11"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_f9gZ0ZkUEeGfcowuPMkKRg" points="[-20, 18, 88, -90]$[-108, 88, 0, -20]"/>
+  </edges>
+</notation:Diagram>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ASCII"?>
+<netannotations:NetAnnotations xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:netannotations="http://tools.pnml.org/epnk/netannotations/1.0" xmlns:yannot="http://se.compute.dtu.dk/mbse/yawl/simulator/annotations" xmlns:yawl="http://se.compute.dtu.dk/mbse/yawl" name="YAWL Simulator (mobile)" current="//@netAnnotations.0" appId="dk.dtu.compute.mbse.tutorial.yawl.simulator.simapp" appVersion="0.0.0" date="Wed Oct 18 18:13:49 CEST 2017">
+  <netAnnotations objectAnnotations="//@objectAnnotations.0 //@objectAnnotations.1 //@objectAnnotations.2 //@objectAnnotations.3 //@objectAnnotations.4">
+    <net href="customer-registration.pnml#n1"/>
+  </netAnnotations>
+  <netAnnotations objectAnnotations="//@objectAnnotations.5 //@objectAnnotations.6">
+    <net href="customer-registration.pnml#n1"/>
+  </netAnnotations>
+  <netAnnotations objectAnnotations="//@objectAnnotations.7 //@objectAnnotations.8">
+    <net href="customer-registration.pnml#n1"/>
+  </netAnnotations>
+  <netAnnotations objectAnnotations="//@objectAnnotations.9">
+    <net href="customer-registration.pnml#n1"/>
+  </netAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="customer-registration.pnml#p1"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition" outArcs="//@objectAnnotations.2 //@objectAnnotations.3 //@objectAnnotations.4">
+    <object xsi:type="yawl:Action" href="customer-registration.pnml#t1"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:SelectArc" sourceTransition="//@objectAnnotations.1">
+    <object xsi:type="yawl:Arc" href="customer-registration.pnml#a2"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:SelectArc" sourceTransition="//@objectAnnotations.1">
+    <object xsi:type="yawl:Arc" href="customer-registration.pnml#a3"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:SelectArc" sourceTransition="//@objectAnnotations.1" selected="true">
+    <object xsi:type="yawl:Arc" href="customer-registration.pnml#a4"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="customer-registration.pnml#p5"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition">
+    <object xsi:type="yawl:Action" href="customer-registration.pnml#t5"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="customer-registration.pnml#p8"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:EnabledTransition">
+    <object xsi:type="yawl:Action" href="customer-registration.pnml#t2"/>
+  </objectAnnotations>
+  <objectAnnotations xsi:type="yannot:Marking" value="1">
+    <object xsi:type="yawl:Condition" href="customer-registration.pnml#p2"/>
+  </objectAnnotations>
+</netannotations:NetAnnotations>
