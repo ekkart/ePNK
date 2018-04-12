@@ -4,54 +4,60 @@
 \chapter{Developers' guide}
 \label{chap:developers-guide}
 
-In this chapter, we discuss how to extend the ePNK, with new functionality, with
-new Petri net types, with new graphical appearances, or with new tool specific
-extensions. For all these extensions, the ePNK provides \emph{extension points}
-so that the extensions can be made without changing the actual code of the
-ePNK\footnote
+In this chapter, we discuss how to extend the ePNK, with new functionality and
+applications, with new Petri net types, with new graphical appearances, or with
+new tool specific extensions. For all these extensions, the ePNK provides
+\emph{extension points} so that the extensions can be made without changing
+the actual code of the ePNK\footnote
  {Technically, you would not even need to see the code of the ePNK, but
-  looking at it might help understand the ideas and principles behind the
+  looking at it might help understanding the ideas and principles behind the
   ePNK.}%
 . Actually, the ePNK does not even provide own extension points for adding
 functionality: The existing Eclipse extension points are good enough for
-that for now\footnote
- {Eventually, there might be some ePNK-specific extension point for
-  adding functionality for getting a more uniform ``user-impression'' of
-  the added functionality. Since this is mostly a GUI-issue, this does
-  not have the highest priority right now.}%
-.
+that for now.
+
+This chapter addresses developers, who want to develop extensions for the ePNK,
+and it gives a systematic overview over the concepts of the ePNK by discussing
+different examples for the different concepts. This chapter is organized along
+the different concepts for extending the ePNK and for using its API. In
+contrast, Chapter~\ref{chap:tutorial} is organized along a single running
+example, which covers the most relevant concepts and goes through the
+conceptual steps as well as through the technical details. Both chapters
+are written in such a way that they can be read independently of each other.
 
 Section~\ref{sec:adding-functions} shows how to add some functionality to the
 ePNK, which could be a model checker, or some other analysis or verification
 function for Petri nets, or which could be a function that reads a net in PNML
 and produces some net in some other format, or a function that generates a net
 that is stored in PNML format. Section~\ref{subsec:developer:applications}
-shows how to implement applications that high-light the results in the
-graphical editor and can interact with the end user while they are running.
+shows how to implement \emph{applications}%
+  \index{ePNK!Application|DEF}
+that visualize the results on top of the graphical editor of the ePNK and can
+also interact with the end user while they are running.
 
 Section~\ref{sec:adding-types} shows how to add new Petri net types
 to the ePNK. Simple net types can almost completely be generated from a
 model; for more complex Petri net types, such as high-level Petri nets, a
 mapping to XML must be defined and parsers need to  be implemented.
 
-Section~\ref{sec:dev:graphical} shows how to define a customized graphical
-appearance for some graphical features of Petri nets.
+Section~\ref{sec:dev:graphical} shows how to customize the graphical
+appearance of some features of some types of Petri nets.
 
 Section~\ref{sec:adding-toolspecific-info} shows how to add tool specific
 information to the ePNK.
 
-At last Sect.~\ref{sec:overviewAPI} gives an overview of the projects of the
+At last, Sect.~\ref{sec:overviewAPI} gives an overview of the projects of the
 ePNK and Sect.~\ref{sec:developer:deploy} briefly discusses how to deploy own
 extensions.
 
 All of these extensions are discussed by the help of some examples,
 which are deployed together with the ePNK. In these examples,
-we assume that the reader is familiar to the main principles and ideas
+we assume that the reader is familiar with the main principles and ideas
 of Eclipse, its plug-in architecture, and Eclipse plug-in development.
 We cannot give a detailed introduction to Eclipse and to Eclipse
 plug-in development here (when you have the feeling that you need more
 background on these issues, the ``Platform Plug-in Developer Guide'' which is part of Eclipse
-might be a starting point: ``Help'' $\rightarrow$ ``Help contents''; and there
+might be a good starting point: ``Help'' $\rightarrow$ ``Help contents''; and there
 are many other Eclipse resources \cite{Eclipse-WWW,ClRu08}).
 Still, Sect.~\ref{sec:development-environment} gives a brief overview
 of Eclipse plug-in development.
@@ -60,40 +66,37 @@ need to be done in EMF more explicitly, but it is also recommended to read
 up on some details on EMF \cite{BSM06} before starting with own development
 projects. 
 
-Section~\ref{sec:ePNK-PNMLCoreModel} gives a brief introduction
-to the PNML core model in the ePNK, its differences to the PNML core model
-from ISO/IEC 15909-2; some basic understanding of the API generated from
-this model is crucial for using the ePNK as a developer. 
+In order to use the ePNK for implementing own extensions, developers would
+need some understanding of the PNML core model and the API generated from
+it. Therefore, Sect.~\ref{sec:ePNK-PNMLCoreModel} gives a brief introduction
+to the PNML core model as it is used in the ePNK and discusses some differences
+to the PNML core model from ISO/IEC 15909-2. 
 
-\section{Eclipse: a development platform for the ePNK}
+\section{Eclipse: A development platform for the ePNK}
 \label{sec:development-environment}
 
 As briefly discussed in Sect.~\ref{sec:Eclipse-IDE} already, Eclipse is
 an Integrated Development Environment (IDE).% 
   \index{Eclipse!IDE}
 Here, we briefly explain how to set up the Eclipse environment so that you can
-work on your own extensions and do the tutorials of this chapter -- assuming that
-you have installed Eclipse and the ePNK as explained in
-Chapter~\ref{chap:install} already.
+work on your own extensions and have a look into the code of the
+examples, which are discussed in chapter. For a hands-on experience, you
+should install Eclipse and the ePNK as explained in Chapter~\ref{chap:install}.
 
 \subsection{Importing ePNK projects to the workspace}
 \label{sec:dev:import-ePNK}
 
-As a developer, you would probably want to have a look at some parts of
-the source code of the ePNK -- though not strictly necessary. Therefore,
-the  ePNK is deployed in such a way that you can easily import the relevant
-ePNK plug-in projects to your workspace\footnote
-  {Unfortunately, there are some projects where the source code was --
-   accidentally -- not included to the deployed version, or the
-   configuration of the class path was not properly set up for that
-   purpose. These plug-ins will be made available on the ePNK installation
-   page for version 1.0.0 -- as far as they relevant for this manual.
-   And we will try to fix that in future versions.}
-with their source code and their models, so that you can inspect the
-code and the models from which major parts of the code were generated.
+As a developer, you would probably want to have a look into some parts of
+the source code of the ePNK. Therefore, the ePNK is deployed in such a way
+that you can easily import the relevant ePNK plug-in projects to your
+workspace with all their source code and all their models, so that you
+can inspect the code and the models from which major parts of the code
+were generated. Furthermore, the source code of all ePNK projects is
+available on GitHub: \url{https://github.com/ekkart/ePNK}
 
-Here, we explain how to import the ePNK projects into your development
-workspace as source projects. Initially, it is recommended to import
+Here, we explain how to import the ePNK projects into your Eclipse development
+workspace as source projects -- assuming that you have installed the ePNK
+in your Eclipse already. Initially, it is recommended to import
 only the basic project {\tt org.pnml.tools.epnk} into the workspace;
 later during this developers' guide, we will mention several other
 projects that might be interesting for you to have a look at. In
@@ -101,10 +104,10 @@ the end, Sect.~\ref{sec:overviewAPI} gives an overview of important
 ePNK projects and their main function and purpose.
 
 In order to import an ePNK project (or any other plug-in project which
-is running behind the scenes), you first need to open the Eclipse
+is running behind the scenes in your Eclipse), you first need to open the Eclipse
 \emph{Plug-ins view}.%
   \index{Eclipse!Plug-ins view|DEF}
-To this end, select in the Eclipse workbench ``Window'' $\rightarrow$ ``Show
+To this end, in the Eclipse workbench, select ``Window'' $\rightarrow$ ``Show
 view''  $\rightarrow$ ``Other...''; then select ``Plug-ins'' from the
 category ``Plug-in Development''. Typically, this view would also open
 when you switch to the \emph{Plug-in Development perspective}%
@@ -112,15 +115,15 @@ when you switch to the \emph{Plug-in Development perspective}%
 of Eclipse.
 Once the Plug-ins view is open, browse this view and find the ePNK
 plug-in {\tt org.pnml.tools.epnk}. Right-click on this plug-in and
-select ``Import As'' $\rightarrow$ ``Source Project''. After that
+select ``Import As'' $\rightarrow$ ``Source Project''. After that,
 you will find the project  {\tt org.pnml.tools.epnk} in the Eclipse
 package explorer or some other open resource browser.
 
-In this project, you can see the source code and also the model
-files in folder ``model''. But, if you did not install some extra tools
+In this project, you can see the source code in the folder ``src'' and
+also the model files in the folder ``model''. But, if you did not install some extra tools
 yet, you will not be able to open these models with some
 reasonable editor. Section~\ref{subsec:installingEcoreTools}
-discusses which additional tools you need to install to your version
+briefly discusses which additional tools you need to install to your version
 of Eclipse so that you are able to inspect -- and later create -- 
 these kind of models and diagram files.
 
@@ -143,7 +146,7 @@ The reason for introducing an additional adjective to the term \emph{workbench}
 here is that you need to start another workbench from this one, in order
 to start Eclipse with the new extensions that you are developing in
 the development workbench. This additional instance of Eclipse is called
-the \emph{runtime workbench} since this is when the ePNK with your new
+the \emph{runtime workbench} since this is where the ePNK with your new
 extensions is running. It will very much look like the original ePNK as discussed in
 Chapter~\ref{chap:users-guide} -- just with the extensions from your
 development workbench also running.  The
@@ -163,27 +166,27 @@ implement some new functionality first.%
 As mentioned already, a major part of defining a new Petri net type is creating
 an Ecore model which captures the concepts of the new Petri net type; most of
 the code can then be generated from such a model. In order to be able to do
-that, you need to install two additional extensions to your Eclipse: the 
-``EMF Modeling Framework SDK''%
-  \index{EMF Modeling Framework SDK|DEF}
-and the ``Ecore Tools SDK''.%
-  \index{Ecore Tools SDK|DEF}
+that, you need to install the \emph{Eclipse Modeling Tools} (\emph{EMT}) in
+your Eclipse or install the \emph{Eclipse Modeling Tools} package as your version
+of your Eclipse.
 
-To install these extensions to Eclipse, start the ``Install dialog''\footnote
- {Remember: In order to start the install dialog, select ``Help'' $\rightarrow$
-  ``Install New Software...'' and then choose 
-   {\tt http://download.eclipse.org/releases/juno} as the standard update site
-   (in this case Juno).}
-select the standard Eclipse update site and select ``EMF Modeling Framework
-SDK'' and ``Ecore Tools SDK'' and follow through the installation process.
+The details are discussed in Chapter~\ref{chap:tutorial}. Note that most of
+the diagrams associated with the Ecore models were created with version 1 of
+Ecore Tools and have not been updated to version 2 of Ecore Tools yet. These
+diagrams are not supported by Eclipse newer than Luna. But, if you install
+the feature for legacy Ecore diagrams as discussed in Chapter~\ref{chap:tutorial},
+you will be able to open them. It is, however, strongly recommended that
+new models and diagrams are created with the current version of Ecore Tools,
+since the legacy Ecore Diagram Editor eventually might not work any more for
+future versions of Eclipse. 
 
-After restarting Eclipse, you can check whether the installation was
-successful: Open the project {\tt org.pnml.tools.epnk} and, in that
-project, open the folder {\tt model}. The files with extensions ``.ecore'',
-``.ecorediag'', and ``.genmodel'' should have special icons now. When you
-open ``PNMLCoreModel.ecorediag'' by double-clicking on it, you should see
-an Ecore model in a class diagram like graphical notation as shown in
-Fig.~\ref{fig:ePNK-IDE}.
+You can check if you have installed Eclipse and its EMT extensions correctly:
+Open the project {\tt org.pnml.tools.epnk} and, in that project, open the folder
+{\tt model}. The files with extensions ``.ecore'', ``.ecorediag'', and ``.genmodel''
+should have special icons. And when you double-click on ``.ecore'' and
+``.genmodel'' files, a tree-editor should open on them. When you double-click
+on ``PNMLCoreModel.ecorediag'', you should see an Ecore model in a class diagram
+like graphical notation as shown in Fig.~\ref{fig:ePNK-IDE}. 
 
 \begin{figure}[hbt!!]
   \centerline{\includegraphics[scale=.28]{ePNK-IDE}}
