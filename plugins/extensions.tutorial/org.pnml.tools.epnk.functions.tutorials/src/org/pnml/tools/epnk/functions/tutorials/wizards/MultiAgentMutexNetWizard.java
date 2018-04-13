@@ -236,10 +236,11 @@ public class MultiAgentMutexNetWizard extends Wizard implements INewWizard {
 		PetriNetDoc doc = PnmlcoremodelFactory.eINSTANCE.createPetriNetDoc();
 		PetriNet net = PetriNetTypeExtensions.getInstance().createPetriNet(
 				"http://www.pnml.org/version-2009/grammar/ptnet");
-		PetriNetType type = net.getType();
-		if (net == null || type == null) {
+		if (net == null) {
 			return null;
 		}
+		PetriNetType type = net.getType();
+		
 		net.setId("n1");
 		doc.getNet().add(net);
 		
