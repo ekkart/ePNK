@@ -200,14 +200,14 @@ like graphical notation as shown in Fig.~\ref{fig:ePNK-IDE}.
 % \index{PNML core model|(DEF}
 \index{ePNK!PNML core model|(DEF}
 
-For using the ePNK as a developer its is important to have a more
+For using the ePNK as a developer it is important to have a more
 detailed understanding of the \emph{PNML core model} since the API
-for accessing, navigating, and modifying Petri nets is generated
+for accessing, navigating and modifying Petri nets is generated
 from this model.  In Sect.~\ref{subsec:installingEcoreTools}, you have seen
 already were to find and how to open the diagrams of the PNML core model
 and some related diagrams. And when you start developing with the
 ePNK, you will probably need to have a look into these diagrams
-once in a while, in order to understand the details about the relation
+once in a while, in order to understand the details of the relation
 between the different classes and concepts of PNML. 
 
 In this section, we give an overview of the PNML core model of the
@@ -228,11 +228,13 @@ not want to allow to connect pages to other nodes with arcs.
 The other differences of the PNML core model are a bit more technical
 and will be discussed below. You might want to have a look at
 Fig.~\ref{fig:MetaModel} of the PNML core model of ISO/IEC 15909-2:2011 
-and at Fig.~\ref{fig:ePNK-IDE}, while we discuss the difference --
-or open the diagrams in the ePNK for seeing even more details.
+and at Fig.~\ref{fig:ePNK-IDE}, while we discuss the difference. For
+more details, you can also open the Ecore diagrams in the project
+{\tt org.pnml.tools.epnk} in your Eclipse workspace, provided you
+have installed the legacy Ecore Diagram editor.
 
-Most importantly, the {\tt type} of a Petri net  is an attribute
-of the class {\tt PetriNet} according to ISO/IEC~15909, whereas, in the
+Most importantly, the {\tt type} of a Petri net is an attribute
+of the class {\tt PetriNet} according to ISO/IEC~15909-2, whereas, in the
 ePNK, it is a composition to a class that must inherit from the abstract class
 {\tt PetriNetType}.%
   \index{ePNK!PetriNetType@{\tt PetriNetType}}
@@ -253,7 +255,7 @@ compliant with the PNML format. The opposite references will, however,
 be restored when loading the Petri net. These opposite references are very
 convenient when navigating between different elements of the net.
 
-In turn, the ePNK does not have a class {\tt Annotation}%
+In turn, the ePNK does not have the class {\tt Annotation}%
   \index{ePNK!Annotation|DEF}
 of ISO/IEC~15909-2, which represents those \emph{labels}%
   \index{Label|DEF}
@@ -289,8 +291,8 @@ ISO/IEC~15909-2, this would require much more effort.%
 The attentive reader might also have noticed that the PNML core model of the
 ePNK does not contain any OCL constraints, whereas the PNML core model
 of ISO/IEC 15909-2 does. This, however, does not mean that the ePNK ignores
-these constraints; in the ePNK, they are just realized in a different way:
-as constraints that are plugged in on top of the model. We will see examples of
+these constraints; in the ePNK, constraints are just added in a different way:
+they are plugged in on top of the model. We will see examples of
 how ePNK constraints are plugged in to the ePNK resp.\ to Eclipse later
 (e.\,g.\ in Sect.~\ref{subsubsec:simplePNTDconstraints}).
 
@@ -298,10 +300,10 @@ how ePNK constraints are plugged in to the ePNK resp.\ to Eclipse later
 \label{sec:adding-functions}
 \index{ePNK!Function|(DEF}
 
-Next, we discuss how to add new functionality to the ePNK. As discussed
-earlier, there are two different kinds of new functionality. \emph{Functions}
-take some net, possibly some user input, do some computing and then report
-a result -- typically via some dialog window. After that, the function
+Next, we discuss how new functionality can be added to the ePNK. As discussed
+earlier, there are two different ways of new adding new functionality to the
+ePNK: \emph{Functions} take some net, possibly some user input, do some computing
+and then report a result -- typically via some dialog window. After that, the function
 is over and done with. The model checker from
 Sect.~\ref{subsec:user:model-checker} is a typical example of a function.
 By contrast, \emph{applications}%
@@ -309,7 +311,7 @@ By contrast, \emph{applications}%
 are started on a net; then, they show some feedback on top of the graphical
 editor, the user can interact with the application, and the visual feedback
 will be updated accordingly. Typically, an application finishes only
-when the user explicitly closes or quits it. The simulator for high-level nets
+when the user explicitly terminates it. The simulator for high-level nets
 of Sect.~\ref{subsec:user:hlpng-simulator} is a typical example
 of an application.
 
@@ -347,18 +349,18 @@ the ePNK (or to Eclipse in general) in three different ways.
 \begin{itemize}
 \item Section~\ref{subsec:file-overview} shows how to implement a new
 Eclipse view, which gives an overview of a PNML file that is selected in one of
-the Eclipse resource explorer views. This includes opening and loading the
-contents from a PNML file.
+the Eclipse resource explorer views. This section will also discuss how
+top open and access the contents of a PNML file.
 
 \item Section~\ref{subsect:multi-agent} shows how to implement a \emph{wizard}
-for creating a PNML file (actually, we changed a wizard that was
+for creating a PNML file (actually, the coded is based on a wizard that was
 automatically created by the Eclipse ``new plug-in project wizard'').
 This wizard creates a PNML file with a P/T-System that represents
 a simple mutual exclusion algorithm for a number of agents -- where the
 number can be selected by the user in one of the dialogs of the wizard.
 The Petri net is split up to different pages, so that the Petri net for each
-agent is contained in a separate page. In particular, this example
-shows how to create a PNML file, fill it with some contents, and to save it.
+agent is contained in a separate page. In particular, we will discuss how
+to create a PNML file, how to fill it with some contents and how to save it.
 
 \item Section~\ref{subsec:tutorial-MC} shows how to implement a
 simple pop-up menu on a selected Petri net (in the tree editor), which
@@ -387,15 +389,15 @@ In this section, we discuss how to implement a new (and very simple)
 Eclipse \emph{view}, that will give an overview of the contents of a PNML
 file that is selected in the explorer. Figure~\ref{fig:file-overview-view} shows
 a screenshot of the result. For the selected file ``hlpng-gmf.pnml''
-in the ``Project Explorer'',  the ``ePNK File Overview'' in the
-bottom left, shows that the selected file is a Petri net document,
+in the ``Project Explorer'',  the ``ePNK File Overview'' at the
+bottom left shows that the selected file is a Petri net document,
 which contains 3 Petri nets, a high-level net, a P/T-net, and
 an empty net; the type of a net is represented by its unique
 URI. The name of the first net is ``A high-level next
 example''; the other two nets do not have a name.
 
 \begin{figure}[hbt!!]
-  \centerline{\includegraphics[scale=.25]{OverviewView}}
+  \centerline{\includegraphics[scale=.27]{OverviewView}}
   \caption{The ePNK with the ``File Overview'' view}
   \label{fig:file-overview-view}
 \end{figure}
@@ -406,7 +408,7 @@ project now\footnote
  {Remember that you can import the source code of that project to your
   development workspace from the ``Plug-ins'' view by selecting the
   project, right-clicking on it and then choosing ``Import As'' $\rightarrow$
-  ``Source Project''.}%
+  ``Source Project'' (see Sect.~\ref{sec:dev:import-ePNK}.}%
 .  In addition to the overview view discussed above, this project also contains
 the implementation of the wizard for creating a PNML document which will be
 discussed later in Sect.~\ref{subsect:multi-agent}.
@@ -423,15 +425,15 @@ caption={Class {\tt PNMLFileOverviewView}: Infrastructure}]%
   {code/PNMLFileOverviewView1.java}
 \end{figure}
 %
-we deleted all imports, an attribute definition, and all comments, which
-can be looked up in the source code. The class extends the Eclipse
+we deleted all imports, an attribute definition, and all comments; if needed
+this information can be looked up in the source code. The class extends the Eclipse
 {\tt ViewPart},%
   \index{Eclipse!ViewPart@{\tt ViewPart}|DEF}
 which actually makes it an Eclipse view, and it implements the {\tt
 ISelectionListener},%
   \index{Eclipse!ISelectionListener@{\tt ISelectionListener}|DEF}
-which allows our view to obtain the information on the
-current selection of the user in the workbench.
+which allows our view to obtain the information on the object that the user
+has currently selected in the workbench.
 Note that this class does not have an explicit constructor. The reason is that
 the view will be set up via the {\tt createPartControl()} method:
 In the first three lines of that method, a viewer (which represents the content
@@ -442,8 +444,8 @@ In the last two lines of the {\tt createPartControl()} method,
 our viewer registers itself with the Eclipse selection mechanism
 as a \emph{selection listener}%
   \index{Eclipse!Selection listener}
-and then creates the information
-that should be shown for the current user selection. We will discuss
+and then creates the information that should be shown for the current user selection
+by calling the {\tt selectionChanged()} method for the current selection. We will discuss
 the respective method {\tt selectionChanged()} below.  Note that
 there are two other methods. The {\tt setFocus()} methods forwards the
 focus properly to the content of the view, once the view is focused.
@@ -455,7 +457,7 @@ user decides to close the view).
 Once the view has registered itself as a selection listener with
 the Eclipse workbench, its {\tt selectionChanged()} method is
 called whenever there is a change in the user's selection.
-In the implementation, of this method, the kind of the current
+In the implementation of this method, the kind of the current
 selection is analysed and it is checked whether the first
 selected element is a file (i.\,e.\ whether it implements the
 interface {\tt IFile}). If so, the method {\tt getOverviewInfo()}
@@ -467,7 +469,7 @@ and, this way, shown to the user.%
 
 The {\tt getOverviewInfo()} method is probably the most interesting
 part here, since it shows how to open and access a PNML or a
-PNX file (we do not even need to make a difference). The implementation
+PNX file (we do not even need to make a difference here). The implementation
 of this method is shown in Listing~\ref{lst:overview2}.
 %
 \begin{figure}[htbp!]
@@ -480,7 +482,7 @@ caption={Class {\tt PNMLFileOverviewView}: Accessing the file}]%
 Up to line 7, it is checked whether the file extension is
 either ``pnml'' or ``pnx'' (the two file extensions, the ePNK uses
 for storing Petri net files -- ``pnml'' represents files in PNML format, and
-``pnx'' represents Petri net files in XMI, which we also call PNX); then, the
+``pnx'' represents Petri net files in XMI, which we call PNX); then, the
 path to that file is extracted and a URI of that path is created.
 Actually, Eclipse provides also user dialogs and file dialogs that would
 allow us to ask the user for a file name that would be returned as a URI; here
@@ -495,16 +497,16 @@ and, within that resource set creating a \emph{resource}%
 with the given URI, which is the first parameter of the {\tt getResource()}%
   \index{EMF!getResource@{\tt getResource()}|DEF}
 method; the second parameter indicates whether cross-references to other resources should be
-resolved lazily or not (which is not relevant here). Note that in EMF, a
+resolved lazily or not (which is not relevant here). Note that, in EMF, a
 resource or file should always be accessed (and created, see
-Sect.~\ref{subsect:multi-agent} for more information) in this way: via a
+Sect.~\ref{subsect:multi-agent} for more information) via a
 resource set. After we successfully got the resource, we can obtain its contents
 by the {\tt getContents()}%
   \index{EMF!getContents@{\tt getContents()}|DEF}
 method which returns a list of its top-level objects
--- in case of PNML, this list should contain exactly one element. 
+-- in case of PNML, this list should contain exactly one {\tt PetriNetDoc} object. 
 Being defensive, we check whether the contents exists and whether its first element is an instance
-of PetriNetDoc. If so, we go systematically through all the contained nets, get
+of {\tt PetriNetDoc}. If so, we go systematically through all the contained nets, get
 their names and their PNML types and add a String with that information to the
 String array with the result. In the other cases, we return some error
 messages. Note that we do not need to close the file, or do anything else after
@@ -524,9 +526,9 @@ For example, if a class has an attribute {\tt name} of type {\tt String}, the
 {\tt getName()} method will return the {\tt String} with that name, and with
 {\tt setName()} we could set it -- but we do not change the net in this example.
 For attributes and features with a multiplicity greater than one, this is
-slightly different. For example, a PetriNetDocument can contain many nets;
-therefore, {\tt getNet()} will return a list of nets, which then is
-iterated over to get the individual nets. And by adding a net
+slightly different. For example, a {\tt PetriNetDoc} object can contain many nets;
+therefore, {\tt getNet()} will return a list of nets, which we then can
+iterate over to obtain the individual nets. And by adding a net
 to this list, this Petri net would be added to the Petri net
 document (see \ref{subsect:multi-agent} for examples).
 
@@ -567,14 +569,14 @@ class which actually implements it: {\tt PNMLFileOverviewView};
 and the attributes define an icon (used in the tab of that view) and 
 a name for that view.
 
-Note that in order to access some of the classes like {\tt Resource},
+Note that in order to access some of the classes such as {\tt Resource},
 {\tt Resource\optsep{}Set}, and some of the ePNK classes like {\tt PetriNetDoc},
 {\tt PetriNet}, etc.\ in the implementation of the view, we would also need to
 define dependencies to the plug-in projects by which they are provided: If you
 open the file ``plugin.xml'', you will find these projects in the tab ``Dependencies''.  But
 this is a more technical issue, which we do not go into the details.
 
-Now, you could start the runtime workbench; from there, you could open the
+Now, you could start the runtime workbench of Eclipse; from there, you could open the
 ``ePNK File Overview'' by ``Window''$\rightarrow$ ``Show
 View''$\rightarrow$ ``Other...'' and then selecting ``ePNK File Overview''
 in the category ``ePNK''. This will show the view in the workspace as shown
@@ -674,27 +676,29 @@ caption={Method {\tt createPetriNetDoc(int number)}}]%
 %
 This method is shown in Listing~\ref{lst:createFile2}. In the
 second line, a new Petri net document is created. Note that this is not done
-with the usual {\tt new} construct of Java. Rather, the \emph{factory}%
+using Java's {\tt new} construct. Rather, the \emph{factory}%
   \index{EMF!Factory|DEF}
-for the PNML core model which can be obtained by
-{\tt Pnmlcoremodel\optsep{}Factory\qnsep{}eINSTANCE}%
+for the PNML core model is obtained by
+{\tt Pnmlcoremodel\optsep{}Factory\qnsep{}eINSTANCE},%
   \index{ePNK!PnmlcoremodelFactory@{\tt PnmlcoremodelFactory}|DEF}
-is used for this purpose. It is part of the EMF philosophy that clients using
-the generated code should not know anything about the actual implementation
-of classes. And EMF strongly recommends to create new objects only via these factories.
-Note that the new net and its type are also created by factories --
-since the type is plugged in, the factory of that plug-in is used for
-this purpose: {\tt PtnetFactory}%
-  \index{ePNK!PtnetFactory@{\tt PtnetFactory}|DEF}
-resp.\ its instance. After
-creating the net, its id is set by the {\tt setId()} method. Note that this
+which is then used for creating a new {\tt PetriNeyDoc} object. It is part of the
+EMF philosophy that clients using the generated code should not know anything about
+the actual implementation of classes. And EMF strongly recommends to create
+new objects only via these factories.
+Note that also the new net is not directly created; it is created by
+using the ePNK's type registry {\tt PetriNetTypeExtensions},%
+  \index{ePNK!PetriNetTypeExtensions@{\tt PetriNetTypeExtensions}|DEF}
+  \index{ePNK!Type registry|DEF}
+which creates the Petri net with the correct type from its URI. Note that the
+net will be {\tt null}, if no net type is registered for the respective URI.
+
+After creating the net, its id is set by the {\tt setId()} method. Note that this
 could be any string, but it is our responsibility to make sure that all ids
 are different (if we chose to create the ids programmatically). Then, the net is
 added to the list of nets of that document: to this end, we get
 the list of all nets of the document via the {\tt getNet()} method on which we
 call the {\tt add()} method. There is no way to directly add a net to
-a document. The type of the net can, again, be set with the {\tt setType()}
-method, since the type does not allow for multiple values.
+a document. 
 
 After that, a name label is created, its text value is set, and the
 name label is added to the net. 
@@ -726,8 +730,13 @@ which makes the net look a bit nicer. If you have a closer look
 at the {\tt createTransition()}, {\tt createPlace()}, and  {\tt createRefPlace()}
 you will find similar constructs for defining the position and size
 of the nodes, and the position of the labels associated with them.
-But this is straightforward and follow the exact principles
-of ISO/IEC~15909-2 (see \cite{HKea09}). Once the implementation
+But this is straightforward and follows the exact principles
+of ISO/IEC~15909-2 (see \cite{HKea09}). Note that, if a reference
+pace is created, the place it refers to needs to be set by
+{\tt setRef()}; therefore, we need to pass the the place {\tt semaphor}
+to the {\tt createRefPlace()} method as a parameter.
+
+Once the implementation
 of the wizard class is finished, it must be made know to Eclipse: it must be
 plugged in via the ``plugin.xml''. But, we do not discuss this here since
 this is similar to plugging in a view (have a look

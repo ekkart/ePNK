@@ -1,13 +1,17 @@
 public PetriNetDoc createPetriNetDoc(int number) {
-	PetriNetDoc doc = PnmlcoremodelFactory.
-		eINSTANCE.createPetriNetDoc();
+	PetriNetDoc doc =
+			PnmlcoremodelFactory.eINSTANCE.createPetriNetDoc();
+	PetriNet net =
+			PetriNetTypeExtensions.getInstance().createPetriNet(
+					"http://www.pnml.org/version-2009/grammar/ptnet");
+	if (net == null) {
+		return null;
+	}
+	PetriNetType type = net.getType();
 	
-	PetriNet net = PnmlcoremodelFactory.eINSTANCE.createPetriNet();
 	net.setId("n1");
 	doc.getNet().add(net);
-	PetriNetType type = PtnetFactory.eINSTANCE.createPTNet();
-	net.setType(type);
-	
+
 	Name nameLabel = PnmlcoremodelFactory.eINSTANCE.createName();
 	nameLabel.setText("Mutual exclusion");
 	net.setName(nameLabel);
