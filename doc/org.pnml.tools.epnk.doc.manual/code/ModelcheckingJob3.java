@@ -1,4 +1,4 @@
-FlatAccess flat = new FlatAccess(getPetriNet());
+FlatAccess flat = FlatAccess.getFlatAccess(getPetriNet());
 
 init = new Constant(1);
 for (org.pnml.tools.epnk.pnmlcoremodel.Place p : flat.getPlaces()) {

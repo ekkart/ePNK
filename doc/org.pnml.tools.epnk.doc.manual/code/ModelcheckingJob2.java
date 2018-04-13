@@ -23,8 +23,8 @@ do {
 		dlg = new InputDialog(
 				null,
 				"ePNK: Model checker",
-				"Syntax error in formula: \n\r" +  
-				e.toString() + "\n\r" +
+				"Syntax error in formula:" + LF +  
+				e.toString() + LF +
 				"Fix the error please or press cancel:",
 				defaultformula,
 				null);

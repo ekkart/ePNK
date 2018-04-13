@@ -775,7 +775,7 @@ on model checking~\cite{CGP99}. The point of this tutorial is to show how some
 function can be installed as a \emph{pop-up} menu with an \emph{action} on a
 Petri net that is open in the tree editor\footnote
   {Note the extension points for pop-up menus and actions are deprecated
-   in Eclipse 4.2. But, they still work -- eventually, this will be adjusted
+   since Eclipse~4.2. But, they still work -- eventually, this will be adjusted
    by using Eclipse commands and handlers.}%
 . Model checking can actually be quite computation intensive and
 could take quite some time; therefore, we need to make sure that the actual
@@ -836,7 +836,7 @@ is implementing the user dialogs (asking the user for temporal formulas),
 converting the Petri net into ROBDDs, doing the actual model checking,
 and showing the result to the user again. In addition to the constructor,
 we need to implement (override) the following methods of
-{\tt AbstractEPNKJob}):%
+{\tt AbstractEPNKJob}:%
   \index{ePNK!AbstractEPNKJob@{\tt AbstractEPNKJob}|DEF}
 {\tt prepare()}, {\tt getInput()}, {\tt run()}, {\tt showResult()}, and {\tt
 canceling()}. Below we explain the implementation of the constructor and the
@@ -891,18 +891,34 @@ caption={Building the formula for the initial marking (in {\tt prepare()})}]%
     and-operations as formulas represented in MCiE's data structure.
     What is more interesting here is that the ePNK provides a way to access a net
     that consist of pages with reference nodes in a flattened way. This
-    convenience class of the ePNK is called {\tt FlatAccess},%
+    convenience class of the ePNK is called {\tt FlatAccess};%
        \index{ePNK!FlatAccess@{\tt FlatAccess}|DEF} 
-    which can be initialized with a Petri net of any type. Then, the instance
-    {\tt flat} is used to get all places of the net, independently of the 
-    pages they occur on. Likewise,
-    {\tt flat} provides methods to access all the transitions and to get all
+    its static method {\tt getFlatAccess()} called with a parameter of a
+    Petri net of any type creates a \emph{flat access object} for that net
+    (called {\tt flat} in our case).
+    This flat access object can be used to obtain all places of the net,
+    independently of the  pages they occur on. Likewise, the
+    flat access object provides methods to access all the transitions and to get all
     the input and output arcs of a place or transition (including the ones of
     the reference nodes referring to them). This way, it is easy to obtain the
     pre- and post-sets, without being bothered with the page structure. For some
     more examples of the use of these methods, you can have a look into the
     code that converts transitions into formulas, which however is not
     discussed here.
+    
+    Note that creating a flat access object is quite computation intensive;
+    therefore, the static method {\tt getFlatAccess()} for creating a
+    flat access object\footnote
+      {Note that in earlier versions of the ePNK, the flat access object
+       was created by a constructor. This constructor is deprecated now,
+       and should no longer be used; but, it is still there, so that
+       older code should still be working. It is strongly recommended,
+       to replace the use of the constructor, though.}
+    will create only one  flat access object for each net. But, the
+    flat access object becomes invalid, when the underlying Petri net changes.
+    The flat access object can, therefore, also be used to notify an
+    application that the underlying net has changed. But, we do not discuss
+    the details here.
     
     The last part of the prepare method, is converting the formulas into
     ROBDD-representation and creating a transition system out of these formulas.
@@ -934,8 +950,8 @@ caption={Finishing the {\tt prepare()} method}]%
      in the background -- and typically contains the computation intensive
      parts. In our case, this is the actual model checking task.
      The implementation of the method is actually quite simple (most of the
-     programming work lies in the preparation). It is shown in
-     Listing~\ref{lst:mc-run}.
+     programming work lies in the preparation and the MCiE framework).
+     It is shown in Listing~\ref{lst:mc-run}.
 \begin{figure}[tbp!] % [htbp!]
 \lstinputlisting[label=lst:mc-run,tabsize=2,stringstyle=\small,%
 caption={The {\tt run()} method}]%
@@ -969,7 +985,8 @@ caption={Code for showing the final result}]%
      important; otherwise this thread would consume all the computation power
      until it finishes on its own -- which could take extremely long. Therefore,
      MCiE provides a mechanism for aborting model checking operations on some
-     model, by invoking {\tt abort()} -- from a different thread of course. Our
+     model, by invoking {\tt abort()} on the underlying transition system on
+     which the model checking is done. Our
      implementation of the {\tt canceling()} method invokes this {\tt abort()}
      method to actually terminate the model checking -- possibly with some
      delay. This is shown in Listing~\ref{lst:mc-cancelling}, where {\tt
