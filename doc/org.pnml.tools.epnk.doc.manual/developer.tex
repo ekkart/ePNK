@@ -170,11 +170,11 @@ that, you need to install the \emph{Eclipse Modeling Tools} (\emph{EMT}) in
 your Eclipse or install the \emph{Eclipse Modeling Tools} package as your version
 of your Eclipse.
 
-The details are discussed in Chapter~\ref{chap:tutorial}. Note that most of
+The details are discussed in Chapter~\ref{chap:install}. Note that most of
 the diagrams associated with the Ecore models were created with version 1 of
 Ecore Tools and have not been updated to version 2 of Ecore Tools yet. These
 diagrams are not supported by Eclipse newer than Luna. But, if you install
-the feature for legacy Ecore diagrams as discussed in Chapter~\ref{chap:tutorial},
+the feature for legacy Ecore diagrams as discussed in Chapter~\ref{chap:install},
 you will be able to open them. It is, however, strongly recommended that
 new models and diagrams are created with the current version of Ecore Tools,
 since the legacy Ecore Diagram Editor eventually might not work any more for
@@ -1017,12 +1017,13 @@ Users' Guide had explained already how to use this model checker.%
 \label{subsec:devloper:functitions:utilities}
 
 The previous sections have given an idea of how the ePNK and its
-API can be used to access and modify Petri nets for implementing some
-functions on Petri nets. It also showed how to plug in these functions
+API can be used to access and modify Petri nets for implementing
+functions and, as discussed later, applications on Petri nets.
+They also showed how to plug in these functions
 to the ePNK -- or actually to Eclipse. But, these examples just scratch
-the surface. In this section, we give an overview were to find and look
+the surface. In this section, we give an overview of where to find and look
 up things in the API of the ePNK and how to use this API in the context
-of Eclipse and EMF. Most of these things, are actually not specific to
+of Eclipse and EMF. Some of these things are actually not specific to
 the ePNK, but specific to Eclipse and EMF, and could be read up on
 in the many Eclipse publications (e.\,g. \cite{BSM06,ClRu08,Gro09}).
 Anyway, we briefly mention or point to some of the relevant concepts
@@ -1045,7 +1046,7 @@ which are an implementation of the \emph{Meta Object Facility} (\emph{MOF})
    overview.}%
 , an Ecore model can considered to be a simplified version of a UML class
 diagram. Note that, in Ecore models, the concept that represents a UML
-association is called \emph{references}%
+association is called \emph{reference}%
   \index{EMF!Reference|DEF}
 -- and in the case of a bi-directional association, a pair of two
 \emph{opposite} references.
@@ -1055,7 +1056,7 @@ association is called \emph{references}%
 The \emph{Eclipse Modeling Framework} (\emph{EMF}) \cite{BSM06} allows us to
 generate Java code from these models, which provides \emph{getter}%
   \index{EMF!getter method|DEF}
-and \emph{setters methods}%
+and \emph{setter methods}%
   \index{EMF!setter method|DEF}
 for all the attributes and references. And there will be a lot of code behind
 the scenes for loading and saving models, and for notifying some observers when
@@ -1069,11 +1070,11 @@ with multiplicities 1 or 1..0, the generated API and the use of the generated
 setter and getter methods is straightforward\footnote 
   {There is a minor, but sometimes confusing twist when an attribute is
    of type boolean: in that case, the getter method actually starts with
-   ``is''.}%
+   ``is'' instead of ``get''.}%
 .  In case of multiplicity *, you will find that there are no setter methods
 for the respective attribute or reference at all; there will be a getter method,
 which returns a collection. In order to add or remove an element to or from the
-attribute or reference, you would obtain this list by the getter methods, and
+attribute or reference, you would obtain this list by the getter method, and
 then add or remove something from the collection by the respective methods of
 collections. Note that this collection is attached to the object, and it is
 crucial that you do not use it for other purposes.  
@@ -1087,11 +1088,10 @@ done via a \emph{factory}%
 for the model, which can be found in the same Java package as the generated Java
 interfaces of the model. This factory class is typically called {\tt
 XXXFactory}, where  {\tt XXX} is the name of the package; the singleton
-instance of this class can be accessed by an attribute {\tt eINSTANCE}.
+instance of this class can be accessed by a static attribute {\tt eINSTANCE}.
 For each class of the model, this Factory provides a method for creating
 a new instance of the respective class.%
   \index{EMF!API (generated from model)|)}  
-
 
 Note that all\footnote
   {Remember that we discuss the standard configuration of EMF only.}
@@ -1107,7 +1107,7 @@ is to obtain an iterator of all its directly and indirectly contained
 elements (indicated by compositions in the Ecore model): {\tt eAllContents()}.%
   \index{EMF!eAllContents@{\tt eAllContents()}|DEF}
 All the methods of the {\tt EObject} start with the letter ``e''. We
-cannot discuss them here; for example, there are methods for reflectively
+cannot discuss all of them here; but, for example, there are methods for reflectively
 finding out which model class this object represents {\tt eClass()};%
   \index{EMF!eClass@{\tt eClass()}|DEF}
 there is a method {\tt eContainer()}%
@@ -1120,7 +1120,7 @@ Note that {\tt EObject} has a method {\tt eResource()},%
 which returns the resource (file)%
   \index{Eclipse!Resource|DEF}
 in which the object is contained -- if it is associated with
-a file already. Resources are important, when your want to load and save
+a file already. Resources are important, when loading and saving
 models to a file, and when they are loaded and edited in an editor. Actually,
 a resource is typically contained in a \emph{resource set},%
   \index{Eclipse!Resource set|DEF}
@@ -1130,32 +1130,35 @@ remain consistent. For a resource, the resource set it is contained in can be
 obtained by method {\tt getResourceSet()}.%
   \index{EMF!getResourceSet@{\tt getResourceSet()}|DEF}
 In turn, resources can and should be created from a resource set, which will
-make sure that the correct type of resource is used for the respective file type We
-have seen two examples of that: in the file overview (Sect.~\ref{subsec:file-overview}),
+make sure that the correct type of resource is used for the respective file type.
+We have seen two examples of that already: in the file overview (Sect.~\ref{subsec:file-overview}),
 the resource set and resource was used to open a selected PNML file; in the
 ``multi-agent mutex wizard'' (Sect.~\ref{subsect:multi-agent}), the resource set was used
 to create a new PNML file. Note that, once you have a resource, its contents
 can be obtained by the method {\tt getContents()},%
   \index{EMF!getContents@{\tt getContents()}|DEF}
-which returns a list of {\tt EObjects}; which can be used to access the element,
-but also to add new elements. The {\tt save()}%
+which returns a list of {\tt EObjects}, which contains the top-level element of that
+resource; adding and removing elements to or from this list will add and remove these
+elements to the top-level of the resource.
+The {\tt save()}%
   \index{EMF!save@ {\tt save()}|DEF}
 method of the resource can be used to save the current contents of the resource
 to the file.
 
-Note that the only example where we actually change (or create) a Petri net
-model is the ``multi-agent mutex wizard'' of Sect.~\ref{subsect:multi-agent}. In
+Note that the only example where we actually create or change a Petri net model
+programmatically via the API is the ``multi-agent mutex wizard'' of Sect.~\ref{subsect:multi-agent}. In
 the other examples, we access and inspect the contents of a Petri net document only. For
-the changes and additions we made, we could use the getter and setter methods of
+making the changes and additions we made, we used the getter and setter methods of
 the API that was generated from the PNML core model. This, however, was possible
 only because the resource that we were changing was not under the control of an
-editor. If a resource is under the control of an editor, it would be
+editor. If a resource is under the control of an editor, the resource and
+actually the complete resource set would also be
 under the control of a so-called \emph{editing domain}.%
   \index{Eclipse!Editing domain|DEF}
 In that case, we cannot make changes on the resource with the getter and setter
 methods of the API directly anymore. Depending on which kind of editing domain
-it is, changes made with the API might even result in exceptions. The reason for
-this is that changes ``on the side'' by some other programme would ruin the
+it is, changes made via the API might result in exceptions. The reason for
+this is that changes ``on the side'' by some other program would ruin the
 editor's undo and redo mechanism. If a function should make changes to a model
 that is under the control of an editing domain, these changes need to be
 encapsulated into commands of the Eclipse \emph{command framework},%
@@ -1166,7 +1169,7 @@ for an overview of these concepts).
 Eclipse provides many different ways to plug in extensions to Eclipse itself and to
 the ePNK. In the examples from Sect.~\ref{subsec:file-overview}--\ref{subsec:tutorial-MC},
 we used \emph{views}, \emph{wizards}, and \emph{pop-up menus} for that purpose, and
-we used \emph{jobs} for running long-running computations in the background. And Eclipse,
+we used \emph{jobs} for running long-running computations in the background. Eclipse,
 provides many more possibilities, which are beyond the scope of this manual. You will
 find more information on that in \cite{ClRu08}: Chapter~6 discusses commands\footnote
   {Note that this notion of command should not be confused with the notion
@@ -1180,22 +1183,22 @@ and when the respective actions should be visible in pop-up menus, tool-bars etc
 the respective element is selected these entries will be shown. This is straightforward
 when elements are selected in the tree editor -- then the respective Java class
 can be used. In the graphical ePNK editor, this is slightly more tricky, since
-Eclipse does not ``see'' the underlying model elements; Eclipse ``sees'' only the
+Eclipse does not always ``see'' the underlying model elements; Eclipse ``sees'' only the
 controllers, which are called \emph{edit parts}.%
   \index{Edit part|DEF}
 If you want to attach commands and actions to the graphical editor, the actions
-and handlers need to be registered for these edit parts. Since the action,
-actually, works on the underlying model element, we need a way to access
-that model element from the resp.\ edit part, which might be a bit confusing for
-people new to the EMF and GMF framework.
+and handlers need to be registered for these edit parts -- depending on which
+mechanisms you are using. Since the action is then called with an edit part,
+the action needs a way to obtain the underlying model element. And this
+might be a bit tricky, for people new to the EMF and GMF framework.
 %
-Listing~\ref{lst:editPart2Model} shows how to obtain a {\tt Page} object from its
+Therefore, Listing~\ref{lst:editPart2Model} shows how to obtain a {\tt Page} object from its
 corresponding edit part\footnote
   {This code is a snippet from the action that opens a graphical editor on a page,
    which can be found in the project {\tt org.pnml.tools.epnk.gmf.integration}
    in the class {\tt InitiateGMFEditorOnPage} of package
    {\tt org.pnml.tools.epnk.gmf.integration. actions.popup}.}% 
-. But, the same code would work for all other types of objects,
+. The code for other types of net elements is similar,
 where {\tt Page} would need to replaced with the respective other class.
 %
 \begin{figure}[htbp!]
@@ -1230,7 +1233,12 @@ which reside in the plug-in project {\tt org.pnml.tools.epnk}\footnote
 in the ``model'' folder. Undoubtedly, the most important model is the
 \emph{PNML Core model}; it contains all the constructs common to all
 Petri nets (cf.\ Fig.~\ref{fig:MetaModel} and Fig.~\ref{fig:ePNK-IDE}).
-The PNML core model is actually split up into three diagrams, the diagram
+The PNML core model is actually split up into three diagrams\footnote
+  {As mentioned already, these diagrams are legacy from an outdated
+   version of Ecore Tools. But, if you install Eclipse as discussed
+   in Chap.\ref{chap:install}, there will be a legacy editor for these
+   diagrams, so that you still can inspect them.}%
+: the diagram
 {\tt PNMLCoreModel.ecorediag} covers the main concepts of PNML, the
 diagram {\tt PNMLCoreModelGraphics.ecorediag} covers the graphical features
 of PNML, and {\tt PNMLCoreModelProxies.ecorediag} covers some features
@@ -1272,7 +1280,7 @@ two Petri net types of ISO/IEC~15909-2. The model for the Petri net type
 definition of P/T-Systems resides in the model folder of
 project {\tt org.pnml.tools.epnk.pntypes}: {\tt PTnet.ecore}.
 The models for the Petri net type definition of HLPNGs resides in the
-model folders of
+model folders of projects
 {\tt org\qnsep{}pnml\qnsep{}tools\qnsep{}epnk\qnsep{}pntypes\qnsep{}hlpngs\qnsep{}datatypes} 
 and {\tt org\qnsep{}pnml\qnsep{}tools\qnsep{}epnk\qnsep{}pntypes\qnsep{}hlpng\qnsep{}pntd}.
 
@@ -1297,7 +1305,7 @@ has the methods {\tt createArc()},  {\tt createPage()},  {\tt createPlace()},
  {\tt createTransition()},  {\tt createRefPlace()}, and  {\tt createRefTransition()}.
 And it is strongly recommended to use these methods for creating
 the respective elements (we have seen that in the example of
-Sect.~\ref{subsect:multi-agent}).
+Sect.~\ref{subsect:multi-agent} already).
 
 Actually the interface {\tt PetriNetType} even serves as a factory for creating
 the Petri net type itself and for creating a Petri net of the respective type:
@@ -1322,27 +1330,47 @@ convenience classes can be found in the Java package
 {\tt org.pnml.tools.epnk.helpers} in the plug-in project
 {\tt org.pnml.tools.epnk}.
 
-The first important class is {\tt FlatAccess},%
+The first important class is {\tt FlatAccess}.
   \index{ePNK!FlatAccess@{\tt FlatAccess}|DEF}
-which is instantiated with some Petri net of any type. Once an instance is
+Instances of {\tt FlatAccess} can be created by calling the static method
+{\tt getFlatAccess()}%
+  \index{ePNK!getFlatAccess()@{\tt getFlatAccess()}|DEF}
+with the respective Petri net as a parameter\footnote
+  {In earlier versions of the ePNK, an instance of {\tt FlatAccess} could be
+   created via a constructor; this constructor is deprecated now and should
+   no longer be used -- mostly for efficiency reasons. The ePNK maintains a single
+   valid {\tt FlatAccess} object for each net and takes care of maintaining
+   and invalidating them, when they are created under the control of the
+   ePNK via the {\tt getFlatAccess()} method.}%
+. Once an instance is
 created, it provides methods to directly get a list of all the places and
-transitions. And for each node, it gives the set of all in-coming and out-going
+transitions of that net. And for each node, it gives the set of all in-coming and out-going
 arcs. And there are two methods that, for a place or a transition, return the
 list of all reference places resp.\ reference transitions that refer to that place.
 And there are methods for the other direction: for a given node
-(which might be a reference node), the method {\tt resolve} computes
-which node it actually refers to (which will be a place or a transition).
+(which might be a reference node), the method {\tt resolve()}%
+  \index{ePNK!resolve()@{\tt resolve()}|DEF}
+computes which node it actually refers to (which will be a place or a transition).
 This actually indicates the main purpose of the convenience class
 {\tt FlatAccess}. Even though the Petri net model contains pages and
 places and transitions distributed among them, with {\tt FlatAccess}
 it appears to be a flat net. This way, functions and applications that
 are interested in the Petri net only, can ignore the page structure.
 
+Note that you can also register listeners (in EMF terminology an {\tt Adapter})
+with {\tt FlatAccess}, which then will be notified when the {\tt FlatAccess}
+object becomes invalid. This happens, when the underlying net is changed semantically
+while an application is running; note that purely graphical changes will not
+invalidate the  {\tt FlatAccess}, since the net does not change semantically. 
+We will see in Sect.~\ref{subsec:developer:applications} how this can be used
+to shut down an application, when the underlying net is changed semantically
+by the end user.
+
 An other convenience class is {\tt NetFunctions}.%
   \index{ePNK!NetFunctions@{\tt NetFunctions}|DEF}
 It provides several static methods: e.\,g.\ there is a method that, for a
 given object, returns the Petri net to which this object belongs (or {\tt null},
-if it does not belong to any Petri  net); there is method that returns the Petri net
+if it does not belong to any Petri  net); there is a method that returns the Petri net
 type of the net an object belongs to. And there are methods that return
 all pages of a net or all the net's objects. 
 
