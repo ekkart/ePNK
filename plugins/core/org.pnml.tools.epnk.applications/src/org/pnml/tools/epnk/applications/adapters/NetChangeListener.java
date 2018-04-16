@@ -46,7 +46,7 @@ public class NetChangeListener implements Adapter {
 				if (MessageDialog.openQuestion(null, label, 
 						"The underlying net has been modified." + System.lineSeparator() +
 						"It is unsafe to continue using the application, and it may show wrong results." + System.lineSeparator() +
-						"Do you want stop this application (recommended)?")) {
+						"Do you want to stop this application (recommended)?")) {
 					application.dispose();
 				} else {
 					registerFlatAccess();
