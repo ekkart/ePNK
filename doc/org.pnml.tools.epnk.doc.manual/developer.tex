@@ -1386,30 +1386,66 @@ in the plug-in project
 The use of these two classes is discussed in Sect.~\ref{subsec:tutorial-MC}.%
   \index{ePNK!Convenience classes|)}
 
-\section{Adding applications}
+\section{Implementing applications}
 \label{subsec:developer:applications}
 \index{ePNK!Application|(DEF}
 
 In this section, we discuss the implementation of ePNK \emph{applications}.
-In contrast to functions, once started, applications stay in the background,
-ready to interact with the user and to show results to the user
-(see Sect.~\ref{subsec:user:applications-view} and \ref{subsec:user:hlpng-simulator}
-for examples). In addition, applications can visualize results by overlays
-on top of the Petri nets in the graphical editor and interact with the user
-via these overlays.
-The presentation of results and the interaction mechanism are still
-in an experimental phase. But, we will explain them in this manual anyway --
-if you use the presentation mechanism (and adjust it to your needs), you
-should be prepared to change your code in order to make them work with future
-versions of the ePNK.
+The simulators for P/T-nets and high-level nets, which we had discussed
+in Sect.~\ref{subsec:user:applications-view} and \ref{subsec:user:hlpng-simulator},
+are typical examples of applications.
+In contrast to functions, applications -- once started -- stay in the background,
+ready to interact with the end user and to show results to the end user.
+In addition, applications can visualize results by overlays
+on top of the Petri nets in the graphical editor and they interact with the end user
+via these overlays, as we have seen in the simulators.
 
 We discuss how to implement an application by the help of the
-example from Sect.~\ref{subsec:user:applications-view}, which computes the
-context of every transition (the set of arcs and places directly attached to the
-transition), and allows the user to browse through all these transition
-contexts. In this example, the context of all transitions is calculated when the
-application is started -- but this could also be done on demand, as it would be
-done when calculating the enabled transitions during a simulation, for example.
+simulator application for P/T-nets, which we had discussed in
+Sect.~\ref{subsec:user:applications-view}.  you will find the
+source cod for this simulator in project
+{\tt org.pnml.tools.epnk.tutorials.applications.pt-net-simulator},
+which you can import to your Eclipse workspace as discussed before.
+
+\subsection{Overview}
+\label{subsec:developer:applications:overview}
+
+Implementing a new \emph{ePNK application} consists of three steps: First,
+the runtime information of the application needs to be defined. This is
+done by defining \emph{annotations}, which is discussed in
+Sect.~\ref{subsec:developer:applications:annotations}. Second, some \emph{handlers}
+need to be implemented; these handlers define how the annotations of the
+runtime information are presented to the end user, and which actions should
+be taken, when the end user interacts with an annotation. The handlers
+are discussed in Sect.~\ref{subsec:developer:applications:handlers}. 
+At last, the actual implementation, needs to combine the annotations and handlers, and the
+application needs to be plugged in to the ePNK. This is discussed in
+Sect.~\ref{subsec:developer:applications:application}. 
+
+When implementing an application, these three steps are actually not done
+sequentially. In most of our applications, we have chosen to implement
+the core functionality of the application in the so-called application
+class, and the handlers will mostly delegate the work to some methods
+of the application. But, for conceptually clarity we explain the steps
+in the order as introduced above.
+
+\subsection{Annotations}
+\label{subsec:developer:applications:annotations}
+
+\begin{figure}[hbt!!]
+  \centerline{\includegraphics[width=\textwidth]{ptnetsimulator-annotations}}
+  \caption{Annotations for P/T-nets simulator}
+  \label{fig:developer:application:annotations:ptsimanno}
+\end{figure}
+
+\subsection{Handlers}
+\label{subsec:developer:applications:handlers}
+
+\subsection{Application}
+\label{subsec:developer:applications:application}
+
+
+%--------------------------------------------------------
 
 The implementation of the transition context application can be found
 in the project {\tt org.pnml.tools.epnk.tutorials.applications}.
