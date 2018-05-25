@@ -20,7 +20,7 @@
          point="org.pnml.tools.epnk.applications.applicationfactory">
       <applicationfactory
             class="dk.dtu.compute.mbse.tutorial.yawl.simulator.application.YAWLSimulatorFactory"
-            description="A simple YAWL simulator for tutorial 8 of the MBSE course">
+            description="A simple YAWL simulator">
       </applicationfactory>
    </extension>
 
