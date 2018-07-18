@@ -1542,8 +1542,17 @@ are no dedicated presentation handlers in the application, the default
 presentation handler will kick in.
 
 Listing~\ref{lst:developer:applications:handlers:PTPresentationHandler} shows the
-explicitly defined presentation handler of P/T-net simulator.
-
+explicitly defined presentation handler of P/T-net simulator. We will use it
+to discuss the main concepts of presentation handlers. First of, each
+presentation handler must implement the interface {\sf IPresentationHandler} (lines 1--2),
+which comes with the ePNK. This means it needs to implement method {\sf handle()} (line 8--9),
+which takes two parameters: an {\sf annotation} and and {\sf editPart}. The annotation is
+the {\sf annotation} for which the handler is asked to return a figure (technically an {\sf IFigure}
+from Eclipse's Draw2D framework). The {\sf editPart} is the graphical edit part from Eclipse's
+GEF framework, which is representing the annotated object of the Petri net in the graphical
+editor. This will be typically be used for making sure that the representation of the
+annotation is aligned and moved around with the representation of the object in the
+graphical editor, as discussed below.
 
 \begin{figure}[htbp!]
 \lstinputlisting[label=lst:developer:applications:handlers:PTPresentationHandler,tabsize=2,stringstyle=\small,%
@@ -1551,6 +1560,43 @@ caption={Presentation handler of Simulator}]%
   {code/developer/PT-PresentationHandler.java}
 \end{figure}
 
+let us discuss some details of the implementation of this {\sf handle()} method shown in
+Listing~\ref{lst:developer:applications:handlers:PTPresentationHandler}. Basically, this
+method returns a figure for an annotation in two cases: if the annotation is a
+{\sf TransitionActivationAnnotation} (lines 10--25) and if the annotation is a
+{\sf PlaceSelectionAnnotation} (lines 26--39); otherwise it returns {\sf null}, which
+means this presentation handler does not know how the annotation should be handled,
+and another presentation handler might kick in.
+
+Let us discuss the case of a {\sf TransitionActivationAnnotation} (lines 10--25) first.
+From the edit part of the annotated object, it will checked of the underlying object
+actually is a {\sf TransitionNode} (lines 13--17); if this is the case a new {\sf RectangleOverlay}
+figure is created, which actually comes from the ePNK; and the constructor of this
+{\sf RectangleOverlay} takes the graphical edit part as a parameter, so that
+the overlay adjusts its size and position to the underlying transition. The 
+ {\sf RectangleOverlay}, actually does all this for us, so that we do
+ not need to bother with the details. By default, a {\sf RectangleOverlay} will
+ be red and translucent (so that the underlying transition is still visible through the
+ overlay). If the annotation is in mode {\sf ENABLED}, we
+ switch the colour to BLUE (by default it is still translucent). This overlay
+ is then returned (line 25) as the figure representing this annotation.
+ 
+ The case of a {\sf PlaceSelectionAnnotation} (lines 26--39) is similar. Here we
+ check whether the object underlying the graphical edit part is a {\sf PlaceNode}
+ and, if this is the case, create a new {\sf EllipseOverlay}, which also comes with
+ the ePNK. By default this will be shown translucent and red. But, if the annotation
+ says that the place is {\sf selected}, its colour will be set to light grey. Then
+ the overlay is returned.
+ 
+ In all the other cases, this presentation handler returns {\sf null}, meaning it
+ has no representation for this annotation in the given context of the provided edit part.
+ 
+ This is all, a presentation handler needs to do. Of course, you could program your own
+ more sophisticated overlays; but the implementations provided by the ePNK {\sf EllipseOverlay},
+ {\sf RectangleOverlay},  {\sf PolylineOverlay} (for arcs), and {\sf LabelOverlay} for textual
+ labels showing values, should cover the most relevant representations for annotations.
+ In Sect.~\ref{subsec:developer:applications:application}, we will see how an application can
+ be associated this and more presentation handlers. 
 \index{ePNK!Presentation handler|)}
 
 \index{ePNK!Action handler|(DEF}
@@ -1566,8 +1612,8 @@ caption={Action handler of Simulator (part1)}]%
 \end{figure}
 
 \begin{figure}[htbp!]
-\lstinputlisting[label=lst:developer:applications:handlers:PTActionHandler2,tabsize=2,stringstyle=\small,%
-caption={Action handler of Simulator (part1)}]%
+\lstinputlisting[firstnumber=39,label=lst:developer:applications:handlers:PTActionHandler2,tabsize=2,stringstyle=\small,%
+caption={Action handler of Simulator (part2)}]%
   {code/developer/PT-ActionHandler2.java}
 \end{figure}
 
@@ -1580,6 +1626,12 @@ caption={Action handler of Simulator (part1)}]%
 - registering handlers
 
 - plugging in an application
+
+- nextAnnotation()
+
+- shutDown()
+
+- is savable()
 
 %--------------------------------------------------------
 
