@@ -1393,22 +1393,22 @@ The use of these two classes is discussed in Sect.~\ref{subsec:tutorial-MC}.%
 In this section, we discuss the implementation of ePNK \emph{applications}.
 The simulators for P/T-nets and high-level nets, which we had discussed
 in Sect.~\ref{subsec:user:applications-view} and \ref{subsec:user:hlpng-simulator},
-are typical examples of applications.
+are typical examples of such applications.
 In contrast to functions, applications -- once started -- stay in the background,
 ready to interact with the end user and to show results to the end user.
 In addition, applications can visualize results by overlays
-on top of the Petri net in the graphical editor and they can interact with the end user
+on top of the Petri net in the graphical editor, and they can interact with the end user
 via these overlays, as we have seen in the simulators.
 
-We discuss how to implement an application by the help of the
+We discuss how to implement an ePNK application by the help of the
 simulator application for P/T-nets, which we had discussed in
 Sect.~\ref{subsec:user:applications-view}.  You will find the
 source code for this simulator in project
 {\tt org\qnsep{}pnml\qnsep{}tools\qnsep{}epnk\qnsep{}tutorials\qnsep{}applications\qnsep{}pt-net-simulator},
 which you can import to your Eclipse workspace as discussed before.
 
-Here we discuss the major concepts, ideas and steps for developing an
-ePNK application using this example. In Chapter~\ref{chap:tutorial},
+Here, we discuss the idea, the major concepts and steps for developing an
+ePNK application by using this example. In Chapter~\ref{chap:tutorial},
 you will find another example, which goes through all the technical
 details of implementing an ePNK application.
 
@@ -1423,25 +1423,26 @@ done by defining \emph{annotations}%
 Sect.~\ref{subsec:developer:applications:annotations}. Second, some \emph{handlers}
 need to be implemented; these handlers define how the annotations of the
 runtime information are presented to the end user, and which actions should
-be taken, when the end user interacts with an annotation. The handlers
+be taken, when the end user interacts with an annotation in the graphical
+editor. The handlers
 are discussed in Sect.~\ref{subsec:developer:applications:handlers}. 
-At last, the actual application, needs to be implemented, which combines
+Third, the actual application, needs to be implemented, which combines
 the annotations and handlers; and the application needs to be plugged in
 to the ePNK. This is discussed in
 Sect.~\ref{subsec:developer:applications:application}. 
 
-When implementing an application, these three steps are actually not necessarily
+When implementing an application, these three steps are not necessarily
 done sequentially. In most of our applications, we have chosen to implement
 the core functionality of the application in the so-called application
 class, and the handlers will mostly delegate the work to some methods
-of the application. But, for conceptual clarity we explain the steps
+of the application. But, for conceptual clarity, we explain the steps
 in the order as introduced above.
 
 \subsection{Annotations}
 \label{subsec:developer:applications:annotations}
 \index{ePNK!Annotation|(DEF}
 
-The first step of realizing and ePNK application is to define the
+The first step of realizing an ePNK application is to define the
 \emph{runtime information} of the application. Of course, it depends on
 the specific application what constitutes its \emph{runtime information}.
 For our simulator, this runtime information is the current marking of the
@@ -1463,15 +1464,15 @@ class diagram defining the annotations for the P/T-net simulator. This diagram
 consists of three parts: The class {\sf Object} on the top-left comes from
 the \emph{PNML core model} as discussed in Sect.~\ref{sec:ePNK-PNMLCoreModel},
 which represents the different kinds of Petri net objects. These are
-the objects which are supposed to be annotated. The classes at the top
-in orange, represent the general annotations that are built into
+the objects that are supposed to be annotated. The other classes at the top
+(graphically represented in orange), represent the general annotations that are built into
 the ePNK. These are extended by the annotations of a specific application,
 which, in our case, are the three classes at the bottom.
 
 Let us have a closer look at these concepts: The concept {\sf Object} represents
 {objects} of a Petri net: places,
-transitions, and arcs; but also pages, reference transitions and reference
-places. As said already, these are the objects annotations refer to.
+transitions, and arcs; but also pages, reference places and reference
+transitions. As said already, these represent the objects the annotations refer to.
 The orange classes at the top are ePNK's built-in concepts of annotations.
 An {\sf ObjectAnnotation} annotates exactly one object, which is
 represented by the reference {\sf object}. Note that
@@ -1492,20 +1493,22 @@ All other  annotations are, by default, shown as red overlays of the respective
 object. But, we will see later that an application can change this.
 %
 The annotation {\sf TransitionActivationAnnotation} is used for indicating which
-transitions are enabled in the current marking. This has actually an attribute mode
-of an enumeration type {\sf Mode} that is also defined in the model, which can
-have two different values:  {\sf enabled} and {\sf fired}. This to distinguish
-transitions that are enabled from transitions that are going to fire (when looking
-navigating back and forth in the history of the current firing sequence). The
-transition that will fire according to the current firing history will be
-shown with a red overlay, as will be discussed later. And the affected places
-will also have a special annotation, which we call {\sf PlaceSelectionAnnotation}\footnote
-  {The attribute {\sf selected} is not discussed here, and is used only to
-   demonstrate some additional features of the presentation handler.}.
+transitions are enabled in the current marking. This has actually an attribute {\sf mode}
+of the enumeration type {\sf Mode}, which is also defined in the model. The {\sf Mode}
+can have two different values:  {\sf enabled} and {\sf fired}. This is used
+to distinguish transitions that are enabled (to be selected by the end user)
+from transitions that are going to fire in the firing sequence. When navigating
+back and forth in the firing sequence, the transition firing in the next step
+will be represented in a different colour: The
+transition that will fire according to the current firing history is
+shown with a red overlay, as will be discussed later. And the places affected by this
+transition will also have a special annotation, which we call {\sf PlaceSelectionAnnotation}\footnote
+  {The attribute {\sf selected} of this class is used only to demonstrate some additional features of the
+   presentation handler; but we do not discuss this in this report.}.
 These places will be highlighted by a red overlay.
 
 Altogether, the classes from Fig.~\ref{fig:developer:application:annotations:ptsimanno}
-allow the running simulator to store its {\sf state} .
+allow a running simulator to store its {\sf state}.
 We call this
 the \emph{runtime information} of the simulator. Note, that this information can be
 much more than what is currently shown to the end user: in our simulator, only
@@ -1513,7 +1516,7 @@ the current marking is shown visually; but the user can navigate back and forth
 in the complete firing sequence.
 
 Before you can use the annotations of the model, the code for this
-model need to be generated as usual for EMF. But, we do not discuss the
+model needs to be generated as usual for EMF. But, we do not discuss the
 details here.
 
 \index{ePNK!Annotation|)}
@@ -1526,15 +1529,17 @@ for them is generated, two major things need to be defined for an application:
 how should an annotation of an application be visualized on top of
 the respective object in the graphical editor; and what should happen
 when the end user interacts with the representation of this overlay (ie.\,
-the end user clicks or double clicks on the respective overlay). This
+what happens when the end user clicks or double clicks on the respective overlay). This
 is defined by the handlers of an application.
 
 \index{ePNK!Presentation handler|(DEF}
 The \emph{presentation handlers} will take care of how the annotations of
 the current annotation are shown to the end user. Actually, the
-P/T-net simulator has only one explicitly presentation handler; and it has
-the default presentation handler, which by default is registered with
-all ePNK applications.
+P/T-net simulator has only one explicitly presentation handler; in addition,
+each application has a default presentation handler, which is registered with
+all ePNK applications by default. This way, all annotations for which there
+are no dedicated presentation handlers in the application, the default
+presentation handler will kick in.
 
 Listing~\ref{lst:developer:applications:handlers:PTPresentationHandler} shows the
 explicitly defined presentation handler of P/T-net simulator.
